@@ -1,17 +1,23 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { joinDestinations, links, type JoinDestination } from "@/lib/site";
+import { usePathname } from "next/navigation";
 import { ShareActions } from "@/app/components/ShareActions";
+import { stripLocale } from "@/lib/i18n";
+import { t } from "@/lib/messages";
+import { joinDestinations, links, type JoinDestination } from "@/lib/site";
 
 export function EnterButton({ className }: { className?: string }) {
+  const pathname = usePathname() || "/";
+  const { locale } = stripLocale(pathname);
+  const m = t(locale);
   return (
     <button
       type="button"
       onClick={() => window.dispatchEvent(new Event("yok:enter"))}
       className={className ?? "btn btn-ghost"}
     >
-      Enter
+      {m.cta.enter}
     </button>
   );
 }
@@ -56,8 +62,16 @@ export function JoinModal() {
 }
 
 export function JoinFlow({ onClose }: { onClose?: () => void }) {
+  const pathname = usePathname() || "/";
+  const { locale } = stripLocale(pathname);
+  const m = t(locale);
   const [step, setStep] = useState<1 | 2 | 3>(1);
-  const [pick, setPick] = useState<JoinDestination | null>(null);
+  const [pick, setPick] = useState<JoinDestination | null>(joinDestinations[0] ?? null);
+
+  const destCopy = (id: string) => {
+    const key = id as keyof typeof m.join.dest;
+    return m.join.dest[key] ?? { label: id, note: "" };
+  };
 
   const choose = (d: JoinDestination) => {
     setPick(d);
@@ -75,25 +89,25 @@ export function JoinFlow({ onClose }: { onClose?: () => void }) {
       <div className="pointer-events-none absolute -bottom-14 -left-10 size-32 rounded-full bg-spark/10 blur-2xl" />
       <div className="relative flex items-start justify-between gap-3">
         <div>
-          <p className="kicker">Enter</p>
-          <h2 className="mt-2 font-display text-2xl tracking-tight sm:text-3xl">Pick a world</h2>
+          <p className="kicker">{m.kicker.enter}</p>
+          <h2 className="mt-2 font-display text-2xl tracking-tight sm:text-3xl">{m.join.pickAWorld}</h2>
         </div>
         {onClose ? (
           <button
             type="button"
             onClick={onClose}
             className="rounded-lg px-2 py-1 text-[12px] text-muted hover:text-fg"
-            aria-label="Close"
+            aria-label={m.join.close}
           >
-            Close
+            {m.join.close}
           </button>
         ) : null}
       </div>
       <ol className="relative mt-6 flex items-center gap-2 text-[11px] font-semibold tracking-wide uppercase">
         {[
-          { n: 1 as const, label: "Pick" },
-          { n: 2 as const, label: "Confirm" },
-          { n: 3 as const, label: "Go" },
+          { n: 1 as const, label: m.join.pick },
+          { n: 2 as const, label: m.join.confirm },
+          { n: 3 as const, label: m.join.go },
         ].map((s, i) => {
           const on = step === s.n;
           const done = step > s.n;
@@ -134,6 +148,7 @@ export function JoinFlow({ onClose }: { onClose?: () => void }) {
         <ul className="relative mt-6 grid gap-2">
           {joinDestinations.map((d) => {
             const on = pick?.id === d.id;
+            const copy = destCopy(d.id);
             return (
               <li key={d.id}>
                 <button
@@ -146,8 +161,8 @@ export function JoinFlow({ onClose }: { onClose?: () => void }) {
                   }
                 >
                   <span>
-                    <span className="block font-display text-lg text-fg">{d.label}</span>
-                    <span className="mt-1 block text-[12px] leading-relaxed text-muted">{d.note}</span>
+                    <span className="block font-display text-lg text-fg">{copy.label}</span>
+                    <span className="mt-1 block text-[12px] leading-relaxed text-muted">{copy.note}</span>
                   </span>
                   <span className="shrink-0 font-mono text-[11px] text-accent">{d.path}</span>
                 </button>
@@ -159,55 +174,57 @@ export function JoinFlow({ onClose }: { onClose?: () => void }) {
 
       {step === 2 && pick ? (
         <div className="relative mt-6">
-          <p className="text-sm text-muted">You picked</p>
-          <p className="mt-1 font-display text-3xl tracking-tight text-fg">{pick.label}</p>
+          <p className="text-sm text-muted">{m.join.youPicked}</p>
+          <p className="mt-1 font-display text-3xl tracking-tight text-fg">{destCopy(pick.id).label}</p>
           <p className="mt-2 font-mono text-[12px] text-accent">{pick.path}</p>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-secondary">{pick.note}</p>
-          <p className="mt-8 text-[12px] tracking-wide text-muted uppercase">A name I kept</p>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-secondary">{destCopy(pick.id).note}</p>
+          <p className="mt-8 text-[12px] tracking-wide text-muted uppercase">{m.join.aNameIKept}</p>
           <button type="button" onClick={mark} className="cta-pop group mt-3 w-full rounded-xl border border-hair bg-bg/70 px-4 py-5 text-left transition-colors hover:border-accent/50">
             <span className="block font-mono text-2xl text-accent transition-colors group-hover:text-accent-hover">
               m1zwell
             </span>
-            <span className="mt-1 block text-[12px] text-muted">Leave this mark, then continue.</span>
+            <span className="mt-1 block text-[12px] text-muted">{m.join.leaveMark}</span>
           </button>
           <button
             type="button"
             onClick={() => setStep(1)}
             className="mt-4 text-[12px] text-muted hover:text-fg"
           >
-            ← Pick another
+            {m.join.pickAnother}
           </button>
         </div>
       ) : null}
 
       {step === 3 && pick ? (
         <div className="relative mt-6">
-          <p className="text-sm text-muted">Ready</p>
-          <p className="mt-1 font-display text-3xl tracking-tight text-fg">{pick.label}</p>
+          <p className="text-sm text-muted">{m.join.ready}</p>
+          <p className="mt-1 font-display text-3xl tracking-tight text-fg">{destCopy(pick.id).label}</p>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-secondary">
-            {pick.needsAccount
-              ? "Continue to the real signup. Selection carries with you."
-              : "No account. The world is already open."}
+            {pick.needsAccount ? m.join.needsAccount : m.join.noAccount}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href={pick.href} target="_blank" rel="noopener noreferrer" className="btn btn-primary cta-pop">
-              {pick.needsAccount ? "Continue to signup" : "Open gghere"} <span aria-hidden>↗</span>
+              {pick.needsAccount ? m.join.continueSignup : `${m.join.openWorld} ${pick.path}`} <span aria-hidden>↗</span>
             </a>
             <button type="button" onClick={() => setStep(2)} className="btn btn-ghost">
-              Back
+              {m.join.back}
             </button>
           </div>
           <div className="mt-8 border-t border-hair pt-5">
             <p className="mb-3 text-[11px] font-semibold tracking-[0.16em] text-muted uppercase">
-              Share this world
+              {m.join.shareThisWorld}
             </p>
-            <ShareActions href={pick.href} title={pick.shareTitle} label="Share this world" />
+            <ShareActions href={pick.href} title={pick.shareTitle} label={m.join.shareThisWorld} locale={locale} />
           </div>
-          {pick.id === "gghere" ? (
+          {pick.id === "gghere" || pick.id === "planet" ? (
             <p className="mt-4 text-[12px] text-muted">
-              Worlds live on{" "}
-              <a href={links.gghere} className="text-accent hover:text-accent-hover">
-                gghere.com
+              {m.join.worldsLiveOn}{" "}
+              <a href={links.gghereWorlds} className="text-accent hover:text-accent-hover">
+                gghere.com/worlds
+              </a>
+              {" · "}
+              <a href={links.jubuddyPlanet} className="text-accent hover:text-accent-hover">
+                jubuddy.com/planet
               </a>
               .
             </p>

@@ -3,21 +3,33 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { EnterButton } from "@/app/components/JoinFlow";
+import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
 import { LogoMark } from "@/app/components/LogoMark";
-import { links, nav } from "@/lib/site";
+import { localizeHref, stripLocale } from "@/lib/i18n";
+import { t } from "@/lib/messages";
+import { links } from "@/lib/site";
 
 export function SiteHeader() {
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
+  const { locale, path } = stripLocale(pathname);
+  const m = t(locale);
+  const href = (p: string) => localizeHref(p, locale);
+  const nav = [
+    { href: "/", label: m.nav.garden },
+    { href: "/writing", label: m.nav.writing },
+    { href: "/tools", label: m.nav.tools },
+    { href: "/products", label: m.nav.products },
+  ];
 
   return (
     <header className="glass-header sticky top-0 z-40 border-b border-hair">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8">
         <div className="flex min-w-0 items-center gap-3">
-          <Link href="/" className="shrink-0" aria-label="Yok Zhang garden home">
+          <Link href={href("/")} className="shrink-0" aria-label="Yok Zhang garden home">
             <LogoMark size={34} />
           </Link>
           <div className="min-w-0 leading-tight">
-            <Link href="/" className="block truncate text-[12px] font-semibold tracking-wide text-fg">
+            <Link href={href("/")} className="block truncate text-[12px] font-semibold tracking-wide text-fg">
               Yok Zhang
               <span className="mx-2 text-accent" aria-hidden>
                 ·
@@ -42,17 +54,17 @@ export function SiteHeader() {
             const writing = item.href === "/writing";
             const on =
               item.href === "/"
-                ? pathname === "/"
+                ? path === "/"
                 : writing
-                  ? pathname === "/writing" ||
-                    pathname.startsWith("/writing/") ||
-                    pathname === "/blog" ||
-                    pathname.startsWith("/blog/")
-                  : pathname === item.href || pathname.startsWith(`${item.href}/`);
+                  ? path === "/writing" ||
+                    path.startsWith("/writing/") ||
+                    path === "/blog" ||
+                    path.startsWith("/blog/")
+                  : path === item.href || path.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={href(item.href)}
                 className={
                   on
                     ? "rounded-lg px-3 py-1.5 text-[12px] font-semibold text-accent"
@@ -64,30 +76,31 @@ export function SiteHeader() {
             );
           })}
           <a
-            href={links.gghere}
+            href={links.gghereWorlds}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-lg px-3 py-1.5 text-[12px] font-medium text-muted transition-colors hover:text-fg"
           >
-            Worlds
+            {m.nav.worlds}
           </a>
         </nav>
         <div className="flex shrink-0 items-center gap-2">
+          <LanguageSwitcher />
           <button
             type="button"
             onClick={() => window.dispatchEvent(new Event("yok:palette"))}
             className="hidden items-center gap-2 rounded-lg border border-hair px-2.5 py-1.5 font-mono text-[11px] text-muted transition-colors hover:border-accent/40 hover:text-fg xl:inline-flex"
             aria-label="Open command palette"
           >
-            <span>Search</span>
+            <span>{m.cta.search}</span>
             <kbd className="rounded bg-tertiary px-1.5 py-0.5 text-[10px] text-secondary">⌘K</kbd>
           </button>
           <EnterButton className="btn btn-ghost hidden sm:inline-flex" />
           <a href={links.jubitLogin} className="btn btn-ghost hidden md:inline-flex">
-            Sign in
+            {m.cta.signIn}
           </a>
           <a href={links.jubitSignup} className="btn btn-primary cta-pop">
-            Register
+            {m.cta.register}
           </a>
         </div>
       </div>
@@ -100,27 +113,27 @@ export function SiteHeader() {
           onClick={() => window.dispatchEvent(new Event("yok:enter"))}
           className="shrink-0 text-[12px] font-medium text-accent"
         >
-          Enter
+          {m.cta.enter}
         </button>
         <a href={links.jubitLogin} className="shrink-0 text-[12px] font-medium text-accent md:hidden">
-          Sign in
+          {m.cta.signIn}
         </a>
         {nav.map((item) => (
           <Link
             key={item.href}
-            href={item.href}
+            href={href(item.href)}
             className="shrink-0 text-[12px] font-medium text-muted hover:text-fg"
           >
             {item.label}
           </Link>
         ))}
         <a
-          href={links.gghere}
+          href={links.gghereWorlds}
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 text-[12px] font-medium text-muted hover:text-fg"
         >
-          Worlds
+          {m.nav.worlds}
         </a>
       </nav>
     </header>

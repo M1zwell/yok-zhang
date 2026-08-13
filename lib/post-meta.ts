@@ -9,6 +9,8 @@ export type PostMeta = {
   tags: string[];
   excerpt: string;
   embedResearch?: boolean;
+  source?: string;
+  sourceUrl?: string;
 };
 
 export type Post = PostMeta & { html: string };

@@ -8,12 +8,16 @@ Intended production domain: **ichina.co** (apex). Current Vercel deploy: `yok-zh
 
 ## Routes
 
-- `/` garden home
-- `/writing` one stream: notes, tag filters, and the live research desk
+- `/` garden home (English, unprefixed)
+- `/writing` one stream: notes, research theme chips, and the live dseek research desk
 - `/writing/[slug]` notes
 - `/blog` redirects to `/writing` (old links)
 - `/tools` workspace (tacit — universe launcher, HK district jump, live frames)
-- `/products` live product directory with framed previews
+- `/products` live product directory; city-planet / worlds first
+- `/{locale}/...` marketing UI in 简体 / 繁體 / 日本語 / 한국어 / ไทย / Nederlands  
+  Examples: `/zh-Hans/writing`, `/ja/products`, `/ko`, `/th/tools`, `/nl/writing`, `/zh-Hant`
+
+Locale is stored in a `locale` cookie and reflected in the URL. Default English has no prefix. Markdown post bodies stay English.
 
 ## How to run
 

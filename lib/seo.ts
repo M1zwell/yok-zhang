@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { defaultLocale, localeMeta, locales, localizeHref, type Locale } from "@/lib/i18n";
 import { deployHost } from "@/lib/site";
 
 export const siteUrl = `https://${deployHost}`;
@@ -10,6 +11,7 @@ type SeoInput = {
   path?: string;
   type?: "website" | "article";
   publishedTime?: string;
+  locale?: Locale;
 };
 
 export function seo({
@@ -18,18 +20,30 @@ export function seo({
   path = "/",
   type = "website",
   publishedTime,
+  locale = defaultLocale,
 }: SeoInput): Metadata {
-  const url = `${siteUrl}${path}`;
+  const localizedPath = localizeHref(path, locale);
+  const url = `${siteUrl}${localizedPath}`;
   const image = `${siteUrl}${ogImagePath}`;
+  const languages: Record<string, string> = {};
+  for (const loc of locales) {
+    languages[localeMeta[loc].hreflang] = `${siteUrl}${localizeHref(path, loc)}`;
+  }
+  languages["x-default"] = `${siteUrl}${path === "/" ? "/" : path}`;
+
   return {
     title,
     description,
+    alternates: {
+      canonical: url,
+      languages,
+    },
     openGraph: {
       title,
       description,
       url,
       siteName: "ichina.co",
-      locale: "en",
+      locale: localeMeta[locale].og,
       type,
       images: [
         {

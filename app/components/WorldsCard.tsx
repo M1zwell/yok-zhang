@@ -1,7 +1,11 @@
-import { links } from "@/lib/site";
 import { ShareActions } from "@/app/components/ShareActions";
+import { t } from "@/lib/messages";
+import { links } from "@/lib/site";
+import type { Locale } from "@/lib/i18n";
 
-export function WorldsCard() {
+export function WorldsCard({ locale = "en" }: { locale?: Locale }) {
+  const m = t(locale);
+
   return (
     <article className="worlds-card relative overflow-hidden rounded-[20px] border border-hair bg-deep p-6 shadow-[0_0_48px_rgba(20,184,166,0.12)] sm:p-8">
       <div className="pointer-events-none absolute inset-0 opacity-80" aria-hidden>
@@ -9,40 +13,45 @@ export function WorldsCard() {
       </div>
       <div className="relative grid items-center gap-8 lg:grid-cols-[1fr_auto]">
         <div>
-          <p className="kicker">Worlds</p>
+          <p className="kicker">{m.worldsCard.kicker}</p>
           <h2 className="mt-3 font-display text-[clamp(2rem,5vw,3.4rem)] leading-[0.95] tracking-tight">
-            Tiny planets you can walk
+            {m.worldsCard.title}
           </h2>
           <p className="mt-4 max-w-lg text-sm leading-relaxed text-secondary">
-            Worlds live on{" "}
-            <a href={links.gghere} className="text-accent hover:text-accent-hover">
-              gghere.com
-            </a>
-            . No account. Open the tab. A peer world — this garden did not edit it.
+            {m.worldsCard.lead}
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <a href={links.gghere} target="_blank" rel="noopener noreferrer" className="btn btn-primary cta-pop">
-              Open gghere.com ↗
-            </a>
             <a
               href={links.gghereWorlds}
               target="_blank"
               rel="noopener noreferrer"
+              className="btn btn-primary cta-pop"
+            >
+              {m.worldsCard.openWorlds}
+            </a>
+            <a
+              href={links.jubuddyPlanet}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-ghost"
             >
-              gghere.com/worlds ↗
+              {m.worldsCard.openPlanet}
             </a>
           </div>
           <div className="mt-6">
-            <ShareActions href={links.gghere} title="Worlds live on gghere.com" />
+            <ShareActions
+              href={links.gghereWorlds}
+              title="Worlds live on gghere.com/worlds"
+              locale={locale}
+            />
           </div>
         </div>
         <a
-          href={links.gghere}
+          href={links.gghereWorlds}
           target="_blank"
           rel="noopener noreferrer"
           className="worlds-planet mx-auto block"
-          aria-label="Open gghere.com"
+          aria-label={m.flagship.walkWorlds}
         >
           <span className="worlds-ring orbit-ring" />
           <span className="worlds-globe logo-float" />

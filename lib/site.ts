@@ -52,8 +52,10 @@ export const links = {
   dseekLogin: "https://dseek.ai/login",
   dseekTerminal: "https://dseek.ai/terminal",
   dseekResearch: "https://dseek.ai/terminal?tab=research",
+  dseekResearchPage: "https://dseek.ai/research",
   dseekHk: "https://dseek.ai/hk",
   jubuddyHome: "https://jubuddy.com",
+  jubuddyPlanet: "https://jubuddy.com/planet",
   jubuddySignup: "https://jubuddy.com/signup",
   gghere: "https://gghere.com",
   gghereWorlds: "https://gghere.com/worlds",
@@ -133,19 +135,20 @@ export const tools: Tool[] = [
     title: "jubuddy.com/planet",
     href: "https://jubuddy.com/planet",
     path: "jubuddy.com/planet",
-    group: "jubit",
+    group: "worlds",
+    note: "Planet surface. City-planet sibling to gghere.com/worlds.",
     embeddable: false,
     embedSrc: "https://jubuddy.com/planet",
   },
   {
     id: "gghere",
     title: "gghere.com",
-    href: "https://gghere.com",
-    path: "gghere.com",
+    href: "https://gghere.com/worlds",
+    path: "gghere.com/worlds",
     group: "worlds",
-    note: "24 real cities, rebuilt as tiny planets you can walk. 393 planets. 4.5M building footprints. No account. Runs in a browser tab.",
+    note: "24 real cities, rebuilt as tiny planets you can walk. 393 planets. 4.5M building footprints. No account. Runs in a browser tab. Planet surface: jubuddy.com/planet.",
     embeddable: false,
-    embedSrc: "https://gghere.com",
+    embedSrc: "https://gghere.com/worlds",
   },
   {
     id: "gozayden",
@@ -158,7 +161,7 @@ export const tools: Tool[] = [
   },
 ];
 
-export const stageIds = ["gghere", "jubit", "jubuddy", "terminal", "hk", "gozayden"] as const;
+export const stageIds = ["gghere", "planet", "jubit", "jubuddy", "terminal", "hk", "gozayden"] as const;
 
 export const stageTools: Tool[] = stageIds
   .map((id) => tools.find((t) => t.id === id))
@@ -166,13 +169,31 @@ export const stageTools: Tool[] = stageIds
 
 export const research = {
   title: "Research",
-  href: "https://dseek.ai/terminal?tab=research",
-  path: "dseek.ai/terminal?tab=research",
+  href: "https://dseek.ai/research",
+  path: "dseek.ai/research",
   embeddable: false,
-  embedSrc: "https://dseek.ai/terminal?tab=research",
+  embedSrc: "https://dseek.ai/research",
 };
 
 export const joinDestinations: JoinDestination[] = [
+  {
+    id: "gghere",
+    label: "Worlds",
+    path: "gghere.com/worlds",
+    href: "https://gghere.com/worlds",
+    note: "24 cities. 393 planets. 4.5M buildings. No account. Open the tab.",
+    needsAccount: false,
+    shareTitle: "Worlds live on gghere.com/worlds",
+  },
+  {
+    id: "planet",
+    label: "Planet",
+    path: "jubuddy.com/planet",
+    href: "https://jubuddy.com/planet",
+    note: "The planet surface — city-planet sibling to the walkable worlds catalog.",
+    needsAccount: false,
+    shareTitle: "Open the planet at jubuddy.com/planet",
+  },
   {
     id: "jubit",
     label: "Jubit",
@@ -200,15 +221,6 @@ export const joinDestinations: JoinDestination[] = [
     needsAccount: true,
     shareTitle: "jubuddy — theme factory",
   },
-  {
-    id: "gghere",
-    label: "gghere",
-    path: "gghere.com",
-    href: "https://gghere.com",
-    note: "Worlds. No account. Open the tab.",
-    needsAccount: false,
-    shareTitle: "Worlds live on gghere.com",
-  },
 ];
 
 export const productGroups: Group[] = [
@@ -217,18 +229,25 @@ export const productGroups: Group[] = [
     label: "Worlds",
     items: [
       {
-        title: "gghere.com",
-        href: "https://gghere.com",
-        path: "gghere.com",
-        live: true,
-        note: "24 real cities as tiny walkable planets. 393 planets, 4.5M building footprints. No account. Runs in a browser tab.",
-      },
-      {
         title: "gghere.com/worlds",
         href: "https://gghere.com/worlds",
         path: "gghere.com/worlds",
         live: true,
-        note: "Peer world. Walk the planets. We did not edit gghere from this garden — we point to it.",
+        note: "Walkable-worlds catalog. 24 real cities as tiny planets. 393 planets, 4.5M building footprints. No account. Runs in a browser tab.",
+      },
+      {
+        title: "jubuddy.com/planet",
+        href: "https://jubuddy.com/planet",
+        path: "jubuddy.com/planet",
+        live: true,
+        note: "Planet product surface. City-planet sibling to the worlds catalog — not a buried jubit link.",
+      },
+      {
+        title: "gghere.com",
+        href: "https://gghere.com",
+        path: "gghere.com",
+        live: true,
+        note: "Peer world. We did not edit gghere from this garden — we point to it.",
       },
     ],
   },
@@ -248,12 +267,6 @@ export const productGroups: Group[] = [
         path: "jubuddy.com",
         live: true,
         note: "theme factory; chatlab buddy in jubit universe.",
-      },
-      {
-        title: "jubuddy.com/planet",
-        href: "https://jubuddy.com/planet",
-        path: "jubuddy.com/planet",
-        live: true,
       },
       {
         title: "JubitMind",
@@ -309,6 +322,25 @@ export const products: Product[] = productGroups.flatMap((group) =>
 );
 
 export const liveProducts = products.filter((p) => p.live);
+
+
+export const worldCities = [
+  { name: "Hong Kong", slug: "hk" },
+  { name: "Tokyo", slug: "tokyo" },
+  { name: "New York", slug: "nyc" },
+  { name: "Paris", slug: "paris" },
+  { name: "Amsterdam", slug: "amsterdam" },
+  { name: "Rotterdam", slug: "rotterdam" },
+  { name: "Seoul", slug: "seoul" },
+  { name: "Bangkok", slug: "bangkok" },
+  { name: "Taipei", slug: "taipei" },
+  { name: "Berlin", slug: "berlin" },
+  { name: "Shenzhen", slug: "shenzhen" },
+] as const;
+
+export function cityHref(slug: string): string {
+  return `https://gghere.com/${slug}`;
+}
 
 export type District = {
   name: string;

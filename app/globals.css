@@ -26,9 +26,10 @@
   --color-mute: #a3a3a3;
   --radius-btn: 12px;
   --radius-card: 16px;
-  --font-display: var(--font-space), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-ui: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-cjk: var(--font-noto-sc), var(--font-noto-tc), var(--font-noto-jp), var(--font-noto-kr), var(--font-noto-thai), "Noto Sans SC", "Noto Sans TC", "Noto Sans JP", "Noto Sans KR", "Noto Sans Thai";
+  --font-display: var(--font-space), var(--font-cjk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), var(--font-cjk), ui-sans-serif, system-ui, sans-serif;
+  --font-ui: var(--font-jakarta), var(--font-inter), var(--font-cjk), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "JetBrains Mono", "SF Mono", monospace;
 }
 
@@ -382,6 +383,37 @@ body {
   border-radius: 6px;
 }
 
+
+.city-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(20, 184, 166, 0.28);
+  background: rgba(10, 10, 10, 0.45);
+  padding: 0.38rem 0.78rem;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #d4d4d4;
+  transition:
+    color 150ms ease,
+    border-color 150ms ease,
+    background 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.city-chip:hover {
+  color: #14b8a6;
+  border-color: rgba(20, 184, 166, 0.65);
+  background: rgba(20, 184, 166, 0.1);
+  box-shadow: 0 0 18px rgba(20, 184, 166, 0.16);
+}
+
+.flagship-card {
+  position: relative;
+}
+
 .tag-chip {
   border-radius: 999px;
   border: 1px solid #262626;
@@ -541,7 +573,38 @@ body {
   }
   .btn,
   .card,
-  .tag-chip {
+  
+.city-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(20, 184, 166, 0.28);
+  background: rgba(10, 10, 10, 0.45);
+  padding: 0.38rem 0.78rem;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #d4d4d4;
+  transition:
+    color 150ms ease,
+    border-color 150ms ease,
+    background 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.city-chip:hover {
+  color: #14b8a6;
+  border-color: rgba(20, 184, 166, 0.65);
+  background: rgba(20, 184, 166, 0.1);
+  box-shadow: 0 0 18px rgba(20, 184, 166, 0.16);
+}
+
+.flagship-card {
+  position: relative;
+}
+
+.tag-chip {
     transition: none;
   }
 }

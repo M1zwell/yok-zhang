@@ -31,6 +31,8 @@ function readFile(file: string): Post {
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     excerpt: String(data.excerpt ?? ""),
     embedResearch: Boolean(data.embedResearch),
+    source: data.source ? String(data.source) : undefined,
+    sourceUrl: data.sourceUrl ? String(data.sourceUrl) : undefined,
     html,
   };
 }

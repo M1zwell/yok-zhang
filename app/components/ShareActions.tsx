@@ -1,19 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { defaultLocale, type Locale } from "@/lib/i18n";
+import { t } from "@/lib/messages";
 import { links } from "@/lib/site";
 
 export function ShareActions({
   path,
   title,
   href,
-  label = "Share",
+  label,
+  locale = defaultLocale,
 }: {
   path?: string;
   title: string;
   href?: string;
   label?: string;
+  locale?: Locale;
 }) {
+  const m = t(locale);
+  const shareLabel = label ?? m.cta.share;
   const [copied, setCopied] = useState(false);
   const [canShare, setCanShare] = useState(false);
   const [url, setUrl] = useState(href ?? "");
@@ -48,11 +54,11 @@ export function ShareActions({
     <div className="flex flex-wrap items-center gap-2">
       {canShare ? (
         <button type="button" onClick={shareNative} className="tag-chip">
-          {label}
+          {shareLabel}
         </button>
       ) : null}
       <button type="button" onClick={copy} className="tag-chip">
-        {copied ? "Copied" : "Copy link"}
+        {copied ? m.cta.copied : m.cta.copyLink}
       </button>
       <a href={linkedin} target="_blank" rel="noopener noreferrer" className="tag-chip">
         LinkedIn

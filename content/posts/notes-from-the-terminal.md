@@ -5,6 +5,8 @@ category: Research
 tags: [research, dseek, ai]
 excerpt: Writing lives in the dseek terminal research tab. This garden pins what left the desk — AI coding, maps, products that actually run.
 embedResearch: true
+source: dseek
+sourceUrl: https://dseek.ai/research
 ---
 
 Writing lives in the [dseek terminal, research tab](https://dseek.ai/terminal?tab=research). That is the live surface — not a CMS, not a draft folder that never ships.

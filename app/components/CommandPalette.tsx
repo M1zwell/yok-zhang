@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import type { PostMeta } from "@/lib/post-meta";
+import { localizeHref, stripLocale } from "@/lib/i18n";
 import { links, liveProducts, nav, tools } from "@/lib/site";
 
 type Item = {
@@ -16,6 +17,8 @@ type Item = {
 
 export function CommandPalette({ posts }: { posts: PostMeta[] }) {
   const router = useRouter();
+  const pathname = usePathname() || "/";
+  const { locale } = stripLocale(pathname);
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
   const [active, setActive] = useState(0);
@@ -26,14 +29,14 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
       id: `page-${n.href}`,
       label: n.label,
       hint: n.href,
-      href: n.href,
+      href: localizeHref(n.href, locale),
       group: "Garden",
     }));
     const postItems: Item[] = posts.map((p) => ({
       id: `post-${p.slug}`,
       label: p.title,
       hint: `${p.category} · /writing/${p.slug}`,
-      href: `/writing/${p.slug}`,
+      href: localizeHref(`/writing/${p.slug}`, locale),
       group: "Writing",
     }));
     const toolItems: Item[] = tools.map((t) => ({
@@ -81,14 +84,14 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
         id: "research",
         label: "Research desk",
         hint: "/writing?tag=Research",
-        href: "/writing?tag=Research",
+        href: localizeHref("/writing?tag=Research", locale),
         group: "Writing",
       },
       {
         id: "gghere",
         label: "Open gghere",
         hint: "gghere.com",
-        href: links.gghere,
+        href: links.gghereWorlds,
         external: true,
         group: "Worlds",
       },
@@ -100,9 +103,17 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
         external: true,
         group: "Worlds",
       },
+      {
+        id: "planet",
+        label: "jubuddy /planet",
+        hint: "jubuddy.com/planet",
+        href: links.jubuddyPlanet,
+        external: true,
+        group: "Worlds",
+      },
     ];
     return [...pages, ...postItems, ...toolItems, ...productItems, ...actions];
-  }, [posts]);
+  }, [posts, locale]);
 
   const filtered = useMemo(() => {
     const query = q.trim().toLowerCase();
