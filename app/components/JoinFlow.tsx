@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { BrandMark } from "@/app/components/BrandMark";
 import { ShareActions } from "@/app/components/ShareActions";
 import { stripLocale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
@@ -180,6 +181,7 @@ export function JoinFlow({ onClose }: { onClose?: () => void }) {
           <p className="mt-4 max-w-md text-sm leading-relaxed text-secondary">{destCopy(pick.id).note}</p>
           <p className="mt-8 text-[12px] tracking-wide text-muted uppercase">{m.join.aNameIKept}</p>
           <button type="button" onClick={mark} className="cta-pop group mt-3 w-full rounded-xl border border-hair bg-bg/70 px-4 py-5 text-left transition-colors hover:border-accent/50">
+            <BrandMark brand="m1zwell" size={40} className="mb-3" />
             <span className="block font-mono text-2xl text-accent transition-colors group-hover:text-accent-hover">
               m1zwell
             </span>

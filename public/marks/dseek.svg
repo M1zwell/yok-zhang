@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="dseek">
+  <rect width="64" height="64" rx="14" fill="#FAF6F0"/>
+  <path fill="#0E6E66" fill-rule="evenodd" d="M15 13 H30 C50 13 54.2 21.2 54.2 32 C54.2 42.8 50 51 30 51 H15 Z M23 22.2 H30 C41.2 22.2 43.6 25.6 43.6 32 C43.6 38.4 41.2 41.8 30 41.8 H23 Z"/>
+  <path fill="#22D3C4" d="M15 13 H36 L15 26 Z"/>
+  <path fill="#F0578A" d="M33.6 21.6 C39.2 21.6 42.8 26.4 40.6 31.4 L33.6 43.2 L26.6 31.4 C24.4 26.4 28 21.6 33.6 21.6 Z"/>
+  <circle cx="33.6" cy="28.2" r="2.2" fill="#FAF6F0"/>
+</svg>

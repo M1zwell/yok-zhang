@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { EnterButton } from "@/app/components/JoinFlow";
 import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
+import { BrandMark } from "@/app/components/BrandMark";
 import { LogoMark } from "@/app/components/LogoMark";
 import { localizeHref, stripLocale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
@@ -43,8 +44,9 @@ export function SiteHeader() {
               href={links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-0.5 inline-block font-mono text-[12px] text-accent transition-colors hover:text-accent-hover"
+              className="mt-0.5 inline-flex items-center gap-1.5 font-mono text-[12px] text-accent transition-colors hover:text-accent-hover"
             >
+              <BrandMark brand="m1zwell" size={18} />
               m1zwell
             </a>
           </div>

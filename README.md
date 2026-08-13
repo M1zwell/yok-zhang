@@ -6,6 +6,8 @@ Static Next.js (App Router). Notes in `content/posts/`. No backend, no CMS, no e
 
 Intended production domain: **ichina.co** (apex). Current Vercel deploy: `yok-zhang.vercel.app`. Parent attaches the apex in Vercel — this repo does not mint DNS.
 
+The improved dseek mark lives on this garden only — it is not deployed to dseek.ai.
+
 ## Routes
 
 - `/` garden home (English, unprefixed)

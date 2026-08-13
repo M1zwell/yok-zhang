@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BrandMark, brandForGroup, type Brand } from "@/app/components/BrandMark";
 import { TiltFrame } from "@/app/components/TiltFrame";
 import type { Tool } from "@/lib/site";
 
@@ -12,6 +13,7 @@ type FrameProps = {
   embeddable: boolean;
   embedSrc: string;
   heightClass?: string;
+  brand?: Brand;
 };
 
 export function LiveFrame({
@@ -22,6 +24,7 @@ export function LiveFrame({
   embeddable,
   embedSrc,
   heightClass = "h-[min(72vh,640px)]",
+  brand = "ichina",
 }: FrameProps) {
   const [failed, setFailed] = useState(!embeddable);
 
@@ -33,6 +36,7 @@ export function LiveFrame({
           <span className="size-2 rounded-full bg-spark/70" />
           <span className="size-2 rounded-full bg-accent" />
         </span>
+        <BrandMark brand={brand} size={22} />
         <span className="min-w-0 flex-1 truncate font-display text-base text-fg">{title}</span>
         <span className="hidden truncate font-mono text-[10px] text-muted sm:inline">{path}</span>
         <a
@@ -56,7 +60,7 @@ export function LiveFrame({
           />
         ) : (
           <div className="absolute inset-0 flex flex-col items-start justify-end bg-[radial-gradient(ellipse_at_top,_rgba(20,184,166,0.12),_transparent_55%),radial-gradient(ellipse_at_bottom_right,_rgba(255,71,120,0.1),_transparent_50%)] px-6 py-8 sm:px-10 sm:py-10">
-            <img src="/yok-mark.png" alt="" width={72} height={48} className="logo-float mb-8 h-10 w-auto opacity-90" />
+            <BrandMark brand={brand} size={48} className="logo-float mb-8 opacity-90" />
             <p className="font-display text-3xl tracking-tight text-fg sm:text-4xl">{title}</p>
             {note ? (
               <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted">{note}</p>
@@ -112,6 +116,7 @@ export function ToolStage({ tools }: { tools: Tool[] }) {
           note={active.note}
           embeddable={active.embeddable}
           embedSrc={active.embedSrc}
+          brand={brandForGroup(active.group)}
         />
       </TiltFrame>
     </div>

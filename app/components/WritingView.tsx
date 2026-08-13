@@ -28,6 +28,7 @@ export function WritingView({ locale = "en" }: { locale?: Locale }) {
               path={research.path}
               embeddable={research.embeddable}
               embedSrc={research.embedSrc}
+              brand="dseek"
             />
           </BlogIndex>
         </Suspense>

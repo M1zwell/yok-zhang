@@ -1,3 +1,4 @@
+import { BrandMark } from "@/app/components/BrandMark";
 import { CityPlanetFlagship } from "@/app/components/CityPlanetFlagship";
 import { ProductMarquee } from "@/app/components/ProductMarquee";
 import { ProductStage } from "@/app/components/ProductStage";
@@ -40,12 +41,17 @@ export function ProductsView({ locale = "en" }: { locale?: Locale }) {
             const worlds = group.id === "worlds";
             return (
               <div key={group.id} className={worlds ? "rounded-[20px] border border-accent/25 bg-deep/60 p-5 sm:p-8" : ""}>
-                <h2 className="text-[11px] font-semibold tracking-[0.18em] text-muted uppercase">{label}</h2>
+                <h2 className="flex items-center gap-2.5 text-[11px] font-semibold tracking-[0.18em] text-muted uppercase">
+                  {group.id === "dseek" ? <BrandMark brand="dseek" size={28} /> : null}
+                  {label}
+                </h2>
                 <ul className="mt-4">
                   {group.items.map((item) => (
                     <li key={item.href} className="border-t border-hair last:border-b">
                       <div className="grid grid-cols-1 items-baseline gap-2 py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-8">
-                        <div className="min-w-0">
+                        <div className="flex min-w-0 items-start gap-3">
+                          {group.id === "dseek" ? <BrandMark brand="dseek" size={32} className="mt-0.5" /> : null}
+                          <div className="min-w-0">
                           <a
                             href={item.href}
                             target="_blank"
@@ -70,6 +76,7 @@ export function ProductsView({ locale = "en" }: { locale?: Locale }) {
                           ) : null}
                           <div className="mt-3">
                             <ShareActions href={item.href} title={item.title} locale={locale} />
+                          </div>
                           </div>
                         </div>
                         <a
