@@ -24,6 +24,25 @@ export type Tool = {
   group: string;
 };
 
+export type JoinDestination = {
+  id: string;
+  label: string;
+  path: string;
+  href: string;
+  note: string;
+  needsAccount: boolean;
+  shareTitle: string;
+};
+
+/**
+ * Intended production host (apex) for this garden.
+ * Current Vercel deploy is yok-zhang.vercel.app — keep it working.
+ * Parent attaches ichina.co in Vercel. Do not mint fake DNS here.
+ * OG siteName uses "ichina.co"; metadataBase stays on the Vercel host.
+ */
+export const canonicalHost = "ichina.co";
+export const deployHost = "yok-zhang.vercel.app";
+
 export const links = {
   jubitSignup: "https://www.jubit.ai/signup",
   jubitLogin: "https://www.jubit.ai/login",
@@ -34,24 +53,36 @@ export const links = {
   dseekTerminal: "https://dseek.ai/terminal",
   dseekResearch: "https://dseek.ai/terminal?tab=research",
   dseekHk: "https://dseek.ai/hk",
+  jubuddyHome: "https://jubuddy.com",
   jubuddySignup: "https://jubuddy.com/signup",
+  gghere: "https://gghere.com",
+  gghereWorlds: "https://gghere.com/worlds",
+  gozayden: "https://gozayden.com",
   github: "https://github.com/M1zwell",
   linkedin: "https://linkedin.com/in/yok-zhang-8793a611",
+  linkedinShare: "https://www.linkedin.com/sharing/share-offsite/?url=",
   emailPrimary: "mailto:yok@dseek.ai",
   emailGmail: "mailto:yying2010@gmail.com",
 } as const;
 
 export const nav = [
   { href: "/", label: "Garden" },
-  { href: "/blog", label: "Blog" },
+  { href: "/writing", label: "Writing" },
   { href: "/tools", label: "Tools" },
   { href: "/products", label: "Products" },
 ] as const;
 
 export const heroLine = "Hong Kong. Builds AI. Lives the rest.";
 
+export const tacitLine =
+  "What can be told is here. The rest you walk — planets, the map, the terminal.";
+
+export const writingTacitLine =
+  "These notes are what can be told. Research is a source in the same stream. The tools are the remainder — you have to walk them.";
+
 export const quotes = [
   "Hong Kong. Builds AI. Lives the rest.",
+  "What can be told is here. The rest you walk.",
   "Scattered feeds, APIs, datasets and maps — held together and made seekable.",
   "Football and philosophy sit in the same life. They are not the work. The work is to ship.",
   "A game id kept as a name: m1zwell.",
@@ -111,7 +142,7 @@ export const tools: Tool[] = [
     title: "gghere.com",
     href: "https://gghere.com",
     path: "gghere.com",
-    group: "also",
+    group: "worlds",
     note: "24 real cities, rebuilt as tiny planets you can walk. 393 planets. 4.5M building footprints. No account. Runs in a browser tab.",
     embeddable: false,
     embedSrc: "https://gghere.com",
@@ -125,16 +156,13 @@ export const tools: Tool[] = [
     embeddable: true,
     embedSrc: "https://gozayden.com/",
   },
-  {
-    id: "hongfa4",
-    title: "hongfa4.ichina.co",
-    href: "https://hongfa4.ichina.co",
-    path: "hongfa4.ichina.co",
-    group: "also",
-    embeddable: true,
-    embedSrc: "https://hongfa4.ichina.co/",
-  },
 ];
+
+export const stageIds = ["gghere", "jubit", "jubuddy", "terminal", "hk", "gozayden"] as const;
+
+export const stageTools: Tool[] = stageIds
+  .map((id) => tools.find((t) => t.id === id))
+  .filter((t): t is Tool => Boolean(t));
 
 export const research = {
   title: "Research",
@@ -144,7 +172,66 @@ export const research = {
   embedSrc: "https://dseek.ai/terminal?tab=research",
 };
 
+export const joinDestinations: JoinDestination[] = [
+  {
+    id: "jubit",
+    label: "Jubit",
+    path: "jubit.ai",
+    href: "https://www.jubit.ai/signup",
+    note: "AI that actually runs. Create an account.",
+    needsAccount: true,
+    shareTitle: "Jubit — AI that actually runs",
+  },
+  {
+    id: "dseek",
+    label: "dseek",
+    path: "dseek.ai",
+    href: "https://dseek.ai/signup",
+    note: "Scattered feeds, made seekable.",
+    needsAccount: true,
+    shareTitle: "dseek — data, held together",
+  },
+  {
+    id: "jubuddy",
+    label: "jubuddy",
+    path: "jubuddy.com",
+    href: "https://jubuddy.com/signup",
+    note: "Theme factory in the Jubit universe.",
+    needsAccount: true,
+    shareTitle: "jubuddy — theme factory",
+  },
+  {
+    id: "gghere",
+    label: "gghere",
+    path: "gghere.com",
+    href: "https://gghere.com",
+    note: "Worlds. No account. Open the tab.",
+    needsAccount: false,
+    shareTitle: "Worlds live on gghere.com",
+  },
+];
+
 export const productGroups: Group[] = [
+  {
+    id: "worlds",
+    label: "Worlds",
+    items: [
+      {
+        title: "gghere.com",
+        href: "https://gghere.com",
+        path: "gghere.com",
+        live: true,
+        note: "24 real cities as tiny walkable planets. 393 planets, 4.5M building footprints. No account. Runs in a browser tab.",
+      },
+      {
+        title: "gghere.com/worlds",
+        href: "https://gghere.com/worlds",
+        path: "gghere.com/worlds",
+        live: true,
+        note: "Peer world. Walk the planets. We did not edit gghere from this garden — we point to it.",
+      },
+    ],
+  },
   {
     id: "jubit",
     label: "Jubit",
@@ -208,22 +295,9 @@ export const productGroups: Group[] = [
     label: "Also live",
     items: [
       {
-        title: "gghere.com",
-        href: "https://gghere.com",
-        path: "gghere.com",
-        live: true,
-        note: "24 real cities as tiny walkable planets. 393 planets, 4.5M building footprints. No account. Runs in a browser tab.",
-      },
-      {
         title: "gozayden.com",
         href: "https://gozayden.com",
         path: "gozayden.com",
-        live: true,
-      },
-      {
-        title: "hongfa4.ichina.co",
-        href: "https://hongfa4.ichina.co",
-        path: "hongfa4.ichina.co",
         live: true,
       },
     ],

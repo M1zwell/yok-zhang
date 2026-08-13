@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { HeroCanvas } from "@/app/components/HeroCanvas";
-import { LiveFrame } from "@/app/components/ToolStage";
+import { JoinFlow } from "@/app/components/JoinFlow";
 import { PostCard } from "@/app/components/PostCard";
 import { ProductMarquee } from "@/app/components/ProductMarquee";
+import { ProductStage } from "@/app/components/ProductStage";
 import { QuoteRotator } from "@/app/components/QuoteRotator";
 import { Reveal } from "@/app/components/Reveal";
-import { CATEGORIES, getAllPosts, getPostsByCategory } from "@/lib/posts";
-import { heroLine, links, liveProducts, research } from "@/lib/site";
+import { getAllPosts } from "@/lib/posts";
+import { heroLine, links, liveProducts, tacitLine } from "@/lib/site";
 
 export default function HomePage() {
-  const posts = getAllPosts();
-  const byCategory = getPostsByCategory();
+  const posts = getAllPosts().slice(0, 3);
 
   return (
     <main>
@@ -35,8 +35,9 @@ export default function HomePage() {
             <p className="mt-8 max-w-xl font-display text-[clamp(1.25rem,2.8vw,1.85rem)] leading-snug text-secondary">
               {heroLine}
             </p>
+            <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted">{tacitLine}</p>
             <div className="mt-12 flex flex-wrap items-center gap-3">
-              <Link href="/blog" className="btn btn-primary">
+              <Link href="/writing" className="btn btn-primary cta-pop">
                 Start Reading
               </Link>
               <Link href="/products" className="btn btn-ghost">
@@ -51,17 +52,9 @@ export default function HomePage() {
               <a href={links.github} className="font-mono text-accent hover:text-accent-hover">
                 m1zwell
               </a>
-              . Also{" "}
-              <a href={links.dseekSignup} className="text-accent hover:text-accent-hover">
-                dseek signup
-              </a>
-              {" · "}
-              <a href={links.dseekLogin} className="text-accent hover:text-accent-hover">
-                dseek login
-              </a>
-              {" · "}
-              <a href={links.jubuddySignup} className="text-accent hover:text-accent-hover">
-                jubuddy signup
+              . Worlds live on{" "}
+              <a href={links.gghere} className="text-accent hover:text-accent-hover">
+                gghere.com
               </a>
               .
             </p>
@@ -79,58 +72,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {CATEGORIES.map((category, i) => {
-        const notes = byCategory[category];
-        if (notes.length === 0) return null;
-        return (
-          <section key={category} className="border-b border-hair">
-            <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-              <Reveal delay={i * 40}>
-                <div className="flex flex-wrap items-end justify-between gap-4">
-                  <div>
-                    <p className="kicker">{category}</p>
-                    <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">{category}</h2>
-                  </div>
-                  <Link
-                    href={`/blog?tag=${encodeURIComponent(category)}`}
-                    className="text-sm font-semibold text-accent hover:text-accent-hover"
-                  >
-                    All {category} →
-                  </Link>
-                </div>
-                {category === "Research" ? (
-                  <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">
-                    Live writing sits in the dseek terminal research tab. Local notes pin what left the desk.
-                  </p>
-                ) : null}
-                <div className="mt-10 grid gap-4">
-                  {notes.map((post) => (
-                    <PostCard key={post.slug} post={post} />
-                  ))}
-                </div>
-                {category === "Research" ? (
-                  <div className="mt-10">
-                    <LiveFrame
-                      title={research.title}
-                      href={research.href}
-                      path={research.path}
-                      embeddable={research.embeddable}
-                      embedSrc={research.embedSrc}
-                      heightClass="h-[min(68vh,620px)]"
-                    />
-                  </div>
-                ) : null}
-              </Reveal>
+      <section className="border-b border-hair">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="kicker">Products</p>
+                <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">See them run</h2>
+              </div>
+              <Link href="/products" className="text-sm font-semibold text-accent hover:text-accent-hover">
+                All products →
+              </Link>
             </div>
-          </section>
-        );
-      })}
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">
+              Framed previews of the surfaces that actually run. If a host refuses the iframe, the chrome stays.
+            </p>
+            <div className="mt-10">
+              <ProductStage />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-b border-hair">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="kicker">Writing</p>
+                <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">What can be told</h2>
+              </div>
+              <Link href="/writing" className="text-sm font-semibold text-accent hover:text-accent-hover">
+                All writing →
+              </Link>
+            </div>
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">{tacitLine}</p>
+            <div className="mt-10 grid gap-4">
+              {posts.map((post) => (
+                <PostCard key={post.slug} post={post} />
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="border-b border-hair bg-deep">
         <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:grid-cols-3 sm:px-8">
           <Reveal>
             <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">Notes</p>
-            <p className="mt-2 font-display text-4xl text-fg">{posts.length}</p>
+            <p className="mt-2 font-display text-4xl text-fg">{getAllPosts().length}</p>
             <p className="mt-1 text-sm text-muted">in this garden</p>
           </Reveal>
           <Reveal delay={80}>
@@ -142,6 +132,21 @@ export default function HomePage() {
             <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">City</p>
             <p className="mt-2 font-display text-4xl text-fg">香港</p>
             <p className="mt-1 text-sm text-muted">Hong Kong</p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-b border-hair">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <Reveal>
+            <p className="kicker">Enter</p>
+            <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">Join a world</h2>
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">
+              Pick a destination. Confirm. Continue to the real signup — or open gghere with no account.
+            </p>
+            <div className="mt-10 max-w-lg">
+              <JoinFlow />
+            </div>
           </Reveal>
         </div>
       </section>

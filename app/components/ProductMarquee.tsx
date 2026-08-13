@@ -17,7 +17,7 @@ export function ProductMarquee() {
           >
             <span className="size-1.5 rounded-full bg-spark shadow-[0_0_8px_#FF4778]" aria-hidden />
             <span>{item.path}</span>
-            <span className="text-[10px] tracking-wide text-muted uppercase">live</span>
+            <span className="live-badge">live</span>
           </a>
         ))}
       </div>

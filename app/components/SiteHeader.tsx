@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { EnterButton } from "@/app/components/JoinFlow";
 import { LogoMark } from "@/app/components/LogoMark";
 import { links, nav } from "@/lib/site";
 
@@ -36,12 +37,18 @@ export function SiteHeader() {
             </a>
           </div>
         </div>
-        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
           {nav.map((item) => {
+            const writing = item.href === "/writing";
             const on =
               item.href === "/"
                 ? pathname === "/"
-                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+                : writing
+                  ? pathname === "/writing" ||
+                    pathname.startsWith("/writing/") ||
+                    pathname === "/blog" ||
+                    pathname.startsWith("/blog/")
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
@@ -56,30 +63,46 @@ export function SiteHeader() {
               </Link>
             );
           })}
+          <a
+            href={links.gghere}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg px-3 py-1.5 text-[12px] font-medium text-muted transition-colors hover:text-fg"
+          >
+            Worlds
+          </a>
         </nav>
         <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
             onClick={() => window.dispatchEvent(new Event("yok:palette"))}
-            className="hidden items-center gap-2 rounded-lg border border-hair px-2.5 py-1.5 font-mono text-[11px] text-muted transition-colors hover:border-accent/40 hover:text-fg lg:inline-flex"
+            className="hidden items-center gap-2 rounded-lg border border-hair px-2.5 py-1.5 font-mono text-[11px] text-muted transition-colors hover:border-accent/40 hover:text-fg xl:inline-flex"
             aria-label="Open command palette"
           >
             <span>Search</span>
             <kbd className="rounded bg-tertiary px-1.5 py-0.5 text-[10px] text-secondary">⌘K</kbd>
           </button>
-          <a href={links.jubitLogin} className="btn btn-ghost hidden sm:inline-flex">
+          <EnterButton className="btn btn-ghost hidden sm:inline-flex" />
+          <a href={links.jubitLogin} className="btn btn-ghost hidden md:inline-flex">
             Sign in
           </a>
-          <a href={links.jubitSignup} className="btn btn-primary">
+          <a href={links.jubitSignup} className="btn btn-primary cta-pop">
             Register
           </a>
         </div>
       </div>
       <nav
         aria-label="Sections"
-        className="flex gap-4 overflow-x-auto border-t border-hair px-5 py-2 md:hidden"
+        className="flex gap-4 overflow-x-auto border-t border-hair px-5 py-2 lg:hidden"
       >
-        <a href={links.jubitLogin} className="shrink-0 text-[12px] font-medium text-accent sm:hidden">
+        <button
+          type="button"
+          onClick={() => window.dispatchEvent(new Event("yok:enter"))}
+          className="shrink-0 text-[12px] font-medium text-accent"
+        >
+          Enter
+        </button>
+        <a href={links.jubitLogin} className="shrink-0 text-[12px] font-medium text-accent md:hidden">
           Sign in
         </a>
         {nav.map((item) => (
@@ -91,6 +114,14 @@ export function SiteHeader() {
             {item.label}
           </Link>
         ))}
+        <a
+          href={links.gghere}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 text-[12px] font-medium text-muted hover:text-fg"
+        >
+          Worlds
+        </a>
       </nav>
     </header>
   );

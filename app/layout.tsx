@@ -3,9 +3,11 @@ import { Inter, Space_Grotesk, Geist_Mono, Plus_Jakarta_Sans } from "next/font/g
 import { CommandPalette } from "@/app/components/CommandPalette";
 import { CursorGlow } from "@/app/components/CursorGlow";
 import { FilmGrain } from "@/app/components/FilmGrain";
+import { JoinModal } from "@/app/components/JoinFlow";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { getAllPosts } from "@/lib/posts";
+import { seo, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -35,23 +37,17 @@ const jakarta = Plus_Jakarta_Sans({
 const description = "Hong Kong. Builds AI. Lives the rest. m1zwell.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  applicationName: "Yok Zhang",
+  authors: [{ name: "Yok Zhang" }],
+  ...seo({
+    title: "Yok Zhang",
+    description,
+    path: "/",
+  }),
   title: {
     default: "Yok Zhang",
     template: "%s · Yok Zhang",
-  },
-  description,
-  applicationName: "Yok Zhang",
-  authors: [{ name: "Yok Zhang" }],
-  openGraph: {
-    title: "Yok Zhang",
-    description,
-    type: "website",
-    locale: "en",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Yok Zhang",
-    description,
   },
 };
 
@@ -85,6 +81,7 @@ export default function RootLayout({
         <SiteHeader />
         <div id="content">{children}</div>
         <SiteFooter />
+        <JoinModal />
         <CommandPalette posts={posts} />
       </body>
     </html>

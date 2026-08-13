@@ -5,6 +5,7 @@ import { tools } from "@/lib/site";
 
 const groups = [
   { id: "all", label: "All" },
+  { id: "worlds", label: "Worlds" },
   { id: "dseek", label: "dseek" },
   { id: "jubit", label: "Jubit" },
   { id: "also", label: "Also live" },

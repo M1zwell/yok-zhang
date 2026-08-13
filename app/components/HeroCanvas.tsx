@@ -24,6 +24,14 @@ type Dust = {
   color: string;
 };
 
+type Spark = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+};
+
 export function HeroCanvas() {
   const ref = useRef<HTMLCanvasElement>(null);
 
@@ -46,6 +54,7 @@ export function HeroCanvas() {
 
     const planets: Body[] = [];
     const dust: Dust[] = [];
+    const sparks: Spark[] = [];
 
     const resize = () => {
       const parent = canvas.parentElement;
@@ -114,7 +123,7 @@ export function HeroCanvas() {
           moons: [],
         },
       );
-      for (let i = 0; i < 70; i++) {
+      for (let i = 0; i < 110; i++) {
         dust.push({
           x: Math.random() * w,
           y: Math.random() * h,
@@ -195,6 +204,30 @@ export function HeroCanvas() {
         ctx.fill();
       }
       ctx.globalAlpha = 1;
+      if (Math.random() < 0.012 && sparks.length < 3) {
+        sparks.push({
+          x: Math.random() * w * 0.6,
+          y: Math.random() * h * 0.4,
+          vx: 2.4 + Math.random() * 1.8,
+          vy: 0.9 + Math.random() * 0.8,
+          life: 1,
+        });
+      }
+      for (let i = sparks.length - 1; i >= 0; i--) {
+        const s = sparks[i];
+        s.x += s.vx;
+        s.y += s.vy;
+        s.life -= 0.018;
+        ctx.strokeStyle = s.life > 0.5 ? magenta : teal;
+        ctx.globalAlpha = Math.max(s.life, 0);
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(s.x - s.vx * 6, s.y - s.vy * 6);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (s.life <= 0 || s.x > w || s.y > h) sparks.splice(i, 1);
+      }
       for (const p of planets) drawPlanet(p, t / 1000);
     };
 

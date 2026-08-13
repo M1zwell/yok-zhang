@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { TiltFrame } from "@/app/components/TiltFrame";
 import type { Tool } from "@/lib/site";
 
 type FrameProps = {
@@ -103,15 +104,16 @@ export function ToolStage({ tools }: { tools: Tool[] }) {
           );
         })}
       </div>
-      <LiveFrame
-        key={active.id}
-        title={active.title}
-        href={active.href}
-        path={active.path}
-        note={active.note}
-        embeddable={active.embeddable}
-        embedSrc={active.embedSrc}
-      />
+      <TiltFrame key={active.id}>
+        <LiveFrame
+          title={active.title}
+          href={active.href}
+          path={active.path}
+          note={active.note}
+          embeddable={active.embeddable}
+          embedSrc={active.embedSrc}
+        />
+      </TiltFrame>
     </div>
   );
 }

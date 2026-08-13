@@ -4,13 +4,16 @@ Digital garden for Yok Zhang — Hong Kong. Builds AI. Lives the rest.
 
 Static Next.js (App Router). Notes in `content/posts/`. No backend, no CMS, no env secrets.
 
+Intended production domain: **ichina.co** (apex). Current Vercel deploy: `yok-zhang.vercel.app`. Parent attaches the apex in Vercel — this repo does not mint DNS.
+
 ## Routes
 
 - `/` garden home
-- `/blog` all posts + tag filters
-- `/blog/[slug]` notes
-- `/tools` workspace (universe launcher, HK district jump, live frames)
-- `/products` live product directory
+- `/writing` one stream: notes, tag filters, and the live research desk
+- `/writing/[slug]` notes
+- `/blog` redirects to `/writing` (old links)
+- `/tools` workspace (tacit — universe launcher, HK district jump, live frames)
+- `/products` live product directory with framed previews
 
 ## How to run
 

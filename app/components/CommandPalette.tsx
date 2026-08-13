@@ -32,9 +32,9 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
     const postItems: Item[] = posts.map((p) => ({
       id: `post-${p.slug}`,
       label: p.title,
-      hint: `${p.category} · /blog/${p.slug}`,
-      href: `/blog/${p.slug}`,
-      group: "Posts",
+      hint: `${p.category} · /writing/${p.slug}`,
+      href: `/writing/${p.slug}`,
+      group: "Writing",
     }));
     const toolItems: Item[] = tools.map((t) => ({
       id: `tool-${t.id}`,
@@ -79,11 +79,26 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
       },
       {
         id: "research",
-        label: "Open research tab",
-        hint: "dseek.ai/terminal?tab=research",
-        href: links.dseekResearch,
+        label: "Research desk",
+        hint: "/writing?tag=Research",
+        href: "/writing?tag=Research",
+        group: "Writing",
+      },
+      {
+        id: "gghere",
+        label: "Open gghere",
+        hint: "gghere.com",
+        href: links.gghere,
         external: true,
-        group: "Actions",
+        group: "Worlds",
+      },
+      {
+        id: "gghere-worlds",
+        label: "gghere /worlds",
+        hint: "gghere.com/worlds",
+        href: links.gghereWorlds,
+        external: true,
+        group: "Worlds",
       },
     ];
     return [...pages, ...postItems, ...toolItems, ...productItems, ...actions];
@@ -178,7 +193,7 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
                 go(filtered[active]);
               }
             }}
-            placeholder="Jump to posts, tools, products…"
+            placeholder="Jump to writing, tools, products…"
             className="w-full bg-transparent text-[15px] text-fg outline-none placeholder:text-muted"
           />
         </div>

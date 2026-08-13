@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, type ReactNode } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { PostCard } from "@/app/components/PostCard";
 import type { PostMeta } from "@/lib/post-meta";
@@ -8,14 +8,17 @@ import type { PostMeta } from "@/lib/post-meta";
 export function BlogIndex({
   posts,
   tags,
+  children,
 }: {
   posts: PostMeta[];
   tags: { tag: string; count: number }[];
+  children?: ReactNode;
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const active = searchParams.get("tag") ?? "all";
+  const researchOn = active.toLowerCase() === "research";
 
   const filtered = useMemo(() => {
     if (active === "all") return posts;
@@ -35,6 +38,16 @@ export function BlogIndex({
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
   };
 
+  const slot = children ? (
+    <div className={researchOn ? "mt-8" : "mt-12"}>
+      <div className="mb-3 flex flex-wrap items-center gap-2">
+        <span className="tag-chip is-on">Research</span>
+        <span className="text-[12px] text-muted">a source in this stream · live desk</span>
+      </div>
+      {children}
+    </div>
+  ) : null;
+
   return (
     <div>
       <div className="flex flex-wrap gap-2">
@@ -43,7 +56,7 @@ export function BlogIndex({
           onClick={() => setTag("all")}
           className={`tag-chip ${active === "all" ? "is-on" : ""}`}
         >
-          All Posts ({posts.length})
+          All ({posts.length})
         </button>
         {tags.map((t) => (
           <button
@@ -56,6 +69,7 @@ export function BlogIndex({
           </button>
         ))}
       </div>
+      {researchOn ? slot : null}
       <div className="mt-10 grid gap-4">
         {filtered.map((post) => (
           <PostCard key={post.slug} post={post} />
@@ -64,6 +78,7 @@ export function BlogIndex({
           <p className="text-sm text-muted">No notes in this tag yet.</p>
         ) : null}
       </div>
+      {!researchOn ? slot : null}
     </div>
   );
 }

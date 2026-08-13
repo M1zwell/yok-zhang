@@ -1,25 +1,27 @@
 import { HkDistrictJump } from "@/app/components/HkDistrictJump";
 import { ToolStage } from "@/app/components/ToolStage";
 import { UniverseLauncher } from "@/app/components/UniverseLauncher";
+import { seo } from "@/lib/seo";
 import { links, tools } from "@/lib/site";
 
-export const metadata = {
+export const metadata = seo({
   title: "Tools",
   description: "On-site tools and live embeds — universe launcher, HK district jump, working apps.",
-};
+  path: "/tools",
+});
 
 export default function ToolsPage() {
   return (
     <main>
       <section className="mx-auto max-w-6xl px-5 pt-16 pb-10 sm:px-8 sm:pt-24">
-        <p className="kicker">Workspace</p>
+        <p className="kicker">Tacit</p>
         <h1 className="mt-4 font-display text-[clamp(2.4rem,7vw,4.5rem)] leading-[0.95] tracking-tight">
           Tools
         </h1>
         <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted">
-          First-party jumpers on this domain, then live frames of the apps. Hosts that block{" "}
-          <span className="font-mono text-[12px] text-secondary">frame-ancestors</span> keep chrome —
-          open live. Register on{" "}
+          The part that cannot be told. Walk a planet, jump a district, open the terminal. Hosts that
+          block <span className="font-mono text-[12px] text-secondary">frame-ancestors</span> keep chrome
+          — open live. Register on{" "}
           <a href={links.jubitSignup} className="text-accent hover:text-accent-hover">
             Jubit
           </a>{" "}
