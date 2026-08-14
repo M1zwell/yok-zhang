@@ -9,7 +9,7 @@ export const nl: Messages = {
     worlds: "Werelden",
     share: "Delen",
   },
-  heroLine: "Hongkong. Bouwt AI. Leeft de rest.",
+  heroLine: "Hongkong. Bouwt AI. Loopt de rest.",
   tacitLine: "Wat gezegd kan worden staat hier. De rest loop je — planeten, de kaart, de terminal.",
   writingTacitLine:
     "Deze notities zijn wat gezegd kan worden. Research is een bron in dezelfde stroom. De tools zijn de rest — die moet je lopen.",
@@ -99,7 +99,7 @@ export const nl: Messages = {
   productsPage: {
     kicker: "Index",
     title: "Live producten",
-    lead: "Stadsplaneet eerst. Tools zijn een werkplek; dit is de plank — ingekaderd, live, deelbaar.",
+    lead: "Stadsplaneet eerst. Live, deelbaar.",
     live: "live",
     source: "Bron",
     groupWorlds: "Werelden · stadsplaneet",
@@ -198,8 +198,8 @@ export const nl: Messages = {
   },
   intro: {
     kicker: "In beeld",
-    title: "Vlaggenschip, knip naar type",
-    note: "Een korte cinematische loop — donker, precies type, product in beeld. Geen presentator. Geen deepfake.",
+    title: "Stadsplaneet",
+    note: "Negen seconden. Alleen ondertitels.",
     worldsTitle: "gghere worlds",
     worldsLine: "24 echte steden. Kleine planeten waar je loopt.",
     worldsLower: "Geen account. Browsertab.",

@@ -1,157 +1,92 @@
 import Link from "next/link";
-import { CityPlanetFlagship } from "@/app/components/CityPlanetFlagship";
 import { HeroCanvas } from "@/app/components/HeroCanvas";
 import { JoinFlow } from "@/app/components/JoinFlow";
 import { PostCard } from "@/app/components/PostCard";
-import { PretextLines } from "@/app/components/PretextLines";
 import { ProductIntro } from "@/app/components/ProductIntro";
-import { ProductMarquee } from "@/app/components/ProductMarquee";
-import { ProductStage } from "@/app/components/ProductStage";
-import { QuoteRotator } from "@/app/components/QuoteRotator";
 import { Reveal } from "@/app/components/Reveal";
-import { StudioShelf } from "@/app/components/StudioShelf";
 import type { Locale } from "@/lib/i18n";
 import { localizeHref } from "@/lib/i18n";
 import { t } from "@/lib/messages";
 import { getAllPosts } from "@/lib/posts";
-import { channels, emails } from "@/lib/channels";
+import { emails } from "@/lib/channels";
 import { links, liveProducts } from "@/lib/site";
 
 export function HomeView({ locale = "en" }: { locale?: Locale }) {
-  const posts = getAllPosts().slice(0, 3);
+  const posts = getAllPosts().slice(0, 2);
   const m = t(locale);
   const href = (path: string) => localizeHref(path, locale);
+  const row = liveProducts.filter((p) =>
+    ["gghere.com/worlds", "jubuddy.com/planet", "jubit.ai", "dseek.ai"].includes(p.path),
+  );
 
   return (
     <main>
       <section className="relative overflow-hidden">
         <HeroCanvas />
-        <div className="relative mx-auto max-w-6xl px-5 pt-16 pb-16 sm:px-8 sm:pt-24 sm:pb-20">
+        <div className="relative mx-auto max-w-5xl px-5 pt-28 pb-10 sm:px-8 sm:pt-36 sm:pb-14">
           <div className="hero-enter">
-            <p className="kicker">{m.kicker.garden}</p>
-            <h1 className="mt-5 font-display text-[clamp(3rem,11vw,6.5rem)] leading-[0.92] tracking-tight text-fg">
-              Yok Zhang
+            <h1 className="font-display text-[clamp(2.4rem,7vw,4.6rem)] leading-[1.02] tracking-tight text-fg">
+              {m.heroLine}
             </h1>
-            <p className="mt-4">
+            <div className="mt-10 flex flex-wrap items-center gap-3">
               <a
-                href={links.github}
+                href={links.gghereWorlds}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono text-[clamp(1.25rem,3.5vw,2rem)] text-accent transition-colors hover:text-accent-hover"
+                className="btn btn-primary cta-pop"
               >
-                m1zwell
-              </a>
-            </p>
-            <PretextLines
-              text={m.heroLine}
-              locale={locale}
-              className="mt-8 max-w-xl font-display text-[clamp(1.25rem,2.8vw,1.85rem)] leading-snug text-secondary"
-            />
-            <PretextLines
-              text={m.tacitLine}
-              locale={locale}
-              className="mt-5 max-w-lg text-sm leading-relaxed text-muted"
-            />
-            <div className="mt-12 flex flex-wrap items-center gap-3">
-              <Link href={href("/writing")} className="btn btn-primary cta-pop">
-                {m.cta.startReading}
-              </Link>
-              <a href={links.gghereWorlds} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
                 {m.cta.walkACity}
               </a>
-              <Link href={href("/products")} className="btn btn-ghost">
-                {m.cta.viewProjects}
-              </Link>
-              <Link href={href("/tools")} className="text-sm font-medium text-accent hover:text-accent-hover">
-                {m.cta.openTools}
+              <Link href={href("/writing")} className="btn btn-ghost">
+                {m.nav.writing}
               </Link>
             </div>
-            <p className="mt-4 text-sm text-muted">
-              {m.home.useTheTools}{" "}
-              <a href={links.github} className="font-mono text-accent hover:text-accent-hover">
-                m1zwell
-              </a>
-              . {m.home.worldsLiveOn}{" "}
-              <a href={links.gghereWorlds} className="text-accent hover:text-accent-hover">
-                gghere.com/worlds
-              </a>
-              .
-            </p>
           </div>
         </div>
-      </section>
-
-      <section className="border-b border-hair">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <Reveal>
-            <ProductIntro locale={locale} />
-          </Reveal>
+        <div className="relative mx-auto max-w-6xl px-5 pb-4 sm:px-8">
+          <ProductIntro locale={locale} />
         </div>
       </section>
 
-      <section className="border-b border-hair">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <Reveal>
-            <CityPlanetFlagship locale={locale} />
-          </Reveal>
-        </div>
-      </section>
-
-      <ProductMarquee />
-
-      <section className="border-b border-hair">
-        <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8">
-          <Reveal>
-            <QuoteRotator />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="border-b border-hair">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <section className="home-band">
+        <div className="mx-auto max-w-5xl px-5 sm:px-8">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4">
-              <div>
-                <p className="kicker">{m.kicker.products}</p>
-                <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">{m.home.seeThemRun}</h2>
-              </div>
+              <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.seeThemRun}</h2>
               <Link href={href("/products")} className="text-sm font-semibold text-accent hover:text-accent-hover">
                 {m.cta.allProducts}
               </Link>
             </div>
-            <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">{m.home.framedPreviews}</p>
-            <div className="mt-10">
-              <ProductStage locale={locale} />
-            </div>
+            <ul className="mt-10 divide-y divide-hair border-y border-hair">
+              {row.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-baseline justify-between gap-6 py-5"
+                  >
+                    <span className="font-display text-2xl tracking-tight transition-colors group-hover:text-accent sm:text-3xl">
+                      {item.title}
+                    </span>
+                    <span className="font-mono text-[11px] text-accent">{item.path} ↗</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </div>
       </section>
 
-      <section className="border-b border-hair">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <Reveal>
-            <StudioShelf locale={locale} compact />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="border-b border-hair">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <section className="home-band">
+        <div className="mx-auto max-w-5xl px-5 sm:px-8">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4">
-              <div>
-                <p className="kicker">{m.kicker.writing}</p>
-                <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">{m.home.whatCanBeTold}</h2>
-              </div>
+              <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.whatCanBeTold}</h2>
               <Link href={href("/writing")} className="text-sm font-semibold text-accent hover:text-accent-hover">
                 {m.cta.allWriting}
               </Link>
             </div>
-            <PretextLines
-              text={m.tacitLine}
-              locale={locale}
-              className="mt-5 max-w-xl text-sm leading-relaxed text-muted"
-            />
             <div className="mt-10 grid gap-4">
               {posts.map((post) => (
                 <PostCard key={post.slug} post={post} locale={locale} />
@@ -161,32 +96,11 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
         </div>
       </section>
 
-      <section className="border-b border-hair bg-deep">
-        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:grid-cols-3 sm:px-8">
+      <section className="home-band">
+        <div className="mx-auto max-w-5xl px-5 sm:px-8">
           <Reveal>
-            <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">{m.home.notes}</p>
-            <p className="mt-2 font-display text-4xl text-fg">{getAllPosts().length}</p>
-            <p className="mt-1 text-sm text-muted">{m.home.inGarden}</p>
-          </Reveal>
-          <Reveal delay={80}>
-            <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">{m.home.liveSurfaces}</p>
-            <p className="mt-2 font-display text-4xl text-fg">{liveProducts.length}</p>
-            <p className="mt-1 text-sm text-muted">{m.home.productsThatRun}</p>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase">{m.home.city}</p>
-            <p className="mt-2 font-display text-4xl text-fg">香港</p>
-            <p className="mt-1 text-sm text-muted">{m.home.hongKong}</p>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="border-b border-hair">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <Reveal>
-            <p className="kicker">{m.kicker.enter}</p>
-            <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">{m.home.joinAWorld}</h2>
-            <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">{m.home.joinLead}</p>
+            <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.joinAWorld}</h2>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">{m.home.joinLead}</p>
             <div className="mt-10 max-w-lg">
               <JoinFlow />
             </div>
@@ -194,12 +108,11 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
         </div>
       </section>
 
-      <section className="border-b border-hair">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <section className="home-band">
+        <div className="mx-auto max-w-5xl px-5 sm:px-8">
           <Reveal>
-            <p className="kicker">{m.kicker.about}</p>
-            <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">{m.home.codeAndTheRest}</h2>
-            <div className="mt-10 max-w-2xl space-y-6 text-[17px] leading-[1.7] text-secondary">
+            <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.codeAndTheRest}</h2>
+            <div className="mt-8 max-w-xl space-y-5 text-[17px] leading-[1.7] text-secondary">
               <p>
                 {m.home.aboutP1a}{" "}
                 <a
@@ -218,13 +131,12 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
         </div>
       </section>
 
-      <section>
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <section className="home-band home-band-last">
+        <div className="mx-auto max-w-5xl px-5 sm:px-8">
           <Reveal>
-            <p className="kicker">{m.kicker.write}</p>
-            <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">{m.home.noList}</h2>
-            <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">{m.home.notesLiveHere}</p>
-            <ul className="mt-10 max-w-2xl">
+            <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.noList}</h2>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">{m.home.notesLiveHere}</p>
+            <ul className="mt-10 max-w-xl">
               {emails.map((email) => (
                 <li key={email.id} className="border-t border-hair">
                   <a
@@ -240,7 +152,7 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
                   </a>
                 </li>
               ))}
-              <li className="border-t border-hair">
+              <li className="border-t border-hair border-b">
                 <a
                   href={links.github}
                   target="_blank"
@@ -253,31 +165,7 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
                   <span className="font-mono text-[11px] text-accent">github.com/M1zwell ↗</span>
                 </a>
               </li>
-              {channels
-                .filter((c) => c.id !== "github")
-                .map((channel) => (
-                  <li key={channel.id} className="border-t border-hair last:border-b">
-                    <a
-                      href={channel.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex flex-col gap-1 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
-                    >
-                      <span className="font-display text-2xl transition-colors group-hover:text-accent sm:text-3xl">
-                        {m.channels[channel.id]}
-                      </span>
-                      <span className="font-mono text-[11px] text-accent">
-                        {channel.kind === "publish" ? m.cta.openPlatform : channel.href.replace("https://", "")} ↗
-                      </span>
-                    </a>
-                  </li>
-                ))}
             </ul>
-            <p className="mt-6">
-              <Link href={href("/share")} className="text-sm font-semibold text-accent hover:text-accent-hover">
-                {m.cta.openDesk} →
-              </Link>
-            </p>
           </Reveal>
         </div>
       </section>

@@ -9,11 +9,13 @@
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.8",
+    "@remotion/player": "^4.0.509",
     "gray-matter": "^4.0.3",
     "marked": "^18.0.9",
     "next": "^15.5.2",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "remotion": "^4.0.509"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.12",

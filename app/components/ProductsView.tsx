@@ -1,8 +1,6 @@
 import { BrandMark } from "@/app/components/BrandMark";
 import { CityPlanetFlagship } from "@/app/components/CityPlanetFlagship";
 import { PretextLines } from "@/app/components/PretextLines";
-import { ProductIntro } from "@/app/components/ProductIntro";
-import { ProductMarquee } from "@/app/components/ProductMarquee";
 import { ProductStage } from "@/app/components/ProductStage";
 import { ShareActions } from "@/app/components/ShareActions";
 import type { Locale } from "@/lib/i18n";
@@ -33,12 +31,8 @@ export function ProductsView({ locale = "en" }: { locale?: Locale }) {
         />
       </section>
       <section className="mx-auto max-w-6xl px-5 pb-12 sm:px-8">
-        <ProductIntro locale={locale} lead />
-      </section>
-      <section className="mx-auto max-w-6xl px-5 pb-12 sm:px-8">
         <CityPlanetFlagship locale={locale} />
       </section>
-      <ProductMarquee />
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <ProductStage locale={locale} />
       </section>

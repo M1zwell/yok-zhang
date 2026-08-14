@@ -98,7 +98,7 @@ export const ko: Messages = {
   productsPage: {
     kicker: "목록",
     title: "라이브 제품",
-    lead: "시티 플래닛이 맨 앞. 도구는 작업대, 여기는 선반 — 프레임, 라이브, 공유 가능.",
+    lead: "시티 플래닛이 맨 앞. 라이브, 공유 가능.",
     live: "라이브",
     source: "소스",
     groupWorlds: "월드 · 시티 플래닛",
@@ -197,8 +197,8 @@ export const ko: Messages = {
   },
   intro: {
     kicker: "프레임",
-    title: "플래그십, 글자로 컷",
-    note: "짧은 시네마틱 루프 — 어둡고, 정확한 글자, 제품이 프레임 안에. 진행자가 아닙니다. 딥페이크가 아닙니다.",
+    title: "시티 플래닛",
+    note: "9초. 자막만.",
     worldsTitle: "gghere worlds",
     worldsLine: "실제 도시 24곳. 걸을 수 있는 작은 행성.",
     worldsLower: "계정 없음. 브라우저 탭.",

@@ -9,7 +9,7 @@ export const ja: Messages = {
     worlds: "ワールド",
     share: "共有",
   },
-  heroLine: "香港。AI を作る。残りは生きる。",
+  heroLine: "香港。AI を作る。残りは歩く。",
   tacitLine: "書けるものはここにある。残りは歩く —— 惑星、地図、ターミナル。",
   writingTacitLine:
     "これらのノートが書ける部分。研究は同じ流れのソース。ツールは残り —— 自分で歩かないといけない。",
@@ -98,7 +98,7 @@ export const ja: Messages = {
   productsPage: {
     kicker: "目次",
     title: "ライブプロダクト",
-    lead: "シティプラネットが先頭。ツールは作業場、ここは棚 —— 枠付き、ライブ、共有できる。",
+    lead: "シティプラネットが先頭。ライブ、共有できる。",
     live: "ライブ",
     source: "ソース",
     groupWorlds: "ワールド · シティプラネット",
@@ -197,8 +197,8 @@ export const ja: Messages = {
   },
   intro: {
     kicker: "フレーム",
-    title: "フラッグシップ、文字へ切る",
-    note: "短いシネマティックなループ —— 暗く、正確な文字、製品が画に入る。発表者ではない。ディープフェイクではない。",
+    title: "シティプラネット",
+    note: "9 秒。字幕だけ。",
     worldsTitle: "gghere worlds",
     worldsLine: "24 の実在都市。歩ける小さな惑星。",
     worldsLower: "アカウント不要。ブラウザのタブ。",
