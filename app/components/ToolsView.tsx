@@ -10,7 +10,7 @@ export function ToolsView({ locale = "en" }: { locale?: Locale }) {
   const m = t(locale);
   return (
     <main>
-      <section className="mx-auto max-w-6xl px-5 pt-16 pb-10 sm:px-8 sm:pt-24">
+      <section className="mx-auto max-w-6xl px-5 pt-16 pb-6 sm:px-8 sm:pt-24">
         <p className="kicker">{m.toolsPage.kicker}</p>
         <h1 className="mt-4 font-display text-[clamp(2.4rem,7vw,4.5rem)] leading-[0.95] tracking-tight">
           {m.toolsPage.title}
@@ -36,19 +36,8 @@ export function ToolsView({ locale = "en" }: { locale?: Locale }) {
         </p>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-6 px-5 pb-16 sm:px-8 lg:grid-cols-2">
-        <UniverseLauncher />
-        <HkDistrictJump />
-      </section>
-
-      <section className="border-t border-hair">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-          <StudioShelf locale={locale} embed />
-        </div>
-      </section>
-
-      <section className="border-t border-hair">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <section>
+        <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-8 sm:pb-20">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="kicker">{m.kicker.liveFrames}</p>
@@ -59,6 +48,17 @@ export function ToolsView({ locale = "en" }: { locale?: Locale }) {
           <div className="mt-12">
             <ToolStage tools={tools} />
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-6 px-5 pb-16 sm:px-8 lg:grid-cols-2">
+        <UniverseLauncher />
+        <HkDistrictJump />
+      </section>
+
+      <section className="border-t border-hair">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <StudioShelf locale={locale} embed />
         </div>
       </section>
     </main>
