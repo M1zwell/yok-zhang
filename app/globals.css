@@ -286,8 +286,10 @@ html.light .btn-primary:hover {
 
 .marquee-track {
   display: flex;
+  flex-wrap: nowrap;
   width: max-content;
-  animation: marquee 36s linear infinite;
+  will-change: transform;
+  animation: marquee 18s linear infinite;
 }
 
 .marquee-track:hover {

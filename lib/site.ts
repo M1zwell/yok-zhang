@@ -351,6 +351,19 @@ export const products: Product[] = productGroups.flatMap((group) =>
 
 export const liveProducts = products.filter((p) => p.live);
 
+/** Marketing strip — the live apps that walk the home marquee. */
+export const marqueeItems: Product[] = [
+  { title: "gghere.com", href: links.gghere, path: "gghere.com", live: true },
+  { title: "jubit.ai", href: links.jubitHome, path: "jubit.ai", live: true },
+  { title: "jubuddy.com", href: links.jubuddyHome, path: "jubuddy.com", live: true },
+  { title: "dseek.ai", href: links.dseekHome, path: "dseek.ai", live: true },
+  { title: "dseek.ai/terminal", href: links.dseekTerminal, path: "dseek.ai/terminal", live: true },
+  { title: "dseek.ai/hk", href: links.dseekHk, path: "dseek.ai/hk", live: true },
+  { title: "gozayden.com", href: links.gozayden, path: "gozayden.com", live: true },
+  { title: "gghere.com/hk", href: links.gghereHk, path: "gghere.com/hk", live: true },
+  { title: "gghere.com/worlds", href: links.gghereWorlds, path: "gghere.com/worlds", live: true },
+];
+
 
 export const worldCities = [
   { name: "Hong Kong", slug: "hk" },
