@@ -80,7 +80,7 @@ export function SiteHeader() {
             );
           })}
           <a
-            href={links.gghereHk}
+            href={links.gghereWorlds}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-lg px-3 py-1.5 text-[12px] font-medium text-muted transition-colors hover:text-fg"
@@ -133,7 +133,7 @@ export function SiteHeader() {
           </Link>
         ))}
         <a
-          href={links.gghereHk}
+          href={links.gghereWorlds}
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 text-[12px] font-medium text-muted hover:text-fg"
