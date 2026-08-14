@@ -26,18 +26,18 @@ export function SiteHeader() {
 
   return (
     <header className="glass-header sticky top-0 z-40 border-b border-hair">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-2.5 sm:px-8">
-        <div className="flex min-w-0 items-center gap-3">
+      <div className="page-x mx-auto flex max-w-6xl items-center justify-between gap-2 py-2 sm:gap-3 sm:py-2.5">
+        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
           <Link href={href("/")} className="shrink-0" aria-label="Yok Zhang garden home">
-            <LogoMark size={34} />
+            <LogoMark size={32} />
           </Link>
           <div className="min-w-0 leading-tight">
             <Link href={href("/")} className="block truncate text-[12px] font-semibold tracking-wide text-fg">
               Yok Zhang
-              <span className="mx-2 text-accent" aria-hidden>
+              <span className="mx-2 hidden text-accent sm:inline" aria-hidden>
                 ·
               </span>
-              <span className="text-muted">
+              <span className="hidden text-muted sm:inline">
                 <span className="mr-1.5 text-[13px] font-medium text-accent">香港</span>
                 Hong Kong
               </span>
@@ -46,7 +46,7 @@ export function SiteHeader() {
               href={links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-0.5 inline-flex items-center gap-1.5 font-mono text-[12px] text-accent transition-colors hover:text-accent-hover"
+              className="mt-0.5 hidden items-center gap-1.5 font-mono text-[12px] text-accent transition-colors hover:text-accent-hover sm:inline-flex"
             >
               <BrandMark brand="m1zwell" size={18} />
               m1zwell
@@ -84,7 +84,7 @@ export function SiteHeader() {
             {m.nav.worlds}
           </a>
         </nav>
-        <div className="flex min-w-0 shrink-0 items-center gap-1.5 sm:gap-2">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
           <ThemeToggle />
           <LanguageSwitcher />
           <button
@@ -97,7 +97,7 @@ export function SiteHeader() {
             <kbd className="rounded bg-tertiary px-1.5 py-0.5 text-[10px] text-secondary">⌘K</kbd>
           </button>
           <EnterButton className="btn btn-ghost hidden sm:inline-flex" />
-          <a href={links.jubitLogin} className="btn btn-ghost hidden md:inline-flex">
+          <a href={links.jubitLogin} className="btn btn-ghost hidden lg:inline-flex">
             {m.cta.signIn}
           </a>
           <a href={links.jubitSignup} className="btn btn-primary cta-pop">
@@ -107,7 +107,7 @@ export function SiteHeader() {
       </div>
       <nav
         aria-label="Sections"
-        className="nav-rail scroll-x flex gap-4 border-t border-hair px-5 lg:hidden"
+        className="nav-rail page-x scroll-x flex flex-nowrap gap-3 border-t border-hair sm:gap-4 lg:hidden"
       >
         <button
           type="button"
@@ -116,7 +116,7 @@ export function SiteHeader() {
         >
           {m.cta.enter}
         </button>
-        <a href={links.jubitLogin} className="shrink-0 text-[12px] font-medium text-accent md:hidden">
+        <a href={links.jubitLogin} className="shrink-0 text-[12px] font-medium text-accent lg:hidden">
           {m.cta.signIn}
         </a>
         {nav.map((item) => (

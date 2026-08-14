@@ -246,7 +246,7 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center bg-bg/70 px-4 pt-[12vh] backdrop-blur-sm"
+      className="palette-scrim fixed inset-0 z-50 flex items-start justify-center bg-bg/70 px-4 backdrop-blur-sm"
       onClick={() => setOpen(false)}
     >
       <div
@@ -278,7 +278,7 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
             className="w-full bg-transparent text-[15px] text-fg outline-none placeholder:text-muted"
           />
         </div>
-        <div className="max-h-[min(56vh,420px)] overflow-y-auto py-2">
+        <div className="max-h-[min(56dvh,420px)] overflow-y-auto py-2">
           {filtered.length === 0 ? (
             <p className="px-4 py-6 text-sm text-muted">Nothing matches.</p>
           ) : (
@@ -300,8 +300,8 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
                         onClick={() => go(item)}
                         className={
                           on
-                            ? "flex w-full items-baseline justify-between gap-4 bg-accent/10 px-4 py-2 text-left"
-                            : "flex w-full items-baseline justify-between gap-4 px-4 py-2 text-left hover:bg-elevated"
+                            ? "palette-row flex w-full items-center justify-between gap-4 bg-accent/10 px-4 py-2 text-left"
+                            : "palette-row flex w-full items-center justify-between gap-4 px-4 py-2 text-left hover:bg-elevated"
                         }
                       >
                         <span className="font-display text-[15px] text-fg">{item.label}</span>

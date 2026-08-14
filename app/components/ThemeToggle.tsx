@@ -34,7 +34,7 @@ export function ThemeToggle() {
       title={title}
       aria-label={`${m.theme.label}: ${mode}`}
       aria-pressed={isDark}
-      className="theme-toggle inline-flex size-9 shrink-0 items-center justify-center rounded-lg border border-hair text-[13px] font-semibold leading-none text-fg transition-colors hover:border-accent/40 hover:text-accent"
+      className="theme-toggle inline-flex size-10 shrink-0 items-center justify-center rounded-lg border border-hair text-[13px] font-semibold leading-none text-fg transition-colors hover:border-accent/40 hover:text-accent"
     >
       <span aria-hidden>{glyph}</span>
     </button>

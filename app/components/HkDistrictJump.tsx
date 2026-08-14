@@ -34,10 +34,10 @@ export function HkDistrictJump() {
         value={q}
         onChange={(e) => setQ(e.target.value)}
         placeholder="Central, Mong Kok, Sha Tin…"
-        className="relative mt-5 w-full rounded-xl border border-hair bg-bg px-3 py-2.5 text-sm text-fg outline-none placeholder:text-muted focus:border-accent/50"
+        className="relative mt-5 min-h-10 w-full rounded-xl border border-hair bg-bg px-3 py-2.5 text-sm text-fg outline-none placeholder:text-muted focus:border-accent/50"
         aria-label="Filter districts"
       />
-      <div className="relative mt-3 flex flex-wrap gap-2">
+      <div className="scroll-x relative mt-3 flex flex-nowrap gap-2 pb-1 md:flex-wrap">
         <button
           type="button"
           onClick={() => setRegion("all")}
@@ -74,7 +74,7 @@ export function HkDistrictJump() {
                       href={d.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex min-h-9 items-center rounded-lg border border-hair px-2.5 py-1.5 text-[12px] text-secondary transition-colors hover:border-accent/50 hover:text-accent"
+                      className="inline-flex min-h-10 items-center rounded-lg border border-hair px-2.5 py-1.5 text-[12px] text-secondary transition-colors hover:border-accent/50 hover:text-accent"
                     >
                       {d.name}
                     </a>

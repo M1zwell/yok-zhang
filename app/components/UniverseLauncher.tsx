@@ -56,10 +56,10 @@ export function UniverseLauncher() {
           }
         }}
         placeholder="Search jubit, dseek, gghere…"
-        className="mt-5 w-full rounded-xl border border-hair bg-bg px-3 py-2.5 text-sm text-fg outline-none placeholder:text-muted focus:border-accent/50"
+        className="mt-5 min-h-10 w-full rounded-xl border border-hair bg-bg px-3 py-2.5 text-sm text-fg outline-none placeholder:text-muted focus:border-accent/50"
         aria-label="Search live apps"
       />
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="scroll-x mt-3 flex flex-nowrap gap-2 pb-1 md:flex-wrap">
         {groups.map((g) => (
           <button
             key={g.id}
@@ -86,8 +86,8 @@ export function UniverseLauncher() {
                 onMouseEnter={() => setActive(i)}
                 className={
                   on
-                    ? "flex items-baseline justify-between gap-3 bg-accent/10 px-2 py-3"
-                    : "flex items-baseline justify-between gap-3 px-2 py-3 hover:bg-elevated"
+                    ? "flex min-h-12 flex-col gap-1 bg-accent/10 px-2 py-3 min-[420px]:flex-row min-[420px]:items-baseline min-[420px]:justify-between min-[420px]:gap-3"
+                    : "flex min-h-12 flex-col gap-1 px-2 py-3 hover:bg-elevated min-[420px]:flex-row min-[420px]:items-baseline min-[420px]:justify-between min-[420px]:gap-3"
                 }
                 aria-selected={on}
                 role="option"

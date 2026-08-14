@@ -64,7 +64,7 @@ export function BlogIndex({
             {m.writingPage.themes}
           </p>
           <p className="mt-2 max-w-xl text-[12px] leading-relaxed text-muted">{m.writingPage.deskHint}</p>
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div className="scroll-x mt-3 flex flex-nowrap gap-2 pb-1 md:flex-wrap">
             {themes.map((theme) => {
               const on = active.toLowerCase() === theme.tag.toLowerCase();
               return (
@@ -102,7 +102,7 @@ export function BlogIndex({
           </div>
         </div>
       ) : null}
-      <div className="flex flex-wrap gap-2">
+      <div className="scroll-x flex flex-nowrap gap-2 pb-1 md:flex-wrap">
         <button
           type="button"
           onClick={() => setTag("all")}
@@ -122,7 +122,7 @@ export function BlogIndex({
         ))}
       </div>
       {researchOn || themeOn ? slot : null}
-      <div className="mt-10 grid gap-4">
+      <div className="mt-10 grid gap-4 md:grid-cols-2">
         {filtered.map((post) => (
           <PostCard key={post.slug} post={post} locale={locale} />
         ))}

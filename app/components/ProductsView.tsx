@@ -19,7 +19,7 @@ export function ProductsView({ locale = "en" }: { locale?: Locale }) {
 
   return (
     <main>
-      <section className="mx-auto max-w-6xl px-5 pt-16 pb-12 sm:px-8 sm:pt-24">
+      <section className="page-x mx-auto max-w-6xl pt-14 pb-12 sm:pt-24">
         <p className="kicker">{m.productsPage.kicker}</p>
         <h1 className="mt-4 font-display text-[clamp(2.4rem,7vw,4.5rem)] leading-[0.95] tracking-tight">
           {m.productsPage.title}
@@ -30,13 +30,13 @@ export function ProductsView({ locale = "en" }: { locale?: Locale }) {
           className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted"
         />
       </section>
-      <section className="mx-auto max-w-6xl px-5 pb-12 sm:px-8">
+      <section className="page-x mx-auto max-w-6xl pb-12">
         <CityPlanetFlagship locale={locale} />
       </section>
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <section className="page-x mx-auto max-w-6xl py-16 sm:py-20">
         <ProductStage locale={locale} />
       </section>
-      <section className="mx-auto max-w-6xl px-5 pb-16 sm:px-8 sm:pb-20">
+      <section className="page-x mx-auto max-w-6xl pb-16 sm:pb-20">
         <div className="space-y-16">
           {productGroups.map((group) => {
             const key = groupLabel[group.id];

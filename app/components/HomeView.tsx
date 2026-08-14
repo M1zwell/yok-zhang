@@ -24,7 +24,7 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
   return (
     <main>
       <section className="relative overflow-hidden">
-        <div className="relative mx-auto max-w-5xl px-5 pt-24 pb-8 sm:px-8 sm:pt-32 sm:pb-12">
+        <div className="page-x relative mx-auto max-w-5xl pt-20 pb-8 sm:pt-32 sm:pb-12">
           <div className="hero-enter">
             <PretextLines
               text={m.heroLine}
@@ -50,7 +50,7 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
             </div>
           </div>
         </div>
-        <div className="relative mx-auto max-w-6xl px-5 pb-4 sm:px-8">
+        <div className="page-x relative mx-auto max-w-6xl pb-4">
           <ProductIntro locale={locale} />
         </div>
       </section>
@@ -58,11 +58,11 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
       <ProductMarquee />
 
       <section className="home-band">
-        <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="page-x mx-auto max-w-5xl">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4">
               <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.seeThemRun}</h2>
-              <Link href={href("/products")} className="text-sm font-semibold text-accent hover:text-accent-hover">
+              <Link href={href("/products")} className="inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-accent-hover">
                 {m.cta.allProducts}
               </Link>
             </div>
@@ -73,12 +73,12 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-baseline justify-between gap-6 py-5"
+                    className="group flex min-h-12 flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
                   >
                     <span className="font-display text-2xl tracking-tight transition-colors group-hover:text-accent sm:text-3xl">
                       {item.title}
                     </span>
-                    <span className="font-mono text-[11px] text-accent">{item.path} ↗</span>
+                    <span className="shrink-0 font-mono text-[11px] text-accent">{item.path} ↗</span>
                   </a>
                 </li>
               ))}
@@ -88,15 +88,15 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
       </section>
 
       <section className="home-band">
-        <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="page-x mx-auto max-w-5xl">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4">
               <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.whatCanBeTold}</h2>
-              <Link href={href("/writing")} className="text-sm font-semibold text-accent hover:text-accent-hover">
+              <Link href={href("/writing")} className="inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-accent-hover">
                 {m.cta.allWriting}
               </Link>
             </div>
-            <div className="mt-10 grid gap-4">
+            <div className="mt-10 grid gap-4 md:grid-cols-2">
               {posts.map((post) => (
                 <PostCard key={post.slug} post={post} locale={locale} />
               ))}
@@ -106,7 +106,7 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
       </section>
 
       <section className="home-band">
-        <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="page-x mx-auto max-w-5xl">
           <Reveal>
             <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.joinAWorld}</h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">{m.home.joinLead}</p>
@@ -118,7 +118,7 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
       </section>
 
       <section className="home-band">
-        <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="page-x mx-auto max-w-5xl">
           <Reveal>
             <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.codeAndTheRest}</h2>
             <div className="mt-8 max-w-xl space-y-5 text-[17px] leading-[1.7] text-secondary">
@@ -141,7 +141,7 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
       </section>
 
       <section className="home-band home-band-last">
-        <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="page-x mx-auto max-w-5xl">
           <Reveal>
             <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.noList}</h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">{m.home.notesLiveHere}</p>

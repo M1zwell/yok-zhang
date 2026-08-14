@@ -13,7 +13,20 @@ export function TiltFrame({
   const reduceRef = useRef(false);
 
   useEffect(() => {
-    reduceRef.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const coarse = window.matchMedia("(pointer: coarse)");
+    const sync = () => {
+      reduceRef.current = motion.matches || coarse.matches || window.innerWidth < 768;
+    };
+    sync();
+    motion.addEventListener("change", sync);
+    coarse.addEventListener("change", sync);
+    window.addEventListener("resize", sync);
+    return () => {
+      motion.removeEventListener("change", sync);
+      coarse.removeEventListener("change", sync);
+      window.removeEventListener("resize", sync);
+    };
   }, []);
 
   const reset = () => {
@@ -22,21 +35,23 @@ export function TiltFrame({
   };
 
   return (
-    <div
-      ref={ref}
-      className={`tilt-frame ${className}`}
-      onMouseMove={(e) => {
-        if (reduceRef.current) return;
-        const el = ref.current;
-        if (!el) return;
-        const box = el.getBoundingClientRect();
-        const px = (e.clientX - box.left) / box.width - 0.5;
-        const py = (e.clientY - box.top) / box.height - 0.5;
-        el.style.transform = `perspective(1100px) rotateY(${px * 7}deg) rotateX(${-py * 6}deg)`;
-      }}
-      onMouseLeave={reset}
-    >
-      {children}
+    <div className="tilt-stage">
+      <div
+        ref={ref}
+        className={`tilt-frame ${className}`}
+        onMouseMove={(e) => {
+          if (reduceRef.current) return;
+          const el = ref.current;
+          if (!el) return;
+          const box = el.getBoundingClientRect();
+          const px = (e.clientX - box.left) / box.width - 0.5;
+          const py = (e.clientY - box.top) / box.height - 0.5;
+          el.style.transform = `perspective(1100px) rotateY(${px * 5}deg) rotateX(${-py * 4}deg)`;
+        }}
+        onMouseLeave={reset}
+      >
+        {children}
+      </div>
     </div>
   );
 }

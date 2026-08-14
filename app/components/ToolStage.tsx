@@ -26,7 +26,7 @@ export function LiveFrame({
   present,
   embeddable = true,
   embedSrc,
-  heightClass = "h-[min(72vh,640px)]",
+  heightClass = "live-stage",
   brand = "ichina",
   eager = false,
 }: FrameProps) {
@@ -44,8 +44,13 @@ export function LiveFrame({
         </span>
         <BrandMark brand={brand} size={22} />
         <span className="min-w-0 flex-1 truncate font-display text-base text-fg">{title}</span>
-        {present ? <span className="present-chip shrink-0">presenting {present}</span> : null}
-        <span className="hidden truncate font-mono text-[10px] text-muted lg:inline">{path}</span>
+        {present ? (
+          <span className="present-chip hidden shrink-0 min-[400px]:inline-flex">
+            <span className="hidden sm:inline">presenting </span>
+            {present}
+          </span>
+        ) : null}
+        <span className="hidden truncate font-mono text-[10px] text-muted xl:inline">{path}</span>
         <a
           href={href}
           target="_blank"
@@ -113,7 +118,7 @@ export function ToolStage({ tools }: { tools: Tool[] }) {
 
   return (
     <div>
-      <div role="tablist" aria-label="Live tools" className="scroll-x mb-4 flex gap-2 pb-1">
+      <div role="tablist" aria-label="Live tools" className="scroll-x mb-4 flex flex-nowrap gap-2 pb-1">
         {tools.map((tool) => {
           const on = tool.id === active.id;
           return (
@@ -141,7 +146,7 @@ export function ToolStage({ tools }: { tools: Tool[] }) {
           embedSrc={active.embedSrc}
           brand={brandForGroup(active.group)}
           eager
-          heightClass="h-[min(78vh,720px)]"
+          heightClass="live-stage"
         />
       </TiltFrame>
     </div>

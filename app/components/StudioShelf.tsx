@@ -128,13 +128,13 @@ export function StudioShelf({
               note={m.studio.embedNote}
               embeddable={studioDesk.embeddable}
               embedSrc={studioDesk.embedSrc}
-              heightClass="h-[min(78vh,720px)]"
+              heightClass="live-stage"
             />
           </TiltFrame>
         </div>
       ) : null}
 
-      <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-4">
         {studioKinds.map((kind) => (
           <li key={kind.id} className="rounded-2xl border border-hair bg-surface p-4">
             <p className="font-mono text-[10px] tracking-[0.16em] text-accent uppercase">
@@ -155,7 +155,7 @@ export function StudioShelf({
       </ul>
 
       {!compact ? (
-        <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-hair bg-deep/40 p-5">
             <p className="text-[11px] font-semibold tracking-[0.16em] text-muted uppercase">{m.studio.dropTitle}</p>
             <p className="mt-2 text-sm text-muted">{m.studio.dropLead}</p>

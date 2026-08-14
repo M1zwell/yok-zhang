@@ -72,7 +72,7 @@ export function PostCard({
               </Link>
             ))}
           </div>
-          <Link href={postHref} className="text-[12px] font-semibold text-accent hover:text-accent-hover">
+          <Link href={postHref} className="inline-flex min-h-10 items-center text-[12px] font-semibold text-accent hover:text-accent-hover">
             {m.writingPage.readMore}
           </Link>
         </div>

@@ -18,7 +18,7 @@ export function PostView({ slug, locale = "en" }: { slug: string; locale?: Local
   const minRead = m.writingPage.minRead.replace("{n}", String(post.readingTime.minutes));
 
   return (
-    <main className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
+    <main className="page-x mx-auto max-w-3xl py-14 sm:py-24">
       <p className="kicker">
         <Link href={writingIndex} className="hover:text-accent-hover">
           {m.nav.writing}

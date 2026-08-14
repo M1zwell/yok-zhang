@@ -52,7 +52,7 @@ export function JoinModal() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center bg-bg/75 px-4 pt-[8vh] backdrop-blur-sm"
+      className="join-scrim fixed inset-0 z-50 flex items-start justify-center bg-bg/75 px-4 backdrop-blur-sm"
       onClick={() => setOpen(false)}
     >
       <div className="palette-enter w-full max-w-lg" onClick={(e) => e.stopPropagation()}>
@@ -97,7 +97,7 @@ export function JoinFlow({ onClose }: { onClose?: () => void }) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg px-2 py-1 text-[12px] text-muted hover:text-fg"
+            className="inline-flex min-h-10 items-center rounded-lg px-2 text-[12px] text-muted hover:text-fg"
             aria-label={m.join.close}
           >
             {m.join.close}
@@ -157,8 +157,8 @@ export function JoinFlow({ onClose }: { onClose?: () => void }) {
                   onClick={() => choose(d)}
                   className={
                     on
-                      ? "flex w-full items-baseline justify-between gap-3 rounded-xl border border-accent/50 bg-accent/10 px-3 py-3 text-left"
-                      : "flex w-full items-baseline justify-between gap-3 rounded-xl border border-hair px-3 py-3 text-left transition-colors hover:border-accent/40"
+                      ? "flex min-h-12 w-full flex-col gap-1 rounded-xl border border-accent/50 bg-accent/10 px-3 py-3 text-left sm:flex-row sm:items-baseline sm:justify-between sm:gap-3"
+                      : "flex min-h-12 w-full flex-col gap-1 rounded-xl border border-hair px-3 py-3 text-left transition-colors hover:border-accent/40 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3"
                   }
                 >
                   <span>

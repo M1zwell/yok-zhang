@@ -15,7 +15,7 @@ export function WritingView({ locale = "en" }: { locale?: Locale }) {
   const m = t(locale);
 
   return (
-    <main className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+    <main className="page-x mx-auto max-w-6xl py-14 sm:py-24">
       <p className="kicker">{m.kicker.writing}</p>
       <h1 className="mt-4 font-display text-[clamp(2.4rem,7vw,4.5rem)] leading-[0.95] tracking-tight">
         {m.writingPage.title}

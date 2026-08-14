@@ -15,9 +15,9 @@ export function SiteFooter() {
   const m = t(locale);
 
   return (
-    <footer className="border-t border-hair bg-surface/80">
-      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+    <footer className="site-footer border-t border-hair bg-surface/80">
+      <div className="page-x mx-auto max-w-6xl py-12">
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="font-display text-lg tracking-tight text-fg">{m.footer.worldsLive}</p>
             <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">{m.footer.peer}</p>

@@ -42,7 +42,7 @@ export function LanguageSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="lang-toggle inline-flex items-center gap-1 rounded-lg border border-hair px-2.5 py-1.5 text-[11px] font-semibold tracking-wide text-muted transition-colors hover:border-accent/40 hover:text-fg"
+        className="lang-toggle inline-flex items-center gap-1 rounded-lg border border-hair px-2 py-1.5 text-[11px] font-semibold tracking-wide text-muted transition-colors hover:border-accent/40 hover:text-fg sm:px-2.5"
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={m.language.label}
@@ -64,8 +64,8 @@ export function LanguageSwitcher() {
                   onClick={() => go(loc)}
                   className={
                     on
-                      ? "flex w-full items-center justify-between gap-3 bg-accent/10 px-3 py-2 text-left text-[12px] text-accent"
-                      : "flex w-full items-center justify-between gap-3 px-3 py-2 text-left text-[12px] text-secondary hover:bg-elevated hover:text-fg"
+                      ? "flex min-h-10 w-full items-center justify-between gap-3 bg-accent/10 px-3 py-2 text-left text-[12px] text-accent"
+                      : "flex min-h-10 w-full items-center justify-between gap-3 px-3 py-2 text-left text-[12px] text-secondary hover:bg-elevated hover:text-fg"
                   }
                 >
                   <span>{m.language[loc]}</span>

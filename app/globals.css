@@ -510,6 +510,7 @@ html.light .card:hover {
 .city-chip {
   display: inline-flex;
   align-items: center;
+  min-height: 40px;
   border-radius: 999px;
   border: 1px solid rgba(20, 184, 166, 0.28);
   background: rgba(10, 10, 10, 0.45);
@@ -542,6 +543,9 @@ html.light .city-chip {
 }
 
 .tag-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
   border-radius: 999px;
   border: 1px solid var(--color-hair);
   padding: 0.35rem 0.7rem;
@@ -570,8 +574,15 @@ html.light .city-chip {
 }
 
 
+.tilt-stage {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
 .tilt-frame {
+  max-width: 100%;
   transform-style: preserve-3d;
+  transform-origin: center center;
   transition: transform 180ms ease;
   will-change: transform;
 }
@@ -1038,6 +1049,7 @@ html.light .cursor-glow-bloom {
 
 .scroll-x {
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -1049,7 +1061,7 @@ html.light .cursor-glow-bloom {
 .nav-link {
   display: inline-flex;
   align-items: center;
-  min-height: 36px;
+  min-height: 40px;
   border-radius: 10px;
   padding: 0.4rem 0.7rem;
   font-size: 12px;
@@ -1083,6 +1095,8 @@ html.light .cursor-glow-bloom {
 
 .live-chrome {
   overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
   border-radius: 16px;
   border: 1px solid var(--color-hair);
   background: var(--color-surface);
@@ -1124,7 +1138,7 @@ html.light .live-chrome {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  min-height: 28px;
+  min-height: 40px;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--color-hair) 80%, transparent);
   background: color-mix(in srgb, var(--color-bg) 70%, transparent);
@@ -1198,8 +1212,8 @@ html.light .frame-fallback {
 
 .theme-toggle,
 .lang-toggle {
-  min-width: 36px;
-  min-height: 36px;
+  min-width: 40px;
+  min-height: 40px;
 }
 
 @media (max-width: 639px) {
@@ -1275,3 +1289,115 @@ html.light .frame-fallback {
     transform: none;
   }
 }
+
+/* --- responsive garden / safe-area --- */
+
+.page-x {
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+}
+
+@media (min-width: 640px) {
+  .page-x {
+    padding-left: max(2rem, env(safe-area-inset-left, 0px));
+    padding-right: max(2rem, env(safe-area-inset-right, 0px));
+  }
+}
+
+.glass-header {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.site-footer {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.live-stage {
+  height: clamp(260px, 56dvh, 640px);
+}
+
+@media (min-width: 768px) and (min-height: 900px) {
+  .live-stage {
+    height: clamp(380px, 64dvh, 720px);
+  }
+}
+
+@media (max-height: 720px) {
+  .live-stage {
+    height: clamp(220px, 46dvh, 400px);
+  }
+}
+
+.marquee-track a {
+  min-height: 40px;
+}
+
+.site-footer a:not(.btn) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+.intro-play {
+  min-height: 40px;
+}
+
+.palette-row {
+  min-height: 44px;
+}
+
+@media (max-width: 639px) {
+  .live-chrome-bar {
+    flex-wrap: wrap;
+    row-gap: 0.4rem;
+  }
+
+  .present-chip {
+    max-width: 11rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-height: 800px) {
+  .home-band {
+    padding: 4.75rem 0;
+  }
+
+  .home-band-last {
+    padding-bottom: 5.5rem;
+  }
+
+  .intro-reel:not(.intro-reel-player) {
+    min-height: min(48vh, 380px);
+  }
+}
+
+@media (max-width: 389px) {
+  .home-band {
+    padding: 4.25rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-stage .tilt-frame {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.palette-scrim {
+  padding-top: max(2rem, env(safe-area-inset-top, 0px), 8dvh);
+}
+
+@media (min-width: 640px) {
+  .palette-scrim {
+    padding-top: 12vh;
+  }
+}
+
+.join-scrim {
+  padding-top: max(1.5rem, env(safe-area-inset-top, 0px), 6dvh);
+}
+

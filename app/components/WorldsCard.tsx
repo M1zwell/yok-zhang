@@ -7,11 +7,11 @@ export function WorldsCard({ locale = "en" }: { locale?: Locale }) {
   const m = t(locale);
 
   return (
-    <article className="worlds-card relative overflow-hidden rounded-[20px] border border-hair bg-deep p-6 shadow-[0_0_48px_rgba(20,184,166,0.12)] sm:p-8">
+    <article className="worlds-card relative overflow-hidden rounded-[20px] border border-hair bg-deep p-5 shadow-[0_0_48px_rgba(20,184,166,0.12)] sm:p-8">
       <div className="pointer-events-none absolute inset-0 opacity-80" aria-hidden>
         <div className="worlds-haze" />
       </div>
-      <div className="relative grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+      <div className="relative grid items-center gap-8 md:grid-cols-[1fr_auto]">
         <div>
           <p className="kicker">{m.worldsCard.kicker}</p>
           <h2 className="mt-3 font-display text-[clamp(2rem,5vw,3.4rem)] leading-[0.95] tracking-tight">

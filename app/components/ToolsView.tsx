@@ -10,7 +10,7 @@ export function ToolsView({ locale = "en" }: { locale?: Locale }) {
   const m = t(locale);
   return (
     <main>
-      <section className="mx-auto max-w-6xl px-5 pt-16 pb-6 sm:px-8 sm:pt-24">
+      <section className="page-x mx-auto max-w-6xl pt-14 pb-6 sm:pt-24">
         <p className="kicker">{m.toolsPage.kicker}</p>
         <h1 className="mt-4 font-display text-[clamp(2.4rem,7vw,4.5rem)] leading-[0.95] tracking-tight">
           {m.toolsPage.title}
@@ -37,7 +37,7 @@ export function ToolsView({ locale = "en" }: { locale?: Locale }) {
       </section>
 
       <section>
-        <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-8 sm:pb-20">
+        <div className="page-x mx-auto max-w-6xl pb-16 sm:pb-20">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="kicker">{m.kicker.liveFrames}</p>
@@ -51,13 +51,13 @@ export function ToolsView({ locale = "en" }: { locale?: Locale }) {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-6 px-5 pb-16 sm:px-8 lg:grid-cols-2">
+      <section className="page-x mx-auto grid max-w-6xl gap-6 pb-16 md:grid-cols-2">
         <UniverseLauncher />
         <HkDistrictJump />
       </section>
 
       <section className="border-t border-hair">
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+        <div className="page-x mx-auto max-w-6xl py-16 sm:py-20">
           <StudioShelf locale={locale} embed />
         </div>
       </section>
