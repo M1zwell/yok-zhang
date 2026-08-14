@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BrandMark, brandForGroup, type Brand } from "@/app/components/BrandMark";
+import { TiltFrame } from "@/app/components/TiltFrame";
 import type { Tool } from "@/lib/site";
 
 type FrameProps = {
@@ -34,7 +35,7 @@ export function LiveFrame({
   const showFrame = embeddable && !failed;
 
   return (
-    <div className="overflow-hidden rounded-[16px] border border-hair bg-surface shadow-[0_0_40px_rgba(20,184,166,0.06)]">
+    <div className="overflow-hidden rounded-[16px] border border-hair bg-surface shadow-[0_0_40px_rgba(20,184,166,0.08),0_0_80px_rgba(255,71,120,0.05)]">
       <div className="flex items-center gap-3 border-b border-hair bg-elevated px-3 py-2.5 sm:px-4">
         <span className="hidden gap-1 sm:flex" aria-hidden>
           <span className="size-2 rounded-full bg-tertiary" />
@@ -107,45 +108,50 @@ export function LiveFrame({
   );
 }
 
-function FrameCard({ tool, featured }: { tool: Tool; featured?: boolean }) {
-  return (
-    <LiveFrame
-      title={tool.title}
-      href={tool.href}
-      path={tool.path}
-      note={tool.note}
-      present={tool.present}
-      embeddable={tool.embeddable}
-      embedSrc={tool.embedSrc}
-      brand={brandForGroup(tool.group)}
-      eager={featured}
-      heightClass={featured ? "h-[min(72vh,720px)]" : "h-[min(56vh,520px)]"}
-    />
-  );
-}
-
 export function ToolStage({ tools }: { tools: Tool[] }) {
-  const featured = tools.filter((t) => t.id === "terminal" || t.id === "research");
-  const rest = tools.filter((t) => t.id !== "terminal" && t.id !== "research");
+  const defaultId = tools.some((t) => t.id === "terminal") ? "terminal" : tools[0]?.id;
+  const [activeId, setActiveId] = useState(defaultId);
+  const active = tools.find((t) => t.id === activeId) ?? tools[0];
 
-  if (tools.length === 0) return null;
+  if (!active) return null;
 
   return (
-    <div className="space-y-6">
-      {featured.length > 0 ? (
-        <div className={featured.length > 1 ? "grid gap-6 lg:grid-cols-2" : "grid gap-6"}>
-          {featured.map((tool) => (
-            <FrameCard key={tool.id} tool={tool} featured />
-          ))}
-        </div>
-      ) : null}
-      {rest.length > 0 ? (
-        <div className="grid gap-6 lg:grid-cols-2">
-          {rest.map((tool) => (
-            <FrameCard key={tool.id} tool={tool} />
-          ))}
-        </div>
-      ) : null}
+    <div>
+      <div role="tablist" aria-label="Live tools" className="mb-4 flex gap-2 overflow-x-auto pb-1">
+        {tools.map((tool) => {
+          const on = tool.id === active.id;
+          return (
+            <button
+              key={tool.id}
+              type="button"
+              role="tab"
+              aria-selected={on}
+              onClick={() => setActiveId(tool.id)}
+              className={
+                on
+                  ? "shrink-0 rounded-xl border border-accent/60 bg-accent/10 px-3 py-2 text-[11px] font-semibold tracking-wide text-accent shadow-[0_0_16px_rgba(20,184,166,0.15)]"
+                  : "shrink-0 rounded-xl border border-hair px-3 py-2 text-[11px] font-medium tracking-wide text-muted transition-colors hover:border-accent/40 hover:text-fg"
+              }
+            >
+              {tool.title}
+            </button>
+          );
+        })}
+      </div>
+      <TiltFrame key={active.id}>
+        <LiveFrame
+          title={active.title}
+          href={active.href}
+          path={active.path}
+          note={active.note}
+          present={active.present}
+          embeddable={active.embeddable}
+          embedSrc={active.embedSrc}
+          brand={brandForGroup(active.group)}
+          eager
+          heightClass="h-[min(78vh,720px)]"
+        />
+      </TiltFrame>
     </div>
   );
 }
