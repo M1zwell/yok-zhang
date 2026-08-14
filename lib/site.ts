@@ -61,8 +61,8 @@ export const links = {
   gghereWorlds: "https://gghere.com/worlds",
   gozayden: "https://gozayden.com",
   github: "https://github.com/M1zwell",
-  linkedin: "https://linkedin.com/in/yok-zhang-8793a611",
-  linkedinShare: "https://www.linkedin.com/sharing/share-offsite/?url=",
+  jubitTerminal: "https://www.jubit.ai/terminal",
+  featuredResearch: "https://dseek.ai/research/featured.json",
   emailPrimary: "mailto:yok@dseek.ai",
   emailGmail: "mailto:yying2010@gmail.com",
 } as const;
@@ -72,6 +72,7 @@ export const nav = [
   { href: "/writing", label: "Writing" },
   { href: "/tools", label: "Tools" },
   { href: "/products", label: "Products" },
+  { href: "/share", label: "Share" },
 ] as const;
 
 export const heroLine = "Hong Kong. Builds AI. Lives the rest.";

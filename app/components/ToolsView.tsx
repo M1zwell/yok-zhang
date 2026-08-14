@@ -1,4 +1,5 @@
 import { HkDistrictJump } from "@/app/components/HkDistrictJump";
+import { StudioShelf } from "@/app/components/StudioShelf";
 import { ToolStage } from "@/app/components/ToolStage";
 import { UniverseLauncher } from "@/app/components/UniverseLauncher";
 import type { Locale } from "@/lib/i18n";
@@ -30,6 +31,12 @@ export function ToolsView({ locale = "en" }: { locale?: Locale }) {
       <section className="mx-auto grid max-w-6xl gap-6 px-5 pb-16 sm:px-8 lg:grid-cols-2">
         <UniverseLauncher />
         <HkDistrictJump />
+      </section>
+
+      <section className="border-t border-hair">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <StudioShelf locale={locale} embed />
+        </div>
       </section>
 
       <section className="border-t border-hair">

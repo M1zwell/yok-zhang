@@ -3,14 +3,18 @@ import { CityPlanetFlagship } from "@/app/components/CityPlanetFlagship";
 import { HeroCanvas } from "@/app/components/HeroCanvas";
 import { JoinFlow } from "@/app/components/JoinFlow";
 import { PostCard } from "@/app/components/PostCard";
+import { PretextLines } from "@/app/components/PretextLines";
+import { ProductIntro } from "@/app/components/ProductIntro";
 import { ProductMarquee } from "@/app/components/ProductMarquee";
 import { ProductStage } from "@/app/components/ProductStage";
 import { QuoteRotator } from "@/app/components/QuoteRotator";
 import { Reveal } from "@/app/components/Reveal";
+import { StudioShelf } from "@/app/components/StudioShelf";
 import type { Locale } from "@/lib/i18n";
 import { localizeHref } from "@/lib/i18n";
 import { t } from "@/lib/messages";
 import { getAllPosts } from "@/lib/posts";
+import { channels, emails } from "@/lib/channels";
 import { links, liveProducts } from "@/lib/site";
 
 export function HomeView({ locale = "en" }: { locale?: Locale }) {
@@ -38,10 +42,16 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
                 m1zwell
               </a>
             </p>
-            <p className="mt-8 max-w-xl font-display text-[clamp(1.25rem,2.8vw,1.85rem)] leading-snug text-secondary">
-              {m.heroLine}
-            </p>
-            <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted">{m.tacitLine}</p>
+            <PretextLines
+              text={m.heroLine}
+              locale={locale}
+              className="mt-8 max-w-xl font-display text-[clamp(1.25rem,2.8vw,1.85rem)] leading-snug text-secondary"
+            />
+            <PretextLines
+              text={m.tacitLine}
+              locale={locale}
+              className="mt-5 max-w-lg text-sm leading-relaxed text-muted"
+            />
             <div className="mt-12 flex flex-wrap items-center gap-3">
               <Link href={href("/writing")} className="btn btn-primary cta-pop">
                 {m.cta.startReading}
@@ -68,6 +78,14 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
               .
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-hair">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <Reveal>
+            <ProductIntro locale={locale} />
+          </Reveal>
         </div>
       </section>
 
@@ -112,6 +130,14 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
       <section className="border-b border-hair">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
           <Reveal>
+            <StudioShelf locale={locale} compact />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="border-b border-hair">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="kicker">{m.kicker.writing}</p>
@@ -121,7 +147,11 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
                 {m.cta.allWriting}
               </Link>
             </div>
-            <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">{m.tacitLine}</p>
+            <PretextLines
+              text={m.tacitLine}
+              locale={locale}
+              className="mt-5 max-w-xl text-sm leading-relaxed text-muted"
+            />
             <div className="mt-10 grid gap-4">
               {posts.map((post) => (
                 <PostCard key={post.slug} post={post} locale={locale} />
@@ -195,44 +225,22 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
             <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">{m.home.noList}</h2>
             <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">{m.home.notesLiveHere}</p>
             <ul className="mt-10 max-w-2xl">
+              {emails.map((email) => (
+                <li key={email.id} className="border-t border-hair">
+                  <a
+                    href={email.href}
+                    className="group flex flex-col gap-1 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+                  >
+                    <span className="font-display text-xl break-all transition-colors group-hover:text-accent sm:text-2xl">
+                      {email.label}
+                    </span>
+                    <span className="text-[11px] font-semibold tracking-wide text-accent uppercase">
+                      {email.id === "primary" ? m.home.primary : m.home.gmail}
+                    </span>
+                  </a>
+                </li>
+              ))}
               <li className="border-t border-hair">
-                <a
-                  href={links.emailPrimary}
-                  className="group flex flex-col gap-1 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
-                >
-                  <span className="font-display text-2xl transition-colors group-hover:text-accent sm:text-3xl">
-                    yok@dseek.ai
-                  </span>
-                  <span className="text-[11px] font-semibold tracking-wide text-accent uppercase">
-                    {m.home.primary}
-                  </span>
-                </a>
-              </li>
-              <li className="border-t border-hair">
-                <a
-                  href={links.emailGmail}
-                  className="group flex flex-col gap-1 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
-                >
-                  <span className="font-display text-xl break-all transition-colors group-hover:text-accent sm:text-2xl">
-                    yying2010@gmail.com
-                  </span>
-                  <span className="text-[11px] font-semibold tracking-wide text-muted uppercase">{m.home.gmail}</span>
-                </a>
-              </li>
-              <li className="border-t border-hair">
-                <a
-                  href={links.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col gap-1 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
-                >
-                  <span className="font-display text-2xl transition-colors group-hover:text-accent sm:text-3xl">
-                    LinkedIn
-                  </span>
-                  <span className="font-mono text-[11px] text-accent">yok-zhang-8793a611 ↗</span>
-                </a>
-              </li>
-              <li className="border-t border-b border-hair">
                 <a
                   href={links.github}
                   target="_blank"
@@ -245,7 +253,31 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
                   <span className="font-mono text-[11px] text-accent">github.com/M1zwell ↗</span>
                 </a>
               </li>
+              {channels
+                .filter((c) => c.id !== "github")
+                .map((channel) => (
+                  <li key={channel.id} className="border-t border-hair last:border-b">
+                    <a
+                      href={channel.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col gap-1 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+                    >
+                      <span className="font-display text-2xl transition-colors group-hover:text-accent sm:text-3xl">
+                        {m.channels[channel.id]}
+                      </span>
+                      <span className="font-mono text-[11px] text-accent">
+                        {channel.kind === "publish" ? m.cta.openPlatform : channel.href.replace("https://", "")} ↗
+                      </span>
+                    </a>
+                  </li>
+                ))}
             </ul>
+            <p className="mt-6">
+              <Link href={href("/share")} className="text-sm font-semibold text-accent hover:text-accent-hover">
+                {m.cta.openDesk} →
+              </Link>
+            </p>
           </Reveal>
         </div>
       </section>

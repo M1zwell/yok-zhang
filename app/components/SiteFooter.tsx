@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { EnterButton } from "@/app/components/JoinFlow";
-import { stripLocale } from "@/lib/i18n";
+import { localizeHref, stripLocale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
+import { channels, emails } from "@/lib/channels";
 import { links } from "@/lib/site";
 
 export function SiteFooter() {
@@ -40,29 +42,33 @@ export function SiteFooter() {
           <a href={links.github} className="font-mono text-accent hover:text-accent-hover">
             m1zwell
           </a>
-          <a href={links.linkedin} className="text-muted hover:text-fg">
-            LinkedIn
-          </a>
-          <a href={links.github} className="text-muted hover:text-fg">
-            GitHub
-          </a>
-          <a href={links.emailPrimary} className="text-muted hover:text-fg">
-            yok@dseek.ai
-          </a>
-          <a href={links.emailGmail} className="text-muted hover:text-fg">
-            yying2010@gmail.com
+          {channels.map((channel) => (
+            <a
+              key={channel.id}
+              href={channel.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-fg"
+            >
+              {m.channels[channel.id]}
+            </a>
+          ))}
+          {emails.map((email) => (
+            <a key={email.id} href={email.href} className="text-muted hover:text-fg">
+              {email.label}
+            </a>
+          ))}
+          <Link href={localizeHref("/share", locale)} className="text-accent hover:text-accent-hover">
+            {m.nav.share}
+          </Link>
+          <a href={links.jubitTerminal} className="text-muted hover:text-fg">
+            {m.studio.deskTitle}
           </a>
           <a href={links.gghereWorlds} className="text-muted hover:text-fg">
             gghere.com/worlds
           </a>
           <a href={links.jubuddyPlanet} className="text-muted hover:text-fg">
             jubuddy.com/planet
-          </a>
-          <a href={links.dseekSignup} className="text-muted hover:text-fg">
-            dseek signup
-          </a>
-          <a href={links.jubuddySignup} className="text-muted hover:text-fg">
-            jubuddy signup
           </a>
           <span className="text-muted">
             <span className="mr-1 text-accent">香港</span>

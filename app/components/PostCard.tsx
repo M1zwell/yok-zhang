@@ -4,6 +4,7 @@ import { localizeHref } from "@/lib/i18n";
 import { t } from "@/lib/messages";
 import type { PostMeta } from "@/lib/post-meta";
 import { formatDate } from "@/lib/post-meta";
+import { PretextLines } from "@/app/components/PretextLines";
 import { ShareActions } from "@/app/components/ShareActions";
 
 export function PostCard({
@@ -44,7 +45,7 @@ export function PostCard({
       <h3 className={`mt-3 font-display tracking-tight text-fg group-hover:text-accent ${featured ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"}`}>
         <Link href={postHref}>{post.title}</Link>
       </h3>
-      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">{post.excerpt}</p>
+      <PretextLines text={post.excerpt} locale={locale} tight className="mt-3 max-w-2xl text-sm leading-relaxed text-muted" />
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap gap-1.5">
           {post.tags.map((tag) => (

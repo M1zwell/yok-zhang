@@ -16,6 +16,8 @@ The improved dseek mark lives on this garden only — it is not deployed to dsee
 - `/blog` redirects to `/writing` (old links)
 - `/tools` workspace (tacit — universe launcher, HK district jump, live frames)
 - `/products` live product directory; city-planet / worlds first
+- `/share` omni-channel publish desk (YouTube / TikTok / Xiaohongshu / X copy kits)
+- `/tools` and Writing: Studio outputs via jubit.ai/terminal (NotebookLM-class)
 - `/{locale}/...` marketing UI in 简体 / 繁體 / 日本語 / 한국어 / ไทย / Nederlands  
   Examples: `/zh-Hans/writing`, `/ja/products`, `/ko`, `/th/tools`, `/nl/writing`, `/zh-Hant`
 

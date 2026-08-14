@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { defaultLocale, type Locale } from "@/lib/i18n";
+import Link from "next/link";
+import { defaultLocale, localizeHref, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
-import { links } from "@/lib/site";
+import { channels, composeKit, hashtagsFor, publishChannels } from "@/lib/channels";
 
 export function ShareActions({
   path,
@@ -11,12 +12,14 @@ export function ShareActions({
   href,
   label,
   locale = defaultLocale,
+  line,
 }: {
   path?: string;
   title: string;
   href?: string;
   label?: string;
   locale?: Locale;
+  line?: string;
 }) {
   const m = t(locale);
   const shareLabel = label ?? m.cta.share;
@@ -29,6 +32,13 @@ export function ShareActions({
     setUrl(abs);
     setCanShare(typeof navigator !== "undefined" && typeof navigator.share === "function");
   }, [href, path]);
+
+  const payload = {
+    title,
+    line: line ?? title,
+    url,
+    hashtags: hashtagsFor(),
+  };
 
   const copy = async () => {
     try {
@@ -48,8 +58,6 @@ export function ShareActions({
     }
   };
 
-  const linkedin = `${links.linkedinShare}${encodeURIComponent(url)}`;
-
   return (
     <div className="flex flex-wrap items-center gap-2">
       {canShare ? (
@@ -60,12 +68,27 @@ export function ShareActions({
       <button type="button" onClick={copy} className="tag-chip">
         {copied ? m.cta.copied : m.cta.copyLink}
       </button>
-      <a href={linkedin} target="_blank" rel="noopener noreferrer" className="tag-chip">
-        LinkedIn
+      {publishChannels.map((channel) => {
+        const kit = (channel.compose ?? composeKit)(payload);
+        const intent = channel.intent?.(url, kit);
+        return (
+          <a
+            key={channel.id}
+            href={intent ?? channel.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tag-chip"
+          >
+            {m.channels[channel.id]}
+          </a>
+        );
+      })}
+      <a href={channels[0].href} target="_blank" rel="noopener noreferrer" className="tag-chip">
+        {m.channels.github}
       </a>
-      <a href={links.github} target="_blank" rel="noopener noreferrer" className="tag-chip">
-        GitHub
-      </a>
+      <Link href={localizeHref("/share", locale)} className="tag-chip">
+        {m.cta.openDesk}
+      </Link>
     </div>
   );
 }

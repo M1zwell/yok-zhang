@@ -1,5 +1,7 @@
 import { Suspense } from "react";
 import { BlogIndex } from "@/app/components/BlogIndex";
+import { PretextLines } from "@/app/components/PretextLines";
+import { StudioShelf } from "@/app/components/StudioShelf";
 import { LiveFrame } from "@/app/components/ToolStage";
 import type { Locale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
@@ -18,8 +20,15 @@ export function WritingView({ locale = "en" }: { locale?: Locale }) {
       <h1 className="mt-4 font-display text-[clamp(2.4rem,7vw,4.5rem)] leading-[0.95] tracking-tight">
         {m.writingPage.title}
       </h1>
-      <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">{m.writingTacitLine}</p>
+      <PretextLines
+        text={m.writingTacitLine}
+        locale={locale}
+        className="mt-5 max-w-xl text-sm leading-relaxed text-muted"
+      />
       <div className="mt-12">
+        <StudioShelf locale={locale} />
+      </div>
+      <div className="mt-16">
         <Suspense fallback={<p className="text-sm text-muted">{m.writingPage.loading}</p>}>
           <BlogIndex posts={posts} tags={tags} themes={researchThemes}>
             <LiveFrame

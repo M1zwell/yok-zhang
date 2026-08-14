@@ -1,5 +1,7 @@
 import { BrandMark } from "@/app/components/BrandMark";
 import { CityPlanetFlagship } from "@/app/components/CityPlanetFlagship";
+import { PretextLines } from "@/app/components/PretextLines";
+import { ProductIntro } from "@/app/components/ProductIntro";
 import { ProductMarquee } from "@/app/components/ProductMarquee";
 import { ProductStage } from "@/app/components/ProductStage";
 import { ShareActions } from "@/app/components/ShareActions";
@@ -24,7 +26,14 @@ export function ProductsView({ locale = "en" }: { locale?: Locale }) {
         <h1 className="mt-4 font-display text-[clamp(2.4rem,7vw,4.5rem)] leading-[0.95] tracking-tight">
           {m.productsPage.title}
         </h1>
-        <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted">{m.productsPage.lead}</p>
+        <PretextLines
+          text={m.productsPage.lead}
+          locale={locale}
+          className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted"
+        />
+      </section>
+      <section className="mx-auto max-w-6xl px-5 pb-12 sm:px-8">
+        <ProductIntro locale={locale} lead />
       </section>
       <section className="mx-auto max-w-6xl px-5 pb-12 sm:px-8">
         <CityPlanetFlagship locale={locale} />
@@ -72,7 +81,12 @@ export function ProductsView({ locale = "en" }: { locale?: Locale }) {
                             </span>
                           </a>
                           {item.note ? (
-                            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">{item.note}</p>
+                            <PretextLines
+                              text={item.note}
+                              locale={locale}
+                              tight
+                              className="mt-2 max-w-xl text-sm leading-relaxed text-muted"
+                            />
                           ) : null}
                           <div className="mt-3">
                             <ShareActions href={item.href} title={item.title} locale={locale} />

@@ -111,6 +111,21 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
         external: true,
         group: "Worlds",
       },
+      {
+        id: "share",
+        label: "Publish desk",
+        hint: "/share",
+        href: localizeHref("/share", locale),
+        group: "Garden",
+      },
+      {
+        id: "studio",
+        label: "Studio · jubit terminal",
+        hint: "jubit.ai/terminal",
+        href: links.jubitTerminal,
+        external: true,
+        group: "Studio",
+      },
     ];
     return [...pages, ...postItems, ...toolItems, ...productItems, ...actions];
   }, [posts, locale]);
