@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import type { PostMeta } from "@/lib/post-meta";
 import { localizeHref, stripLocale } from "@/lib/i18n";
+import { researchThemes } from "@/lib/research";
 import { links, liveProducts, nav, tools } from "@/lib/site";
 
 type Item = {
@@ -13,6 +14,9 @@ type Item = {
   href: string;
   external?: boolean;
   group: string;
+  summary?: string;
+  tags?: string[];
+  path?: string;
 };
 
 export function CommandPalette({ posts }: { posts: PostMeta[] }) {
@@ -35,9 +39,12 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
     const postItems: Item[] = posts.map((p) => ({
       id: `post-${p.slug}`,
       label: p.title,
-      hint: `${p.category} · /writing/${p.slug}`,
+      hint: `${p.category} · /${p.path}`,
       href: localizeHref(`/writing/${p.slug}`, locale),
       group: "Writing",
+      summary: p.summary || p.excerpt,
+      tags: p.tags,
+      path: p.path,
     }));
     const toolItems: Item[] = tools.map((t) => ({
       id: `tool-${t.id}`,
@@ -46,6 +53,8 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
       href: t.href,
       external: true,
       group: "Tools",
+      summary: t.note,
+      path: t.path,
     }));
     const productItems: Item[] = liveProducts.map((p) => ({
       id: `prod-${p.path}`,
@@ -54,6 +63,19 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
       href: p.href,
       external: true,
       group: "Products",
+      summary: p.note,
+      path: p.path,
+    }));
+    const themeItems: Item[] = researchThemes.map((theme) => ({
+      id: `theme-${theme.id}`,
+      label: theme.label,
+      hint: theme.tag,
+      href: theme.dseekUrl,
+      external: true,
+      group: "Research",
+      summary: theme.label,
+      tags: [theme.tag, "research"],
+      path: theme.dseekUrl.replace("https://", ""),
     }));
     const actions: Item[] = [
       {
@@ -142,19 +164,36 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
         external: true,
         group: "Studio",
       },
+      {
+        id: "rss",
+        label: "RSS",
+        hint: "/feed.xml",
+        href: "/feed.xml",
+        group: "Garden",
+        path: "feed.xml",
+        tags: ["rss", "feed"],
+      },
     ];
-    return [...pages, ...postItems, ...toolItems, ...productItems, ...actions];
+    return [...pages, ...postItems, ...themeItems, ...toolItems, ...productItems, ...actions];
   }, [posts, locale]);
 
   const filtered = useMemo(() => {
     const query = q.trim().toLowerCase();
     if (!query) return items;
-    return items.filter(
-      (item) =>
-        item.label.toLowerCase().includes(query) ||
-        item.hint.toLowerCase().includes(query) ||
-        item.group.toLowerCase().includes(query),
-    );
+    const words = query.split(/\s+/).filter(Boolean);
+    return items.filter((item) => {
+      const hay = [
+        item.label,
+        item.hint,
+        item.group,
+        item.summary ?? "",
+        item.path ?? "",
+        ...(item.tags ?? []),
+      ]
+        .join(" ")
+        .toLowerCase();
+      return words.every((word) => hay.includes(word));
+    });
   }, [items, q]);
 
   useEffect(() => {

@@ -42,7 +42,7 @@ export function LanguageSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-1 rounded-lg border border-hair px-2 py-1.5 text-[11px] font-semibold tracking-wide text-muted transition-colors hover:border-accent/40 hover:text-fg"
+        className="lang-toggle inline-flex items-center gap-1 rounded-lg border border-hair px-2.5 py-1.5 text-[11px] font-semibold tracking-wide text-muted transition-colors hover:border-accent/40 hover:text-fg"
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={m.language.label}
@@ -53,7 +53,7 @@ export function LanguageSwitcher() {
       {open ? (
         <ul
           role="listbox"
-          className="absolute right-0 z-50 mt-1 min-w-[10.5rem] overflow-hidden rounded-xl border border-hair bg-surface py-1 shadow-[0_12px_40px_rgba(0,0,0,0.45)]"
+          className="absolute right-0 z-50 mt-1 min-w-[10.5rem] overflow-hidden rounded-xl border border-hair bg-surface py-1 shadow-[0_16px_40px_rgba(0,0,0,0.28)]"
         >
           {locales.map((loc) => {
             const on = loc === locale;

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Yok Zhang</title>
+    <link>https://ichina.co</link>
+    <description>Hong Kong. Builds AI. Walks the rest. Writing and research from the garden.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 14 Aug 2026 08:19:51 GMT</lastBuildDate>
+    <item>
+      <title>What cannot be told</title>
+      <link>https://ichina.co/writing/what-cannot-be-told</link>
+      <guid isPermaLink="true">https://ichina.co/writing/what-cannot-be-told</guid>
+      <pubDate>Thu, 13 Aug 2026 16:00:00 GMT</pubDate>
+      <description>Some of it writes down. Most of it does not. The notes are the part that can be told. The tools are the rest — you walk them.</description>
+      <category>Life</category>
+    </item>
+    <item>
+      <title>Twenty-four cities, pinned as research</title>
+      <link>https://ichina.co/writing/city-planets</link>
+      <guid isPermaLink="true">https://ichina.co/writing/city-planets</guid>
+      <pubDate>Wed, 12 Aug 2026 16:00:00 GMT</pubDate>
+      <description>24 real cities, rebuilt as tiny planets from open map data. 393 planets. 4.5 million building footprints. A garden pin — the desk is dseek.</description>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Tiny planets, walkable worlds</title>
+      <link>https://ichina.co/writing/walkable-worlds</link>
+      <guid isPermaLink="true">https://ichina.co/writing/walkable-worlds</guid>
+      <pubDate>Tue, 11 Aug 2026 16:00:00 GMT</pubDate>
+      <description>Walk them, drive them, or take a delivery job. Tiny planets from real cities. The garden pins the theme; dseek holds the desk.</description>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Yok-Iso HK, on the research desk</title>
+      <link>https://ichina.co/writing/yok-iso-desk</link>
+      <guid isPermaLink="true">https://ichina.co/writing/yok-iso-desk</guid>
+      <pubDate>Mon, 10 Aug 2026 16:00:00 GMT</pubDate>
+      <description>The isometric Hong Kong map is a public surface. Building data from DATA.GOV.HK. The garden pins it; the desk stays on dseek.</description>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Data, held together</title>
+      <link>https://ichina.co/writing/held-together</link>
+      <guid isPermaLink="true">https://ichina.co/writing/held-together</guid>
+      <pubDate>Sun, 09 Aug 2026 16:00:00 GMT</pubDate>
+      <description>Scattered feeds, APIs, datasets and maps, held together and made seekable. dseek's own line. This garden repeats it, then points back.</description>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Scattered feeds, the terminal</title>
+      <link>https://ichina.co/writing/the-desk-and-the-feeds</link>
+      <guid isPermaLink="true">https://ichina.co/writing/the-desk-and-the-feeds</guid>
+      <pubDate>Sat, 08 Aug 2026 16:00:00 GMT</pubDate>
+      <description>The terminal is where scattered feeds sit still long enough to be asked a question. Research is a tab. This garden is a pin.</description>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Notes from the terminal</title>
+      <link>https://ichina.co/writing/notes-from-the-terminal</link>
+      <guid isPermaLink="true">https://ichina.co/writing/notes-from-the-terminal</guid>
+      <pubDate>Fri, 07 Aug 2026 16:00:00 GMT</pubDate>
+      <description>Writing lives in the dseek terminal research tab. This garden pins what left the desk — AI coding, maps, products that actually run.</description>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Open map data, 4.5 million footprints</title>
+      <link>https://ichina.co/writing/open-map-cities</link>
+      <guid isPermaLink="true">https://ichina.co/writing/open-map-cities</guid>
+      <pubDate>Thu, 06 Aug 2026 16:00:00 GMT</pubDate>
+      <description>The buildings are not invented. Open map data. Four and a half million footprints across twenty-four cities. Pin, then walk.</description>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Twenty-four cities, tiny enough to walk</title>
+      <link>https://ichina.co/writing/tiny-planets</link>
+      <guid isPermaLink="true">https://ichina.co/writing/tiny-planets</guid>
+      <pubDate>Tue, 21 Jul 2026 16:00:00 GMT</pubDate>
+      <description>gghere rebuilds 24 real cities as tiny walkable planets. 393 planets. 4.5M building footprints. No account. Runs in a tab.</description>
+      <category>Building</category>
+    </item>
+    <item>
+      <title>A pixel city, from public land</title>
+      <link>https://ichina.co/writing/yok-iso-hk</link>
+      <guid isPermaLink="true">https://ichina.co/writing/yok-iso-hk</guid>
+      <pubDate>Wed, 17 Jun 2026 16:00:00 GMT</pubDate>
+      <description>Yok-Iso HK is an isometric, pixel Hong Kong. Building data © HKSAR Lands Dept via DATA.GOV.HK. Rendered by Jubit.</description>
+      <category>Hong Kong</category>
+    </item>
+    <item>
+      <title>Scattered feeds, made seekable</title>
+      <link>https://ichina.co/writing/scattered-feeds</link>
+      <guid isPermaLink="true">https://ichina.co/writing/scattered-feeds</guid>
+      <pubDate>Fri, 01 May 2026 16:00:00 GMT</pubDate>
+      <description>dseek is a Data Intelligence Platform. Feeds, APIs, datasets and maps — held together and made seekable.</description>
+      <category>Building</category>
+    </item>
+    <item>
+      <title>The name I kept</title>
+      <link>https://ichina.co/writing/the-name-i-kept</link>
+      <guid isPermaLink="true">https://ichina.co/writing/the-name-i-kept</guid>
+      <pubDate>Wed, 11 Mar 2026 16:00:00 GMT</pubDate>
+      <description>m1zwell started as a game id. It stayed as a name. Father. Football. Philosophy. Hong Kong. The work is to ship.</description>
+      <category>Life</category>
+    </item>
+    <item>
+      <title>Research · City-planets</title>
+      <link>https://dseek.ai/terminal?tab=research</link>
+      <guid isPermaLink="true">https://dseek.ai/terminal?tab=research#city-planets</guid>
+      <description>City-planets</description>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Research · Walkable worlds</title>
+      <link>https://dseek.ai/terminal?tab=research</link>
+      <guid isPermaLink="true">https://dseek.ai/terminal?tab=research#walkable</guid>
+      <description>Walkable worlds</description>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Research · Yok-Iso HK</title>
+      <link>https://dseek.ai/hk</link>
+      <guid isPermaLink="true">https://dseek.ai/hk#yok-iso</guid>
+      <description>Yok-Iso HK</description>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Research · Scattered feeds</title>
+      <link>https://dseek.ai/terminal?tab=research</link>
+      <guid isPermaLink="true">https://dseek.ai/terminal?tab=research#terminal</guid>
+      <description>Scattered feeds</description>
+      <category>Research</category>
+    </item>
+    <item>
+      <title>Research · Held together</title>
+      <link>https://dseek.ai/terminal?tab=research</link>
+      <guid isPermaLink="true">https://dseek.ai/terminal?tab=research#held-together</guid>
+      <description>Held together</description>
+      <category>Research</category>
+    </item>
+  </channel>
+</rss>

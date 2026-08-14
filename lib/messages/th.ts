@@ -125,6 +125,8 @@ export const th: Messages = {
     themes: "ธีมงานวิจัย",
     deskHint: "หมุดธีมสาธารณะ โต๊ะสดคือ dseek — สวนนี้ไม่แต่งชื่อบทความ",
     backToWriting: "← งานเขียนทั้งหมด",
+    minRead: "อ่าน {n} นาที",
+    contents: "สารบัญ",
   },
   join: {
     pickAWorld: "เลือกโลก",
@@ -173,6 +175,7 @@ export const th: Messages = {
     openGghere: "เดิน Central Belt ↗",
     openDseek: "เปิด dseek",
     openPlanet: "เปิดดาวเคราะห์ ↗",
+    rss: "RSS",
   },
 
   channels: {

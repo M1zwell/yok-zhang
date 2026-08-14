@@ -37,6 +37,9 @@ export function seo({
     alternates: {
       canonical: url,
       languages,
+      types: {
+        "application/rss+xml": "https://ichina.co/feed.xml",
+      },
     },
     openGraph: {
       title,

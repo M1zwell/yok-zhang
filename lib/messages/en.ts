@@ -125,6 +125,8 @@ export const en = {
     themes: "Research themes",
     deskHint: "Pins of public themes. The live desk is dseek — this garden does not invent article titles.",
     backToWriting: "← All writing",
+    minRead: "{n} min read",
+    contents: "Contents",
   },
   join: {
     pickAWorld: "Pick a world",
@@ -173,6 +175,7 @@ export const en = {
     openGghere: "Walk Central Belt ↗",
     openDseek: "Open dseek",
     openPlanet: "Open planet ↗",
+    rss: "RSS",
   },
 
   channels: {

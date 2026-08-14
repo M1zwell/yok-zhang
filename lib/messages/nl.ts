@@ -126,6 +126,8 @@ export const nl: Messages = {
     themes: "Researchthema's",
     deskHint: "Pinnen van publieke thema's. De live desk is dseek — deze tuin verzint geen artikeltitels.",
     backToWriting: "← Al het schrijven",
+    minRead: "{n} min lezen",
+    contents: "Inhoud",
   },
   join: {
     pickAWorld: "Kies een wereld",
@@ -174,6 +176,7 @@ export const nl: Messages = {
     openGghere: "Loop Central Belt ↗",
     openDseek: "Open dseek",
     openPlanet: "Open planeet ↗",
+    rss: "RSS",
   },
 
   channels: {

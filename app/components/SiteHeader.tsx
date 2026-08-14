@@ -26,7 +26,7 @@ export function SiteHeader() {
 
   return (
     <header className="glass-header sticky top-0 z-40 border-b border-hair">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3 sm:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-2.5 sm:px-8">
         <div className="flex min-w-0 items-center gap-3">
           <Link href={href("/")} className="shrink-0" aria-label="Yok Zhang garden home">
             <LogoMark size={34} />
@@ -53,7 +53,7 @@ export function SiteHeader() {
             </a>
           </div>
         </div>
-        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex">
           {nav.map((item) => {
             const writing = item.href === "/writing";
             const on =
@@ -69,11 +69,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={href(item.href)}
-                className={
-                  on
-                    ? "rounded-lg px-3 py-1.5 text-[12px] font-semibold text-accent"
-                    : "rounded-lg px-3 py-1.5 text-[12px] font-medium text-muted transition-colors hover:text-fg"
-                }
+                className={on ? "nav-link is-on" : "nav-link"}
               >
                 {item.label}
               </Link>
@@ -83,12 +79,12 @@ export function SiteHeader() {
             href={links.gghereWorlds}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg px-3 py-1.5 text-[12px] font-medium text-muted transition-colors hover:text-fg"
+            className="nav-link"
           >
             {m.nav.worlds}
           </a>
         </nav>
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex min-w-0 shrink-0 items-center gap-1.5 sm:gap-2">
           <ThemeToggle />
           <LanguageSwitcher />
           <button
@@ -111,7 +107,7 @@ export function SiteHeader() {
       </div>
       <nav
         aria-label="Sections"
-        className="flex gap-4 overflow-x-auto border-t border-hair px-5 py-2 lg:hidden"
+        className="nav-rail scroll-x flex gap-4 border-t border-hair px-5 lg:hidden"
       >
         <button
           type="button"

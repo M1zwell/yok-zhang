@@ -24,13 +24,13 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
   return (
     <main>
       <section className="relative overflow-hidden">
-        <div className="relative mx-auto max-w-5xl px-5 pt-28 pb-10 sm:px-8 sm:pt-36 sm:pb-14">
+        <div className="relative mx-auto max-w-5xl px-5 pt-24 pb-8 sm:px-8 sm:pt-32 sm:pb-12">
           <div className="hero-enter">
             <PretextLines
               text={m.heroLine}
               as="h1"
               locale={locale}
-              className="font-display text-[clamp(2.4rem,7vw,4.6rem)] leading-[1.02] tracking-tight text-fg"
+              className="font-display text-[clamp(2.4rem,7vw,4.6rem)] leading-[1.04] tracking-tight text-fg"
             />
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <a

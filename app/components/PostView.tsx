@@ -15,6 +15,7 @@ export function PostView({ slug, locale = "en" }: { slug: string; locale?: Local
   const writingIndex = localizeHref("/writing", locale);
   const tagHref = (tag: string) => localizeHref(`/writing?tag=${encodeURIComponent(tag)}`, locale);
   const sharePath = localizeHref(`/writing/${post.slug}`, locale);
+  const minRead = m.writingPage.minRead.replace("{n}", String(post.readingTime.minutes));
 
   return (
     <main className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
@@ -25,11 +26,13 @@ export function PostView({ slug, locale = "en" }: { slug: string; locale?: Local
         <span className="mx-2 text-muted">/</span>
         {post.category}
       </p>
-      <h1 className="mt-4 font-display text-[clamp(2.1rem,6vw,3.6rem)] leading-[1.02] tracking-tight">
+      <h1 className="mt-4 font-display text-[clamp(2.1rem,6vw,3.6rem)] leading-[1.04] tracking-tight">
         {post.title}
       </h1>
       <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-muted">
         <time dateTime={post.date}>{formatDate(post.date)}</time>
+        <span aria-hidden>·</span>
+        <span>{minRead}</span>
         <span aria-hidden>·</span>
         <span>Yok Zhang</span>
         {post.source ? (
@@ -55,6 +58,20 @@ export function PostView({ slug, locale = "en" }: { slug: string; locale?: Local
       <div className="mt-6">
         <ShareActions path={sharePath} title={post.title} locale={locale} />
       </div>
+      {post.toc.length > 0 ? (
+        <nav className="toc-rail mt-10" aria-label={m.writingPage.contents}>
+          <p className="kicker">{m.writingPage.contents}</p>
+          <ol className="mt-3 space-y-1.5">
+            {post.toc.map((item) => (
+              <li key={item.id} className={item.depth > 2 ? "pl-4" : ""}>
+                <a href={`#${item.id}`} className="text-sm text-secondary transition-colors hover:text-accent">
+                  {item.value}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      ) : null}
       <article className="prose-garden mt-12" dangerouslySetInnerHTML={{ __html: post.html }} />
       {(post.embedResearch || post.category === "Research") && (
         <div className="mt-14">

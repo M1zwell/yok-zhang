@@ -125,6 +125,8 @@ export const ko: Messages = {
     themes: "연구 주제",
     deskHint: "공개 주제의 핀. 라이브 데스크는 dseek — 이 정원은 기사 제목을 지어내지 않는다.",
     backToWriting: "← 모든 글",
+    minRead: "읽는 시간 {n}분",
+    contents: "목차",
   },
   join: {
     pickAWorld: "월드를 고르세요",
@@ -173,6 +175,7 @@ export const ko: Messages = {
     openGghere: "Central Belt 걷기 ↗",
     openDseek: "dseek 열기",
     openPlanet: "행성 열기 ↗",
+    rss: "RSS",
   },
 
   channels: {

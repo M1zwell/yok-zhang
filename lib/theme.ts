@@ -4,7 +4,7 @@ export const themeStorageKey = "theme";
 export const defaultTheme: Theme = "dark";
 export const themeColors: Record<Theme, string> = {
   dark: "#0B2422",
-  light: "#FAF5F7",
+  light: "#F3EFE6",
 };
 
 export function isTheme(value: string | null | undefined): value is Theme {

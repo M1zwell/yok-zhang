@@ -123,6 +123,8 @@ export const zhHans: Messages = {
     themes: "研究主题",
     deskHint: "公开主题的园地别针。现场书桌是 dseek —— 这座园地不编造文章标题。",
     backToWriting: "← 全部写作",
+    minRead: "{n} 分钟阅读",
+    contents: "目录",
   },
   join: {
     pickAWorld: "选一个世界",
@@ -171,6 +173,7 @@ export const zhHans: Messages = {
     openGghere: "走进中环带 ↗",
     openDseek: "打开 dseek",
     openPlanet: "打开行星 ↗",
+    rss: "RSS",
   },
 
   channels: {

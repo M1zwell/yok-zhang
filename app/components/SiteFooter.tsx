@@ -6,6 +6,7 @@ import { EnterButton } from "@/app/components/JoinFlow";
 import { localizeHref, stripLocale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
 import { channels, emails } from "@/lib/channels";
+import { feedPath } from "@/lib/feed-meta";
 import { links } from "@/lib/site";
 
 export function SiteFooter() {
@@ -14,12 +15,12 @@ export function SiteFooter() {
   const m = t(locale);
 
   return (
-    <footer className="border-t border-hair bg-surface">
-      <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8">
+    <footer className="border-t border-hair bg-surface/80">
+      <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="font-display text-lg text-fg">{m.footer.worldsLive}</p>
-            <p className="mt-1 max-w-md text-sm text-muted">{m.footer.peer}</p>
+            <p className="font-display text-lg tracking-tight text-fg">{m.footer.worldsLive}</p>
+            <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">{m.footer.peer}</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <EnterButton className="btn btn-primary cta-pop" />
@@ -37,7 +38,7 @@ export function SiteFooter() {
             </a>
           </div>
         </div>
-        <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-hair pt-6 text-sm">
+        <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2.5 border-t border-hair pt-6 text-[13px]">
           <p className="text-muted">© 2026 Yok Zhang</p>
           <a href={links.github} className="font-mono text-accent hover:text-accent-hover">
             m1zwell
@@ -72,6 +73,9 @@ export function SiteFooter() {
           </a>
           <a href={links.jubuddyPlanet} className="text-muted hover:text-fg">
             jubuddy.com/planet
+          </a>
+          <a href={feedPath} className="font-mono text-[11px] tracking-wide text-muted hover:text-accent">
+            {m.footer.rss}
           </a>
           <span className="text-muted">
             <span className="mr-1 text-accent">香港</span>

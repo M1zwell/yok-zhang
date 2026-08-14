@@ -3,8 +3,11 @@ import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 import {
-  CATEGORIES,
+  estimateReadingTime,
+  extractToc,
   isCategory,
+  isoDate,
+  slugifyHeading,
   type Category,
   type Post,
   type PostMeta,
@@ -17,19 +20,33 @@ const POSTS_DIR = path.join(process.cwd(), "content/posts");
 
 marked.setOptions({ gfm: true, breaks: false });
 
+function withHeadingIds(html: string): string {
+  return html.replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (_all, depth: string, inner: string) => {
+    const id = slugifyHeading(inner.replace(/<[^>]+>/g, "")) || "section";
+    return `<h${depth} id="${id}">${inner}</h${depth}>`;
+  });
+}
+
 function readFile(file: string): Post {
   const raw = fs.readFileSync(path.join(POSTS_DIR, file), "utf8");
   const { data, content } = matter(raw);
   const slug = file.replace(/\.mdx?$/, "");
   const category = isCategory(data.category) ? data.category : "Building";
-  const html = marked.parse(content, { async: false }) as string;
+  const excerpt = String(data.excerpt ?? "");
+  const html = withHeadingIds(marked.parse(content, { async: false }) as string);
+  const readingTime = estimateReadingTime(`${String(data.title ?? slug)}\n${excerpt}\n${content}`);
+  const toc = extractToc(content);
   return {
     slug,
     title: String(data.title ?? slug),
-    date: String(data.date ?? "2026-01-01"),
+    date: isoDate(data.date),
     category,
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
-    excerpt: String(data.excerpt ?? ""),
+    excerpt,
+    summary: excerpt,
+    path: `writing/${slug}`,
+    readingTime,
+    toc,
     embedResearch: Boolean(data.embedResearch),
     source: data.source ? String(data.source) : undefined,
     sourceUrl: data.sourceUrl ? String(data.sourceUrl) : undefined,

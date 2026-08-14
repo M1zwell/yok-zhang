@@ -35,8 +35,8 @@ export function LiveFrame({
   const showFrame = embeddable && !failed;
 
   return (
-    <div className="overflow-hidden rounded-[16px] border border-hair bg-surface shadow-[0_0_40px_rgba(20,184,166,0.08),0_0_80px_rgba(255,71,120,0.05)]">
-      <div className="flex items-center gap-3 border-b border-hair bg-elevated px-3 py-2.5 sm:px-4">
+    <div className="live-chrome">
+      <div className="live-chrome-bar">
         <span className="hidden gap-1 sm:flex" aria-hidden>
           <span className="size-2 rounded-full bg-tertiary" />
           <span className="size-2 rounded-full bg-spark/70" />
@@ -44,19 +44,15 @@ export function LiveFrame({
         </span>
         <BrandMark brand={brand} size={22} />
         <span className="min-w-0 flex-1 truncate font-display text-base text-fg">{title}</span>
-        {present ? (
-          <span className="shrink-0 rounded-full border border-accent/35 bg-accent/10 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-accent">
-            presenting {present}
-          </span>
-        ) : null}
+        {present ? <span className="present-chip shrink-0">presenting {present}</span> : null}
         <span className="hidden truncate font-mono text-[10px] text-muted lg:inline">{path}</span>
         <a
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 text-[11px] font-semibold text-accent transition-colors hover:text-accent-hover"
+          className="open-live-chip shrink-0"
         >
-          Open live
+          Open live <span aria-hidden>↗</span>
         </a>
       </div>
       <div className={`relative ${heightClass} bg-bg`}>
@@ -79,17 +75,17 @@ export function LiveFrame({
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute right-3 bottom-3 z-10 rounded-full border border-hair/80 bg-bg/65 px-2.5 py-1 text-[10px] font-semibold text-muted backdrop-blur-sm transition-colors hover:border-accent/40 hover:text-accent"
+              className="open-live-chip absolute right-3 bottom-3 z-10"
             >
               Open live <span aria-hidden>↗</span>
             </a>
           </>
         ) : (
-          <div className="absolute inset-0 flex flex-col items-start justify-end bg-[radial-gradient(ellipse_at_top,_rgba(20,184,166,0.12),_transparent_55%),radial-gradient(ellipse_at_bottom_right,_rgba(255,71,120,0.1),_transparent_50%)] px-6 py-8 sm:px-10 sm:py-10">
+          <div className="frame-fallback">
             <BrandMark brand={brand} size={48} className="logo-float mb-8 opacity-90" />
             <p className="font-display text-3xl tracking-tight text-fg sm:text-4xl">{title}</p>
             {present ? (
-              <p className="mt-2 text-[11px] font-semibold tracking-wide text-accent">presenting {present}</p>
+              <p className="present-chip mt-3">presenting {present}</p>
             ) : null}
             {note ? (
               <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted">{note}</p>
@@ -117,7 +113,7 @@ export function ToolStage({ tools }: { tools: Tool[] }) {
 
   return (
     <div>
-      <div role="tablist" aria-label="Live tools" className="mb-4 flex gap-2 overflow-x-auto pb-1">
+      <div role="tablist" aria-label="Live tools" className="scroll-x mb-4 flex gap-2 pb-1">
         {tools.map((tool) => {
           const on = tool.id === active.id;
           return (
@@ -127,11 +123,7 @@ export function ToolStage({ tools }: { tools: Tool[] }) {
               role="tab"
               aria-selected={on}
               onClick={() => setActiveId(tool.id)}
-              className={
-                on
-                  ? "shrink-0 rounded-xl border border-accent/60 bg-accent/10 px-3 py-2 text-[11px] font-semibold tracking-wide text-accent shadow-[0_0_16px_rgba(20,184,166,0.15)]"
-                  : "shrink-0 rounded-xl border border-hair px-3 py-2 text-[11px] font-medium tracking-wide text-muted transition-colors hover:border-accent/40 hover:text-fg"
-              }
+              className={on ? "tool-tab is-on" : "tool-tab"}
             >
               {tool.title}
             </button>

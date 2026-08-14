@@ -111,8 +111,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#FAF5F7" },
-    { media: "(prefers-color-scheme: dark)", color: "#0B2422" },
+    { media: "(prefers-color-scheme: light)", color: "#F3EFE6" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A1F1D" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -144,6 +144,7 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem("theme");if(t!=="light")t="dark";var r=document.documentElement;r.classList.remove("light","dark");r.classList.add(t);r.style.colorScheme=t;}catch(e){}})();`,
           }}
         />
+        <link rel="alternate" type="application/rss+xml" title="Yok Zhang" href="https://ichina.co/feed.xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

@@ -125,6 +125,8 @@ export const ja: Messages = {
     themes: "研究テーマ",
     deskHint: "公開テーマのピン。ライブデスクは dseek —— この庭は記事タイトルを捏造しない。",
     backToWriting: "← すべての文章",
+    minRead: "{n} 分で読める",
+    contents: "目次",
   },
   join: {
     pickAWorld: "ワールドを選ぶ",
@@ -173,6 +175,7 @@ export const ja: Messages = {
     openGghere: "Central Belt を歩く ↗",
     openDseek: "dseek を開く",
     openPlanet: "惑星を開く ↗",
+    rss: "RSS",
   },
 
   channels: {

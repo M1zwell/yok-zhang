@@ -74,7 +74,7 @@ export function HkDistrictJump() {
                       href={d.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-lg border border-hair px-2 py-1 text-[12px] text-secondary transition-colors hover:border-accent/50 hover:text-accent"
+                      className="inline-flex min-h-9 items-center rounded-lg border border-hair px-2.5 py-1.5 text-[12px] text-secondary transition-colors hover:border-accent/50 hover:text-accent"
                     >
                       {d.name}
                     </a>
