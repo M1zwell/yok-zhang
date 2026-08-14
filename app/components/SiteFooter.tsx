@@ -26,7 +26,7 @@ export function SiteFooter() {
             <a href={links.gghereHk} className="btn btn-ghost">
               {m.footer.openGghere}
             </a>
-            <a href={links.jubuddyPlanet} className="btn btn-ghost">
+            <a href={links.gghereWorlds} className="btn btn-ghost">
               {m.footer.openPlanet}
             </a>
             <a href={links.dseekHome} className="btn btn-ghost">
