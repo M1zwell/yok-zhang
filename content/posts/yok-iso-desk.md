@@ -12,4 +12,4 @@ Yok-Iso HK is an isometric, pixel Hong Kong. Building data © The Government of 
 
 It is a map you jump, not a metaphor. Central. Tsim Sha Tsui. Mong Kok. The Tools page in this garden is a jump list into [dseek.ai/hk](https://dseek.ai/hk).
 
-The research pin is the same city, seen from the desk: scattered feeds and maps held together. Live writing stays on [dseek.ai/research](https://dseek.ai/research) and the [terminal research tab](https://dseek.ai/terminal?tab=research). This page is only the pin.
+The research pin is the same city, seen from the desk: scattered feeds and maps held together. Live writing stays on the [terminal research tab](https://dseek.ai/terminal?tab=research). This page is only the pin.

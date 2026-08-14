@@ -225,7 +225,7 @@ export const zhHans: Messages = {
     youtubePlaceholder: "https://www.youtube.com/watch?v=…",
     addYoutube: "加入 YouTube",
     sourcesTitle: "NotebookLM 级来源",
-    sourcesLead: "钉自 dseek.ai/research/featured.json —— 真实公开主题。在 dseek 打开。不编造标题。",
+    sourcesLead: "钉自终端研究页 / featured 源。在 dseek.ai/terminal?tab=research 打开。",
     localLine: "园地本地列出的工作室产出。在 jubit.ai/terminal 生成或下载。",
     kinds: {
       ppt: "PPT",

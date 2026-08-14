@@ -227,7 +227,7 @@ export const ko: Messages = {
     youtubePlaceholder: "https://www.youtube.com/watch?v=…",
     addYoutube: "YouTube 추가",
     sourcesTitle: "NotebookLM급 출처",
-    sourcesLead: "dseek.ai/research/featured.json에서 핀 — 실제 공개 테마. dseek에서 엽니다. 제목을 지어내지 않습니다.",
+    sourcesLead: "터미널 리서치 탭 / featured 피드에서 핀. dseek.ai/terminal?tab=research에서 엽니다.",
     localLine: "정원에 로컬로 나열된 스튜디오 산출. 생성과 다운로드는 jubit.ai/terminal.",
     kinds: {
       ppt: "PPT",

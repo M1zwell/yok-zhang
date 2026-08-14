@@ -10,7 +10,7 @@ export type ResearchTheme = {
 
 /**
  * Garden pins of real public themes. Source of truth for live writing:
- * https://dseek.ai/research (and the terminal research tab).
+ * https://dseek.ai/terminal?tab=research
  * Do not invent dseek article titles here.
  */
 export const researchThemes: ResearchTheme[] = [
@@ -18,14 +18,14 @@ export const researchThemes: ResearchTheme[] = [
     id: "city-planets",
     label: "City-planets",
     tag: "city-planets",
-    dseekUrl: links.dseekResearchPage,
+    dseekUrl: links.dseekResearch,
     gghereUrl: links.gghereWorlds,
   },
   {
     id: "walkable",
     label: "Walkable worlds",
     tag: "walkable",
-    dseekUrl: links.dseekResearchPage,
+    dseekUrl: links.dseekResearch,
     gghereUrl: links.gghereWorlds,
   },
   {
@@ -44,11 +44,12 @@ export const researchThemes: ResearchTheme[] = [
     id: "held-together",
     label: "Held together",
     tag: "seekable",
-    dseekUrl: links.dseekResearchPage,
+    dseekUrl: links.dseekResearch,
   },
 ];
 
 export const dseekDesk = {
-  research: links.dseekResearchPage,
+  research: links.dseekResearch,
   terminalResearch: links.dseekResearch,
+  symbol: links.dseekResearchSymbol,
 } as const;

@@ -7,7 +7,7 @@ import type { Locale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
 import { getAllPosts, getAllTags } from "@/lib/posts";
 import { researchThemes } from "@/lib/research";
-import { research } from "@/lib/site";
+import { links, research } from "@/lib/site";
 
 export function WritingView({ locale = "en" }: { locale?: Locale }) {
   const posts = getAllPosts();
@@ -29,6 +29,17 @@ export function WritingView({ locale = "en" }: { locale?: Locale }) {
         <StudioShelf locale={locale} />
       </div>
       <div className="mt-16">
+        <p className="mb-6 text-sm text-muted">
+          Example:{" "}
+          <a
+            href={links.dseekResearchSymbol}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-accent hover:text-accent-hover"
+          >
+            dseek.ai/terminal?tab=research&symbol=00700
+          </a>
+        </p>
         <Suspense fallback={<p className="text-sm text-muted">{m.writingPage.loading}</p>}>
           <BlogIndex posts={posts} tags={tags} themes={researchThemes}>
             <LiveFrame

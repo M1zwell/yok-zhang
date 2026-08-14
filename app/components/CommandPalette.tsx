@@ -88,6 +88,22 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
         group: "Writing",
       },
       {
+        id: "dseek-research",
+        label: "Research tab",
+        hint: "dseek.ai/terminal · research",
+        href: links.dseekResearch,
+        external: true,
+        group: "Actions",
+      },
+      {
+        id: "dseek-00700",
+        label: "Research · 00700",
+        hint: "dseek.ai/terminal?tab=research&symbol=00700",
+        href: links.dseekResearchSymbol,
+        external: true,
+        group: "Actions",
+      },
+      {
         id: "gghere",
         label: "Open gghere",
         hint: "gghere.com",

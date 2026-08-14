@@ -2,7 +2,10 @@ import Link from "next/link";
 import { HeroCanvas } from "@/app/components/HeroCanvas";
 import { JoinFlow } from "@/app/components/JoinFlow";
 import { PostCard } from "@/app/components/PostCard";
+import { PretextLines } from "@/app/components/PretextLines";
 import { ProductIntro } from "@/app/components/ProductIntro";
+import { ProductMarquee } from "@/app/components/ProductMarquee";
+import { QuoteRotator } from "@/app/components/QuoteRotator";
 import { Reveal } from "@/app/components/Reveal";
 import type { Locale } from "@/lib/i18n";
 import { localizeHref } from "@/lib/i18n";
@@ -25,9 +28,12 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
         <HeroCanvas />
         <div className="relative mx-auto max-w-5xl px-5 pt-28 pb-10 sm:px-8 sm:pt-36 sm:pb-14">
           <div className="hero-enter">
-            <h1 className="font-display text-[clamp(2.4rem,7vw,4.6rem)] leading-[1.02] tracking-tight text-fg">
-              {m.heroLine}
-            </h1>
+            <PretextLines
+              text={m.heroLine}
+              as="h1"
+              locale={locale}
+              className="font-display text-[clamp(2.4rem,7vw,4.6rem)] leading-[1.02] tracking-tight text-fg"
+            />
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <a
                 href={links.gghereWorlds}
@@ -41,12 +47,17 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
                 {m.nav.writing}
               </Link>
             </div>
+            <div className="mt-8">
+              <QuoteRotator />
+            </div>
           </div>
         </div>
         <div className="relative mx-auto max-w-6xl px-5 pb-4 sm:px-8">
           <ProductIntro locale={locale} />
         </div>
       </section>
+
+      <ProductMarquee />
 
       <section className="home-band">
         <div className="mx-auto max-w-5xl px-5 sm:px-8">

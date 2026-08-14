@@ -94,7 +94,7 @@ export function HeroCanvas() {
           y: cy + 40,
           r: 9,
           orbit: 118,
-          speed: 0.0011,
+          speed: 0.0015,
           angle: 1.2,
           color: magenta,
           ring: false,
@@ -105,7 +105,7 @@ export function HeroCanvas() {
           y: cy - 90,
           r: 7,
           orbit: 86,
-          speed: 0.0017,
+          speed: 0.0022,
           angle: 3.4,
           color: purple,
           ring: true,
@@ -116,14 +116,25 @@ export function HeroCanvas() {
           y: cy + 110,
           r: 5,
           orbit: 154,
-          speed: 0.0008,
+          speed: 0.0012,
           angle: 5.1,
           color: teal,
           ring: false,
           moons: [],
         },
+        {
+          x: cx + 90,
+          y: cy + 70,
+          r: 4,
+          orbit: 198,
+          speed: 0.0007,
+          angle: 0.6,
+          color: pink,
+          ring: false,
+          moons: [],
+        },
       );
-      for (let i = 0; i < 110; i++) {
+      for (let i = 0; i < 170; i++) {
         dust.push({
           x: Math.random() * w,
           y: Math.random() * h,
@@ -184,8 +195,9 @@ export function HeroCanvas() {
     const draw = (t: number) => {
       ctx.clearRect(0, 0, w, h);
       const haze = ctx.createRadialGradient(w * 0.7, h * 0.45, 20, w * 0.7, h * 0.45, Math.max(w, h) * 0.55);
-      haze.addColorStop(0, "rgba(11,36,34,0.45)");
-      haze.addColorStop(0.45, "rgba(20,184,166,0.05)");
+      haze.addColorStop(0, "rgba(11,36,34,0.52)");
+      haze.addColorStop(0.32, "rgba(255,71,120,0.07)");
+      haze.addColorStop(0.55, "rgba(20,184,166,0.08)");
       haze.addColorStop(1, "rgba(10,10,10,0)");
       ctx.fillStyle = haze;
       ctx.fillRect(0, 0, w, h);

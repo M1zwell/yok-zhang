@@ -8,7 +8,9 @@ source: dseek
 sourceUrl: https://dseek.ai/terminal?tab=research
 ---
 
-The terminal is not a blog. It is a place feeds, APIs, and maps sit still long enough to be asked a question. Research is a tab on that desk — [dseek.ai/terminal?tab=research](https://dseek.ai/terminal?tab=research) — and a route of its own at [dseek.ai/research](https://dseek.ai/research).
+The terminal is not a blog. It is a place feeds, APIs, and maps sit still long enough to be asked a question. Research is a tab on that desk — [dseek.ai/terminal?tab=research](https://dseek.ai/terminal?tab=research).
+
+A concrete open: [00700 on the research tab](https://dseek.ai/terminal?tab=research&symbol=00700).
 
 I already keep a frame of that tab on the writing page. These notes are what left the desk. They are not a second CMS.
 

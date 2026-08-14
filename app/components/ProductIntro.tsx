@@ -71,6 +71,13 @@ export function ProductIntro({ locale = "en" }: { locale?: Locale }) {
 
   return (
     <section className="intro-wrap" aria-label={m.intro.kicker}>
+      <div className="pointer-events-none absolute -right-2 -top-10 hidden lg:block" aria-hidden>
+        <span className="worlds-planet intro-orbit-planet mx-auto block">
+          <span className="worlds-ring orbit-ring" />
+          <span className="worlds-globe logo-float" />
+          <span className="worlds-spark orbit-spark" />
+        </span>
+      </div>
       <div className="intro-reel intro-reel-player">
         {reduce === null ? (
           <div className="intro-player-slot" aria-hidden />

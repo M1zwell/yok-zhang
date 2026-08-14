@@ -52,7 +52,8 @@ export const links = {
   dseekLogin: "https://dseek.ai/login",
   dseekTerminal: "https://dseek.ai/terminal",
   dseekResearch: "https://dseek.ai/terminal?tab=research",
-  dseekResearchPage: "https://dseek.ai/research",
+  dseekResearchPage: "https://dseek.ai/terminal?tab=research",
+  dseekResearchSymbol: "https://dseek.ai/terminal?tab=research&symbol=00700",
   dseekHk: "https://dseek.ai/hk",
   jubuddyHome: "https://jubuddy.com",
   jubuddyPlanet: "https://jubuddy.com/planet",
@@ -101,6 +102,16 @@ export const tools: Tool[] = [
     group: "dseek",
     embeddable: false,
     embedSrc: "https://dseek.ai/terminal",
+  },
+  {
+    id: "research",
+    title: "dseek research",
+    href: "https://dseek.ai/terminal?tab=research",
+    path: "dseek.ai/terminal",
+    group: "dseek",
+    note: "Research lives on the terminal tab. Example: 00700.",
+    embeddable: false,
+    embedSrc: "https://dseek.ai/terminal?tab=research",
   },
   {
     id: "hk",
@@ -170,10 +181,10 @@ export const stageTools: Tool[] = stageIds
 
 export const research = {
   title: "Research",
-  href: "https://dseek.ai/research",
-  path: "dseek.ai/research",
+  href: "https://dseek.ai/terminal?tab=research",
+  path: "dseek.ai/terminal",
   embeddable: false,
-  embedSrc: "https://dseek.ai/research",
+  embedSrc: "https://dseek.ai/terminal?tab=research",
 };
 
 export const joinDestinations: JoinDestination[] = [

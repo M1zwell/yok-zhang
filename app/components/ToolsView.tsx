@@ -24,6 +24,14 @@ export function ToolsView({ locale = "en" }: { locale?: Locale }) {
           <a href={links.dseekHome} className="text-accent hover:text-accent-hover">
             dseek
           </a>
+          . Research lives on the{" "}
+          <a href={links.dseekResearch} className="text-accent hover:text-accent-hover">
+            terminal tab
+          </a>
+          — example{" "}
+          <a href={links.dseekResearchSymbol} className="font-mono text-accent hover:text-accent-hover">
+            00700
+          </a>
           .
         </p>
       </section>

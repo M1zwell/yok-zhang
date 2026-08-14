@@ -13,7 +13,7 @@ export function QuoteRotator() {
   }, []);
 
   return (
-    <blockquote className="max-w-2xl font-display text-[clamp(1.15rem,2.4vw,1.65rem)] leading-snug text-secondary">
+    <blockquote className="quiet-quote max-w-2xl font-display text-[15px] leading-snug text-muted sm:text-[16px]">
       <span className="text-spark-purple" aria-hidden>
         “
       </span>
