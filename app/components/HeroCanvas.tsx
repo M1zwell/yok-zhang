@@ -57,9 +57,8 @@ export function HeroCanvas() {
     const sparks: Spark[] = [];
 
     const resize = () => {
-      const parent = canvas.parentElement;
-      w = parent?.clientWidth ?? window.innerWidth;
-      h = parent?.clientHeight ?? 520;
+      w = window.innerWidth;
+      h = window.innerHeight;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
@@ -134,7 +133,7 @@ export function HeroCanvas() {
           moons: [],
         },
       );
-      for (let i = 0; i < 170; i++) {
+      for (let i = 0; i < 230; i++) {
         dust.push({
           x: Math.random() * w,
           y: Math.random() * h,
@@ -194,12 +193,19 @@ export function HeroCanvas() {
 
     const draw = (t: number) => {
       ctx.clearRect(0, 0, w, h);
-      const haze = ctx.createRadialGradient(w * 0.7, h * 0.45, 20, w * 0.7, h * 0.45, Math.max(w, h) * 0.55);
-      haze.addColorStop(0, "rgba(11,36,34,0.52)");
-      haze.addColorStop(0.32, "rgba(255,71,120,0.07)");
-      haze.addColorStop(0.55, "rgba(20,184,166,0.08)");
+      const haze = ctx.createRadialGradient(w * 0.7, h * 0.42, 16, w * 0.7, h * 0.42, Math.max(w, h) * 0.62);
+      haze.addColorStop(0, "rgba(11,36,34,0.62)");
+      haze.addColorStop(0.26, "rgba(255,71,120,0.11)");
+      haze.addColorStop(0.48, "rgba(20,184,166,0.13)");
+      haze.addColorStop(0.7, "rgba(139,124,255,0.07)");
       haze.addColorStop(1, "rgba(10,10,10,0)");
       ctx.fillStyle = haze;
+      ctx.fillRect(0, 0, w, h);
+      const haze2 = ctx.createRadialGradient(w * 0.18, h * 0.78, 8, w * 0.18, h * 0.78, Math.max(w, h) * 0.38);
+      haze2.addColorStop(0, "rgba(255,71,120,0.08)");
+      haze2.addColorStop(0.45, "rgba(139,124,255,0.05)");
+      haze2.addColorStop(1, "rgba(10,10,10,0)");
+      ctx.fillStyle = haze2;
       ctx.fillRect(0, 0, w, h);
 
       for (const d of dust) {
@@ -216,7 +222,7 @@ export function HeroCanvas() {
         ctx.fill();
       }
       ctx.globalAlpha = 1;
-      if (Math.random() < 0.012 && sparks.length < 3) {
+      if (Math.random() < 0.016 && sparks.length < 4) {
         sparks.push({
           x: Math.random() * w * 0.6,
           y: Math.random() * h * 0.4,
@@ -259,14 +265,16 @@ export function HeroCanvas() {
     } else {
       raf = requestAnimationFrame(loop);
     }
-    window.addEventListener("resize", () => {
+    const onResize = () => {
       resize();
       seed();
-    });
+    };
+    window.addEventListener("resize", onResize);
     document.addEventListener("visibilitychange", onVis);
 
     return () => {
       cancelAnimationFrame(raf);
+      window.removeEventListener("resize", onResize);
       document.removeEventListener("visibilitychange", onVis);
     };
   }, []);
@@ -274,7 +282,7 @@ export function HeroCanvas() {
   return (
     <canvas
       ref={ref}
-      className="pointer-events-none absolute inset-0 h-full w-full"
+      className="pointer-events-none fixed inset-0 z-0 h-full w-full"
       aria-hidden
     />
   );

@@ -12,6 +12,7 @@ import {
 } from "next/font/google";
 import { CommandPalette } from "@/app/components/CommandPalette";
 import { CursorGlow } from "@/app/components/CursorGlow";
+import { SiteAtmosphere } from "@/app/components/SiteAtmosphere";
 import { FilmGrain } from "@/app/components/FilmGrain";
 import { JoinModal } from "@/app/components/JoinFlow";
 import { LocaleSync } from "@/app/components/LocaleSync";
@@ -141,19 +142,22 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Sans+TC:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Noto+Sans+KR:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&display=swap"
         />
       </head>
-      <body className="min-h-dvh bg-bg font-sans text-fg antialiased">
+      <body className="min-h-dvh font-sans text-fg antialiased">
+        <SiteAtmosphere />
         <LocaleSync />
+        <div className="relative z-10">
+          <a
+            href="#content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-accent focus:px-3 focus:py-2 focus:text-bg"
+          >
+            Skip to content
+          </a>
+          <SiteHeader />
+          <div id="content">{children}</div>
+          <SiteFooter />
+        </div>
         <FilmGrain />
         <CursorGlow />
-        <a
-          href="#content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-accent focus:px-3 focus:py-2 focus:text-bg"
-        >
-          Skip to content
-        </a>
-        <SiteHeader />
-        <div id="content">{children}</div>
-        <SiteFooter />
         <JoinModal />
         <CommandPalette posts={posts} />
       </body>

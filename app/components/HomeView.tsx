@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { HeroCanvas } from "@/app/components/HeroCanvas";
 import { JoinFlow } from "@/app/components/JoinFlow";
 import { PostCard } from "@/app/components/PostCard";
 import { PretextLines } from "@/app/components/PretextLines";
@@ -25,7 +24,6 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
   return (
     <main>
       <section className="relative overflow-hidden">
-        <HeroCanvas />
         <div className="relative mx-auto max-w-5xl px-5 pt-28 pb-10 sm:px-8 sm:pt-36 sm:pb-14">
           <div className="hero-enter">
             <PretextLines
