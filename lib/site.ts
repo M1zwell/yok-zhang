@@ -19,6 +19,7 @@ export type Tool = {
   href: string;
   path: string;
   note?: string;
+  present?: string;
   embeddable: boolean;
   embedSrc: string;
   group: string;
@@ -51,6 +52,7 @@ export const links = {
   dseekSignup: "https://dseek.ai/signup",
   dseekLogin: "https://dseek.ai/login",
   dseekTerminal: "https://dseek.ai/terminal",
+  dseekPredict: "https://dseek.ai/terminal?tab=predict",
   dseekResearch: "https://dseek.ai/terminal?tab=research",
   dseekResearchPage: "https://dseek.ai/terminal?tab=research",
   dseekResearchSymbol: "https://dseek.ai/terminal?tab=research&symbol=00700",
@@ -97,20 +99,23 @@ export const tools: Tool[] = [
   {
     id: "terminal",
     title: "dseek terminal",
-    href: "https://dseek.ai/terminal",
-    path: "dseek.ai/terminal",
+    href: "https://dseek.ai/terminal?tab=predict",
+    path: "dseek.ai/terminal?tab=predict",
     group: "dseek",
-    embeddable: false,
-    embedSrc: "https://dseek.ai/terminal",
+    present: "Polymarket",
+    note: "This frame presents the Predict / Polymarket workspace.",
+    embeddable: true,
+    embedSrc: "https://dseek.ai/terminal?tab=predict",
   },
   {
     id: "research",
     title: "dseek research",
     href: "https://dseek.ai/terminal?tab=research",
-    path: "dseek.ai/terminal",
+    path: "dseek.ai/terminal?tab=research",
     group: "dseek",
+    present: "Research desk",
     note: "Research lives on the terminal tab. Example: 00700.",
-    embeddable: false,
+    embeddable: true,
     embedSrc: "https://dseek.ai/terminal?tab=research",
   },
   {
@@ -120,8 +125,8 @@ export const tools: Tool[] = [
     path: "dseek.ai/hk",
     group: "dseek",
     note: "Isometric/pixel Hong Kong map. Building data © HKSAR Lands Dept via DATA.GOV.HK. Rendered by Jubit.",
-    embeddable: false,
-    embedSrc: "https://dseek.ai/hk",
+    embeddable: true,
+    embedSrc: "https://dseek.ai/data/life/isometric/",
   },
   {
     id: "jubit",
@@ -139,7 +144,7 @@ export const tools: Tool[] = [
     path: "jubuddy.com",
     group: "jubit",
     note: "theme factory; chatlab buddy in jubit universe.",
-    embeddable: false,
+    embeddable: true,
     embedSrc: "https://jubuddy.com",
   },
   {
@@ -149,7 +154,7 @@ export const tools: Tool[] = [
     path: "jubuddy.com/planet",
     group: "worlds",
     note: "Planet surface. City-planet sibling to gghere.com/worlds.",
-    embeddable: false,
+    embeddable: true,
     embedSrc: "https://jubuddy.com/planet",
   },
   {
@@ -159,7 +164,7 @@ export const tools: Tool[] = [
     path: "gghere.com/worlds",
     group: "worlds",
     note: "24 real cities, rebuilt as tiny planets you can walk. 393 planets. 4.5M building footprints. No account. Runs in a browser tab. Planet surface: jubuddy.com/planet.",
-    embeddable: false,
+    embeddable: true,
     embedSrc: "https://gghere.com/worlds",
   },
   {
@@ -182,8 +187,9 @@ export const stageTools: Tool[] = stageIds
 export const research = {
   title: "Research",
   href: "https://dseek.ai/terminal?tab=research",
-  path: "dseek.ai/terminal",
-  embeddable: false,
+  path: "dseek.ai/terminal?tab=research",
+  present: "Research desk",
+  embeddable: true,
   embedSrc: "https://dseek.ai/terminal?tab=research",
 };
 

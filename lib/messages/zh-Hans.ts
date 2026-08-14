@@ -107,9 +107,9 @@ export const zhHans: Messages = {
   toolsPage: {
     kicker: "默会",
     title: "工具",
-    lead: "写不下来的那部分。走一颗行星，跳一个区，打开终端。挡住 frame-ancestors 的主机留下外壳 —— 打开现场。",
-    inPlace: "就在这里",
-    inPlaceLead: "本页上能用的应用。主机拒绝嵌入时，外壳仍在。",
+    lead: "写不下来的那部分。走一颗行星，跳一个区，打开终端。终端呈现 Polymarket（?tab=predict）。研究呈现研究台。",
+    inPlace: "正在呈现",
+    inPlaceLead: "现场应用，嵌在这一页。终端打开 Polymarket。研究打开研究台。",
   },
   writingPage: {
     title: "写作",

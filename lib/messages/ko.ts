@@ -109,9 +109,9 @@ export const ko: Messages = {
   toolsPage: {
     kicker: "암묵",
     title: "도구",
-    lead: "말할 수 없는 부분. 행성을 걷고, 구역으로 점프하고, 터미널을 연다. frame-ancestors를 막는 호스트는 테두리만 남긴다 — 라이브를 여세요.",
-    inPlace: "이 자리에서",
-    inPlaceLead: "이 페이지에서 돌아가는 앱. 호스트가 임베드를 거절해도 테두리는 남는다.",
+    lead: "말할 수 없는 부분. 행성을 걷고, 구역으로 점프하고, 터미널을 연다. 터미널은 Polymarket을 보여 준다(?tab=predict). 리서치는 리서치 데스크를 보여 준다.",
+    inPlace: "보여주는 중",
+    inPlaceLead: "라이브 앱을 이 페이지에. 터미널은 Polymarket. 리서치는 리서치 데스크.",
   },
   writingPage: {
     title: "글",

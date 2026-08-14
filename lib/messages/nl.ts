@@ -110,9 +110,9 @@ export const nl: Messages = {
   toolsPage: {
     kicker: "Stil",
     title: "Tools",
-    lead: "Het deel dat niet gezegd kan worden. Loop een planeet, spring een wijk, open de terminal. Hosts die frame-ancestors blokkeren houden chroom — open live.",
-    inPlace: "Ter plekke",
-    inPlaceLead: "Werkende apps op deze pagina. Weigert een host de frame, dan blijft het chroom.",
+    lead: "Het deel dat niet gezegd kan worden. Loop een planeet, spring een wijk, open de terminal. De terminal toont Polymarket (?tab=predict). Research toont de research desk.",
+    inPlace: "In beeld",
+    inPlaceLead: "Live apps, in dit frame. Terminal opent Polymarket. Research opent de research desk.",
   },
   writingPage: {
     title: "Schrijven",

@@ -107,9 +107,9 @@ export const zhHant: Messages = {
   toolsPage: {
     kicker: "默會",
     title: "工具",
-    lead: "寫不下來的那部分。走一顆行星，跳一個區，打開終端。擋住 frame-ancestors 的主機留下外殼 —— 打開現場。",
-    inPlace: "就在這裡",
-    inPlaceLead: "本頁上能用的應用。主機拒絕嵌入時，外殼仍在。",
+    lead: "寫不下來的那部分。走一顆行星，跳一個區，打開終端。終端呈現 Polymarket（?tab=predict）。研究呈現研究台。",
+    inPlace: "正在呈現",
+    inPlaceLead: "現場應用，嵌在這一頁。終端打開 Polymarket。研究打開研究台。",
   },
   writingPage: {
     title: "寫作",

@@ -109,9 +109,9 @@ export const ja: Messages = {
   toolsPage: {
     kicker: "暗黙",
     title: "ツール",
-    lead: "書けない部分。惑星を歩く、地区へ跳ぶ、ターミナルを開く。frame-ancestors を拒むホストは枠だけ残す —— ライブを開く。",
-    inPlace: "この場で",
-    inPlaceLead: "このページで動くアプリ。ホストが埋め込みを拒んでも、枠は残る。",
+    lead: "書けない部分。惑星を歩く、地区へ跳ぶ、ターミナルを開く。ターミナルは Polymarket を見せる（?tab=predict）。リサーチはリサーチデスクを見せる。",
+    inPlace: "いま見せている",
+    inPlaceLead: "ライブのアプリを、このページに。ターミナルは Polymarket。リサーチはリサーチデスク。",
   },
   writingPage: {
     title: "文章",

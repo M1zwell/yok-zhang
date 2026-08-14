@@ -109,9 +109,9 @@ export const en = {
     kicker: "Tacit",
     title: "Tools",
     lead:
-      "The part that cannot be told. Walk a planet, jump a district, open the terminal. Hosts that block frame-ancestors keep chrome — open live.",
-    inPlace: "In place",
-    inPlaceLead: "Working apps on this page. If a host refuses the frame, the chrome stays.",
+      "The part that cannot be told. Walk a planet, jump a district, open the terminal. The terminal presents Polymarket (?tab=predict). Research presents the research desk.",
+    inPlace: "Presenting",
+    inPlaceLead: "Live apps, in frame. Terminal opens on Polymarket. Research opens the research desk.",
   },
   writingPage: {
     title: "Writing",

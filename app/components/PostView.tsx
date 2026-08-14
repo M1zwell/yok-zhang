@@ -66,6 +66,7 @@ export function PostView({ slug, locale = "en" }: { slug: string; locale?: Local
             title={research.title}
             href={research.href}
             path={research.path}
+            present={research.present}
             embeddable={research.embeddable}
             embedSrc={research.embedSrc}
             brand="dseek"
