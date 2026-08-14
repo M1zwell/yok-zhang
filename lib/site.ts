@@ -150,14 +150,15 @@ export const tools: Tool[] = [
     embedSrc: "https://jubuddy.com",
   },
   {
-    id: "planet",
-    title: "jubuddy.com/planet",
-    href: "https://jubuddy.com/planet",
-    path: "jubuddy.com/planet",
+    id: "worlds",
+    title: "gghere.com/worlds",
+    href: links.gghereWorlds,
+    path: "gghere.com/worlds",
     group: "worlds",
-    note: "Planet surface. City-planet sibling to gghere.com/worlds.",
+    present: "City catalog",
+    note: "Walkable city catalog. HD planet stays Central Belt.",
     embeddable: true,
-    embedSrc: "https://jubuddy.com/planet",
+    embedSrc: links.gghereWorlds,
   },
   {
     id: "gghere",
@@ -181,7 +182,7 @@ export const tools: Tool[] = [
   },
 ];
 
-export const stageIds = ["gghere", "planet", "jubit", "jubuddy", "terminal", "hk", "gozayden"] as const;
+export const stageIds = ["gghere", "worlds", "jubit", "jubuddy", "terminal", "hk", "gozayden"] as const;
 
 export const stageTools: Tool[] = stageIds
   .map((id) => tools.find((t) => t.id === id))
