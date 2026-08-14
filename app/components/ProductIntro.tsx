@@ -66,8 +66,8 @@ export function ProductIntro({ locale = "en" }: { locale?: Locale }) {
     }
   }, [reduce]);
 
-  const activeHref = frame < WORLDS_DURATION ? links.gghereWorlds : links.jubuddyPlanet;
-  const activePath = frame < WORLDS_DURATION ? "gghere.com/worlds" : "jubuddy.com/planet";
+  const activeHref = frame < WORLDS_DURATION ? links.gghereHk : links.jubuddyPlanet;
+  const activePath = frame < WORLDS_DURATION ? "gghere.com/hk" : "jubuddy.com/planet";
 
   return (
     <section className="intro-wrap" aria-label={m.intro.kicker}>

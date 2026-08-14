@@ -55,8 +55,8 @@ export const ja: Messages = {
   flagship: {
     kicker: "フラッグシップ",
     title: "歩ける小さな惑星",
-    lead: "24 の実在都市を、オープンな地図データから小さな惑星に。歩く、運転する、配達する。アカウント不要 —— ブラウザのタブで動く。",
-    walkWorlds: "ワールドを歩く",
+    lead: "まず香港 Central Belt —— デフォルトの HD 惑星。24 都市はカタログに残る。アカウント不要。",
+    walkWorlds: "Central Belt を歩く",
     openPlanet: "惑星を開く",
     statCities: "24 都市",
     statPlanets: "393 惑星",
@@ -67,8 +67,9 @@ export const ja: Messages = {
   worldsCard: {
     kicker: "ワールド",
     title: "歩けるワールドと、惑星の表面",
-    lead: "カタログは gghere.com/worlds。惑星の表面は jubuddy.com/planet。同じフラッグシップ —— 埋もれたリンクではない。街を歩くのにアカウントは要らない。",
-    openWorlds: "gghere.com/worlds ↗",
+    lead: "まず香港 Central Belt —— デフォルトの HD 惑星。24 都市のカタログは gghere.com/worlds。惑星の表面は jubuddy.com/planet。アカウント不要。",
+    openWorlds: "gghere.com/hk ↗",
+    openCatalog: "gghere.com/worlds ↗",
     openPlanet: "jubuddy.com/planet ↗",
   },
   home: {
@@ -109,7 +110,7 @@ export const ja: Messages = {
   toolsPage: {
     kicker: "暗黙",
     title: "ツール",
-    lead: "書けない部分。惑星を歩く、地区へ跳ぶ、ターミナルを開く。ターミナルは Polymarket を見せる（?tab=predict）。リサーチはリサーチデスクを見せる。",
+    lead: "書けない部分。デフォルトの HD 惑星は gghere 香港 Central Belt。惑星を歩く、地区へ跳ぶ、ターミナルを開く。ターミナルは Polymarket を見せる（?tab=predict）。リサーチはリサーチデスクを見せる。",
     inPlace: "いま見せている",
     inPlaceLead: "ライブのアプリを、このページに。ターミナルは Polymarket。リサーチはリサーチデスク。",
   },
@@ -146,7 +147,7 @@ export const ja: Messages = {
     dest: {
       gghere: {
         label: "ワールド",
-        note: "24 都市。393 惑星。450 万棟。アカウント不要。タブを開く。",
+        note: "香港 Central Belt。HD。アカウント不要。24 都市のカタログは /worlds。",
       },
       planet: {
         label: "惑星",
@@ -167,9 +168,9 @@ export const ja: Messages = {
     },
   },
   footer: {
-    worldsLive: "ワールドは gghere.com/worlds",
-    peer: "街を歩くか、惑星を開く。行き先を選んで確認して行く —— またはアカウントなしでタブを開く。",
-    openGghere: "ワールドを開く ↗",
+    worldsLive: "Central Belt は gghere.com/hk",
+    peer: "香港が先。24 都市のカタログは /worlds。または惑星を開く。アカウント不要。",
+    openGghere: "Central Belt を歩く ↗",
     openDseek: "dseek を開く",
     openPlanet: "惑星を開く ↗",
   },
@@ -199,8 +200,8 @@ export const ja: Messages = {
     kicker: "フレーム",
     title: "シティプラネット",
     note: "9 秒。字幕だけ。",
-    worldsTitle: "gghere worlds",
-    worldsLine: "24 の実在都市。歩ける小さな惑星。",
+    worldsTitle: "gghere HK",
+    worldsLine: "香港。Central Belt。HD。",
     worldsLower: "アカウント不要。ブラウザのタブ。",
     planetTitle: "jubuddy planet",
     planetLine: "シティプラネットの表面。",

@@ -105,9 +105,9 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
       },
       {
         id: "gghere",
-        label: "Open gghere",
-        hint: "gghere.com",
-        href: links.gghereWorlds,
+        label: "Open gghere HK",
+        hint: "gghere.com/hk · Central Belt",
+        href: links.gghereHk,
         external: true,
         group: "Worlds",
       },

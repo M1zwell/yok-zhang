@@ -19,14 +19,14 @@ export const researchThemes: ResearchTheme[] = [
     label: "City-planets",
     tag: "city-planets",
     dseekUrl: links.dseekResearch,
-    gghereUrl: links.gghereWorlds,
+    gghereUrl: links.gghereHk,
   },
   {
     id: "walkable",
     label: "Walkable worlds",
     tag: "walkable",
     dseekUrl: links.dseekResearch,
-    gghereUrl: links.gghereWorlds,
+    gghereUrl: links.gghereHk,
   },
   {
     id: "yok-iso",

@@ -55,8 +55,8 @@ export const nl: Messages = {
   flagship: {
     kicker: "Vlaggenschip",
     title: "Kleine planeten waar je kunt lopen",
-    lead: "24 echte steden, herbouwd als kleine planeten uit open kaartdata. Loop, rijd, of neem een bezorgklus. Geen account — het draait in een browsertab.",
-    walkWorlds: "Loop werelden",
+    lead: "Eerst Hongkong Central Belt — de standaard HD-planeet. 24 steden blijven in de catalogus. Geen account.",
+    walkWorlds: "Loop Central Belt",
     openPlanet: "Open planeet",
     statCities: "24 steden",
     statPlanets: "393 planeten",
@@ -67,8 +67,9 @@ export const nl: Messages = {
   worldsCard: {
     kicker: "Werelden",
     title: "Begaanbare werelden, en het planeetoppervlak",
-    lead: "De catalogus staat op gghere.com/worlds. Het planeetoppervlak op jubuddy.com/planet. Hetzelfde vlaggenschip — geen begraven link. Geen account om een stad te lopen.",
-    openWorlds: "gghere.com/worlds ↗",
+    lead: "Loop eerst Hongkong Central Belt — de standaard HD-planeet. De catalogus van 24 steden staat op gghere.com/worlds. Het planeetoppervlak op jubuddy.com/planet. Geen account.",
+    openWorlds: "gghere.com/hk ↗",
+    openCatalog: "gghere.com/worlds ↗",
     openPlanet: "jubuddy.com/planet ↗",
   },
   home: {
@@ -110,7 +111,7 @@ export const nl: Messages = {
   toolsPage: {
     kicker: "Stil",
     title: "Tools",
-    lead: "Het deel dat niet gezegd kan worden. Loop een planeet, spring een wijk, open de terminal. De terminal toont Polymarket (?tab=predict). Research toont de research desk.",
+    lead: "Het deel dat niet gezegd kan worden. De standaard HD-planeet is gghere HK Central Belt. Loop een planeet, spring een wijk, open de terminal. De terminal toont Polymarket (?tab=predict). Research toont de research desk.",
     inPlace: "In beeld",
     inPlaceLead: "Live apps, in dit frame. Terminal opent Polymarket. Research opent de research desk.",
   },
@@ -147,7 +148,7 @@ export const nl: Messages = {
     dest: {
       gghere: {
         label: "Werelden",
-        note: "24 steden. 393 planeten. 4,5M gebouwen. Geen account. Open de tab.",
+        note: "Hongkong Central Belt. HD. Geen account. Catalogus van 24 steden op /worlds.",
       },
       planet: {
         label: "Planeet",
@@ -168,9 +169,9 @@ export const nl: Messages = {
     },
   },
   footer: {
-    worldsLive: "Werelden leven op gghere.com/worlds",
-    peer: "Loop een stad, of open de planeet. Kies een bestemming, bevestig, ga — of open de tab zonder account.",
-    openGghere: "Open werelden ↗",
+    worldsLive: "Loop Central Belt op gghere.com/hk",
+    peer: "Hongkong eerst. Catalogus van 24 steden op /worlds. Of open de planeet. Geen account.",
+    openGghere: "Loop Central Belt ↗",
     openDseek: "Open dseek",
     openPlanet: "Open planeet ↗",
   },
@@ -200,8 +201,8 @@ export const nl: Messages = {
     kicker: "In beeld",
     title: "Stadsplaneet",
     note: "Negen seconden. Alleen ondertitels.",
-    worldsTitle: "gghere worlds",
-    worldsLine: "24 echte steden. Kleine planeten waar je loopt.",
+    worldsTitle: "gghere HK",
+    worldsLine: "Hongkong. Central Belt. HD.",
     worldsLower: "Geen account. Browsertab.",
     planetTitle: "jubuddy planet",
     planetLine: "Het stadsplaneet-oppervlak.",

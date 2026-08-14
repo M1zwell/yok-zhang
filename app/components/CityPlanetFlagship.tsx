@@ -20,7 +20,7 @@ export function CityPlanetFlagship({ locale = "en" }: { locale?: Locale }) {
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a
-            href={links.gghereWorlds}
+            href={links.gghereHk}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary cta-pop"

@@ -54,8 +54,8 @@ export const zhHans: Messages = {
   flagship: {
     kicker: "旗舰",
     title: "能走的微型行星",
-    lead: "24 座城，开放地图。走进去。不用账号。",
-    walkWorlds: "走进世界",
+    lead: "先走香港中环带 —— 默认高清行星。24 座城仍在目录。不用账号。",
+    walkWorlds: "走进中环带",
     openPlanet: "打开行星",
     statCities: "24 座城市",
     statPlanets: "393 颗行星",
@@ -66,8 +66,9 @@ export const zhHans: Messages = {
   worldsCard: {
     kicker: "世界",
     title: "可走的世界，以及行星表面",
-    lead: "目录在 gghere.com/worlds。行星表面在 jubuddy.com/planet。同一旗舰 —— 不是埋起来的链接。走进一座城不用账号。",
-    openWorlds: "gghere.com/worlds ↗",
+    lead: "先走香港中环带 —— 默认高清行星。24 座城的目录在 gghere.com/worlds。行星表面在 jubuddy.com/planet。不用账号。",
+    openWorlds: "gghere.com/hk ↗",
+    openCatalog: "gghere.com/worlds ↗",
     openPlanet: "jubuddy.com/planet ↗",
   },
   home: {
@@ -107,7 +108,7 @@ export const zhHans: Messages = {
   toolsPage: {
     kicker: "默会",
     title: "工具",
-    lead: "写不下来的那部分。走一颗行星，跳一个区，打开终端。终端呈现 Polymarket（?tab=predict）。研究呈现研究台。",
+    lead: "写不下来的那部分。默认高清行星是 gghere 香港中环带。走一颗行星，跳一个区，打开终端。终端呈现 Polymarket（?tab=predict）。研究呈现研究台。",
     inPlace: "正在呈现",
     inPlaceLead: "现场应用，嵌在这一页。终端打开 Polymarket。研究打开研究台。",
   },
@@ -144,7 +145,7 @@ export const zhHans: Messages = {
     dest: {
       gghere: {
         label: "世界",
-        note: "24 座城市。393 颗行星。450 万栋建筑。不用账号。打开标签页。",
+        note: "香港中环带。高清。不用账号。24 座城的目录在 /worlds。",
       },
       planet: {
         label: "行星",
@@ -165,9 +166,9 @@ export const zhHans: Messages = {
     },
   },
   footer: {
-    worldsLive: "世界在 gghere.com/worlds",
-    peer: "走进一座城，或打开行星。选目的地、确认、再走 —— 或不用账号打开标签页。",
-    openGghere: "打开世界 ↗",
+    worldsLive: "走进中环带：gghere.com/hk",
+    peer: "香港先走。24 座城的目录在 /worlds。或打开行星。不用账号。",
+    openGghere: "走进中环带 ↗",
     openDseek: "打开 dseek",
     openPlanet: "打开行星 ↗",
   },
@@ -197,8 +198,8 @@ export const zhHans: Messages = {
     kicker: "入画",
     title: "城市行星",
     note: "九秒。只有字幕。",
-    worldsTitle: "gghere worlds",
-    worldsLine: "24 座城。能走的行星。",
+    worldsTitle: "gghere HK",
+    worldsLine: "香港。中环带。高清。",
     worldsLower: "不用账号。",
     planetTitle: "jubuddy planet",
     planetLine: "城市行星的表面。",

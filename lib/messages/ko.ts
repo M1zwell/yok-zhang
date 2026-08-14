@@ -55,8 +55,8 @@ export const ko: Messages = {
   flagship: {
     kicker: "플래그십",
     title: "걸을 수 있는 작은 행성",
-    lead: "실제 도시 24곳, 공개 지도 데이터로 만든 작은 행성. 걷고, 운전하고, 배달한다. 계정 없음 — 브라우저 탭에서 돌아간다.",
-    walkWorlds: "월드를 걷다",
+    lead: "홍콩 Central Belt부터 — 기본 HD 행성. 24개 도시는 목록에 남는다. 계정 없음.",
+    walkWorlds: "Central Belt 걷기",
     openPlanet: "행성 열기",
     statCities: "24개 도시",
     statPlanets: "393개 행성",
@@ -67,8 +67,9 @@ export const ko: Messages = {
   worldsCard: {
     kicker: "월드",
     title: "걸을 수 있는 월드, 그리고 행성 표면",
-    lead: "목록은 gghere.com/worlds. 행성 표면은 jubuddy.com/planet. 같은 플래그십 — 묻힌 링크가 아니다. 도시를 걷는 데 계정은 필요 없다.",
-    openWorlds: "gghere.com/worlds ↗",
+    lead: "홍콩 Central Belt부터 — 기본 HD 행성. 24개 도시 목록은 gghere.com/worlds. 행성 표면은 jubuddy.com/planet. 계정 없음.",
+    openWorlds: "gghere.com/hk ↗",
+    openCatalog: "gghere.com/worlds ↗",
     openPlanet: "jubuddy.com/planet ↗",
   },
   home: {
@@ -109,7 +110,7 @@ export const ko: Messages = {
   toolsPage: {
     kicker: "암묵",
     title: "도구",
-    lead: "말할 수 없는 부분. 행성을 걷고, 구역으로 점프하고, 터미널을 연다. 터미널은 Polymarket을 보여 준다(?tab=predict). 리서치는 리서치 데스크를 보여 준다.",
+    lead: "말할 수 없는 부분. 기본 HD 행성은 gghere 홍콩 Central Belt. 행성을 걷고, 구역으로 점프하고, 터미널을 연다. 터미널은 Polymarket을 보여 준다(?tab=predict). 리서치는 리서치 데스크를 보여 준다.",
     inPlace: "보여주는 중",
     inPlaceLead: "라이브 앱을 이 페이지에. 터미널은 Polymarket. 리서치는 리서치 데스크.",
   },
@@ -146,7 +147,7 @@ export const ko: Messages = {
     dest: {
       gghere: {
         label: "월드",
-        note: "24개 도시. 393개 행성. 건물 450만. 계정 없음. 탭을 여세요.",
+        note: "홍콩 Central Belt. HD. 계정 없음. 24개 도시 목록은 /worlds.",
       },
       planet: {
         label: "행성",
@@ -167,9 +168,9 @@ export const ko: Messages = {
     },
   },
   footer: {
-    worldsLive: "월드는 gghere.com/worlds",
-    peer: "도시를 걷거나 행성을 여세요. 목적지를 고르고 확인한 다음 가거나 — 계정 없이 탭을 엽니다.",
-    openGghere: "월드 열기 ↗",
+    worldsLive: "Central Belt는 gghere.com/hk",
+    peer: "홍콩이 먼저. 24개 도시 목록은 /worlds. 또는 행성을 엽니다. 계정 없음.",
+    openGghere: "Central Belt 걷기 ↗",
     openDseek: "dseek 열기",
     openPlanet: "행성 열기 ↗",
   },
@@ -199,8 +200,8 @@ export const ko: Messages = {
     kicker: "프레임",
     title: "시티 플래닛",
     note: "9초. 자막만.",
-    worldsTitle: "gghere worlds",
-    worldsLine: "실제 도시 24곳. 걸을 수 있는 작은 행성.",
+    worldsTitle: "gghere HK",
+    worldsLine: "홍콩. Central Belt. HD.",
     worldsLower: "계정 없음. 브라우저 탭.",
     planetTitle: "jubuddy planet",
     planetLine: "시티 플래닛 표면.",

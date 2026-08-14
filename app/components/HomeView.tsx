@@ -18,7 +18,7 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
   const m = t(locale);
   const href = (path: string) => localizeHref(path, locale);
   const row = liveProducts.filter((p) =>
-    ["gghere.com/worlds", "jubuddy.com/planet", "jubit.ai", "dseek.ai"].includes(p.path),
+    ["gghere.com/hk", "gghere.com/worlds", "jubuddy.com/planet", "jubit.ai", "dseek.ai"].includes(p.path),
   );
 
   return (
@@ -34,7 +34,7 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
             />
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <a
-                href={links.gghereWorlds}
+                href={links.gghereHk}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary cta-pop"

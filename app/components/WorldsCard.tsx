@@ -22,7 +22,7 @@ export function WorldsCard({ locale = "en" }: { locale?: Locale }) {
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a
-              href={links.gghereWorlds}
+              href={links.gghereHk}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary cta-pop"
@@ -38,16 +38,26 @@ export function WorldsCard({ locale = "en" }: { locale?: Locale }) {
               {m.worldsCard.openPlanet}
             </a>
           </div>
+          <p className="mt-4 text-[12px] text-muted">
+            <a
+              href={links.gghereWorlds}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent-hover"
+            >
+              {m.worldsCard.openCatalog}
+            </a>
+          </p>
           <div className="mt-6">
             <ShareActions
-              href={links.gghereWorlds}
-              title="Worlds live on gghere.com/worlds"
+              href={links.gghereHk}
+              title="Walk Hong Kong Central Belt on gghere.com/hk"
               locale={locale}
             />
           </div>
         </div>
         <a
-          href={links.gghereWorlds}
+          href={links.gghereHk}
           target="_blank"
           rel="noopener noreferrer"
           className="worlds-planet mx-auto block"

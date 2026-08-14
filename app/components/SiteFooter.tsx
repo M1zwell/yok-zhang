@@ -23,7 +23,7 @@ export function SiteFooter() {
           </div>
           <div className="flex flex-wrap gap-3">
             <EnterButton className="btn btn-primary cta-pop" />
-            <a href={links.gghereWorlds} className="btn btn-ghost">
+            <a href={links.gghereHk} className="btn btn-ghost">
               {m.footer.openGghere}
             </a>
             <a href={links.jubuddyPlanet} className="btn btn-ghost">
@@ -63,6 +63,9 @@ export function SiteFooter() {
           </Link>
           <a href={links.jubitTerminal} className="text-muted hover:text-fg">
             {m.studio.deskTitle}
+          </a>
+          <a href={links.gghereHk} className="text-muted hover:text-fg">
+            gghere.com/hk
           </a>
           <a href={links.gghereWorlds} className="text-muted hover:text-fg">
             gghere.com/worlds

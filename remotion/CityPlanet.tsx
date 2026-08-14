@@ -467,7 +467,7 @@ function WorldsScene({
       <Scanlines />
       <FilmGrain />
       <LowerThird
-        path="gghere.com/worlds"
+        path="gghere.com/hk"
         title={worldsTitle}
         line={worldsLine}
         lower={worldsLower}
@@ -564,7 +564,7 @@ export function CityPlanet({
 }
 
 export const cityPlanetDefaultProps: CityPlanetProps = {
-  worldsTitle: "gghere worlds",
+  worldsTitle: "gghere HK",
   worldsLine: "24 cities. Walkable planets.",
   worldsLower: "No account.",
   planetTitle: "jubuddy planet",

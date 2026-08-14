@@ -221,6 +221,10 @@ export function JoinFlow({ onClose }: { onClose?: () => void }) {
           {pick.id === "gghere" || pick.id === "planet" ? (
             <p className="mt-4 text-[12px] text-muted">
               {m.join.worldsLiveOn}{" "}
+              <a href={links.gghereHk} className="text-accent hover:text-accent-hover">
+                gghere.com/hk
+              </a>
+              {" · "}
               <a href={links.gghereWorlds} className="text-accent hover:text-accent-hover">
                 gghere.com/worlds
               </a>

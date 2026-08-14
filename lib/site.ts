@@ -62,6 +62,8 @@ export const links = {
   jubuddySignup: "https://jubuddy.com/signup",
   gghere: "https://gghere.com",
   gghereWorlds: "https://gghere.com/worlds",
+  gghereHk: "https://gghere.com/hk?district=central-belt",
+  ggherePlanet: "https://gghere.com/hk?district=central-belt",
   gozayden: "https://gozayden.com",
   github: "https://github.com/M1zwell",
   jubitTerminal: "https://www.jubit.ai/terminal",
@@ -159,13 +161,14 @@ export const tools: Tool[] = [
   },
   {
     id: "gghere",
-    title: "gghere.com",
-    href: "https://gghere.com/worlds",
-    path: "gghere.com/worlds",
+    title: "gghere HK",
+    href: links.gghereHk,
+    path: "gghere.com/hk",
     group: "worlds",
-    note: "24 real cities, rebuilt as tiny planets you can walk. 393 planets. 4.5M building footprints. No account. Runs in a browser tab. Planet surface: jubuddy.com/planet.",
+    present: "Central Belt · HD",
+    note: "Default HD Hong Kong planet for marketing. Catalog remains /worlds.",
     embeddable: true,
-    embedSrc: "https://gghere.com/worlds",
+    embedSrc: links.gghereHk,
   },
   {
     id: "gozayden",
@@ -197,11 +200,11 @@ export const joinDestinations: JoinDestination[] = [
   {
     id: "gghere",
     label: "Worlds",
-    path: "gghere.com/worlds",
-    href: "https://gghere.com/worlds",
-    note: "24 cities. 393 planets. 4.5M buildings. No account. Open the tab.",
+    path: "gghere.com/hk",
+    href: links.gghereHk,
+    note: "Hong Kong Central Belt. HD walkable planet. No account. Catalog of 24 cities at /worlds.",
     needsAccount: false,
-    shareTitle: "Worlds live on gghere.com/worlds",
+    shareTitle: "Walk Hong Kong Central Belt on gghere.com/hk",
   },
   {
     id: "planet",
@@ -247,8 +250,15 @@ export const productGroups: Group[] = [
     label: "Worlds",
     items: [
       {
+        title: "gghere.com/hk",
+        href: links.gghereHk,
+        path: "gghere.com/hk",
+        live: true,
+        note: "Default HD Hong Kong planet. Central Belt. Walk it. Catalog of 24 cities remains at /worlds.",
+      },
+      {
         title: "gghere.com/worlds",
-        href: "https://gghere.com/worlds",
+        href: links.gghereWorlds,
         path: "gghere.com/worlds",
         live: true,
         note: "Walkable-worlds catalog. 24 real cities as tiny planets. 393 planets, 4.5M building footprints. No account. Runs in a browser tab.",
@@ -357,6 +367,7 @@ export const worldCities = [
 ] as const;
 
 export function cityHref(slug: string): string {
+  if (slug === "hk") return links.gghereHk;
   return `https://gghere.com/${slug}`;
 }
 

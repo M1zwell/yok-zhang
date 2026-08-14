@@ -10,7 +10,7 @@ sourceUrl: https://dseek.ai/terminal?tab=research
 
 Twenty-four real cities. Rebuilt as tiny planets you can walk. The catalog says it without dressing: 393 planets, 4.5 million building footprints, open map data. No account. A browser tab.
 
-This is not a paper. It is a pin. The live desk is the [terminal research tab](https://dseek.ai/terminal?tab=research). The walkable catalog is [gghere.com/worlds](https://gghere.com/worlds). The planet surface sits beside it at [jubuddy.com/planet](https://jubuddy.com/planet).
+This is not a paper. It is a pin. The live desk is the [terminal research tab](https://dseek.ai/terminal?tab=research). The default HD planet is [gghere.com/hk](https://gghere.com/hk?district=central-belt). The walkable catalog is [gghere.com/worlds](https://gghere.com/worlds). The planet surface sits beside it at [jubuddy.com/planet](https://jubuddy.com/planet).
 
 Hong Kong first. Then Tokyo, New York, Paris, Amsterdam, Rotterdam, Seoul, Bangkok, Taipei, Berlin, Shenzhen — and the rest of the twenty-four. You do not read a city. You open it.
 

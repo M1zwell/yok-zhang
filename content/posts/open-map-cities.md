@@ -12,4 +12,4 @@ The buildings are not invented. The catalog is explicit: open map data, 4.5 mill
 
 Hong Kong has its own public land layer on Yok-Iso. The other cities sit as tiny planets you can walk. Same instinct: keep the streets, shrink the distance, do not fake the footprints.
 
-Walk the catalog at [gghere.com/worlds](https://gghere.com/worlds). Keep the desk on the [terminal research tab](https://dseek.ai/terminal?tab=research).
+Walk Hong Kong Central Belt at [gghere.com/hk](https://gghere.com/hk?district=central-belt). The catalog is [gghere.com/worlds](https://gghere.com/worlds). Keep the desk on the [terminal research tab](https://dseek.ai/terminal?tab=research).

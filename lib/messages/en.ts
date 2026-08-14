@@ -53,8 +53,8 @@ export const en = {
   flagship: {
     kicker: "Flagship",
     title: "Tiny planets you can walk",
-    lead: "24 cities from open maps. Walk them. No account.",
-    walkWorlds: "Walk worlds",
+    lead: "Hong Kong Central Belt first — the default HD planet. 24 cities stay in the catalog. No account.",
+    walkWorlds: "Walk Central Belt",
     openPlanet: "Open planet",
     statCities: "24 cities",
     statPlanets: "393 planets",
@@ -65,8 +65,9 @@ export const en = {
   worldsCard: {
     kicker: "Worlds",
     title: "Walkable worlds, and the planet surface",
-    lead: "The catalog lives on gghere.com/worlds. The planet surface lives on jubuddy.com/planet. Same flagship — not a buried link. No account to walk a city.",
-    openWorlds: "gghere.com/worlds ↗",
+    lead: "Walk Hong Kong Central Belt first — the default HD planet. The catalog of 24 cities lives on gghere.com/worlds. The planet surface lives on jubuddy.com/planet. No account.",
+    openWorlds: "gghere.com/hk ↗",
+    openCatalog: "gghere.com/worlds ↗",
     openPlanet: "jubuddy.com/planet ↗",
   },
   home: {
@@ -109,7 +110,7 @@ export const en = {
     kicker: "Tacit",
     title: "Tools",
     lead:
-      "The part that cannot be told. Walk a planet, jump a district, open the terminal. The terminal presents Polymarket (?tab=predict). Research presents the research desk.",
+      "The part that cannot be told. The default HD planet is gghere HK Central Belt. Walk a planet, jump a district, open the terminal. The terminal presents Polymarket (?tab=predict). Research presents the research desk.",
     inPlace: "Presenting",
     inPlaceLead: "Live apps, in frame. Terminal opens on Polymarket. Research opens the research desk.",
   },
@@ -146,7 +147,7 @@ export const en = {
     dest: {
       gghere: {
         label: "Worlds",
-        note: "24 cities. 393 planets. 4.5M buildings. No account. Open the tab.",
+        note: "Hong Kong Central Belt. HD. No account. Catalog of 24 cities at /worlds.",
       },
       planet: {
         label: "Planet",
@@ -167,9 +168,9 @@ export const en = {
     },
   },
   footer: {
-    worldsLive: "Worlds live on gghere.com/worlds",
-    peer: "Walk a city, or open the planet. Pick a destination, confirm, then go — or open the tab with no account.",
-    openGghere: "Open worlds ↗",
+    worldsLive: "Walk Central Belt on gghere.com/hk",
+    peer: "Hong Kong first. Catalog of 24 cities at /worlds. Or open the planet. No account.",
+    openGghere: "Walk Central Belt ↗",
     openDseek: "Open dseek",
     openPlanet: "Open planet ↗",
   },
@@ -199,8 +200,8 @@ export const en = {
     kicker: "In frame",
     title: "City-planet",
     note: "Nine seconds. Captions only.",
-    worldsTitle: "gghere worlds",
-    worldsLine: "24 cities. Walkable planets.",
+    worldsTitle: "gghere HK",
+    worldsLine: "Hong Kong. Central Belt. HD.",
     worldsLower: "No account.",
     planetTitle: "jubuddy planet",
     planetLine: "The city-planet surface.",

@@ -55,8 +55,8 @@ export const th: Messages = {
   flagship: {
     kicker: "เรือธง",
     title: "ดาวเคราะห์จิ๋วที่เดินได้",
-    lead: "24 เมืองจริง สร้างเป็นดาวเคราะห์จิ๋วจากข้อมูลแผนที่เปิด เดิน ขับรถ หรือรับงานส่งของ ไม่ต้องมีบัญชี — รันในแท็บเบราว์เซอร์",
-    walkWorlds: "เดินในโลก",
+    lead: "ฮ่องกง Central Belt ก่อน — ดาวเคราะห์ HD เริ่มต้น 24 เมืองอยู่ในแคตตาล็อก ไม่ต้องมีบัญชี",
+    walkWorlds: "เดิน Central Belt",
     openPlanet: "เปิดดาวเคราะห์",
     statCities: "24 เมือง",
     statPlanets: "393 ดาวเคราะห์",
@@ -67,8 +67,9 @@ export const th: Messages = {
   worldsCard: {
     kicker: "โลก",
     title: "โลกที่เดินได้ และพื้นผิวดาวเคราะห์",
-    lead: "แคตตาล็อกอยู่ที่ gghere.com/worlds พื้นผิวดาวเคราะห์อยู่ที่ jubuddy.com/planet เรือธงเดียวกัน — ไม่ใช่ลิงก์ที่ถูกฝัง เดินในเมืองไม่ต้องมีบัญชี",
-    openWorlds: "gghere.com/worlds ↗",
+    lead: "เดินฮ่องกง Central Belt ก่อน — ดาวเคราะห์ HD เริ่มต้น แคตตาล็อก 24 เมืองอยู่ที่ gghere.com/worlds พื้นผิวดาวเคราะห์อยู่ที่ jubuddy.com/planet ไม่ต้องมีบัญชี",
+    openWorlds: "gghere.com/hk ↗",
+    openCatalog: "gghere.com/worlds ↗",
     openPlanet: "jubuddy.com/planet ↗",
   },
   home: {
@@ -109,7 +110,7 @@ export const th: Messages = {
   toolsPage: {
     kicker: "ที่บอกไม่ได้",
     title: "เครื่องมือ",
-    lead: "ส่วนที่บอกไม่ได้ เดินบนดาวเคราะห์ กระโดดเขต เปิดเทอร์มินัล เทอร์มินัลนำเสนอ Polymarket (?tab=predict) งานวิจัยนำเสนอโต๊ะวิจัย",
+    lead: "ส่วนที่บอกไม่ได้ ดาวเคราะห์ HD เริ่มต้นคือ gghere ฮ่องกง Central Belt เดินบนดาวเคราะห์ กระโดดเขต เปิดเทอร์มินัล เทอร์มินัลนำเสนอ Polymarket (?tab=predict) งานวิจัยนำเสนอโต๊ะวิจัย",
     inPlace: "กำลังนำเสนอ",
     inPlaceLead: "แอปสดในหน้านี้ เทอร์มินัลเปิด Polymarket งานวิจัยเปิดโต๊ะวิจัย",
   },
@@ -146,7 +147,7 @@ export const th: Messages = {
     dest: {
       gghere: {
         label: "โลก",
-        note: "24 เมือง 393 ดาวเคราะห์ อาคาร 4.5 ล้าน ไม่ต้องมีบัญชี เปิดแท็บ",
+        note: "ฮ่องกง Central Belt HD ไม่ต้องมีบัญชี แคตตาล็อก 24 เมืองที่ /worlds",
       },
       planet: {
         label: "ดาวเคราะห์",
@@ -167,9 +168,9 @@ export const th: Messages = {
     },
   },
   footer: {
-    worldsLive: "โลกอยู่ที่ gghere.com/worlds",
-    peer: "เดินในเมือง หรือเปิดดาวเคราะห์ เลือกปลายทาง ยืนยัน แล้วไป — หรือเปิดแท็บโดยไม่ต้องมีบัญชี",
-    openGghere: "เปิดโลก ↗",
+    worldsLive: "เดิน Central Belt ที่ gghere.com/hk",
+    peer: "ฮ่องกงก่อน แคตตาล็อก 24 เมืองที่ /worlds หรือเปิดดาวเคราะห์ ไม่ต้องมีบัญชี",
+    openGghere: "เดิน Central Belt ↗",
     openDseek: "เปิด dseek",
     openPlanet: "เปิดดาวเคราะห์ ↗",
   },
@@ -199,8 +200,8 @@ export const th: Messages = {
     kicker: "ในเฟรม",
     title: "ดาวเคราะห์เมือง",
     note: "เก้าวินาที มีแค่คำบรรยาย",
-    worldsTitle: "gghere worlds",
-    worldsLine: "24 เมืองจริง ดาวเคราะห์จิ๋วที่เดินได้",
+    worldsTitle: "gghere HK",
+    worldsLine: "ฮ่องกง Central Belt HD",
     worldsLower: "ไม่ต้องมีบัญชี แท็บเบราว์เซอร์",
     planetTitle: "jubuddy planet",
     planetLine: "พื้นผิวดาวเคราะห์เมือง",
