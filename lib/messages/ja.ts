@@ -227,7 +227,7 @@ export const ja: Messages = {
     youtubePlaceholder: "https://www.youtube.com/watch?v=…",
     addYoutube: "YouTube を追加",
     sourcesTitle: "NotebookLM 級のソース",
-    sourcesLead: "dseek.ai/research/featured.json からピン —— 本物の公開テーマ。.md を NotebookLM に入れる。タイトルは捏造しない。",
+    sourcesLead: "dseek.ai/research/featured.json からピン —— 本物の公開テーマ。dseek で開く。タイトルは捏造しない。",
     localLine: "庭にローカル表示したスタジオ出力。生成とダウンロードは jubit.ai/terminal。",
     kinds: {
       ppt: "PPT",

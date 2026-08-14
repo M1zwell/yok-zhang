@@ -42,7 +42,7 @@ export function StudioShelf({
       .then((res) => (res.ok ? res.json() : null))
       .then((data: { themes?: FeaturedTheme[] } | null) => {
         if (cancelled || !data?.themes?.length) return;
-        const next = data.themes.filter((theme) => theme.id && theme.url && theme.sourceUrl);
+        const next = data.themes.filter((theme) => theme.id && theme.url && theme.title);
         if (next.length) setThemes(next);
       })
       .catch(() => {
@@ -233,26 +233,6 @@ export function StudioShelf({
                       <a href={theme.url} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-hover">
                         dseek ↗
                       </a>
-                      <a href={theme.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-hover">
-                        .md
-                      </a>
-                      <a href={theme.jsonUrl} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-fg">
-                        json
-                      </a>
-                      <button
-                        type="button"
-                        className="font-semibold text-accent"
-                        onClick={() =>
-                          pack({
-                            title,
-                            line: theme.thesis,
-                            url: theme.url,
-                            tags: ["#dseek"],
-                          })
-                        }
-                      >
-                        {m.cta.pack}
-                      </button>
                     </div>
                   </li>
                 );

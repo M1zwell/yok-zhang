@@ -228,7 +228,7 @@ export const nl: Messages = {
     youtubePlaceholder: "https://www.youtube.com/watch?v=…",
     addYoutube: "YouTube toevoegen",
     sourcesTitle: "NotebookLM-klasse bronnen",
-    sourcesLead: "Gepind van dseek.ai/research/featured.json — echte publieke thema's. Voer de .md in NotebookLM. Verzin geen titels.",
+    sourcesLead: "Gepind van dseek.ai/research/featured.json — echte publieke thema's. Open op dseek. Verzin geen titels.",
     localLine: "Studio-uitvoer lokaal op de tuin. Genereer of download op jubit.ai/terminal.",
     kinds: {
       ppt: "PPT",

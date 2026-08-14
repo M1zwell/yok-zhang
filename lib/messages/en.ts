@@ -227,7 +227,7 @@ export const en = {
     youtubePlaceholder: "https://www.youtube.com/watch?v=…",
     addYoutube: "Add YouTube",
     sourcesTitle: "NotebookLM-class sources",
-    sourcesLead: "Pinned from dseek.ai/research/featured.json — real public themes. Ingest the .md in NotebookLM. Do not invent titles.",
+    sourcesLead: "Pinned from dseek.ai/research/featured.json — real public themes. Open on dseek. Do not invent titles.",
     localLine: "Studio output listed locally on the garden. Generate or download on jubit.ai/terminal.",
     kinds: {
       ppt: "PPT",

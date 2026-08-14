@@ -227,7 +227,7 @@ export const th: Messages = {
     youtubePlaceholder: "https://www.youtube.com/watch?v=…",
     addYoutube: "เพิ่ม YouTube",
     sourcesTitle: "แหล่งระดับ NotebookLM",
-    sourcesLead: "ปักจาก dseek.ai/research/featured.json — ธีมสาธารณะจริง ใส่ .md ใน NotebookLM ไม่แต่งชื่อเรื่อง",
+    sourcesLead: "ปักจาก dseek.ai/research/featured.json — ธีมสาธารณะจริง เปิดบน dseek ไม่แต่งชื่อเรื่อง",
     localLine: "ผลลัพธ์สตูดิโอที่แสดงในเครื่องบนสวน สร้างหรือดาวน์โหลดที่ jubit.ai/terminal",
     kinds: {
       ppt: "PPT",
