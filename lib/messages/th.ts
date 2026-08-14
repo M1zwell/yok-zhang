@@ -251,4 +251,9 @@ export const th: Messages = {
     th: "ไทย",
     nl: "Nederlands",
   },
+  theme: {
+    label: "ธีม",
+    light: "สว่าง",
+    dark: "มืด",
+  },
 };

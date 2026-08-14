@@ -251,4 +251,9 @@ export const ko: Messages = {
     th: "ไทย",
     nl: "Nederlands",
   },
+  theme: {
+    label: "테마",
+    light: "라이트",
+    dark: "다크",
+  },
 };

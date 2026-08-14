@@ -282,7 +282,7 @@ export function HeroCanvas() {
   return (
     <canvas
       ref={ref}
-      className="pointer-events-none fixed inset-0 z-0 h-full w-full"
+      className="site-atmosphere pointer-events-none fixed inset-0 z-0 h-full w-full"
       aria-hidden
     />
   );

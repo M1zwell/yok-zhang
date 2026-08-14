@@ -16,6 +16,7 @@ import { SiteAtmosphere } from "@/app/components/SiteAtmosphere";
 import { FilmGrain } from "@/app/components/FilmGrain";
 import { JoinModal } from "@/app/components/JoinFlow";
 import { LocaleSync } from "@/app/components/LocaleSync";
+import { ThemeSync } from "@/app/components/ThemeSync";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { getAllPosts } from "@/lib/posts";
@@ -109,7 +110,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B2422",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FAF5F7" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B2422" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -135,6 +139,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${fontVars}`}>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t!=="light")t="dark";var r=document.documentElement;r.classList.remove("light","dark");r.classList.add(t);r.style.colorScheme=t;}catch(e){}})();`,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -144,6 +153,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-dvh font-sans text-fg antialiased">
         <SiteAtmosphere />
+        <ThemeSync />
         <LocaleSync />
         <div className="relative z-10">
           <a

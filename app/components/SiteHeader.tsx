@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { EnterButton } from "@/app/components/JoinFlow";
 import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
+import { ThemeToggle } from "@/app/components/ThemeToggle";
 import { BrandMark } from "@/app/components/BrandMark";
 import { LogoMark } from "@/app/components/LogoMark";
 import { localizeHref, stripLocale } from "@/lib/i18n";
@@ -88,6 +89,7 @@ export function SiteHeader() {
           </a>
         </nav>
         <div className="flex shrink-0 items-center gap-2">
+          <ThemeToggle />
           <LanguageSwitcher />
           <button
             type="button"

@@ -251,4 +251,9 @@ export const ja: Messages = {
     th: "ไทย",
     nl: "Nederlands",
   },
+  theme: {
+    label: "テーマ",
+    light: "ライト",
+    dark: "ダーク",
+  },
 };

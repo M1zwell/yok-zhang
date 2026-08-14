@@ -249,4 +249,9 @@ export const zhHans: Messages = {
     th: "ไทย",
     nl: "Nederlands",
   },
+  theme: {
+    label: "主题",
+    light: "浅色",
+    dark: "深色",
+  },
 };

@@ -249,4 +249,9 @@ export const zhHant: Messages = {
     th: "ไทย",
     nl: "Nederlands",
   },
+  theme: {
+    label: "主題",
+    light: "淺色",
+    dark: "深色",
+  },
 };

@@ -252,4 +252,9 @@ export const nl: Messages = {
     th: "ไทย",
     nl: "Nederlands",
   },
+  theme: {
+    label: "Thema",
+    light: "Licht",
+    dark: "Donker",
+  },
 };

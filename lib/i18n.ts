@@ -70,3 +70,9 @@ export function localeFromCookie(cookieHeader: string | null | undefined): Local
   const value = decodeURIComponent(match[1]);
   return isLocale(value) ? value : null;
 }
+
+export function writeLocaleCookie(locale: Locale) {
+  if (typeof document === "undefined") return;
+  document.cookie = `${localeCookie}=${encodeURIComponent(locale)}; Path=/; Max-Age=31536000; SameSite=Lax`;
+}
+

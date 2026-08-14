@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { writeLocaleCookie } from "@/app/components/LocaleSync";
-import { localeMeta, locales, localizeHref, stripLocale, type Locale } from "@/lib/i18n";
+import { localeMeta, locales, localizeHref, stripLocale, writeLocaleCookie, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
 
 export function LanguageSwitcher() {

@@ -251,6 +251,11 @@ export const en = {
     th: "ไทย",
     nl: "Nederlands",
   },
+  theme: {
+    label: "Theme",
+    light: "Light",
+    dark: "Dark",
+  },
 } as const;
 
 type DeepString<T> = T extends string ? string : { [K in keyof T]: DeepString<T[K]> };
