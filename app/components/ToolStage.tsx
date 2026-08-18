@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+import Link from "next/link";
 import { BrandMark, brandForGroup, type Brand } from "@/app/components/BrandMark";
 import { TiltFrame } from "@/app/components/TiltFrame";
 import type { Tool } from "@/lib/site";
@@ -17,6 +18,29 @@ type FrameProps = {
   brand?: Brand;
   eager?: boolean;
 };
+
+function OpenLive({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className?: string;
+  children: ReactNode;
+}) {
+  if (href.startsWith("/")) {
+    return (
+      <Link href={href} className={className}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+      {children}
+    </a>
+  );
+}
 
 export function LiveFrame({
   title,
@@ -51,14 +75,10 @@ export function LiveFrame({
           </span>
         ) : null}
         <span className="hidden truncate font-mono text-[10px] text-muted xl:inline">{path}</span>
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="open-live-chip shrink-0"
-        >
-          Open live <span aria-hidden>↗</span>
-        </a>
+        <OpenLive href={href} className="open-live-chip shrink-0">
+          Open {href.startsWith("/") ? "" : "live "}
+          <span aria-hidden>{href.startsWith("/") ? "→" : "↗"}</span>
+        </OpenLive>
       </div>
       <div className={`relative ${heightClass} bg-bg`}>
         {showFrame ? (
@@ -76,14 +96,10 @@ export function LiveFrame({
               onLoad={() => setLoaded(true)}
               onError={() => setFailed(true)}
             />
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="open-live-chip absolute right-3 bottom-3 z-10"
-            >
-              Open live <span aria-hidden>↗</span>
-            </a>
+            <OpenLive href={href} className="open-live-chip absolute right-3 bottom-3 z-10">
+              Open {href.startsWith("/") ? "" : "live "}
+              <span aria-hidden>{href.startsWith("/") ? "→" : "↗"}</span>
+            </OpenLive>
           </>
         ) : (
           <div className="frame-fallback">
@@ -99,9 +115,10 @@ export function LiveFrame({
                 This tool is live. Open it in its own tab.
               </p>
             )}
-            <a href={href} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-8">
-              Open live <span aria-hidden>↗</span>
-            </a>
+            <OpenLive href={href} className="btn btn-primary mt-8">
+              Open {href.startsWith("/") ? "" : "live "}
+              <span aria-hidden>{href.startsWith("/") ? "→" : "↗"}</span>
+            </OpenLive>
           </div>
         )}
       </div>
