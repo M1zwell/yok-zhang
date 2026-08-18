@@ -19,7 +19,7 @@ export function OracleGame({ locale = "en" }: { locale?: Locale }) {
   const cast = useCallback(() => {
     setGlitch(true);
     window.setTimeout(() => {
-      setLines([...castOracle(locale)]);
+      setLines([...castOracle(locale)].map((line) => line.trim()).filter(Boolean));
       setGlitch(false);
     }, 280);
   }, [locale]);
