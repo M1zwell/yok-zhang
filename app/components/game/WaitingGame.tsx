@@ -28,6 +28,7 @@ export function WaitingGame({ locale = "en" }: { locale?: Locale }) {
   const rafRef = useRef(0);
   const lastRef = useRef(0);
   const pullStart = useRef<number | null>(null);
+  const pullDyRef = useRef(0);
   const [pulls, setPulls] = useState(0);
   const [pullDy, setPullDy] = useState(0);
   const revealed = pulls >= 4;
@@ -58,8 +59,11 @@ export function WaitingGame({ locale = "en" }: { locale?: Locale }) {
     if (!ctx) return;
 
     const draw = (ts: number) => {
+      if (document.hidden) {
+        rafRef.current = 0;
+        return;
+      }
       rafRef.current = requestAnimationFrame(draw);
-      if (document.hidden) return;
       if (ts - lastRef.current < 1000 / 24) return;
       lastRef.current = ts;
 
@@ -102,8 +106,23 @@ export function WaitingGame({ locale = "en" }: { locale?: Locale }) {
         ctx.fillRect(x, top, 8, bh);
       });
     };
+    const onVis = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = 0;
+        return;
+      }
+      if (!rafRef.current) {
+        lastRef.current = 0;
+        rafRef.current = requestAnimationFrame(draw);
+      }
+    };
+    document.addEventListener("visibilitychange", onVis);
     rafRef.current = requestAnimationFrame(draw);
-    return () => cancelAnimationFrame(rafRef.current);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      document.removeEventListener("visibilitychange", onVis);
+    };
   }, []);
 
   const onTouchStart = (e: TouchEvent) => {
@@ -112,10 +131,15 @@ export function WaitingGame({ locale = "en" }: { locale?: Locale }) {
   const onTouchMove = (e: TouchEvent) => {
     if (pullStart.current == null) return;
     const dy = (e.touches[0]?.clientY ?? 0) - pullStart.current;
-    if (dy > 0) setPullDy(Math.min(dy, 96));
+    if (dy > 0) {
+      const next = Math.min(dy, 96);
+      pullDyRef.current = next;
+      setPullDy(next);
+    }
   };
   const onTouchEnd = () => {
-    if (pullDy > 56) refresh();
+    if (pullDyRef.current > 56) refresh();
+    pullDyRef.current = 0;
     setPullDy(0);
     pullStart.current = null;
   };
