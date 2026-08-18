@@ -68,6 +68,7 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
   const [h3, setH3] = useState("");
   const [friend, setFriend] = useState("");
   const [flying, setFlying] = useState(false);
+  const [flyGen, setFlyGen] = useState(0);
   const [settled, setSettled] = useState(false);
 
   const stageRef = useRef<HTMLDivElement>(null);
@@ -100,6 +101,15 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
     return () => window.clearInterval(id);
   }, [locale, p.clock]);
 
+  const abortPlay = useCallback(() => {
+    window.clearInterval(typeTimer.current);
+    window.clearInterval(deliveryTimer.current);
+    setDelivery(false);
+    setFlying(false);
+    setProgress(0);
+    setCountdown("");
+  }, []);
+
   useEffect(() => {
     return () => {
       window.clearTimeout(toastTimer.current);
@@ -114,9 +124,10 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const r = canvas.getBoundingClientRect();
+    if (r.width < 8 || r.height < 8) return;
     const d = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = r.width * d;
-    canvas.height = r.height * d;
+    canvas.width = Math.floor(r.width * d);
+    canvas.height = Math.floor(r.height * d);
     ctx.setTransform(d, 0, 0, d, 0, 0);
     return { ctx, w: r.width, h: r.height };
   }, []);
@@ -124,7 +135,20 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
   const prepareCanvas = useCallback(() => {
     requestAnimationFrame(() => {
       const sized = sizeCanvas();
-      if (!sized) return;
+      if (!sized) {
+        requestAnimationFrame(() => {
+          const retry = sizeCanvas();
+          if (!retry) return;
+          const { ctx, w, h } = retry;
+          ctx.fillStyle = "#eadfca";
+          ctx.fillRect(0, 0, w, h);
+          ctx.fillStyle = "#766b5c";
+          ctx.font = "12px ui-monospace, monospace";
+          ctx.fillText(p.canvasHint, 14, 22);
+          undoStack.current = [];
+        });
+        return;
+      }
       const { ctx, w, h } = sized;
       ctx.fillStyle = "#eadfca";
       ctx.fillRect(0, 0, w, h);
@@ -163,6 +187,7 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
       return;
     }
     if (isCrisisAsk(q)) {
+      abortPlay();
       setHelp(true);
       setCurrent("");
       setClaimed(false);
@@ -172,6 +197,7 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
       setChallenge(false);
       return;
     }
+    abortPlay();
     setHelp(false);
     setCurrent(q);
     setClaimed(false);
@@ -186,7 +212,7 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
     setFlying(false);
     setSettled(false);
     showToast(p.toastPosted);
-  }, [p, question, showToast]);
+  }, [abortPlay, p, question, showToast]);
 
   const claimJob = useCallback(() => {
     if (!current) {
@@ -201,6 +227,8 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
     setClaimed(true);
     setExclaim(false);
     setMode(next);
+    setLetter(false);
+    setBeam(false);
     setChallenge(true);
     setStatusB(p.statusBClaim);
   }, [claimed, current, p, showToast]);
@@ -251,7 +279,11 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
       setFlying(false);
       requestAnimationFrame(() => {
         const bottle = stageRef.current?.querySelector(".po-bottle3d") as HTMLElement | null;
-        if (bottle) bottle.style.setProperty("--delivery", `${ms}ms`);
+        if (bottle) {
+          bottle.style.setProperty("--delivery", `${ms}ms`);
+          void bottle.offsetWidth;
+        }
+        setFlyGen((n) => n + 1);
         setFlying(true);
       });
       setProgress(0);
@@ -516,10 +548,10 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
 
                 <div style={{ marginTop: 14 }}>
                   <label>{p.delayLabel}</label>
-                  <select value={delay} onChange={(e) => setDelay(Number(e.target.value))}>
-                    <option value={8000}>{p.delay8}</option>
-                    <option value={30000}>{p.delay30}</option>
-                    <option value={120000}>{p.delay120}</option>
+                  <select value={String(delay)} onChange={(e) => setDelay(Number(e.target.value) || 8000)}>
+                    <option value="8000">{p.delay8}</option>
+                    <option value="30000">{p.delay30}</option>
+                    <option value="120000">{p.delay120}</option>
                   </select>
                   <p className="po-small">{p.delayHint}</p>
                 </div>
@@ -544,7 +576,7 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
                   <div className="name">JUJU_01</div>
                 </div>
                 <div ref={beamRef} className={beam ? "po-beam show" : "po-beam"} />
-                <div className={flying ? "po-bottle3d fly" : "po-bottle3d"} />
+                <div key={flyGen} className={flying ? "po-bottle3d fly" : "po-bottle3d"} />
 
                 <div className={challenge ? "po-challenge show" : "po-challenge"}>
                   <div className="po-challenge-head">

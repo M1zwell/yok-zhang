@@ -2,6 +2,8 @@
 
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { localizeHref, stripLocale } from "@/lib/i18n";
 import { BrandMark, brandForGroup, type Brand } from "@/app/components/BrandMark";
 import { TiltFrame } from "@/app/components/TiltFrame";
 import type { Tool } from "@/lib/site";
@@ -28,9 +30,11 @@ function OpenLive({
   className?: string;
   children: ReactNode;
 }) {
+  const pathname = usePathname() || "/";
+  const { locale } = stripLocale(pathname);
   if (href.startsWith("/")) {
     return (
-      <Link href={href} className={className}>
+      <Link href={localizeHref(href, locale)} className={className}>
         {children}
       </Link>
     );
