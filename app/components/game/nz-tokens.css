@@ -1,0 +1,457 @@
+/* 牛来猪飞 2.0 — Grey-Paper Clipping Folk Theatre
+   Independent game tokens. Imported ONLY from game layouts.
+   If you turn glitch off, this still looks 牛来猪飞. */
+
+.nz {
+  /* Color — Grey Time 70–80%, leak 10% */
+  --nz-paper: #d8cbb3;
+  --nz-ash: #a39a8e;
+  --nz-dust: #736A60;
+  --nz-mud: #5c4f43;
+  --nz-charcoal: #292321;
+  --nz-ink: #292321;
+  --nz-muted: #6e665c;
+  --nz-juju: #D9899D;
+  --nz-juju-shadow: #9A616E;
+  --nz-juju-paper: #E4B0B9;
+  --nz-bull: #D8AB52;
+  --nz-kred: #E6534F;
+  --nz-kgreen: #5E9766;
+  --nz-algo: #62A3CE;
+  --nz-tape: #c4a574;
+  --nz-stamp: #b4332c;
+  --nz-white-paper: #f0e6d4;
+
+  /* Type — next/font sets --nz-font-type / --nz-font-display on this node */
+  --nz-font-body: var(--nz-font-type), "Special Elite", "Courier New", ui-monospace, monospace;
+  --nz-fs-kicker: 11px;
+  --nz-fs-body: 15px;
+  --nz-fs-small: 12px;
+  --nz-fs-title: clamp(2.4rem, 8vw, 4.6rem);
+  --nz-lh-tight: 0.94;
+  --nz-lh-body: 1.65;
+  --nz-track-kicker: 0.16em;
+
+  /* Space / stroke / motion / 2.5D */
+  --nz-s1: 6px;
+  --nz-s2: 10px;
+  --nz-s3: 16px;
+  --nz-s4: 24px;
+  --nz-s5: 40px;
+  --nz-page-x: clamp(14px, 4vw, 28px);
+  --nz-max: 880px;
+  --nz-line: 2px solid var(--nz-charcoal);
+  --nz-shadow: 8px 11px 0 rgba(41, 35, 33, 0.16);
+  --nz-fps: 83ms;
+  --nz-ease: steps(3, end);
+  --nz-depth: 10px;
+  --nz-boil: 0.8px;
+
+  box-sizing: border-box;
+  isolation: isolate;
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  min-height: 70dvh;
+  color: var(--nz-ink);
+  font-family: var(--nz-font-body);
+  font-size: var(--nz-fs-body);
+  line-height: var(--nz-lh-body);
+  background-color: var(--nz-paper);
+  background-image:
+    repeating-linear-gradient(
+      -18deg,
+      transparent,
+      transparent 11px,
+      rgba(41, 35, 33, 0.035) 11px,
+      rgba(41, 35, 33, 0.035) 12px
+    ),
+    repeating-linear-gradient(
+      92deg,
+      transparent,
+      transparent 17px,
+      rgba(92, 79, 67, 0.04) 17px,
+      rgba(92, 79, 67, 0.04) 18px
+    ),
+    radial-gradient(ellipse at 12% 0%, rgba(240, 230, 212, 0.35), transparent 42%),
+    radial-gradient(ellipse at 88% 100%, rgba(115, 106, 96, 0.18), transparent 46%);
+  box-shadow: inset 0 0 0 1px rgba(41, 35, 33, 0.08);
+}
+
+.nz *,
+.nz *::before,
+.nz *::after {
+  box-sizing: border-box;
+}
+
+.nz a {
+  color: inherit;
+}
+
+/* Paper grain + torn edge */
+.nz::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.28;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.nz::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 10px;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 18px 8px at 8% 0, transparent 70%, var(--nz-paper) 71%),
+    radial-gradient(ellipse 22px 9px at 22% 40%, transparent 70%, var(--nz-paper) 71%),
+    radial-gradient(ellipse 16px 7px at 48% 10%, transparent 70%, var(--nz-paper) 71%),
+    radial-gradient(ellipse 24px 8px at 71% 50%, transparent 70%, var(--nz-paper) 71%),
+    radial-gradient(ellipse 18px 8px at 92% 0, transparent 70%, var(--nz-paper) 71%);
+  opacity: 0.55;
+}
+
+.nz > * {
+  position: relative;
+  z-index: 1;
+}
+
+.nz-page {
+  width: min(var(--nz-max), 100%);
+  margin-inline: auto;
+  padding: var(--nz-s5) var(--nz-page-x) 72px;
+}
+
+.nz-kicker {
+  margin: 0;
+  font-family: var(--nz-font-type), "Special Elite", "Courier New", monospace;
+  font-size: var(--nz-fs-kicker);
+  letter-spacing: var(--nz-track-kicker);
+  text-transform: uppercase;
+  color: var(--nz-stamp);
+}
+
+.nz-kicker.is-mud {
+  color: var(--nz-mud);
+}
+
+.nz-title {
+  margin: 14px 0 0 7%;
+  max-width: 16ch;
+  font-family: var(--nz-font-display), "ZCOOL XiaoWei", "Noto Serif SC", serif;
+  font-size: var(--nz-fs-title);
+  font-weight: 400;
+  line-height: var(--nz-lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--nz-charcoal);
+  transform: rotate(-0.8deg);
+  text-wrap: balance;
+}
+
+.nz-lead {
+  margin: 18px 0 0;
+  max-width: 36rem;
+  font-size: var(--nz-fs-body);
+  line-height: var(--nz-lh-body);
+  color: var(--nz-ink);
+}
+
+.nz-note {
+  margin: 14px 0 0;
+  max-width: 34rem;
+  font-family: var(--nz-font-display), "ZCOOL XiaoWei", "Noto Serif SC", serif;
+  font-size: var(--nz-fs-small);
+  line-height: 1.7;
+  color: var(--nz-dust);
+  transform: rotate(-0.4deg);
+}
+
+.nz-caption {
+  margin: 18px 0 0;
+  max-width: 32rem;
+  font-family: var(--nz-font-display), "ZCOOL XiaoWei", serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--nz-mud);
+  transform: rotate(-1deg);
+  padding-left: 2px;
+}
+
+.nz-mono {
+  font-family: var(--nz-font-type), "Special Elite", "Courier New", monospace;
+  font-size: var(--nz-fs-small);
+  letter-spacing: 0.04em;
+  color: var(--nz-muted);
+}
+
+.nz-back {
+  display: inline-block;
+  font-family: var(--nz-font-type), "Special Elite", "Courier New", monospace;
+  font-size: var(--nz-fs-small);
+  color: var(--nz-mud);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--nz-ash);
+  transition: transform var(--nz-fps) var(--nz-ease);
+}
+
+.nz-back:hover {
+  color: var(--nz-charcoal);
+  transform: translateX(-3px);
+}
+
+.nz-btn,
+.nz-btn-primary,
+.nz-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 10px 16px;
+  font-family: var(--nz-font-type), "Special Elite", "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border: var(--nz-line);
+  cursor: pointer;
+  transition: transform var(--nz-fps) var(--nz-ease);
+  transform: rotate(-0.4deg);
+}
+
+.nz-btn {
+  background: var(--nz-white-paper);
+  color: var(--nz-charcoal);
+  box-shadow: var(--nz-shadow);
+}
+
+.nz-btn-primary {
+  background: var(--nz-juju);
+  color: var(--nz-charcoal);
+  border: var(--nz-line);
+  box-shadow: 7px 9px 0 rgba(196, 165, 116, 0.55);
+  font-weight: 700;
+}
+
+.nz-btn-ghost {
+  background: transparent;
+  color: var(--nz-mud);
+  box-shadow: none;
+}
+
+.nz-btn:hover,
+.nz-btn-primary:hover,
+.nz-btn-ghost:hover {
+  transform: translate(-1px, -1px) rotate(-0.4deg);
+}
+
+.nz-btn:active,
+.nz-btn-primary:active,
+.nz-btn-ghost:active {
+  transform: translate(3px, 4px) rotate(0deg);
+  box-shadow: 2px 2px 0 rgba(41, 35, 33, 0.16);
+}
+
+.nz-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--nz-s2);
+  margin-top: var(--nz-s4);
+}
+
+.nz-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px 22px;
+  color: inherit;
+  text-decoration: none;
+  background:
+    linear-gradient(180deg, rgba(240, 230, 212, 0.35), transparent 28%),
+    var(--nz-white-paper);
+  border: var(--nz-line);
+  box-shadow: var(--nz-shadow);
+  transform: rotate(-1deg);
+  transform-style: preserve-3d;
+}
+
+.nz-card:nth-child(even) {
+  transform: rotate(1.2deg);
+}
+
+.nz-card:nth-child(3) {
+  transform: rotate(-0.4deg) translateY(6px);
+}
+
+.nz-card:nth-child(4) {
+  transform: rotate(0.9deg);
+}
+
+.nz-card:nth-child(5) {
+  transform: rotate(-1.1deg) translateY(-4px);
+}
+
+.nz-card::before {
+  content: "";
+  position: absolute;
+  left: 22%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(rgba(41, 35, 33, 0.16), transparent 78%);
+  transform: rotate(1.4deg);
+  pointer-events: none;
+}
+
+.nz-card::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  width: 46px;
+  height: 16px;
+  background: var(--nz-tape);
+  opacity: 0.78;
+  transform: rotate(12deg);
+  box-shadow: 0 1px 0 rgba(41, 35, 33, 0.15);
+  pointer-events: none;
+}
+
+.nz-card:hover {
+  transform: translate(-2px, -3px) rotate(-0.2deg);
+}
+
+.nz-card h2,
+.nz-card .nz-card-title {
+  margin: 10px 0 0;
+  font-family: var(--nz-font-display), "ZCOOL XiaoWei", serif;
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  line-height: 1.1;
+  font-weight: 400;
+  color: var(--nz-charcoal);
+}
+
+.nz-stamp {
+  display: inline-block;
+  padding: 3px 8px 2px;
+  border: 2px solid var(--nz-stamp);
+  color: var(--nz-stamp);
+  font-family: var(--nz-font-display), "ZCOOL XiaoWei", serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transform: rotate(-8deg);
+  opacity: 0.88;
+}
+
+/* One graphic clip per screen — K-line / receipt */
+.nz-clip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.nz-clip-kline {
+  left: -4%;
+  top: 4.6rem;
+  width: min(96%, 640px);
+  height: 54px;
+  transform: rotate(-3.4deg);
+}
+
+.nz-clip-kline svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.nz-clip-receipt {
+  right: -8px;
+  top: 18%;
+  width: 28px;
+  height: 58%;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      var(--nz-white-paper),
+      var(--nz-white-paper) 7px,
+      rgba(41, 35, 33, 0.12) 7px,
+      rgba(41, 35, 33, 0.12) 8px
+    );
+  border: 1px dashed var(--nz-mud);
+  transform: rotate(7deg);
+  box-shadow: 3px 4px 0 rgba(41, 35, 33, 0.1);
+}
+
+.nz-grid {
+  display: grid;
+  gap: 22px;
+  margin-top: 36px;
+}
+
+@media (min-width: 720px) {
+  .nz-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.nz-play {
+  margin-top: auto;
+  padding-top: 22px;
+  font-family: var(--nz-font-type), "Special Elite", monospace;
+  font-size: var(--nz-fs-small);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--nz-mud);
+}
+
+.nz-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid var(--nz-charcoal);
+  background: var(--nz-paper);
+  font-family: var(--nz-font-type), "Special Elite", monospace;
+  font-size: 11px;
+  color: var(--nz-ink);
+  transform: rotate(-1deg);
+}
+
+.nz-chip + .nz-chip {
+  margin-left: 6px;
+}
+
+@keyframes nz-boil {
+  0% { transform: translate(0, 0); }
+  33% { transform: translate(var(--nz-boil), calc(var(--nz-boil) * -0.6)); }
+  66% { transform: translate(calc(var(--nz-boil) * -1), var(--nz-boil)); }
+  100% { transform: translate(0, 0); }
+}
+
+.nz-card,
+.nz-btn-primary,
+.nz-stamp {
+  outline: 1px solid transparent;
+}
+
+.nz-card:hover,
+.nz-btn-primary:hover {
+  animation: nz-boil 0.25s var(--nz-ease) 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nz-card,
+  .nz-btn,
+  .nz-btn-primary,
+  .nz-btn-ghost,
+  .nz-back {
+    transition: none;
+    animation: none;
+  }
+}

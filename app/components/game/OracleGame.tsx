@@ -42,47 +42,53 @@ export function OracleGame({ locale = "en" }: { locale?: Locale }) {
   return (
     <GameShell locale={locale} kicker={m.game.oracle.kicker} title={m.game.oracle.title} lead={m.game.oracle.lead}>
       <div
-        className="rounded-[20px] border border-hair bg-deep/60 p-5 sm:p-8"
-        style={glitch ? { filter: "hue-rotate(80deg) contrast(1.3)", transform: "translateX(2px)" } : undefined}
+        className="nz-card"
+        style={glitch ? { transform: "translateX(2px) rotate(-1deg)" } : undefined}
       >
-        <button type="button" onClick={cast} className="btn btn-primary min-h-12 px-6 text-base">
+        <div className="nz-clip nz-clip-receipt" aria-hidden />
+        <span className="nz-stamp">手搓</span>
+        <button type="button" onClick={cast} className="nz-btn-primary" style={{ marginTop: 16 }}>
           {m.game.oracle.cast}
         </button>
-        <p className="mt-3 text-xs text-muted">{m.game.oracle.shakeHint}</p>
-        <div className="mt-8 min-h-[8.5rem] space-y-3">
+        <p className="nz-note">{m.game.oracle.shakeHint}</p>
+        <div style={{ marginTop: 28, minHeight: "8.5rem" }}>
           {lines.length === 0 ? (
-            <p className="text-sm text-muted">{m.game.oracle.empty}</p>
+            <p className="nz-note">{m.game.oracle.empty}</p>
           ) : (
             lines.map((line, i) => (
-              <p key={`${i}-${line}`} className="font-display text-xl leading-snug text-fg sm:text-2xl">
+              <p
+                key={`${i}-${line}`}
+                className="nz-lead"
+                style={{ fontFamily: "var(--nz-font-display), serif", fontSize: "1.35rem", marginTop: i ? 12 : 0 }}
+              >
                 {line}
               </p>
             ))
           )}
         </div>
-        <p className="mt-8 text-xs leading-relaxed text-muted">{m.game.oracle.disclaimer}</p>
+        <p className="nz-caption">{m.game.oracle.disclaimer}</p>
         {lines.length > 0 ? (
-          <div className="mt-6 space-y-3">
-            <p className="text-xs leading-relaxed text-muted">{m.game.oracle.faceCousin}</p>
-            <div className="flex flex-wrap gap-2">
-              <a href={funAiUrl({ tool: "face-reading", locale })} className="btn btn-primary min-h-11 px-5">
+          <div style={{ marginTop: 22 }}>
+            <p className="nz-note">{m.game.oracle.faceCousin}</p>
+            <div className="nz-row">
+              <a href={funAiUrl({ tool: "face-reading", locale })} className="nz-btn-primary">
                 {m.game.oracle.ctaFace} <span aria-hidden>↗</span>
               </a>
-              <Link href={href("/game/life")} className="btn btn-ghost min-h-11 px-5">
+              <Link href={href("/game/life")} className="nz-btn-ghost">
                 {m.game.oracle.ctaLife}
               </Link>
             </div>
           </div>
         ) : null}
       </div>
-      <div className="mt-8 flex flex-wrap gap-2">
-        <a href={links.jubuddyHome} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+      <div className="nz-row">
+        <a href={links.jubuddyHome} target="_blank" rel="noopener noreferrer" className="nz-btn-ghost">
           {m.game.oracle.ctaJubuddy}
         </a>
-        <a href={links.jubitHome} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+        <a href={links.jubitHome} target="_blank" rel="noopener noreferrer" className="nz-btn-ghost">
           {m.game.oracle.ctaJubit}
         </a>
-        <Link href={href("/game/post")} className="btn btn-primary">
+        <Link href={href("/game/post")} className="nz-btn-primary">
           {m.game.oracle.ctaPost}
         </Link>
       </div>

@@ -78,7 +78,7 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
   const doodleRef = useRef<HTMLCanvasElement>(null);
   const drawing = useRef(false);
   const lastPt = useRef({ x: 0, y: 0 });
-  const ink = useRef("#29242a");
+  const ink = useRef("#292321");
   const undoStack = useRef<ImageData[]>([]);
   const replyRef = useRef<Reply | null>(null);
   const toastTimer = useRef<number>(0);
@@ -140,9 +140,9 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
           const retry = sizeCanvas();
           if (!retry) return;
           const { ctx, w, h } = retry;
-          ctx.fillStyle = "#eadfca";
+          ctx.fillStyle = "#f0e6d4";
           ctx.fillRect(0, 0, w, h);
-          ctx.fillStyle = "#766b5c";
+          ctx.fillStyle = "#6e665c";
           ctx.font = "12px ui-monospace, monospace";
           ctx.fillText(p.canvasHint, 14, 22);
           undoStack.current = [];
@@ -150,9 +150,9 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
         return;
       }
       const { ctx, w, h } = sized;
-      ctx.fillStyle = "#eadfca";
+      ctx.fillStyle = "#f0e6d4";
       ctx.fillRect(0, 0, w, h);
-      ctx.fillStyle = "#766b5c";
+      ctx.fillStyle = "#6e665c";
       ctx.font = "12px ui-monospace, monospace";
       ctx.fillText(p.canvasHint, 14, 22);
       undoStack.current = [];
@@ -421,8 +421,8 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
 
   return (
     <main>
-      <div className="page-x mx-auto max-w-6xl pt-6">
-        <Link href={href("/game")} className="text-sm text-muted transition-colors hover:text-accent">
+      <div className="nz-page" style={{ paddingBottom: 0 }}>
+        <Link href={href("/game")} className="nz-back">
           {m.game.hubBack}
         </Link>
       </div>
@@ -605,10 +605,10 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
                       />
                       <div className="po-canvas-tools">
                         {[
-                          ["#29242a", p.inkBlack],
-                          ["#ff6aa9", p.inkPink],
-                          ["#6de2e6", p.inkCyan],
-                          ["#ffd36a", p.inkAmber],
+                          ["#292321", p.inkBlack],
+                          ["#D9899D", p.inkPink],
+                          ["#62A3CE", p.inkCyan],
+                          ["#D8AB52", p.inkAmber],
                         ].map(([c, label]) => (
                           <button key={c} type="button" className="po-btn" onClick={() => (ink.current = c)}>
                             {label}
