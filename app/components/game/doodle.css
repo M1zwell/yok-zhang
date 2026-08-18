@@ -1,0 +1,165 @@
+.nz {
+  --nz-bg: #1e1e24;
+  --nz-paper: #f4f1ea;
+  --nz-ink: #1e1e24;
+  --nz-pink: #ff6aa9;
+  --nz-cyan: #00f0ff;
+  --nz-mud: #8b5a2b;
+  --nz-red: #ff0055;
+  --nz-lime: #00ffaa;
+  --nz-muted: #8a8a80;
+  --nz-sand: #d1d1c6;
+  color: var(--nz-sand);
+  font-family: ui-monospace, "Courier New", var(--font-mono), monospace;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0 12px;
+}
+.nz-board {
+  position: relative;
+  background:
+    repeating-linear-gradient(-18deg, transparent, transparent 9px, rgba(139, 90, 43, 0.07) 9px, rgba(139, 90, 43, 0.07) 10px),
+    #25252b;
+  border: 3px solid #3e3e46;
+  padding: 14px;
+  box-shadow: 10px 10px 0 #0c0b0d;
+  overflow: hidden;
+}
+.nz-board::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 0 26px 26px 0;
+  border-color: transparent var(--nz-mud) transparent transparent;
+  pointer-events: none;
+}
+.nz-canvas {
+  display: block;
+  width: min(92vw, 420px);
+  height: auto;
+  aspect-ratio: 400 / 350;
+  background:
+    repeating-linear-gradient(12deg, transparent, transparent 6px, rgba(139, 90, 43, 0.08) 6px, rgba(139, 90, 43, 0.08) 7px),
+    var(--nz-paper);
+  border: 2px solid var(--nz-mud);
+  cursor: crosshair;
+  touch-action: none;
+}
+.nz-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  gap: 10px;
+}
+.nz-swatches {
+  display: flex;
+  gap: 6px;
+}
+.nz-sw {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #25252b;
+  cursor: pointer;
+  padding: 0;
+}
+.nz-sw.on {
+  transform: scale(1.18);
+  border-color: #fff;
+}
+.nz-ghost {
+  background: transparent;
+  border: 1px solid var(--nz-muted);
+  color: var(--nz-muted);
+  font: inherit;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.nz-fire {
+  margin-top: 18px;
+  padding: 14px 22px;
+  border: 2px solid var(--nz-cyan);
+  background: transparent;
+  color: var(--nz-cyan);
+  font: 700 14px inherit;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.12);
+}
+.nz-letter {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-1deg);
+  width: min(92vw, 420px);
+  z-index: 8;
+  padding: 26px;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 21px, rgba(139, 90, 43, 0.12) 21px, rgba(139, 90, 43, 0.12) 22px),
+    rgba(30, 30, 35, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #e2e8f0;
+  box-shadow: 16px 18px 0 rgba(0, 0, 0, 0.45);
+  font-family: ui-monospace, "Courier New", monospace;
+}
+.nz-letter.show {
+  display: block;
+}
+.nz-letter::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(#fff2, transparent);
+  pointer-events: none;
+}
+.nz-letter::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 0 22px 22px 0;
+  border-color: transparent var(--nz-mud) transparent transparent;
+  pointer-events: none;
+}
+.nz-body {
+  white-space: pre-wrap;
+  line-height: 1.7;
+  font-size: 14px;
+  position: relative;
+  min-height: 6em;
+}
+.nz-glitch {
+  display: none;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 7;
+}
+.nz.boom .nz-glitch {
+  display: block;
+  animation: nz-g 0.22s steps(2) 3;
+}
+@keyframes nz-g {
+  0% {
+    clip-path: inset(30% 0 50% 0);
+    background: rgba(255, 0, 85, 0.16);
+  }
+  50% {
+    clip-path: inset(80% 0 5% 0);
+    background: rgba(0, 240, 255, 0.14);
+  }
+  100% {
+    clip-path: inset(5% 0 85% 0);
+  }
+}

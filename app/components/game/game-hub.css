@@ -1,0 +1,22 @@
+.nz-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(-12deg, transparent, transparent 8px, rgba(139, 90, 43, 0.07) 8px, rgba(139, 90, 43, 0.07) 9px),
+    rgba(30, 30, 36, 0.72);
+  border: 3px solid #3e3e46;
+  box-shadow: 10px 10px 0 #0c0b0d;
+}
+.nz-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-style: solid;
+  border-width: 0 22px 22px 0;
+  border-color: transparent #8b5a2b transparent transparent;
+  pointer-events: none;
+}
+.nz-card:hover {
+  border-color: #ff6aa9;
+}

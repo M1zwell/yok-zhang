@@ -246,7 +246,7 @@ export const zhHans: Messages = {
   },
 
   game: {
-    kicker: "行星小玩具",
+    kicker: "牛来 · 猪飞",
     title: "牛来 · 猪飞",
     subtitle: "园地里的行星小游戏演示。真正的城市行星仍在 gghere 中环带 / jubuddy.com/planet。",
     disclaimer: "娱乐而已。不是投资建议。这里不预测行情、价格或命运。",
@@ -264,6 +264,8 @@ export const zhHans: Messages = {
     cardPostNote: "Juju 猪邮筒。小巴牌味道。当一个很差的人类 AI。",
     cardLife: "测谎 · 面相",
     cardLifeNote: "dseek Life 的 Fun AI。深水埗麻雀馆、庙街算命档。同一标签打开。",
+    cardDoodle: "手绘邮筒",
+    cardDoodleNote: "蜡笔桌。画得越丑越好。塞进漂流瓶。",
     waiting: {
       kicker: "荒原",
       title: "等待",
@@ -419,6 +421,16 @@ export const zhHans: Messages = {
       ctaWaiting: "等待",
       ctaOracle: "摇卦",
       ctaPost: "邮局",
+    },
+    doodle: {
+      kicker: "蜡笔",
+      title: "手绘邮筒",
+      lead: "画得越丑越好。蜡笔、穿模、不合脚的靴子。画完塞进漂流瓶。",
+      send: "塞入漂流瓶",
+      wipe: "撕掉重画",
+      back: "放回星空",
+      letter1: "没有一处对称。真是太好了。\n\n黑色的乌鸦，\n往瓶子里投下石子，\n水涨，容器的虚空不说谎。",
+      letter2: "腿已经穿模进泥土了。比中环那些线可爱。\n\n丑猪飞过灰色时间，\n靴子不合脚，\n瓶塞还是会响。",
     },
   },
   language: {

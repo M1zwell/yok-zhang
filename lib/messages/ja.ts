@@ -248,7 +248,7 @@ export const ja: Messages = {
   },
 
   game: {
-    kicker: "惑星トイ",
+    kicker: "牛来 · 猪飞",
     title: "牛来 · 猪飞",
     subtitle: "庭の惑星ミニゲーム。本物のシティプラネットは gghere Central Belt / jubuddy.com/planet。",
     disclaimer: "娯楽です。投資助言ではありません。相場も運命も予言しません。",
@@ -266,6 +266,8 @@ export const ja: Messages = {
     cardPostNote: "Juju のブタ郵便箱。ミニバス看板の味。下手な人間 AI になる。",
     cardLife: "Lie · Face · Compare",
     cardLifeNote: "dseek Life の Fun AI。麻雀館と廟街の露店。同じタブで開く。",
+    cardDoodle: "手绘邮筒",
+    cardDoodleNote: "クレヨン机。醜いほど良い。瓶に詰める。",
     waiting: {
       kicker: "荒野",
       title: "Waiting",
@@ -421,6 +423,16 @@ export const ja: Messages = {
       ctaWaiting: "Waiting",
       ctaOracle: "Oracle",
       ctaPost: "郵便局",
+    },
+    doodle: {
+      kicker: "クレヨン",
+      title: "手绘邮筒",
+      lead: "醜いほど良い。クレヨン、穿模、合わないブーツ。描いたら瓶へ。",
+      send: "瓶に詰める",
+      wipe: "破って描き直す",
+      back: "星空へ戻す",
+      letter1: "どこも対称じゃない。最高だ。\n\n黒い鴉が\n瓶に小石を落とす。\n水位は上がる。虚空は嘘をつかない。",
+      letter2: "脚はもう泥に穿模している。中環の線より可愛い。\n\n醜い豚が灰色時間を飛ぶ。\nブーツは合わない。\nコルクはまだ鳴る。",
     },
   },
   language: {

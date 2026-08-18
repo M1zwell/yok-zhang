@@ -246,7 +246,7 @@ export const zhHant: Messages = {
   },
 
   game: {
-    kicker: "行星小玩具",
+    kicker: "牛来 · 猪飞",
     title: "牛来 · 猪飞",
     subtitle: "園地裡的行星小遊戲演示。真正的城市行星仍在 gghere 中環帶 / jubuddy.com/planet。",
     disclaimer: "娛樂而已。不是投資建議。這裡不預測行情、價格或命運。",
@@ -264,6 +264,8 @@ export const zhHant: Messages = {
     cardPostNote: "Juju 豬郵筒。小巴牌味道。當一個很差的人類 AI。",
     cardLife: "測謊 · 面相",
     cardLifeNote: "dseek Life 的 Fun AI。深水埗麻雀館、廟街算命檔。同一分頁打開。",
+    cardDoodle: "手繪郵筒",
+    cardDoodleNote: "蠟筆桌。畫得越醜越好。塞進漂流瓶。",
     waiting: {
       kicker: "荒原",
       title: "等待",
@@ -419,6 +421,16 @@ export const zhHant: Messages = {
       ctaWaiting: "等待",
       ctaOracle: "搖卦",
       ctaPost: "郵局",
+    },
+    doodle: {
+      kicker: "蠟筆",
+      title: "手繪郵筒",
+      lead: "畫得越醜越好。蠟筆、穿模、不合腳的靴子。畫完塞進漂流瓶。",
+      send: "塞入漂流瓶",
+      wipe: "撕掉重畫",
+      back: "放回星空",
+      letter1: "沒有一處對稱。真是太好了。\n\n黑色的烏鴉，\n往瓶子裡投下石子，\n水漲，容器的虛空不說謊。",
+      letter2: "腿已經穿模進泥土了。比中環那些線可愛。\n\n醜豬飛過灰色時間，\n靴子不合腳，\n瓶塞還是會響。",
     },
   },
   language: {

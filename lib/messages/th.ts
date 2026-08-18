@@ -248,7 +248,7 @@ export const th: Messages = {
   },
 
   game: {
-    kicker: "ของเล่นดาวเคราะห์",
+    kicker: "牛来 · 猪飞",
     title: "牛来 · 猪飞",
     subtitle: "มินิเกมดาวเคราะห์ในสวน ดาวเคราะห์เมืองจริงยังอยู่ที่ gghere Central Belt / jubuddy.com/planet",
     disclaimer: "เพื่อความบันเทิง ไม่ใช่คำแนะนำการลงทุน ไม่ทำนายตลาด ราคา หรือโชคชะตา",
@@ -266,6 +266,8 @@ export const th: Messages = {
     cardPostNote: "ตู้หมู Juju กลิ่นป้ายรถตู้เล็ก เป็น AI มนุษย์ที่แย่",
     cardLife: "Lie · Face · Compare",
     cardLifeNote: "Fun AI จาก dseek Life ร้านไพ่นกกระจอกและแผงดูดวงถนนวัด เปิดแท็บเดียวกัน",
+    cardDoodle: "手绘邮筒",
+    cardDoodleNote: "โต๊ะสีเทียน ยิ่งขี้เหร่ยิ่งดี ยัดลงขวด",
     waiting: {
       kicker: "ทะเลทราย",
       title: "Waiting",
@@ -421,6 +423,16 @@ export const th: Messages = {
       ctaWaiting: "Waiting",
       ctaOracle: "Oracle",
       ctaPost: "ไปรษณีย์",
+    },
+    doodle: {
+      kicker: "สีเทียน",
+      title: "手绘邮筒",
+      lead: "ยิ่งขี้เหร่ยิ่งดี สีเทียน 穿模 รองเท้าที่ไม่พอดี แล้วยัดลงขวด",
+      send: "ยัดลงขวดลอย",
+      wipe: "ฉีกแล้ววาดใหม่",
+      back: "คืนสู่ท้องฟ้า",
+      letter1: "ไม่มีที่ไหนสมมาตร ดีมาก\n\nอีกาดำ\nโยนหินลงขวด\nน้ำขึ้น ความว่างไม่วาง.",
+      letter2: "ขาทะลุโคลนแล้ว น่ารักกว่าเส้นเซ็นทรัล\n\nหมูขี้เหร่บินผ่านเวลาเทา\nรองเท้าไม่พอดี\nจุกยังดัง.",
     },
   },
   language: {
