@@ -572,11 +572,20 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: min(92%, 620px);
+  max-height: min(92%, calc(100% - 16px));
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
   z-index: 10;
   background: #211d23;
   border: 1px solid #665866;
   padding: 16px;
   box-shadow: 14px 14px 0 rgba(0, 0, 0, 0.35);
+}
+.po h1 {
+  overflow-wrap: anywhere;
+}
+.po select {
+  min-height: 44px;
 }
 .po-challenge.show {
   display: block;
@@ -757,7 +766,11 @@
     padding: 10px 10px 44px;
   }
   .po h1 {
-    font-size: 52px;
+    font-size: clamp(32px, 12vw, 52px);
+  }
+  .po-challenge {
+    width: min(96%, 620px);
+    padding: 12px;
   }
   .po-shop {
     width: 150px;
