@@ -248,7 +248,7 @@ export const en = {
   },
 
   game: {
-    kicker: "Planet toys",
+    kicker: "牛来 · 猪飞",
     title: "牛来 · 猪飞",
     subtitle:
       "Planet mini-game demos for the garden. The live city-planet remains gghere Central Belt / jubuddy.com/planet.",
@@ -268,6 +268,8 @@ export const en = {
     cardPostNote: "Juju pig mailbox. 小巴牌 flavour. Be a bad human AI.",
     cardLife: "Lie · Face · Compare",
     cardLifeNote: "Fun AI from dseek Life. Mahjong parlour, Temple Street stall. Same-tab toys.",
+    cardDoodle: "Doodle",
+    cardDoodleNote: "Crayon desk. Cork the bottle. Ugly is the point.",
     waiting: {
       kicker: "Wasteland",
       title: "Waiting",
@@ -423,6 +425,16 @@ export const en = {
       ctaWaiting: "Waiting",
       ctaOracle: "Oracle",
       ctaPost: "Post Office",
+    },
+    doodle: {
+      kicker: "Crayon",
+      title: "Doodle desk",
+      lead: "The uglier the better. Crayon, clipping, boots that don't fit. Cork it into a bottle.",
+      send: "Cork the bottle",
+      wipe: "Tear it up",
+      back: "Back to the sky",
+      letter1: "Nothing is symmetrical. Good.\n\nA black crow\ndrops pebbles in the bottle.\nThe water rises. The void does not lie.",
+      letter2: "The legs already clip into the mud. Cuter than those Central lines.\n\nUgly pig flies through Grey Time.\nBoots don't fit.\nThe cork still pops.",
     },
   },
   language: {

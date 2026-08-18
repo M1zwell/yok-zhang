@@ -249,7 +249,7 @@ export const nl: Messages = {
   },
 
   game: {
-    kicker: "Planeetspeeltjes",
+    kicker: "牛来 · 猪飞",
     title: "牛来 · 猪飞",
     subtitle: "Planeet-minigames in de tuin. De echte stadsplaneet blijft gghere Central Belt / jubuddy.com/planet.",
     disclaimer: "Alleen vermaak. Geen financieel advies. Hier voorspelt niemand markten, prijzen of lotsbestemmingen.",
@@ -267,6 +267,8 @@ export const nl: Messages = {
     cardPostNote: "Juju-varkensbus. Minibusbord-smaak. Wees een slechte menselijke AI.",
     cardLife: "Lie · Face · Compare",
     cardLifeNote: "Fun AI van dseek Life. Mahjongzaak, Temple Street-kraam. Zelfde tabblad.",
+    cardDoodle: "Doodle",
+    cardDoodleNote: "Krijtbureau. Kurk de fles. Lelijk is het punt.",
     waiting: {
       kicker: "Woestenij",
       title: "Waiting",
@@ -422,6 +424,16 @@ export const nl: Messages = {
       ctaWaiting: "Waiting",
       ctaOracle: "Oracle",
       ctaPost: "Postkantoor",
+    },
+    doodle: {
+      kicker: "Krijt",
+      title: "Doodle-bureau",
+      lead: "Hoe lelijker hoe beter. Krijt, clipping, laarzen die niet passen. Kurk het in een fles.",
+      send: "Kurk de fles",
+      wipe: "Scheur het open",
+      back: "Terug naar de hemel",
+      letter1: "Nergens symmetrie. Goed zo.\n\nEen zwarte kraai\ngooit steentjes in de fles.\nHet water stijgt. De leegte liegt niet.",
+      letter2: "De benen clippen al in de modder. Liever dan die Central-lijnen.\n\nLelijk varken vliegt door Grey Time.\nLaarzen passen niet.\nDe kurk knalt nog.",
     },
   },
   language: {

@@ -248,7 +248,7 @@ export const ko: Messages = {
   },
 
   game: {
-    kicker: "행성 장난감",
+    kicker: "牛来 · 猪飞",
     title: "牛来 · 猪飞",
     subtitle: "정원의 행성 미니게임. 진짜 시티 플래닛은 gghere Central Belt / jubuddy.com/planet.",
     disclaimer: "오락일 뿐. 투자 조언이 아니다. 시세나 운명을 예측하지 않는다.",
@@ -266,6 +266,8 @@ export const ko: Messages = {
     cardPostNote: "Juju 돼지 우체통. 미니버스 간판 맛. 서툰 인간 AI가 되어라.",
     cardLife: "Lie · Face · Compare",
     cardLifeNote: "dseek Life의 Fun AI. 마작관과 묘가 점집. 같은 탭에서 연다.",
+    cardDoodle: "手绘邮筒",
+    cardDoodleNote: "크레용 책상. 추할수록 좋다. 병에 넣는다.",
     waiting: {
       kicker: "황무지",
       title: "Waiting",
@@ -421,6 +423,16 @@ export const ko: Messages = {
       ctaWaiting: "Waiting",
       ctaOracle: "Oracle",
       ctaPost: "우체국",
+    },
+    doodle: {
+      kicker: "크레용",
+      title: "手绘邮筒",
+      lead: "추할수록 좋다. 크레용, 클리핑, 안 맞는 부츠. 그리고 병에 넣는다.",
+      send: "표류병에 넣기",
+      wipe: "찢고 다시 그리기",
+      back: "별하늘로",
+      letter1: "어디도 대칭이 아니다. 좋다.\n\n검은 까마귀가\n병에 돌을 떨어뜨린다.\n물은 오른다. 허공은 거짓말하지 않는다.",
+      letter2: "다리는 이미 진흙에 파고들었다. 중환의 선보다 귀엽다.\n\n못난 돼지가 회색 시간을 난다.\n부츠는 안 맞는다.\n코르크는 여전히 튄다.",
     },
   },
   language: {
