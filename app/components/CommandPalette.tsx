@@ -46,26 +46,32 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
       tags: p.tags,
       path: p.path,
     }));
-    const toolItems: Item[] = tools.map((t) => ({
-      id: `tool-${t.id}`,
-      label: t.title,
-      hint: t.path,
-      href: t.href,
-      external: true,
-      group: "Tools",
-      summary: t.note,
-      path: t.path,
-    }));
-    const productItems: Item[] = liveProducts.map((p) => ({
-      id: `prod-${p.path}`,
-      label: p.title,
-      hint: p.path,
-      href: p.href,
-      external: true,
-      group: "Products",
-      summary: p.note,
-      path: p.path,
-    }));
+    const toolItems: Item[] = tools.map((tool) => {
+      const internal = tool.href.startsWith("/");
+      return {
+        id: `tool-${tool.id}`,
+        label: tool.title,
+        hint: tool.path,
+        href: internal ? localizeHref(tool.href, locale) : tool.href,
+        external: !internal,
+        group: "Tools",
+        summary: tool.note,
+        path: tool.path,
+      };
+    });
+    const productItems: Item[] = liveProducts.map((p) => {
+      const internal = p.href.startsWith("/");
+      return {
+        id: `prod-${p.path}`,
+        label: p.title,
+        hint: p.path,
+        href: internal ? localizeHref(p.href, locale) : p.href,
+        external: !internal,
+        group: "Products",
+        summary: p.note,
+        path: p.path,
+      };
+    });
     const themeItems: Item[] = researchThemes.map((theme) => ({
       id: `theme-${theme.id}`,
       label: theme.label,

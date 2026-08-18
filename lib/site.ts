@@ -77,6 +77,7 @@ export const nav = [
   { href: "/writing", label: "Writing" },
   { href: "/tools", label: "Tools" },
   { href: "/products", label: "Products" },
+  { href: "/game", label: "Game" },
   { href: "/share", label: "Share" },
 ] as const;
 
@@ -148,6 +149,17 @@ export const tools: Tool[] = [
     note: "theme factory; chatlab buddy in jubit universe.",
     embeddable: true,
     embedSrc: "https://jubuddy.com",
+  },
+  {
+    id: "minigames",
+    title: "Mini-games",
+    href: "/game",
+    path: "ichina.co/game",
+    group: "games",
+    present: "牛来 · 猪飞",
+    note: "Playable demos on this garden. Waiting tree, hand-cast oracle, Handcrafted Post Office.",
+    embeddable: false,
+    embedSrc: "/game",
   },
   {
     id: "worlds",
@@ -277,6 +289,19 @@ export const productGroups: Group[] = [
         path: "gghere.com",
         live: true,
         note: "Peer world. We did not edit gghere from this garden — we point to it.",
+      },
+    ],
+  },
+  {
+    id: "games",
+    label: "Games",
+    items: [
+      {
+        title: "ichina.co/game",
+        href: "/game",
+        path: "ichina.co/game",
+        live: true,
+        note: "Playable demos: waiting tree, hand-cast oracle, Handcrafted Post Office. Not the live Three.js planet.",
       },
     ],
   },
