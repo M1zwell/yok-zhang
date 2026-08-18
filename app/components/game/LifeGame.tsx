@@ -45,47 +45,38 @@ export function LifeGame({ locale = "en" }: { locale?: Locale }) {
 
   return (
     <GameShell locale={locale} kicker={life.kicker} title={life.title} lead={life.lead}>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="nz-grid">
         {toys.map((toy) => (
-          <a
-            key={toy.tool}
-            href={funAiUrl({ tool: toy.tool, locale })}
-            className="group flex min-h-[16rem] flex-col rounded-[20px] border border-hair bg-deep/60 p-5 transition-colors hover:border-accent/40 sm:p-6"
-          >
-            <p className="kicker">{life[toy.kicker]}</p>
-            <h2 className="mt-3 font-display text-3xl tracking-tight transition-colors group-hover:text-accent">
+          <a key={toy.tool} href={funAiUrl({ tool: toy.tool, locale })} className="nz-card">
+            <p className="nz-kicker is-mud">{life[toy.kicker]}</p>
+            <h2>
               {life[toy.title]} <span aria-hidden>↗</span>
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted">{life[toy.lead]}</p>
+            <p className="nz-note">{life[toy.lead]}</p>
             {toy.chips ? (
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div style={{ marginTop: 14 }}>
                 {toy.chips.map((chip) => (
-                  <span
-                    key={chip}
-                    className="rounded-full border border-hair px-3 py-1 text-xs leading-6 text-fg"
-                  >
+                  <span key={chip} className="nz-chip">
                     {life[chip]}
                   </span>
                 ))}
               </div>
             ) : null}
-            <p className="mt-4 text-xs leading-relaxed text-muted">{life.disclaimer}</p>
-            <p className="mt-2 text-xs leading-relaxed text-muted">{life.quota}</p>
-            <p className="mt-2 text-xs leading-relaxed text-muted">{life.camera}</p>
-            <p className="mt-auto pt-6 text-sm text-accent">
-              {life.play}
-            </p>
+            <p className="nz-caption">{life.disclaimer}</p>
+            <p className="nz-note">{life.quota}</p>
+            <p className="nz-note">{life.camera}</p>
+            <p className="nz-play">{life.play}</p>
           </a>
         ))}
       </div>
-      <div className="mt-8 flex flex-wrap gap-2">
-        <Link href={href("/game/waiting")} className="btn btn-ghost min-h-11">
+      <div className="nz-row">
+        <Link href={href("/game/waiting")} className="nz-btn-ghost">
           {life.ctaWaiting}
         </Link>
-        <Link href={href("/game/oracle")} className="btn btn-ghost min-h-11">
+        <Link href={href("/game/oracle")} className="nz-btn-ghost">
           {life.ctaOracle}
         </Link>
-        <Link href={href("/game/post")} className="btn btn-primary min-h-11">
+        <Link href={href("/game/post")} className="nz-btn-primary">
           {life.ctaPost}
         </Link>
       </div>

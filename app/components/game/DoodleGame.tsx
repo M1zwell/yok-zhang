@@ -7,7 +7,7 @@ import { localizeHref, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
 import "./doodle.css";
 
-const SWATCHES = ["#1e1e24", "#ff0055", "#00ffaa", "#8b5a2b", "#ff6aa9"] as const;
+const SWATCHES = ["#292321", "#D9899D", "#E6534F", "#5c4f43", "#D8AB52"] as const;
 
 function pointerPos(e: { clientX: number; clientY: number; touches?: TouchList }, canvas: HTMLCanvasElement) {
   const r = canvas.getBoundingClientRect();
@@ -171,7 +171,7 @@ export function DoodleGame({ locale = "en" }: { locale?: Locale }) {
           clearInterval(twRef.current);
           twRef.current = null;
         }
-      }, 40);
+      }, 83);
     }, 280);
   };
 
@@ -183,7 +183,7 @@ export function DoodleGame({ locale = "en" }: { locale?: Locale }) {
 
   return (
     <GameShell locale={locale} kicker={m.game.doodle.kicker} title={m.game.doodle.title} lead={m.game.doodle.lead}>
-      <div className={`nz${boom ? " boom" : ""}`}>
+      <div className={`nz-desk${boom ? " boom" : ""}`}>
         <div className="nz-glitch" aria-hidden />
         <div className="nz-board">
           <canvas ref={canvasRef} className="nz-canvas" width={400} height={350} />
@@ -200,26 +200,26 @@ export function DoodleGame({ locale = "en" }: { locale?: Locale }) {
                 />
               ))}
             </div>
-            <button type="button" className="nz-ghost" onClick={wipe}>
+            <button type="button" className="nz-btn-ghost" onClick={wipe}>
               {m.game.doodle.wipe}
             </button>
           </div>
         </div>
-        <button type="button" className="nz-fire" onClick={send}>
+        <button type="button" className="nz-btn-primary" onClick={send}>
           {m.game.doodle.send}
         </button>
         <div className={`nz-letter${showLetter ? " show" : ""}`} role="dialog" aria-modal={showLetter}>
           <div className="nz-body">{letter}</div>
-          <button type="button" className="nz-ghost" style={{ marginTop: 16 }} onClick={closeLetter}>
+          <button type="button" className="nz-btn-ghost" style={{ marginTop: 16 }} onClick={closeLetter}>
             {m.game.doodle.back}
           </button>
         </div>
       </div>
-      <div className="mt-8 flex flex-wrap gap-2">
-        <Link href={href("/game/post")} className="btn btn-ghost">
+      <div className="nz-row">
+        <Link href={href("/game/post")} className="nz-btn-ghost">
           {m.game.cardPost}
         </Link>
-        <Link href={href("/game")} className="btn btn-ghost">
+        <Link href={href("/game")} className="nz-btn-ghost">
           {m.game.hubBack}
         </Link>
       </div>

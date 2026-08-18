@@ -20,40 +20,45 @@ export function GameHub({ locale = "en" }: { locale?: Locale }) {
 
   return (
     <main>
-      <section className="page-x mx-auto max-w-6xl pt-14 pb-10 sm:pt-24">
-        <p className="kicker">{m.game.kicker}</p>
-        <h1 className="mt-4 font-display text-[clamp(2.6rem,8vw,5rem)] leading-[0.92] tracking-tight">
-          {m.game.title}
-        </h1>
-        <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted">{m.game.subtitle}</p>
-        <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted">{m.game.disclaimer}</p>
-        <div className="mt-8 flex flex-wrap gap-2">
-          <a href={links.gghereHk} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+      <section className="nz-page nz-hub">
+        <p className="nz-kicker">{m.game.kicker}</p>
+        <h1 className="nz-title">{m.game.title}</h1>
+        <div className="nz-clip nz-clip-kline" aria-hidden>
+          <svg viewBox="0 0 640 54" fill="none">
+            <path
+              d="M0 32 L48 30 L72 18 L96 40 L128 22 L160 28 L188 8 L220 36 L252 20 L284 44 L320 16 L356 34 L390 12 L428 38 L464 24 L500 42 L536 14 L580 30 L640 22"
+              stroke="#292321"
+              strokeWidth="1.6"
+            />
+            <path d="M188 8 L188 36" stroke="#E6534F" strokeWidth="2.2" />
+            <path d="M320 16 L320 44" stroke="#5E9766" strokeWidth="2.2" />
+            <rect x="180" y="14" width="16" height="16" fill="#E6534F" />
+            <rect x="312" y="20" width="16" height="18" fill="#5E9766" />
+            <path d="M500 22 L500 48" stroke="#E6534F" strokeWidth="1.8" />
+            <rect x="494" y="28" width="12" height="12" fill="#E6534F" />
+          </svg>
+        </div>
+        <p className="nz-lead">{m.game.subtitle}</p>
+        <p className="nz-caption">{m.game.disclaimer}</p>
+        <div className="nz-row">
+          <a href={links.gghereHk} target="_blank" rel="noopener noreferrer" className="nz-btn-primary">
             {m.game.walkBelt} <span aria-hidden>↗</span>
           </a>
-          <a href={links.jubuddyHome} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+          <a href={links.jubuddyHome} target="_blank" rel="noopener noreferrer" className="nz-btn-ghost">
             {m.game.jubuddy}
           </a>
-          <a href={links.jubitHome} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+          <a href={links.jubitHome} target="_blank" rel="noopener noreferrer" className="nz-btn-ghost">
             {m.game.jubit}
-            <span className="text-muted"> · {m.game.jubitNote}</span>
+            <span className="nz-mono"> · {m.game.jubitNote}</span>
           </a>
         </div>
-      </section>
-      <section className="page-x mx-auto max-w-6xl pb-20">
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="nz-grid">
           {cards.map((card) => (
-            <Link
-              key={card.href}
-              href={href(card.href)}
-              className="nz-card group rounded-[20px] p-5 transition-colors sm:p-6"
-            >
-              <p className="kicker">{m.game.play}</p>
-              <h2 className="mt-3 font-display text-3xl tracking-tight transition-colors group-hover:text-accent">
-                {m.game[card.titleKey]}
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{m.game[card.noteKey]}</p>
-              <p className="mt-6 text-sm text-accent">
+            <Link key={card.href} href={href(card.href)} className="nz-card">
+              <p className="nz-kicker is-mud">{m.game.play}</p>
+              <h2>{m.game[card.titleKey]}</h2>
+              <p className="nz-note">{m.game[card.noteKey]}</p>
+              <p className="nz-play">
                 {m.game.play} <span aria-hidden>→</span>
               </p>
             </Link>

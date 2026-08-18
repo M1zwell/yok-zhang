@@ -64,7 +64,7 @@ export function WaitingGame({ locale = "en" }: { locale?: Locale }) {
         return;
       }
       rafRef.current = requestAnimationFrame(draw);
-      if (ts - lastRef.current < 1000 / 24) return;
+      if (ts - lastRef.current < 1000 / 12) return;
       lastRef.current = ts;
 
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -76,9 +76,9 @@ export function WaitingGame({ locale = "en" }: { locale?: Locale }) {
       }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = "#161616";
+      ctx.fillStyle = "#f0e6d4";
       ctx.fillRect(0, 0, w, h);
-      ctx.strokeStyle = "rgba(138,132,120,0.18)";
+      ctx.strokeStyle = "rgba(41,35,33,0.14)";
       ctx.lineWidth = 1;
       for (let y = 16; y < h; y += 22) {
         ctx.beginPath();
@@ -95,8 +95,8 @@ export function WaitingGame({ locale = "en" }: { locale?: Locale }) {
         const yH = h - (bar.h / 100) * (h - 16);
         const yL = h - (bar.l / 100) * (h - 16);
         const up = bar.c >= bar.o;
-        ctx.strokeStyle = up ? "#14b8a6" : "#8a8478";
-        ctx.fillStyle = up ? "rgba(20,184,166,0.35)" : "rgba(138,132,120,0.28)";
+        ctx.strokeStyle = up ? "#5E9766" : "#E6534F";
+        ctx.fillStyle = up ? "#5E9766" : "#E6534F";
         ctx.beginPath();
         ctx.moveTo(x + 4, yH);
         ctx.lineTo(x + 4, yL);
@@ -147,56 +147,57 @@ export function WaitingGame({ locale = "en" }: { locale?: Locale }) {
   return (
     <GameShell locale={locale} kicker={m.game.waiting.kicker} title={m.game.waiting.title} lead={m.game.waiting.lead}>
       <div
-        className="overflow-hidden rounded-[20px] border border-hair bg-[#121212]"
+        className="nz-card nz-wait"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
-        style={{ transform: pullDy ? `translateY(${pullDy * 0.25}px)` : undefined }}
+        style={{ transform: pullDy ? `translateY(${pullDy * 0.25}px) rotate(-1deg)` : undefined, overflow: "hidden" }}
       >
-        <div className="relative px-5 pt-8 pb-4 sm:px-8">
-          <svg viewBox="0 0 220 160" className="mx-auto h-40 w-full max-w-sm text-[#5c5850]" aria-hidden>
-            <rect x="0" y="120" width="220" height="40" fill="#1a1a1a" />
-            <path d="M108 128 L112 48 L116 128 Z" fill="#3a3834" />
-            <path d="M112 72 L78 96" stroke="currentColor" strokeWidth="2" fill="none" />
-            <path d="M112 64 L148 88" stroke="currentColor" strokeWidth="2" fill="none" />
-            <path d="M112 90 L92 118" stroke="currentColor" strokeWidth="1.6" fill="none" />
-            <path d="M112 84 L136 114" stroke="currentColor" strokeWidth="1.6" fill="none" />
-            <circle cx="112" cy="46" r="3" fill="#4a4740" />
-          </svg>
-          <canvas ref={canvasRef} className="mt-2 h-36 w-full" />
-          <div className="mt-4 flex flex-wrap items-center gap-3">
-            <button type="button" onClick={refresh} className="btn btn-primary min-h-11 px-5">
-              {m.game.waiting.refresh}
-            </button>
-            <span className="font-mono text-[11px] text-muted">
-              {pulls} {m.game.waiting.pulls}
-            </span>
-          </div>
-          <p className="mt-3 text-xs text-muted">{m.game.waiting.hint}</p>
-          {revealed ? (
-            <>
-              <p className="mt-6 font-display text-xl leading-snug text-fg sm:text-2xl">{m.game.waiting.beckett}</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted">{m.game.waiting.stillNobody}</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <a href={funAiUrl({ tool: "face-reading", locale })} className="btn btn-primary min-h-11 px-5">
-                  {m.game.waiting.ctaFace} <span aria-hidden>↗</span>
-                </a>
-                <Link href={href("/game/life")} className="btn btn-ghost min-h-11 px-5">
-                  {m.game.waiting.ctaLife}
-                </Link>
-              </div>
-            </>
-          ) : null}
+        <div className="nz-clip nz-clip-receipt" aria-hidden />
+        <svg viewBox="0 0 220 160" style={{ display: "block", height: 160, width: "100%", maxWidth: 360, margin: "0 auto" }} aria-hidden>
+          <rect x="0" y="120" width="220" height="40" fill="#a39a8e" />
+          <path d="M108 128 L112 48 L116 128 Z" fill="#5c4f43" />
+          <path d="M112 72 L78 96" stroke="#736A60" strokeWidth="2" fill="none" />
+          <path d="M112 64 L148 88" stroke="#736A60" strokeWidth="2" fill="none" />
+          <path d="M112 90 L92 118" stroke="#736A60" strokeWidth="1.6" fill="none" />
+          <path d="M112 84 L136 114" stroke="#736A60" strokeWidth="1.6" fill="none" />
+          <circle cx="112" cy="46" r="3" fill="#292321" />
+        </svg>
+        <canvas ref={canvasRef} style={{ marginTop: 8, height: 144, width: "calc(100% + 28px)", marginRight: -24 }} />
+        <div className="nz-row" style={{ marginTop: 16 }}>
+          <button type="button" onClick={refresh} className="nz-btn-primary">
+            {m.game.waiting.refresh}
+          </button>
+          <span className="nz-mono">
+            {pulls} {m.game.waiting.pulls}
+          </span>
         </div>
+        <p className="nz-note">{m.game.waiting.hint}</p>
+        {revealed ? (
+          <>
+            <p className="nz-lead" style={{ fontFamily: "var(--nz-font-display), serif", fontSize: "1.35rem" }}>
+              {m.game.waiting.beckett}
+            </p>
+            <p className="nz-note">{m.game.waiting.stillNobody}</p>
+            <div className="nz-row">
+              <a href={funAiUrl({ tool: "face-reading", locale })} className="nz-btn-primary">
+                {m.game.waiting.ctaFace} <span aria-hidden>↗</span>
+              </a>
+              <Link href={href("/game/life")} className="nz-btn-ghost">
+                {m.game.waiting.ctaLife}
+              </Link>
+            </div>
+          </>
+        ) : null}
       </div>
-      <div className="mt-8 flex flex-wrap gap-2">
-        <Link href={href("/game/oracle")} className="btn btn-primary">
+      <div className="nz-row">
+        <Link href={href("/game/oracle")} className="nz-btn-primary">
           {m.game.waiting.ctaOracle}
         </Link>
-        <Link href={href("/game/post")} className="btn btn-ghost">
+        <Link href={href("/game/post")} className="nz-btn-ghost">
           {m.game.waiting.ctaPost}
         </Link>
-        <a href={links.gghereHk} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+        <a href={links.gghereHk} target="_blank" rel="noopener noreferrer" className="nz-btn-ghost">
           {m.game.walkBelt} <span aria-hidden>↗</span>
         </a>
       </div>
