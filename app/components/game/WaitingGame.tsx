@@ -5,6 +5,7 @@ import Link from "next/link";
 import { GameShell } from "@/app/components/game/GameShell";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
+import { funAiUrl } from "@/lib/game/life";
 import { links } from "@/lib/site";
 
 type Candle = { o: number; c: number; h: number; l: number };
@@ -149,7 +150,18 @@ export function WaitingGame({ locale = "en" }: { locale?: Locale }) {
           </div>
           <p className="mt-3 text-xs text-muted">{m.game.waiting.hint}</p>
           {revealed ? (
-            <p className="mt-6 font-display text-xl leading-snug text-fg sm:text-2xl">{m.game.waiting.beckett}</p>
+            <>
+              <p className="mt-6 font-display text-xl leading-snug text-fg sm:text-2xl">{m.game.waiting.beckett}</p>
+              <p className="mt-4 text-sm leading-relaxed text-muted">{m.game.waiting.stillNobody}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <a href={funAiUrl({ tool: "face-reading", locale })} className="btn btn-primary min-h-11 px-5">
+                  {m.game.waiting.ctaFace} <span aria-hidden>↗</span>
+                </a>
+                <Link href={href("/game/life")} className="btn btn-ghost min-h-11 px-5">
+                  {m.game.waiting.ctaLife}
+                </Link>
+              </div>
+            </>
           ) : null}
         </div>
       </div>

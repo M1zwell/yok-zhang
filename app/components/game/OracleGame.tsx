@@ -6,6 +6,7 @@ import { GameShell } from "@/app/components/game/GameShell";
 import { castOracle } from "@/lib/game/loom";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
+import { funAiUrl } from "@/lib/game/life";
 import { links } from "@/lib/site";
 
 export function OracleGame({ locale = "en" }: { locale?: Locale }) {
@@ -60,6 +61,19 @@ export function OracleGame({ locale = "en" }: { locale?: Locale }) {
           )}
         </div>
         <p className="mt-8 text-xs leading-relaxed text-muted">{m.game.oracle.disclaimer}</p>
+        {lines.length > 0 ? (
+          <div className="mt-6 space-y-3">
+            <p className="text-xs leading-relaxed text-muted">{m.game.oracle.faceCousin}</p>
+            <div className="flex flex-wrap gap-2">
+              <a href={funAiUrl({ tool: "face-reading", locale })} className="btn btn-primary min-h-11 px-5">
+                {m.game.oracle.ctaFace} <span aria-hidden>↗</span>
+              </a>
+              <Link href={href("/game/life")} className="btn btn-ghost min-h-11 px-5">
+                {m.game.oracle.ctaLife}
+              </Link>
+            </div>
+          </div>
+        ) : null}
       </div>
       <div className="mt-8 flex flex-wrap gap-2">
         <a href={links.jubuddyHome} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">

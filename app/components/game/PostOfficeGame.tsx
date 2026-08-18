@@ -4,6 +4,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState, type Pointer
 import Link from "next/link";
 import { isCrisisAsk } from "@/lib/game/crisis";
 import { randomQuestion } from "@/lib/game/questions";
+import { funAiUrl } from "@/lib/game/life";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
 import "./post-office.css";
@@ -67,6 +68,7 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
   const [h3, setH3] = useState("");
   const [friend, setFriend] = useState("");
   const [flying, setFlying] = useState(false);
+  const [settled, setSettled] = useState(false);
 
   const stageRef = useRef<HTMLDivElement>(null);
   const charARef = useRef<HTMLDivElement>(null);
@@ -182,6 +184,7 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
     setChallenge(false);
     setDelivery(false);
     setFlying(false);
+    setSettled(false);
     showToast(p.toastPosted);
   }, [p, question, showToast]);
 
@@ -238,6 +241,7 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
       typewrite(reply.text);
     }
     setLetter(true);
+    setSettled(true);
   }, [p.letterFrom, p.statusAPop, typewrite]);
 
   const sendBottle = useCallback(
@@ -656,10 +660,33 @@ export function PostOfficeGame({ locale = "en" }: { locale?: Locale }) {
                       {p.rateSkip}
                     </button>
                   </div>
+                  <p className="po-small" style={{ marginTop: 12 }}>{p.lifeHint}</p>
+                  <div className="po-btnrow" style={{ marginTop: 10 }}>
+                    <a href={funAiUrl({ tool: "lie-detector", locale })} className="po-btn pink">
+                      {p.ctaLie} ↗
+                    </a>
+                    <a href={funAiUrl({ tool: "compare", locale })} className="po-btn">
+                      {p.ctaCompare} ↗
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
+
+          {settled ? (
+            <div className="po-btnrow" style={{ marginTop: 8, marginBottom: 8, flexWrap: "wrap" }}>
+              <a href={funAiUrl({ tool: "lie-detector", locale })} className="po-btn pink">
+                {p.ctaLie} ↗
+              </a>
+              <a href={funAiUrl({ tool: "compare", locale })} className="po-btn">
+                {p.ctaCompare} ↗
+              </a>
+              <Link href={href("/game/life")} className="po-btn ghost">
+                {p.ctaLife}
+              </Link>
+            </div>
+          ) : null}
 
           <div className="po-foot">{p.foot}</div>
         </div>
