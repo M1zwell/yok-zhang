@@ -9,6 +9,7 @@ const cards = [
   { href: "/game/waiting", titleKey: "cardWaiting", noteKey: "cardWaitingNote" },
   { href: "/game/oracle", titleKey: "cardOracle", noteKey: "cardOracleNote" },
   { href: "/game/post", titleKey: "cardPost", noteKey: "cardPostNote" },
+  { href: "/game/life", titleKey: "cardLife", noteKey: "cardLifeNote" },
 ] as const;
 
 export function GameHub({ locale = "en" }: { locale?: Locale }) {
@@ -38,7 +39,7 @@ export function GameHub({ locale = "en" }: { locale?: Locale }) {
         </div>
       </section>
       <section className="page-x mx-auto max-w-6xl pb-20">
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2">
           {cards.map((card) => (
             <Link
               key={card.href}
