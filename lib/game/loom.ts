@@ -5,8 +5,8 @@ const SEEDS_ZH = [
 ];
 
 const SEEDS_EN = [
-  "穿模补天 — the tape clipped. A wild prompt is not a bid. Hand-rub a limit-up. Entertainment.",
-  "跌停也是梦 — 《牛来》 ended as a dream. Today’s red and green can too. Wake in the jubuddy sty.",
+  "穿模补天 — the wall clipped. A wild prompt is not a fate. Hand-rub a patch. Entertainment.",
+  "跌停也是梦 — 《牛来》 ended as a dream. Today’s waiting can too. Wake in the jubuddy sty.",
   "直立行走 — nobody knows when the ox arrives. jubit is a tool. jubuddy is body heat. Stand first.",
 ];
 
@@ -14,9 +14,9 @@ const EXTRA_ZH = [
   "什么也没有动。猪把工单填好了。线还在原地。",
   "穿模率 0.0%。你穿过了一堵本来就不在的墙。",
   "Juju 哼了两声。麻雀耸肩。还在等。",
-  "一根蜡烛自己印出来，又自己抹掉。没有人来。",
+  "一根线自己印出来，又自己抹掉。没有人来。",
   "树是故意死的。荒原在上班。",
-  "麻雀说：我是工具。我不是神。我也不是你的 A 股。",
+  "麻雀说：我是工具。我不是神。我也不是你的命运。",
   "戈多在另一颗行星。中环带仍然可以走。",
   "职员在舔邮票。猪坐在邮筒上。8 秒像 120 秒。",
   "手搓，不是天降。硬币是塑料的。",
@@ -29,15 +29,15 @@ const EXTRA_EN = [
   "Nothing stirs. The pig files a ticket. The line does not move.",
   "穿模率 0.0%. You walked through a wall that was never there.",
   "Juju snorts twice. The sparrow shrugs. Still waiting.",
-  "A candle prints itself, then unprints. Nobody came.",
+  "A line prints itself, then unprints. Nobody came.",
   "The tree is dead on purpose. The wasteland is doing its job.",
-  "Sparrow says: I am a tool. I am not a god. I am not your A-share.",
+  "Sparrow says: I am a tool. I am not a god. I am not your fortune.",
   "Godot is on another planet. Central Belt is still walkable.",
   "The clerk licks a stamp. The pig sits on the mailbox. 8 seconds feel like 120.",
   "Hand-cast, not sky-cast. The coins are plastic.",
   "jubit.ai opened a ticket. It did not open a fortune.",
   "The pig flew once, then sat down. The ox has not arrived.",
-  "The cast reads: go drink 凉茶. Do not ask the tape.",
+  "The cast reads: go drink 凉茶. Do not ask tomorrow.",
 ];
 
 function shuffle<T>(items: T[]): T[] {
@@ -57,7 +57,9 @@ export function castOracle(locale: string): [string, string, string] {
   const zh = locale.startsWith("zh");
   const seeds = zh ? SEEDS_ZH : SEEDS_EN;
   const extras = zh ? EXTRA_ZH : EXTRA_EN;
-  const seed = seeds[Math.floor(Math.random() * seeds.length)] ?? seeds[0];
-  const [a, b] = shuffle(extras);
-  return [a ?? extras[0]!, seed, b ?? extras[1]!];
+  const seed = (seeds[Math.floor(Math.random() * seeds.length)] ?? seeds[0] ?? "").trim();
+  const mixed = shuffle(extras).map((line) => line.trim()).filter(Boolean);
+  const a = mixed[0] ?? extras[0] ?? seed;
+  const b = mixed[1] ?? extras[1] ?? seed;
+  return [a, seed || a, b];
 }
