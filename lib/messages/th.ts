@@ -3,7 +3,6 @@ import type { Messages } from "./en";
 export const th: Messages = {
   nav: {
     garden: "สวน",
-    hometown: "บ้านเกิด",
     writing: "งานเขียน",
     tools: "เครื่องมือ",
     products: "ผลิตภัณฑ์",

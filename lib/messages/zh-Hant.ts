@@ -3,7 +3,6 @@ import type { Messages } from "./en";
 export const zhHant: Messages = {
   nav: {
     garden: "園地",
-    hometown: "家鄉",
     writing: "寫作",
     tools: "工具",
     products: "產品",

@@ -1,7 +1,6 @@
 export const en = {
   nav: {
     garden: "Garden",
-    hometown: "Hometown",
     writing: "Writing",
     tools: "Tools",
     products: "Products",
