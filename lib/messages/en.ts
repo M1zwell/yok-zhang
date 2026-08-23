@@ -463,13 +463,48 @@ export const en = {
       "Xiulong sits on the Chaoshan plain. The spoken home is Teochew. The register already walks: Thailand, Hong Kong, Shenzhen.",
     cultureP2:
       "Marriage villages in the book — 泥沟, 斗文, 军屯, 郭厝寮, 北山, 南园 — sit in the same plain. People follow land.",
+    folkTitle: "Ways of the plain",
+    folkLead:
+      "Chaoshan custom — not this fang's register. The book writes people and places. Below is how the plain lives.",
+    folkHouseTitle: "下山虎 · 四点金",
+    folkHouseP:
+      "The common house is 下山虎: a three-sided court — one hall, two rooms, two 伸手 around a sky-well. Add a front hall and two front rooms and it becomes 四点金, a well-shaped courtyard whose four gables read as 金. Larger compounds grow into 驷马拖车. This page does not claim which plan this house used.",
+    folkHallTitle: "祠堂",
+    folkHallP:
+      "The ancestral hall is the lineage's public room — tablets, spring and autumn rites, weddings, funerals, overseas kin coming home. Villages often gather houses around a hall. This fang's hall name is not on the pages we have, so it is not invented here.",
+    folkRiteTitle: "初一十五 · 伯公 · 营老爷",
+    folkRiteP:
+      "On the first and fifteenth of the lunar month, households offer to the earth lord and other 老爷. 伯公 is the smallest guardian — a plot, a grave, a lane. 营老爷, strong in Puning in the first two months, means walking the god around the boundary: 文营 is a measured circuit, 武营 runs. Puning's own notes call this 巡土安境.",
+    folkMoonTitle: "拜月娘",
+    folkMoonP:
+      "Mid-autumn is 八月半. Chaoshan calls the moon 月娘. Women and children set the table in the open — courtyard or village 埕 — with taro, pomelo, 朥饼. A saying holds 男不祭月，女不祭灶. After the bow, people peel taro. A festival, not a 谱 date.",
+    folkGardenTitle: "出花园",
+    folkGardenP:
+      "At fifteen sui a child leaves the garden watched by 公婆神. Often on the seventh of the seventh month: a bath of flowers, new clothes, red clogs, a first-taste meal. Shantou's rite is on the provincial 非遗 list. Teochew halls overseas still keep it. The book does not record who in this fang went out.",
+    folkFoodTitle: "食",
+    folkFoodP:
+      "Hospitality starts with 工夫茶 — small pot, small cups; guests 食茶. On the table: beef hotpot and beef balls, oyster omelette 蚝烙 with fish sauce, 卤鹅, rice cakes 粿. Puning is known for 豆酱. Not a restaurant list for Xiulong.",
+    folkLangTitle: "潮汕话",
+    folkLangP:
+      "The home tongue is Teochew, a Southern Min branch. It does not sit down with Mandarin or Cantonese. Most descriptions count eight tones; sandhi then bends almost every syllable in a phrase. Older initials and checked endings survive. Puning speech belongs to the southern belt (潮阳–惠来–普宁). It is hard because the ear must learn another Chinese, not an accent. The register already walks to Thailand, where Teochew is still a community language.",
+    planTiger: "下山虎",
+    planGold: "四点金",
+    planHall: "Hall",
+    planRoom: "Room",
+    planCourt: "Well",
+    planArm: "Wing",
+    planFront: "Front",
+    planWall: "Wall",
+    planNote: "Schematic plans. Not a survey of this house.",
     photosTitle: "The ground, photographed",
     photosLead: "Real photographs of Puning / Chaoshan. Not family albums. Not this house's courtyard.",
     photoHouses: "Chaoshan houses on the Puning plain",
+    photoSidianjin: "四点金 courtyard house on the Puning plain",
+    photoCitang: "Ancestral hall rite in Chaoyang, Shantou — not this fang's hall",
     photoPlain: "Puning countryside",
     photoCollege: "Gate of Chaoshan College, Puning",
     photoCredit: "Photo",
-    photoNote: "CC BY-SA 3.0. Not a 谱 page. Not a private house.",
+    photoNote: "Licensed photographs. Not a 谱 page. Not a private house.",
     ancestors: "Above",
     focus: "This person",
     spouses: "Spouse",

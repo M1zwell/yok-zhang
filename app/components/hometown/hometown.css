@@ -120,6 +120,114 @@
   color: var(--color-gold);
 }
 
+.ht-folk {
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 720px) {
+  .ht-folk {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.ht-folk-card {
+  margin: 0;
+  border: 1px solid var(--color-hair);
+  border-radius: 16px;
+  padding: 1rem 1.1rem 1.15rem;
+  background: var(--color-surface);
+}
+
+.ht-folk-wide {
+  padding-bottom: 1.25rem;
+}
+
+.ht-folk-card h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.ht-folk-card p {
+  margin: 0.55rem 0 0;
+  color: var(--color-secondary);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.ht-plans {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 560px) {
+  .ht-plans {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ht-plan {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-hair);
+  border-radius: 12px;
+  padding: 0.65rem 0.65rem 0.45rem;
+  background: var(--color-bg);
+}
+
+.ht-plan svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ht-plan-cell {
+  fill: var(--color-surface);
+  stroke: var(--ht-line);
+  stroke-width: 0.7;
+}
+
+.ht-plan-cell.is-hall,
+.ht-plan-cell.is-front {
+  fill: color-mix(in srgb, var(--color-gold) 16%, var(--color-surface));
+}
+
+.ht-plan-cell.is-court {
+  fill: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+.ht-plan-cell.is-arm {
+  fill: color-mix(in srgb, var(--color-gold) 6%, var(--color-surface));
+}
+
+.ht-plan-cell.is-wall {
+  fill: color-mix(in srgb, var(--color-hair) 55%, var(--color-surface));
+}
+
+.ht-plan text {
+  font-size: 7px;
+  fill: var(--color-secondary);
+  font-family: var(--font-ui);
+}
+
+.ht-plan figcaption,
+.ht-plan-note {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.ht-plan-note {
+  color: var(--color-muted);
+}
+
 .ht-photos {
   display: grid;
   gap: 0.85rem;
@@ -127,7 +235,21 @@
 
 @media (min-width: 720px) {
   .ht-photos {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .ht-photos .ht-photo:nth-child(1),
+  .ht-photos .ht-photo:nth-child(2) {
+    grid-column: span 3;
+  }
+
+  .ht-photos .ht-photo:nth-child(1) img,
+  .ht-photos .ht-photo:nth-child(2) img {
+    height: 14rem;
+  }
+
+  .ht-photos .ht-photo:nth-child(n + 3) {
+    grid-column: span 2;
   }
 }
 

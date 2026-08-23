@@ -136,8 +136,12 @@ function project(lat: number, lng: number) {
 
 function photoCaption(id: PlacePhotoId, m: ReturnType<typeof t>["hometown"]): string {
   switch (id) {
+    case "sidianjin":
+      return m.photoSidianjin;
     case "houses":
       return m.photoHouses;
+    case "citang":
+      return m.photoCitang;
     case "plain":
       return m.photoPlain;
     case "college":
@@ -147,6 +151,68 @@ function photoCaption(id: PlacePhotoId, m: ReturnType<typeof t>["hometown"]): st
       return _exhaustive;
     }
   }
+}
+
+type PlanKind = "hall" | "room" | "court" | "arm" | "wall" | "front";
+
+function PlanCell({
+  x,
+  y,
+  w,
+  h,
+  label,
+  kind,
+}: {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  label: string;
+  kind: PlanKind;
+}) {
+  return (
+    <g>
+      <rect className={`ht-plan-cell is-${kind}`} x={x} y={y} width={w} height={h} rx="1.4" />
+      <text x={x + w / 2} y={y + h / 2 + 2.2} textAnchor="middle">
+        {label}
+      </text>
+    </g>
+  );
+}
+
+function HousePlans({ m }: { m: ReturnType<typeof t>["hometown"] }) {
+  return (
+    <div className="ht-plans" role="group" aria-label={`${m.planTiger} · ${m.planGold}`}>
+      <figure className="ht-plan">
+        <svg viewBox="0 0 100 88" role="img" aria-label={m.planTiger}>
+          <PlanCell x={4} y={4} w={30} h={26} label={m.planRoom} kind="room" />
+          <PlanCell x={35} y={4} w={30} h={26} label={m.planHall} kind="hall" />
+          <PlanCell x={66} y={4} w={30} h={26} label={m.planRoom} kind="room" />
+          <PlanCell x={4} y={32} w={30} h={22} label={m.planArm} kind="arm" />
+          <PlanCell x={35} y={32} w={30} h={22} label={m.planCourt} kind="court" />
+          <PlanCell x={66} y={32} w={30} h={22} label={m.planArm} kind="arm" />
+          <PlanCell x={4} y={56} w={30} h={18} label={m.planWall} kind="wall" />
+          <PlanCell x={35} y={56} w={30} h={18} label={m.planFront} kind="front" />
+          <PlanCell x={66} y={56} w={30} h={18} label={m.planWall} kind="wall" />
+        </svg>
+        <figcaption>{m.planTiger}</figcaption>
+      </figure>
+      <figure className="ht-plan">
+        <svg viewBox="0 0 100 88" role="img" aria-label={m.planGold}>
+          <PlanCell x={4} y={4} w={30} h={26} label={m.planRoom} kind="room" />
+          <PlanCell x={35} y={4} w={30} h={26} label={m.planHall} kind="hall" />
+          <PlanCell x={66} y={4} w={30} h={26} label={m.planRoom} kind="room" />
+          <PlanCell x={4} y={32} w={30} h={22} label={m.planArm} kind="arm" />
+          <PlanCell x={35} y={32} w={30} h={22} label={m.planCourt} kind="court" />
+          <PlanCell x={66} y={32} w={30} h={22} label={m.planArm} kind="arm" />
+          <PlanCell x={4} y={56} w={30} h={26} label={m.planRoom} kind="room" />
+          <PlanCell x={35} y={56} w={30} h={26} label={m.planFront} kind="front" />
+          <PlanCell x={66} y={56} w={30} h={26} label={m.planRoom} kind="room" />
+        </svg>
+        <figcaption>{m.planGold}</figcaption>
+      </figure>
+    </div>
+  );
 }
 
 type PlacePhotoId = (typeof placePhotos)[number]["id"];
@@ -355,7 +421,44 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
         <p className="ht-copy">{m.historyP1}</p>
         <p className="ht-copy">{m.historyP2}</p>
 
-        <h3 className="mt-8 font-display text-xl tracking-tight">{m.photosTitle}</h3>
+        <h3 className="mt-10 font-display text-xl tracking-tight">{m.folkTitle}</h3>
+        <p className="ht-muted">{m.folkLead}</p>
+
+        <article className="ht-folk-card ht-folk-wide mt-5">
+          <h4>{m.folkHouseTitle}</h4>
+          <p>{m.folkHouseP}</p>
+          <HousePlans m={m} />
+          <p className="ht-plan-note">{m.planNote}</p>
+        </article>
+
+        <div className="ht-folk mt-4">
+          <article className="ht-folk-card">
+            <h4>{m.folkHallTitle}</h4>
+            <p>{m.folkHallP}</p>
+          </article>
+          <article className="ht-folk-card">
+            <h4>{m.folkRiteTitle}</h4>
+            <p>{m.folkRiteP}</p>
+          </article>
+          <article className="ht-folk-card">
+            <h4>{m.folkMoonTitle}</h4>
+            <p>{m.folkMoonP}</p>
+          </article>
+          <article className="ht-folk-card">
+            <h4>{m.folkGardenTitle}</h4>
+            <p>{m.folkGardenP}</p>
+          </article>
+          <article className="ht-folk-card">
+            <h4>{m.folkFoodTitle}</h4>
+            <p>{m.folkFoodP}</p>
+          </article>
+          <article className="ht-folk-card">
+            <h4>{m.folkLangTitle}</h4>
+            <p>{m.folkLangP}</p>
+          </article>
+        </div>
+
+        <h3 className="mt-10 font-display text-xl tracking-tight">{m.photosTitle}</h3>
         <p className="ht-muted">{m.photosLead}</p>
         <div className="ht-photos mt-4">
           {placePhotos.map((ph) => (
