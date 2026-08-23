@@ -11,15 +11,17 @@ import {
 } from "@/lib/hometown/checkin";
 import {
   CLAIMABLE_IDS,
-  MAP_PLACE_IDS,
+  FAR_PLACE_IDS,
+  NEAR_PLACE_IDS,
   ancestorsOf,
   book,
   childrenOf,
   descendantsOf,
   displayName,
+  genderLabel,
   generationLabel,
   givenLine,
-  parentsOf,
+  marriageUnits,
   peopleAtPlace,
   person,
   placesById,
@@ -28,6 +30,7 @@ import {
   yearText,
 } from "@/lib/hometown/tree";
 import { pickText } from "@/lib/hometown/types";
+import type { Person } from "@/lib/hometown/types";
 import "./hometown.css";
 
 function Chip({
@@ -45,14 +48,20 @@ function Chip({
   if (!p) return null;
   const gen = generationLabel(p.generation, locale);
   const years = yearText(p);
+  const sex = genderLabel(p, locale);
   return (
     <button
       type="button"
-      className={`ht-chip${on ? " is-on" : ""}${p.placeholder ? " is-dim" : ""}`}
+      className={`ht-chip${on ? " is-on" : ""}${p.placeholder ? " is-dim" : ""}${
+        p.gender === "male" ? " is-m" : p.gender === "female" ? " is-f" : ""
+      }`}
       onClick={() => !p.placeholder && onPick(id)}
       disabled={!!p.placeholder}
     >
-      <span className="ht-chip-gen">{gen}</span>
+      <span className="ht-chip-gen">
+        {gen}
+        {sex ? ` · ${sex}` : ""}
+      </span>
       <span className="ht-chip-name">{displayName(p, locale)}</span>
       {givenLine(p, locale) !== pickText(p.style ?? p.name, locale) ? (
         <span className="ht-chip-meta">{givenLine(p, locale)}</span>
@@ -62,38 +71,39 @@ function Chip({
   );
 }
 
-function Row({
-  ids,
+function GenRow({
+  members,
   locale,
   focusId,
   onPick,
+  label,
 }: {
-  ids: string[];
+  members: Person[];
   locale: Locale;
   focusId: string;
   onPick: (id: string) => void;
+  label?: string;
 }) {
-  if (ids.length === 0) return null;
+  const units = marriageUnits(members);
+  if (units.length === 0) return null;
   return (
-    <div className="ht-row">
-      {ids.map((id) => (
-        <Chip key={id} id={id} locale={locale} on={id === focusId} onPick={onPick} />
-      ))}
+    <div className="ht-gen">
+      {label ? <p className="ht-band">{label}</p> : null}
+      <div className="ht-gen-scroll">
+        {units.map((unit) => (
+          <div key={unit.map((p) => p.id).join("-")} className="ht-unit">
+            {unit.map((p) => (
+              <Chip key={p.id} id={p.id} locale={locale} on={p.id === focusId} onPick={onPick} />
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
 function Spine() {
   return <div className="ht-spine" aria-hidden="true" />;
-}
-
-function project(lat: number, lng: number) {
-  const x = ((lng - 99) / (18)) * 100;
-  const y = ((24.6 - lat) / (12.2)) * 100;
-  return {
-    x: Math.min(96, Math.max(4, x)),
-    y: Math.min(94, Math.max(6, y)),
-  };
 }
 
 export function HometownView({ locale = "en" }: { locale?: Locale }) {
@@ -114,12 +124,11 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
   });
 
   const focus = person(focusId) ?? person(book.meta.defaultFocusId)!;
-  const { father, mother } = parentsOf(focus);
-  const spouses = spousesOf(focus);
+  const { father, mother } = parentsOfSafe(focus);
   const kids = childrenOf(focus);
   const sibs = siblingsOf(focus);
   const ancestors = ancestorsOf(focus, 4);
-  const up = (father ? ancestors.filter((p) => p.id !== father.id) : ancestors).slice().reverse();
+  const up = ancestors.slice().reverse();
   const down = descendantsOf(focus, 4);
   const wired = checkinConfigured();
   const place = placeId ? placesById[placeId] : undefined;
@@ -176,7 +185,7 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
     }
   }
 
-  const parentIds = [father?.id, mother?.id].filter((id): id is string => Boolean(id));
+  const focusGen = [focus, ...sibs];
 
   return (
     <article className="page-x hometown mx-auto max-w-3xl py-14 sm:py-24">
@@ -208,15 +217,9 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
             </span>
           ))}
         </p>
-        <p className="kicker mt-5">{m.brothers}</p>
-        <div className="ht-row mt-2" style={{ justifyContent: "flex-start" }}>
-          {book.meta.brotherIds.map((id) => (
-            <Chip key={id} id={id} locale={locale} on={id === focusId} onPick={setFocusId} />
-          ))}
-        </div>
       </section>
 
-      <section className="mt-12">
+      <section className="hometown-tree mx-auto mt-12">
         <p className="kicker">{m.hourglassHint}</p>
         <div className="ht-hourglass mt-4">
           {up.length > 0 ? (
@@ -224,83 +227,79 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
               <p className="ht-band">{m.ancestors}</p>
               {up.map((p) => (
                 <div key={p.id}>
-                  <Chip id={p.id} locale={locale} on={p.id === focusId} onPick={setFocusId} />
+                  <GenRow
+                    members={[p, ...spousesOf(p)]}
+                    locale={locale}
+                    focusId={focusId}
+                    onPick={setFocusId}
+                  />
                   <Spine />
                 </div>
               ))}
             </>
           ) : null}
 
-          {parentIds.length > 0 ? (
+          {father || mother ? (
             <>
-              <Row ids={parentIds} locale={locale} focusId={focusId} onPick={setFocusId} />
+              <GenRow
+                members={[father, mother].filter((p): p is Person => Boolean(p))}
+                locale={locale}
+                focusId={focusId}
+                onPick={setFocusId}
+              />
               <Spine />
             </>
           ) : null}
 
           <p className="ht-band">{m.focus}</p>
-          <Chip id={focus.id} locale={locale} on onPick={setFocusId} />
-
-          {spouses.length > 0 ? (
-            <>
-              <Spine />
-              <p className="ht-band">{m.spouses}</p>
-              <Row
-                ids={spouses.map((p) => p.id)}
-                locale={locale}
-                focusId={focusId}
-                onPick={setFocusId}
-              />
-            </>
-          ) : null}
-
-          {sibs.length > 0 ? (
-            <>
-              <p className="ht-band">{m.siblings}</p>
-              <Row
-                ids={sibs.map((p) => p.id)}
-                locale={locale}
-                focusId={focusId}
-                onPick={setFocusId}
-              />
-            </>
-          ) : null}
+          <GenRow
+            members={focusGen}
+            locale={locale}
+            focusId={focusId}
+            onPick={setFocusId}
+            label={m.siblings}
+          />
 
           {kids.length > 0 ? (
             <>
               <Spine />
-              <p className="ht-band">{m.children}</p>
-              <Row
-                ids={kids.map((p) => p.id)}
+              <GenRow
+                members={kids}
                 locale={locale}
                 focusId={focusId}
                 onPick={setFocusId}
+                label={m.children}
               />
             </>
           ) : null}
 
-          {down.length > 1 ? (
-            <>
-              <p className="ht-band">{m.descendants}</p>
-              {down.slice(1).map((row, i) => (
+          {down.length > 1
+            ? down.slice(1).map((row, i) => (
                 <div key={`d-${i}`}>
                   <Spine />
-                  <Row
-                    ids={row.map((p) => p.id)}
+                  <GenRow
+                    members={row}
                     locale={locale}
                     focusId={focusId}
                     onPick={setFocusId}
+                    label={i === 0 ? m.descendants : undefined}
                   />
                 </div>
-              ))}
-            </>
-          ) : null}
+              ))
+            : null}
         </div>
 
         {focus.notes ? <p className="ht-muted mt-4">{pickText(focus.notes, locale)}</p> : null}
         {focus.id === "yao-xiao-qiong" ? (
           <p className="ht-muted mt-3">{m.unnamedDaughtersNote}</p>
         ) : null}
+      </section>
+
+      <section className="card ht-context mt-10 p-5 sm:p-6">
+        <p className="kicker">{m.contextTitle}</p>
+        <p className="mt-3">{m.contextGeo}</p>
+        <p>{m.contextHistory}</p>
+        <p className="ht-muted">{m.contextPhotos}</p>
       </section>
 
       <section className="card mt-10 p-5 sm:p-6">
@@ -314,27 +313,39 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
       <section className="mt-12">
         <h2 className="font-display text-2xl tracking-tight">{m.mapTitle}</h2>
         <p className="ht-muted mt-2">{m.mapLead}</p>
-        <div className="ht-map mt-4">
-          <svg viewBox="0 0 100 56" role="img" aria-label={m.mapTitle}>
-            {MAP_PLACE_IDS.map((id) => {
-              const pl = placesById[id];
-              if (!pl) return null;
-              const { x, y } = project(pl.lat, pl.lng);
-              const label = pickText(pl.name, locale);
-              return (
-                <g
-                  key={id}
-                  className={`ht-pin${placeId === id ? " is-on" : ""}`}
-                  onClick={() => setPlaceId(id === placeId ? null : id)}
-                >
-                  <circle cx={x} cy={y} r="1.35" />
-                  <text x={x + 2.1} y={y + 1.1}>
-                    {label}
-                  </text>
-                </g>
-              );
-            })}
-          </svg>
+        <p className="kicker mt-5">{m.placeNear}</p>
+        <div className="ht-places mt-2">
+          {NEAR_PLACE_IDS.map((id) => {
+            const pl = placesById[id];
+            if (!pl) return null;
+            return (
+              <button
+                key={id}
+                type="button"
+                className={`ht-place${placeId === id ? " is-on" : ""}`}
+                onClick={() => setPlaceId(id === placeId ? null : id)}
+              >
+                {pickText(pl.name, locale)}
+              </button>
+            );
+          })}
+        </div>
+        <p className="kicker mt-5">{m.placeFar}</p>
+        <div className="ht-places mt-2">
+          {FAR_PLACE_IDS.map((id) => {
+            const pl = placesById[id];
+            if (!pl) return null;
+            return (
+              <button
+                key={id}
+                type="button"
+                className={`ht-place${placeId === id ? " is-on" : ""}`}
+                onClick={() => setPlaceId(id === placeId ? null : id)}
+              >
+                {pickText(pl.name, locale)}
+              </button>
+            );
+          })}
         </div>
         {place ? (
           <div className="card mt-4 p-4">
@@ -473,4 +484,11 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
       </section>
     </article>
   );
+}
+
+function parentsOfSafe(focus: Person) {
+  return {
+    father: person(focus.fatherId),
+    mother: person(focus.motherId),
+  };
 }

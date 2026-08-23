@@ -473,6 +473,17 @@ export const ko: Messages = {
     livingNote: "생존자의 이름은 족보대로 보일 수 있다. 사진과 연락처는 报到하기 전까지 비공개.",
     unnamedDaughters: "오녀 (족보에 이름 없음)",
     unnamedDaughtersNote: "야오샤오충은 홍콩. 딸 다섯. 족보는 이름을 적지 않는다.",
+    genderMale: "남",
+    genderFemale: "여",
+    placeNear: "수롱 일대",
+    placeFar: "먼 곳",
+    contextTitle: "수롱",
+    contextGeo:
+      "수롱촌. 지금은 광둥 제양 푸닝 류사둥 가도. 차오산, 푸닝 중부. 족보는 수롱/푸닝만 쓴다. 류사둥은 오늘 행정명.",
+    contextHistory:
+      "금봉 계열, 수롱진원방, 성성 육방 수겸. 17세 무수는 태국, 무탁은 홍콩. 개촌 연대와 사당 연혁은 이 페이지에 없어 보태지 않는다.",
+    contextPhotos:
+      "족보는 촬영 페이지라 마을 사진이 없다. 报到로 최근 사진을 남길 수 있다. 아래 지명은 족보에 있는 이름이다.",
     claimedAs: "맡음",
   },
   language: {

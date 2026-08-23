@@ -478,6 +478,17 @@ export const en = {
     unnamedDaughters: "Five daughters (unnamed in the book)",
     unnamedDaughtersNote:
       "姚肖琼 of Hong Kong bore five daughters. The genealogy does not list their names.",
+    genderMale: "M",
+    genderFemale: "F",
+    placeNear: "Around Xiulong",
+    placeFar: "Farther",
+    contextTitle: "Xiulong",
+    contextGeo:
+      "秀陇村, now Liusha East Subdistrict, Puning, Jieyang, Guangdong. Chaoshan / central Puning. The book writes Xiulong / Puning; Liusha East is today's street name, not a 谱 word.",
+    contextHistory:
+      "This fang: Jinfeng line, Xiulong Jinyuan fang, Chengcheng sixth fang, Xiuqian. Generation 17 Maoxiu lived in Thailand; Maozhuo in Hong Kong. The photographed pages do not give a village founding year or ancestral-hall history, so none is invented here.",
+    contextPhotos:
+      "The register is photographed pages, not village photography. Check-in can add a recent photo. Places below are names from the book.",
     claimedAs: "claimed",
   },
   language: {

@@ -477,6 +477,17 @@ export const nl: Messages = {
     unnamedDaughters: "Vijf dochters (niet genoemd in het boek)",
     unnamedDaughtersNote:
       "姚肖琼 in Hongkong baarde vijf dochters. De genealogie noemt hun namen niet.",
+    genderMale: "M",
+    genderFemale: "V",
+    placeNear: "Rond Xiulong",
+    placeFar: "Verder weg",
+    contextTitle: "Xiulong",
+    contextGeo:
+      "秀陇村, nu Liusha-Oost, Puning, Jieyang, Guangdong. Chaoshan / midden-Puning. Het boek schrijft Xiulong / Puning; Liusha-Oost is de straatnaam van vandaag.",
+    contextHistory:
+      "Deze fang: Jinfeng-lijn, Xiulong Jinyuan, zesde fang van Chengcheng, Xiuqian. Generatie 17 Maoxiu in Thailand; Maozhuo in Hongkong. Stichtingsjaar en vooroudertempel staan niet op de gefotografeerde pagina's.",
+    contextPhotos:
+      "Het register is gefotografeerde pagina's, geen dorpsfoto's. Check-in kan een recente foto toevoegen. Plaatsen hieronder komen uit het boek.",
     claimedAs: "geclaimd",
   },
   language: {

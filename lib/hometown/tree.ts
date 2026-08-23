@@ -25,6 +25,18 @@ export const MAP_PLACE_IDS = [
   "niupu",
 ] as const;
 
+export const NEAR_PLACE_IDS = [
+  "xiulong",
+  "nigou",
+  "douwen",
+  "juntun",
+  "sizhupu",
+  "niupu",
+  "nanyuan",
+] as const;
+
+export const FAR_PLACE_IDS = ["hongkong", "shenzhen", "thailand"] as const;
+
 export function person(id: string | undefined | null): Person | undefined {
   if (!id) return undefined;
   return peopleById[id];
@@ -113,6 +125,38 @@ export function generationLabel(generation: number | null, locale: Locale): stri
   }
 }
 
+export function genderLabel(p: Person, locale: Locale): string {
+  if (p.gender === "male") {
+    switch (locale) {
+      case "zh-Hans":
+      case "zh-Hant":
+      case "ja":
+        return "男";
+      case "ko":
+        return "남";
+      case "th":
+        return "ชาย";
+      default:
+        return "M";
+    }
+  }
+  if (p.gender === "female") {
+    switch (locale) {
+      case "zh-Hans":
+      case "zh-Hant":
+      case "ja":
+        return "女";
+      case "ko":
+        return "여";
+      case "th":
+        return "หญิง";
+      default:
+        return "F";
+    }
+  }
+  return "";
+}
+
 export function parentsOf(p: Person): { father?: Person; mother?: Person } {
   return { father: person(p.fatherId), mother: person(p.motherId) };
 }
@@ -152,6 +196,24 @@ export function descendantsOf(p: Person, depth = 4): Person[][] {
     frontier = frontier.flatMap((c) => childrenOf(c));
   }
   return rows;
+}
+
+/** Blood relatives first; each unit is person + spouses. Same generation, one row. */
+export function marriageUnits(members: Person[]): Person[][] {
+  const seen = new Set<string>();
+  const units: Person[][] = [];
+  for (const p of members) {
+    if (seen.has(p.id) || p.inLaw) continue;
+    const unit = [p, ...spousesOf(p).filter((s) => !seen.has(s.id))];
+    unit.forEach((x) => seen.add(x.id));
+    units.push(unit);
+  }
+  for (const p of members) {
+    if (seen.has(p.id)) continue;
+    seen.add(p.id);
+    units.push([p]);
+  }
+  return units;
 }
 
 export function peopleAtPlace(placeId: string): Person[] {

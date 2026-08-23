@@ -471,6 +471,17 @@ export const zhHant: Messages = {
     livingNote: "在世之名可按譜顯示。照片與聯絡方式預設不公開，除非自行報到。",
     unnamedDaughters: "五女（譜未列名）",
     unnamedDaughtersNote: "姚肖瓊居香港，生五女。譜未列名。",
+    genderMale: "男",
+    genderFemale: "女",
+    placeNear: "秀隴一帶",
+    placeFar: "遠處",
+    contextTitle: "秀隴",
+    contextGeo:
+      "秀隴村，今廣東揭陽普寧流沙東街道。潮汕、普寧中部。譜寫秀隴／普寧；流沙東是今日街道名，不是譜字。",
+    contextHistory:
+      "本房錦峰世系、秀隴進元房、成城六房秀謙。十七世茂修居泰國，茂卓居香港。開基年代、祠堂沿革本批印頁沒有，不補寫。",
+    contextPhotos:
+      "族譜是拍照頁，沒有村落寫真。報到可留近照。下列地點皆譜中村名。",
     claimedAs: "認領",
   },
   language: {

@@ -242,3 +242,83 @@
 html.light .ht-chip.is-on {
   box-shadow: 0 8px 20px rgba(22, 20, 15, 0.06);
 }
+
+.hometown-tree {
+  max-width: 72rem;
+}
+
+.ht-gen {
+  width: 100%;
+  margin: 0.15rem 0 0.55rem;
+}
+
+.ht-gen-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.35rem 0.15rem 0.65rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 880px) {
+  .ht-gen-scroll {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible;
+  }
+}
+
+.ht-unit {
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+  gap: 0.28rem;
+  padding: 0.2rem;
+  border-bottom: 1px solid var(--ht-line);
+}
+
+.ht-chip {
+  min-width: 8rem;
+}
+
+.ht-chip.is-m {
+  border-left: 2px solid color-mix(in srgb, var(--color-gold) 70%, var(--color-hair));
+}
+
+.ht-chip.is-f {
+  border-left: 2px solid color-mix(in srgb, var(--color-muted) 80%, var(--color-gold));
+}
+
+.ht-chip-sex {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+}
+
+.ht-places {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.ht-place {
+  cursor: pointer;
+  border: 1px solid var(--color-hair);
+  background: var(--color-surface);
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  color: var(--color-fg);
+}
+
+.ht-place.is-on {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.ht-context p + p {
+  margin-top: 0.7rem;
+}

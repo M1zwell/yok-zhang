@@ -471,6 +471,17 @@ export const zhHans: Messages = {
     livingNote: "在世之名可按谱显示。照片与联络方式默认不公开，除非自行报到。",
     unnamedDaughters: "五女（谱未列名）",
     unnamedDaughtersNote: "姚肖琼居香港，生五女。谱未列名。",
+    genderMale: "男",
+    genderFemale: "女",
+    placeNear: "秀陇一带",
+    placeFar: "远处",
+    contextTitle: "秀陇",
+    contextGeo:
+      "秀陇村，今广东揭阳普宁流沙东街道。潮汕、普宁中部。谱写秀陇／普宁；流沙东是今日街道名，不是谱字。",
+    contextHistory:
+      "本房锦峰世系、秀陇进元房、成城六房秀谦。十七世茂修居泰国，茂卓居香港。开基年代、祠堂沿革本批印页没有，不补写。",
+    contextPhotos:
+      "族谱是拍照页，没有村落写真。报到可留近照。下列地点皆谱中村名。",
     claimedAs: "认领",
   },
   language: {

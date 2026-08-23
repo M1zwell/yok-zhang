@@ -473,6 +473,17 @@ export const ja: Messages = {
     livingNote: "在世の名は譜どおり出せる。写真と連絡先は报到するまで非公開。",
     unnamedDaughters: "五女（譜に名なし）",
     unnamedDaughtersNote: "姚肖琼は香港。五女を生む。譜は名を記さない。",
+    genderMale: "男",
+    genderFemale: "女",
+    placeNear: "秀陇のあたり",
+    placeFar: "遠方",
+    contextTitle: "秀陇",
+    contextGeo:
+      "秀陇村。いま広東・掲陽・普寧・流沙東街道。潮汕、普寧中部。譜は秀陇／普寧と書く。流沙東は今の行政名。",
+    contextHistory:
+      "錦峰の系、秀陇進元房、成城六房の秀謙。十七世の茂修はタイ、茂卓は香港。開村の年や祠堂の沿革は、今回の頁にないので書かない。",
+    contextPhotos:
+      "族譜は撮影頁で、村の写真はない。报到で近影を残せる。以下の地名は譜のまま。",
     claimedAs: "名乗り",
   },
   language: {
