@@ -1,0 +1,799 @@
+{
+  "meta": {
+    "fang": {
+      "hans": "锦峰 · 秀陇进元房 · 成城六房 · 秀谦",
+      "hant": "錦峰 · 秀隴進元房 · 成城六房 · 秀謙",
+      "en": "Jinfeng · Xiulong Jinyuan fang · Chengcheng sixth fang · Xiuqian",
+      "th": "จิ่นเฟิง · ซิ่วหล่ง จิ้นหยวน · เฉิงเฉิง ห้อง 6 · ซิ่วเฉียน"
+    },
+    "zibei": ["启", "光", "清", "成", "秀", "茂", "猷", "廷"],
+    "zibeiHant": ["啟", "光", "清", "成", "秀", "茂", "猷", "廷"],
+    "source": {
+      "hans": "本房谱第 174–176 页。十七世茂文（周昌），勿与十世祖讳茂（时伟）相混。谱写秀陇／普宁，不写「流沙」。",
+      "hant": "本房譜第 174–176 頁。十七世茂文（周昌），勿與十世祖諱茂（時偉）相混。譜寫秀隴／普寧，不寫「流沙」。",
+      "en": "This fang's book, pp. 174–176. 17th generation Maowen (Zhouchang), not the 10th-generation 讳茂 (Shiwei). The book writes Xiulong / Puning, not Liusha.",
+      "th": "สกุลนี้ หน้า 174–176 รุ่น 17 เหมาเหวิน (โจวชาง) ไม่ใช่รุ่น 10 ฮุ่ยเหมา (สือเหว่ย) หนังสือเขียนซิ่วหล่ง/ผู่หนิง ไม่เขียนหลิวชา"
+    },
+    "centerId": "g17-maowen",
+    "brotherIds": ["g17-maoxiu", "g17-maozhuo", "g17-maowen"]
+  },
+  "places": [
+    {
+      "id": "xiulong",
+      "kind": "book",
+      "cluster": "puning",
+      "lat": 23.3045,
+      "lng": 116.1818,
+      "name": { "hans": "秀陇", "hant": "秀隴", "en": "Xiulong", "th": "ซิ่วหล่ง" },
+      "region": { "hans": "广东普宁", "hant": "廣東普寧", "en": "Puning, Guangdong", "th": "ผู่หนิง กวางตุ้ง" }
+    },
+    {
+      "id": "hongkong",
+      "kind": "book",
+      "cluster": "away",
+      "lat": 22.3193,
+      "lng": 114.1694,
+      "name": { "hans": "香港", "hant": "香港", "en": "Hong Kong", "th": "ฮ่องกง" },
+      "region": { "hans": "香港", "hant": "香港", "en": "Hong Kong", "th": "ฮ่องกง" }
+    },
+    {
+      "id": "thailand",
+      "kind": "book",
+      "cluster": "away",
+      "lat": 13.7563,
+      "lng": 100.5018,
+      "name": { "hans": "泰国", "hant": "泰國", "en": "Thailand", "th": "ไทย" },
+      "region": { "hans": "居泰国（谱未写城）", "hant": "居泰國（譜未寫城）", "en": "Thailand (no city in the book)", "th": "ไทย (หนังสือไม่ระบุเมือง)" }
+    },
+    {
+      "id": "shenzhen",
+      "kind": "book",
+      "cluster": "away",
+      "lat": 22.5431,
+      "lng": 114.0579,
+      "name": { "hans": "深圳", "hant": "深圳", "en": "Shenzhen", "th": "เซินเจิ้น" },
+      "region": { "hans": "广东深圳", "hant": "廣東深圳", "en": "Shenzhen, Guangdong", "th": "เซินเจิ้น กวางตุ้ง" }
+    },
+    {
+      "id": "nigou",
+      "kind": "book",
+      "cluster": "puning",
+      "lat": 23.338,
+      "lng": 116.148,
+      "name": { "hans": "泥沟", "hant": "泥溝", "en": "Nigou", "th": "หนี่โกว" },
+      "region": { "hans": "普宁", "hant": "普寧", "en": "Puning", "th": "ผู่หนิง" }
+    },
+    {
+      "id": "douwen",
+      "kind": "book",
+      "cluster": "puning",
+      "lat": 23.298,
+      "lng": 116.176,
+      "name": { "hans": "斗文", "hant": "斗文", "en": "Douwen", "th": "โต่วเหวิน" },
+      "region": { "hans": "普宁流沙东", "hant": "普寧流沙東", "en": "Puning", "th": "ผู่หนิง" }
+    },
+    {
+      "id": "juntun",
+      "kind": "book",
+      "cluster": "puning",
+      "lat": 23.286,
+      "lng": 116.158,
+      "name": { "hans": "军屯", "hant": "軍屯", "en": "Juntun", "th": "จวินถุน" },
+      "region": { "hans": "普宁", "hant": "普寧", "en": "Puning", "th": "ผู่หนิง" }
+    },
+    {
+      "id": "sizhupu",
+      "kind": "book",
+      "cluster": "puning",
+      "lat": 23.274,
+      "lng": 116.15,
+      "name": { "hans": "泗竹埔", "hant": "泗竹埔", "en": "Sizhupu", "th": "ซื่อจูผู่" },
+      "region": { "hans": "普宁", "hant": "普寧", "en": "Puning", "th": "ผู่หนิง" }
+    },
+    {
+      "id": "niupu",
+      "kind": "book",
+      "cluster": "puning",
+      "lat": 23.29,
+      "lng": 116.168,
+      "name": { "hans": "牛埔", "hant": "牛埔", "en": "Niupu", "th": "หนิ่วผู่" },
+      "region": { "hans": "普宁（葬）", "hant": "普寧（葬）", "en": "Puning (burial)", "th": "ผู่หนิง (ที่ฝัง)" }
+    },
+    {
+      "id": "liushadong",
+      "kind": "admin",
+      "cluster": "puning",
+      "lat": 23.297,
+      "lng": 116.17,
+      "name": { "hans": "流沙东", "hant": "流沙東", "en": "Liushadong", "th": "หลิวชาตง" },
+      "region": {
+        "hans": "今行政区划，不是谱中用词",
+        "hant": "今行政區劃，不是譜中用詞",
+        "en": "Today's admin label, not a word in the book",
+        "th": "ชื่อเขตปกครองวันนี้ ไม่ใช่คำในหนังสือสกุล"
+      }
+    }
+  ],
+  "people": [
+    {
+      "id": "g13-guanghao",
+      "generation": 13,
+      "zibei": "光",
+      "gender": "male",
+      "living": false,
+      "name": { "hans": "光镐", "hant": "光鎬", "pinyin": "Guanghao" },
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g14-qingyun",
+      "generation": 14,
+      "zibei": "清",
+      "gender": "male",
+      "living": false,
+      "name": { "hans": "清云", "hant": "清雲", "pinyin": "Qingyun" },
+      "fatherId": "g13-guanghao",
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g15-chengcheng",
+      "generation": 15,
+      "zibei": "成",
+      "gender": "male",
+      "living": false,
+      "name": { "hans": "成城", "hant": "成城", "pinyin": "Chengcheng" },
+      "fatherId": "g14-qingyun",
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g16-xiuqian",
+      "generation": 16,
+      "zibei": "秀",
+      "gender": "male",
+      "living": false,
+      "name": { "hans": "秀谦", "hant": "秀謙", "pinyin": "Xiuqian" },
+      "fatherId": "g15-chengcheng",
+      "spouseIds": ["g16-zhuang-meizhen"],
+      "placeIds": ["xiulong"],
+      "notes": {
+        "hans": "三男三女。成城六房。",
+        "hant": "三男三女。成城六房。",
+        "en": "Three sons and three daughters. Chengcheng's sixth fang.",
+        "th": "บุตรชายสาม บุตรสาวสาม ห้องที่ 6 ของเฉิงเฉิง"
+      }
+    },
+    {
+      "id": "g16-zhuang-meizhen",
+      "generation": 16,
+      "gender": "female",
+      "living": false,
+      "name": { "hans": "庄美珍", "hant": "莊美珍", "pinyin": "Zhuang Meizhen" },
+      "spouseIds": ["g16-xiuqian"],
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g17-maoxiu",
+      "generation": 17,
+      "zibei": "茂",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "茂修", "hant": "茂修", "pinyin": "Maoxiu" },
+      "fatherId": "g16-xiuqian",
+      "motherId": "g16-zhuang-meizhen",
+      "placeIds": ["xiulong", "thailand"],
+      "notes": {
+        "hans": "居泰国。谱只写到十八世鸿猷、畅猷。",
+        "hant": "居泰國。譜只寫到十八世鴻猷、暢猷。",
+        "en": "Lives in Thailand. The book stops at 18th generation Hongyou and Changyou.",
+        "th": "อยู่ไทย หนังสือสกุลหยุดที่รุ่น 18 หงโหยว ฉ่างโหยว"
+      }
+    },
+    {
+      "id": "g17-maozhuo",
+      "generation": 17,
+      "zibei": "茂",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "茂卓", "hant": "茂卓", "pinyin": "Maozhuo" },
+      "birth": "1921-07-14",
+      "fatherId": "g16-xiuqian",
+      "motherId": "g16-zhuang-meizhen",
+      "spouseIds": ["g17-yu-xiaojun", "g17-yao-xiaoqiong"],
+      "placeIds": ["xiulong", "hongkong"],
+      "notes": {
+        "hans": "香港。孝君余氏一脉记到二十世；肖琼姚氏生五女，谱未列名。",
+        "hant": "香港。孝君余氏一脈記到二十世；肖瓊姚氏生五女，譜未列名。",
+        "en": "Hong Kong. Yu Xiaojun's line is recorded to the 20th generation. Yao Xiaoqiong had five daughters; names not in the book.",
+        "th": "ฮ่องกง สายหยูเสี่ยวจวิ้นถึงรุ่น 20 ยาวเสี่ยวฉยงมีบุตรสาวห้าคน หนังสือไม่ระบุชื่อ"
+      }
+    },
+    {
+      "id": "g17-maowen",
+      "generation": 17,
+      "zibei": "茂",
+      "gender": "male",
+      "living": false,
+      "name": { "hans": "茂文", "hant": "茂文", "pinyin": "Maowen" },
+      "courtesy": { "hans": "周昌", "hant": "周昌" },
+      "deathNote": { "hans": "忌二月十八，寿82", "hant": "忌二月十八，壽82" },
+      "fatherId": "g16-xiuqian",
+      "motherId": "g16-zhuang-meizhen",
+      "spouseIds": ["g17-wang-yaojing"],
+      "placeIds": ["xiulong"],
+      "notes": {
+        "hans": "秀谦三子。锦峰／秀陇进元房。",
+        "hant": "秀謙三子。錦峰／秀隴進元房。",
+        "en": "Third son of Xiuqian. Jinfeng / Xiulong Jinyuan fang.",
+        "th": "บุตรชายคนที่สามของซิ่วเฉียน จิ่นเฟิง / ซิ่วหล่ง จิ้นหยวน"
+      }
+    },
+    {
+      "id": "g17-sufeng",
+      "generation": 17,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "苏凤", "hant": "蘇鳳", "pinyin": "Sufeng" },
+      "fatherId": "g16-xiuqian",
+      "motherId": "g16-zhuang-meizhen",
+      "placeIds": ["xiulong", "nigou"],
+      "marriedOut": { "hans": "嫁泥沟", "hant": "嫁泥溝" },
+      "notes": {
+        "hans": "谱止婚村。",
+        "hant": "譜止婚村。",
+        "en": "The book stops at the marriage village.",
+        "th": "หนังสือสกุลหยุดที่หมู่บ้านที่แต่งงาน"
+      }
+    },
+    {
+      "id": "g17-saijuan",
+      "generation": 17,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "赛娟", "hant": "賽娟", "pinyin": "Saijuan" },
+      "fatherId": "g16-xiuqian",
+      "motherId": "g16-zhuang-meizhen",
+      "placeIds": ["xiulong", "douwen"],
+      "marriedOut": { "hans": "嫁斗文", "hant": "嫁斗文" },
+      "notes": {
+        "hans": "谱止婚村。",
+        "hant": "譜止婚村。",
+        "en": "The book stops at the marriage village.",
+        "th": "หนังสือสกุลหยุดที่หมู่บ้านที่แต่งงาน"
+      }
+    },
+    {
+      "id": "g17-lichan",
+      "generation": 17,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "丽婵", "hant": "麗嬋", "pinyin": "Lichan" },
+      "fatherId": "g16-xiuqian",
+      "motherId": "g16-zhuang-meizhen",
+      "placeIds": ["xiulong", "juntun"],
+      "marriedOut": { "hans": "嫁军屯", "hant": "嫁軍屯" },
+      "notes": {
+        "hans": "谱止婚村。",
+        "hant": "譜止婚村。",
+        "en": "The book stops at the marriage village.",
+        "th": "หนังสือสกุลหยุดที่หมู่บ้านที่แต่งงาน"
+      }
+    },
+    {
+      "id": "g17-yu-xiaojun",
+      "generation": 17,
+      "gender": "female",
+      "living": false,
+      "name": { "hans": "孝君余氏", "hant": "孝君余氏", "pinyin": "Yu Xiaojun" },
+      "deathNote": { "hans": "寿81，忌七月十九，葬定厝寮山", "hant": "壽81，忌七月十九，葬定厝寮山" },
+      "spouseIds": ["g17-maozhuo"],
+      "placeIds": ["xiulong", "hongkong"],
+      "origin": { "hans": "南园", "hant": "南園" }
+    },
+    {
+      "id": "g17-yao-xiaoqiong",
+      "generation": 17,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "肖琼姚氏", "hant": "肖瓊姚氏", "pinyin": "Yao Xiaoqiong" },
+      "spouseIds": ["g17-maozhuo"],
+      "placeIds": ["hongkong"],
+      "notes": {
+        "hans": "香港。生五女，谱未列名。",
+        "hant": "香港。生五女，譜未列名。",
+        "en": "Hong Kong. Five daughters; names not in the book.",
+        "th": "ฮ่องกง มีบุตรสาวห้าคน หนังสือไม่ระบุชื่อ"
+      }
+    },
+    {
+      "id": "g17-wang-yaojing",
+      "generation": 17,
+      "gender": "female",
+      "living": false,
+      "name": { "hans": "瑶静王氏", "hant": "瑤靜王氏", "pinyin": "Wang Yaojing" },
+      "deathNote": { "hans": "忌十月二十七，葬牛埔", "hant": "忌十月二十七，葬牛埔" },
+      "spouseIds": ["g17-maowen"],
+      "placeIds": ["xiulong", "niupu"]
+    },
+    {
+      "id": "g18-hongyou",
+      "generation": 18,
+      "zibei": "猷",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "鸿猷", "hant": "鴻猷", "pinyin": "Hongyou" },
+      "fatherId": "g17-maoxiu",
+      "placeIds": ["thailand"],
+      "notes": {
+        "hans": "谱未写配偶、生卒、十九世。",
+        "hant": "譜未寫配偶、生卒、十九世。",
+        "en": "No spouse, dates, or 19th generation in the book.",
+        "th": "หนังสือไม่มีคู่สมรส ปีเกิด หรือรุ่น 19"
+      }
+    },
+    {
+      "id": "g18-changyou",
+      "generation": 18,
+      "zibei": "猷",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "畅猷", "hant": "暢猷", "pinyin": "Changyou" },
+      "fatherId": "g17-maoxiu",
+      "placeIds": ["thailand"],
+      "notes": {
+        "hans": "谱未写配偶、生卒、十九世。",
+        "hant": "譜未寫配偶、生卒、十九世。",
+        "en": "No spouse, dates, or 19th generation in the book.",
+        "th": "หนังสือไม่มีคู่สมรส ปีเกิด หรือรุ่น 19"
+      }
+    },
+    {
+      "id": "g18-kaiyou",
+      "generation": 18,
+      "zibei": "猷",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "凯猷", "hant": "凱猷", "pinyin": "Kaiyou" },
+      "birth": "1945-10-30",
+      "fatherId": "g17-maozhuo",
+      "motherId": "g17-yu-xiaojun",
+      "spouseIds": ["g18-xu-zhuohui"],
+      "placeIds": ["hongkong"]
+    },
+    {
+      "id": "g18-xu-zhuohui",
+      "generation": 18,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "卓辉许氏", "hant": "卓輝許氏", "pinyin": "Xu Zhuohui" },
+      "birth": "1951-06-21",
+      "spouseIds": ["g18-kaiyou"],
+      "origin": { "hans": "郭厝寮", "hant": "郭厝寮" },
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g18-xuanyou",
+      "generation": 18,
+      "zibei": "猷",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "选猷", "hant": "選猷", "pinyin": "Xuanyou" },
+      "fatherId": "g17-maozhuo",
+      "motherId": "g17-yu-xiaojun",
+      "spouseIds": ["g18-li-lizhen"],
+      "placeIds": ["shenzhen"]
+    },
+    {
+      "id": "g18-li-lizhen",
+      "generation": 18,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "丽珍", "hant": "麗珍", "pinyin": "Lizhen" },
+      "spouseIds": ["g18-xuanyou"],
+      "origin": { "hans": "韶关", "hant": "韶關" },
+      "placeIds": ["shenzhen"]
+    },
+    {
+      "id": "g18-yao-daughters",
+      "generation": 18,
+      "gender": "female",
+      "living": true,
+      "unnamedGroup": true,
+      "name": { "hans": "五女（谱未列名）", "hant": "五女（譜未列名）", "pinyin": "five daughters, unnamed" },
+      "fatherId": "g17-maozhuo",
+      "motherId": "g17-yao-xiaoqiong",
+      "placeIds": ["hongkong"],
+      "notes": {
+        "hans": "肖琼姚氏所出。谱未列名，不拆成五人。",
+        "hant": "肖瓊姚氏所出。譜未列名，不拆成五人。",
+        "en": "Daughters of Yao Xiaoqiong. Names not in the book; kept as one node.",
+        "th": "บุตรสาวของยาวเสี่ยวฉยง หนังสือไม่ระบุชื่อ คงเป็นโหนดเดียว"
+      }
+    },
+    {
+      "id": "g18-jieyou",
+      "generation": 18,
+      "zibei": "猷",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "杰猷", "hant": "傑猷", "pinyin": "Jieyou" },
+      "birth": "1952.6",
+      "fatherId": "g17-maowen",
+      "motherId": "g17-wang-yaojing",
+      "spouseIds": ["g18-jiang-shaojun"],
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g18-jiang-shaojun",
+      "generation": 18,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "少君江氏", "hant": "少君江氏", "pinyin": "Jiang Shaojun" },
+      "birth": "1954.6",
+      "spouseIds": ["g18-jieyou"],
+      "placeIds": ["sizhupu"],
+      "origin": { "hans": "泗竹埔", "hant": "泗竹埔" }
+    },
+    {
+      "id": "g18-junyou",
+      "generation": 18,
+      "zibei": "猷",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "俊猷", "hant": "俊猷", "pinyin": "Junyou" },
+      "birth": "1953.10",
+      "fatherId": "g17-maowen",
+      "motherId": "g17-wang-yaojing",
+      "placeIds": ["hongkong"],
+      "notes": {
+        "hans": "香港。谱未写配偶。",
+        "hant": "香港。譜未寫配偶。",
+        "en": "Hong Kong. No spouse in the book.",
+        "th": "ฮ่องกง หนังสือไม่มีคู่สมรส"
+      }
+    },
+    {
+      "id": "g18-jieshan",
+      "generation": 18,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "杰珊", "hant": "傑珊", "pinyin": "Jieshan" },
+      "fatherId": "g17-maowen",
+      "motherId": "g17-wang-yaojing",
+      "origin": { "hans": "西社", "hant": "西社" },
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g18-jiezhu",
+      "generation": 18,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "杰珠", "hant": "傑珠", "pinyin": "Jiezhu" },
+      "fatherId": "g17-maowen",
+      "motherId": "g17-wang-yaojing",
+      "origin": { "hans": "南园", "hant": "南園" },
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g18-jiehong",
+      "generation": 18,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "杰虹", "hant": "傑虹", "pinyin": "Jiehong" },
+      "fatherId": "g17-maowen",
+      "motherId": "g17-wang-yaojing",
+      "origin": { "hans": "赤水", "hant": "赤水" },
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g18-jiexian",
+      "generation": 18,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "杰贤", "hant": "傑賢", "pinyin": "Jiexian" },
+      "fatherId": "g17-maowen",
+      "motherId": "g17-wang-yaojing",
+      "origin": { "hans": "广州", "hant": "廣州" },
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g18-xianyou",
+      "generation": 18,
+      "zibei": "猷",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "贤猷", "hant": "賢猷", "pinyin": "Xianyou" },
+      "birth": "1963.10",
+      "fatherId": "g17-maowen",
+      "motherId": "g17-wang-yaojing",
+      "spouseIds": ["g18-xu-chanjun"],
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g18-xu-chanjun",
+      "generation": 18,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "婵君许氏", "hant": "嬋君許氏", "pinyin": "Xu Chanjun" },
+      "birth": "1965",
+      "spouseIds": ["g18-xianyou"],
+      "origin": { "hans": "郭厝寮", "hant": "郭厝寮" },
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g19-miaoru",
+      "generation": 19,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "妙如", "hant": "妙如", "pinyin": "Miaoru" },
+      "fatherId": "g18-kaiyou",
+      "motherId": "g18-xu-zhuohui",
+      "marriedOut": { "hans": "嫁北山", "hant": "嫁北山" },
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g19-tingbin",
+      "generation": 19,
+      "zibei": "廷",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "廷滨", "hant": "廷濱", "pinyin": "Tingbin" },
+      "birth": "1978-04-09",
+      "fatherId": "g18-kaiyou",
+      "motherId": "g18-xu-zhuohui",
+      "spouseIds": ["g19-huang-tingli"],
+      "placeIds": ["hongkong"]
+    },
+    {
+      "id": "g19-huang-tingli",
+      "generation": 19,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "廷丽黄氏", "hant": "廷麗黃氏", "pinyin": "Huang Tingli" },
+      "birth": "1978-07-16",
+      "spouseIds": ["g19-tingbin"],
+      "origin": { "hans": "新坛", "hant": "新壇" },
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g19-liru",
+      "generation": 19,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "丽如", "hant": "麗如", "pinyin": "Liru" },
+      "fatherId": "g18-kaiyou",
+      "motherId": "g18-xu-zhuohui",
+      "marriedOut": { "hans": "嫁本村", "hant": "嫁本村" },
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g19-tingjia",
+      "generation": 19,
+      "zibei": "廷",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "廷佳", "hant": "廷佳", "pinyin": "Tingjia" },
+      "birth": "1985-10-09",
+      "fatherId": "g18-kaiyou",
+      "motherId": "g18-xu-zhuohui",
+      "spouseIds": ["g19-chen-jingchun"],
+      "placeIds": ["hongkong"]
+    },
+    {
+      "id": "g19-chen-jingchun",
+      "generation": 19,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "静纯陈氏", "hant": "靜純陳氏", "pinyin": "Chen Jingchun" },
+      "birth": "1989-12-23",
+      "spouseIds": ["g19-tingjia"],
+      "origin": { "hans": "桥柱", "hant": "橋柱" },
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g19-shaobo",
+      "generation": 19,
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "少波", "hant": "少波", "pinyin": "Shaobo" },
+      "fatherId": "g18-xuanyou",
+      "motherId": "g18-li-lizhen",
+      "placeIds": ["shenzhen"]
+    },
+    {
+      "id": "g19-jianbo",
+      "generation": 19,
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "剑波", "hant": "劍波", "pinyin": "Jianbo" },
+      "fatherId": "g18-xuanyou",
+      "motherId": "g18-li-lizhen",
+      "placeIds": ["shenzhen"]
+    },
+    {
+      "id": "g19-manli",
+      "generation": 19,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "曼丽", "hant": "曼麗", "pinyin": "Manli" },
+      "birth": "1981.12",
+      "fatherId": "g18-jieyou",
+      "motherId": "g18-jiang-shaojun",
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g19-shuman",
+      "generation": 19,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "舒曼", "hant": "舒曼", "pinyin": "Shuman" },
+      "birth": "1983.10",
+      "fatherId": "g18-jieyou",
+      "motherId": "g18-jiang-shaojun",
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g19-zhangyu",
+      "generation": 19,
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "煜", "hant": "煜", "pinyin": "Yu" },
+      "birth": "1985.2",
+      "fatherId": "g18-jieyou",
+      "motherId": "g18-jiang-shaojun",
+      "placeIds": ["xiulong"],
+      "notes": {
+        "hans": "谱作张煜。",
+        "hant": "譜作張煜。",
+        "en": "Written 张煜 in the book.",
+        "th": "ในหนังสือเขียนว่า จางอวี้"
+      }
+    },
+    {
+      "id": "g19-zhangkun",
+      "generation": 19,
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "焜", "hant": "焜", "pinyin": "Kun" },
+      "birth": "1987.6",
+      "fatherId": "g18-jieyou",
+      "motherId": "g18-jiang-shaojun",
+      "placeIds": ["xiulong"],
+      "notes": {
+        "hans": "谱作张焜。",
+        "hant": "譜作張焜。",
+        "en": "Written 张焜 in the book.",
+        "th": "ในหนังสือเขียนว่า จางคุน"
+      }
+    },
+    {
+      "id": "g19-tingxuan",
+      "generation": 19,
+      "zibei": "廷",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "廷轩", "hant": "廷軒", "pinyin": "Tingxuan" },
+      "birth": "1992.1",
+      "fatherId": "g18-junyou",
+      "placeIds": ["hongkong"]
+    },
+    {
+      "id": "g19-tingle",
+      "generation": 19,
+      "zibei": "廷",
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "廷乐", "hant": "廷樂", "pinyin": "Tingle" },
+      "birth": "1993.3",
+      "fatherId": "g18-junyou",
+      "placeIds": ["hongkong"]
+    },
+    {
+      "id": "g19-jiamin",
+      "generation": 19,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "嘉敏", "hant": "嘉敏", "pinyin": "Jiamin" },
+      "birth": "1989",
+      "fatherId": "g18-xianyou",
+      "motherId": "g18-xu-chanjun",
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g19-jiaxin",
+      "generation": 19,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "嘉欣", "hant": "嘉欣", "pinyin": "Jiaxin" },
+      "birth": "1990",
+      "fatherId": "g18-xianyou",
+      "motherId": "g18-xu-chanjun",
+      "placeIds": ["xiulong"]
+    },
+    {
+      "id": "g19-zhangfan",
+      "generation": 19,
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "凡", "hant": "凡", "pinyin": "Fan" },
+      "birth": "1992",
+      "fatherId": "g18-xianyou",
+      "motherId": "g18-xu-chanjun",
+      "placeIds": ["xiulong"],
+      "notes": {
+        "hans": "谱作张凡。",
+        "hant": "譜作張凡。",
+        "en": "Written 张凡 in the book.",
+        "th": "ในหนังสือเขียนว่า จางฝาน"
+      }
+    },
+    {
+      "id": "g20-haixin",
+      "generation": 20,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "海欣", "hant": "海欣", "pinyin": "Haixin" },
+      "birth": "2002-09-30",
+      "fatherId": "g19-tingbin",
+      "motherId": "g19-huang-tingli",
+      "placeIds": ["hongkong"]
+    },
+    {
+      "id": "g20-xinyi",
+      "generation": 20,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "欣怡", "hant": "欣怡", "pinyin": "Xinyi" },
+      "birth": "2004-06-04",
+      "fatherId": "g19-tingbin",
+      "motherId": "g19-huang-tingli",
+      "placeIds": ["hongkong"]
+    },
+    {
+      "id": "g20-xinbing",
+      "generation": 20,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "欣冰", "hant": "欣冰", "pinyin": "Xinbing" },
+      "birth": "2005-10-11",
+      "fatherId": "g19-tingbin",
+      "motherId": "g19-huang-tingli",
+      "placeIds": ["hongkong"]
+    },
+    {
+      "id": "g20-haitong",
+      "generation": 20,
+      "gender": "male",
+      "living": true,
+      "name": { "hans": "海桐", "hant": "海桐", "pinyin": "Haitong" },
+      "birth": "2006-08-29",
+      "fatherId": "g19-tingbin",
+      "motherId": "g19-huang-tingli",
+      "placeIds": ["hongkong"]
+    },
+    {
+      "id": "g20-xinyan",
+      "generation": 20,
+      "gender": "female",
+      "living": true,
+      "name": { "hans": "心妍", "hant": "心妍", "pinyin": "Xinyan" },
+      "birth": "2011-03-09",
+      "fatherId": "g19-tingjia",
+      "motherId": "g19-chen-jingchun",
+      "placeIds": ["hongkong"]
+    },
+    {
+      "id": "unplaced-jinghui",
+      "generation": 18,
+      "gender": "female",
+      "living": true,
+      "unplaced": true,
+      "name": { "hans": "静慧", "hant": "靜慧", "pinyin": "Jinghui" },
+      "placeIds": ["xiulong"],
+      "notes": {
+        "hans": "仅见于第 174 页世系表。正文未写是谁的女儿，故不系。",
+        "hant": "僅見於第 174 頁世系表。正文未寫是誰的女兒，故不繫。",
+        "en": "On the chart, p. 174 only. The text does not say whose daughter. Not attached.",
+        "th": "มีบนตารางหน้า 174 เท่านั้น ตัวหนังสือไม่บอกว่าเป็นลูกของใคร จึงไม่ผูก"
+      }
+    }
+  ]
+}

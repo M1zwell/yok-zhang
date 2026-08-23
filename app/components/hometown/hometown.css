@@ -1,0 +1,349 @@
+/* Hometown — quiet garden, Family Echo air */
+
+.ht-page {
+  padding-top: 2.5rem;
+  padding-bottom: 5.5rem;
+}
+
+.ht-hero {
+  max-width: 40rem;
+}
+
+.ht-hero h1 {
+  margin-top: 0.7rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.ht-lead {
+  margin-top: 1.1rem;
+  max-width: 38rem;
+  color: var(--color-secondary);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.ht-fang {
+  margin-top: 1.35rem;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+}
+
+.ht-source {
+  margin-top: 0.55rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.ht-zibei {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 1.5rem;
+}
+
+.ht-zibei span {
+  display: inline-flex;
+  min-width: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.28rem 0.45rem;
+  border: 1px solid var(--color-hair);
+  border-radius: 999px;
+  color: var(--color-muted);
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+}
+
+.ht-zibei span.is-on {
+  border-color: color-mix(in srgb, var(--color-accent) 55%, var(--color-hair));
+  color: var(--color-fg);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent) 18%, transparent);
+}
+
+.ht-jumps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+}
+
+.ht-jumps button {
+  min-height: 36px;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--color-hair);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-secondary);
+  font-size: 0.85rem;
+}
+
+.ht-jumps button.is-on,
+.ht-jumps button:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 50%, var(--color-hair));
+  color: var(--color-fg);
+}
+
+.ht-layout {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 2.4rem;
+}
+
+@media (min-width: 960px) {
+  .ht-layout {
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.8fr);
+    align-items: start;
+  }
+}
+
+.ht-panel {
+  padding: 1.1rem 1rem 1.25rem;
+  border: 1px solid var(--color-hair);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
+}
+
+.ht-panel h2 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.ht-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  padding: 0.4rem 0 0.2rem;
+}
+
+.ht-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.ht-stem {
+  width: 1px;
+  height: 14px;
+  margin: 0.15rem auto;
+  background: var(--color-hair);
+}
+
+.ht-node {
+  min-width: 5.6rem;
+  max-width: 8.6rem;
+  padding: 0.45rem 0.55rem 0.5rem;
+  border: 1px solid var(--color-hair);
+  border-radius: 12px;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  text-align: center;
+}
+
+.ht-node:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-hair));
+}
+
+.ht-node.is-focus {
+  min-width: 7.2rem;
+  padding: 0.7rem 0.7rem 0.75rem;
+  border-color: color-mix(in srgb, var(--color-accent) 70%, var(--color-hair));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent) 22%, transparent);
+}
+
+.ht-node.is-living .ht-name {
+  font-weight: 500;
+}
+
+.ht-gen {
+  display: block;
+  color: var(--color-muted);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.ht-name {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.ht-node.is-focus .ht-name {
+  font-size: 1.2rem;
+}
+
+.ht-aka {
+  display: block;
+  margin-top: 0.1rem;
+  color: var(--color-muted);
+  font-size: 0.72rem;
+}
+
+.ht-card dl {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.ht-card dt {
+  color: var(--color-muted);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ht-card dd {
+  margin-top: 0.15rem;
+  color: var(--color-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.ht-quiet {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.ht-map {
+  position: relative;
+  margin-top: 0.9rem;
+}
+
+.ht-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ht-pin {
+  cursor: pointer;
+}
+
+.ht-pin circle {
+  fill: var(--color-accent);
+  stroke: var(--color-bg);
+  stroke-width: 2;
+}
+
+.ht-pin.is-admin circle {
+  fill: transparent;
+  stroke: var(--color-muted);
+  stroke-dasharray: 2 2;
+}
+
+.ht-pin.is-on circle {
+  fill: var(--color-gold, #c7a25b);
+}
+
+.ht-away {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.ht-chip {
+  border: 1px solid var(--color-hair);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  background: transparent;
+}
+
+.ht-chip.is-on,
+.ht-chip:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 50%, var(--color-hair));
+  color: var(--color-fg);
+}
+
+.ht-form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.ht-form label {
+  display: grid;
+  gap: 0.28rem;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.ht-form input,
+.ht-form select {
+  min-height: 40px;
+  border: 1px solid var(--color-hair);
+  border-radius: 12px;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  padding: 0.45rem 0.7rem;
+  font-size: 0.9rem;
+}
+
+.ht-hp {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  overflow: hidden;
+}
+
+.ht-board {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.ht-check {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 0.7rem;
+  align-items: center;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--color-hair);
+}
+
+.ht-check img,
+.ht-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  object-fit: cover;
+  background: var(--color-tertiary, #242421);
+}
+
+.ht-check p {
+  font-size: 0.88rem;
+}
+
+.ht-check time {
+  color: var(--color-muted);
+  font-size: 0.72rem;
+}
+
+.ht-note {
+  margin-top: 2.4rem;
+  max-width: 40rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+
+html.light .ht-panel {
+  background: color-mix(in srgb, var(--color-surface) 88%, white);
+}
