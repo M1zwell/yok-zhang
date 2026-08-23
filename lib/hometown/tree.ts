@@ -131,6 +131,102 @@ export function siblingsOf(p: Person): Person[] {
   return childrenOf(parent).filter((s) => s.id !== p.id && !s.unplaced);
 }
 
+export type CoupleUnit = {
+  blood: Person;
+  spouses: Person[];
+};
+
+/** Blood siblings of this generation, including self. In-laws use their spouse's house. */
+export function generationBlood(p: Person): Person[] {
+  const pivot = p.inLaw && p.spouseIds?.[0] ? (person(p.spouseIds[0]) ?? p) : p;
+  const parent = person(pivot.fatherId) ?? person(pivot.motherId);
+  if (!parent) return [pivot];
+  return childrenOf(parent).filter((s) => !s.unplaced && !s.inLaw);
+}
+
+export function coupleUnits(blood: Person[]): CoupleUnit[] {
+  return blood.map((b) => ({ blood: b, spouses: spousesOf(b) }));
+}
+
+export function ancestorCoupleRows(p: Person, limit = 4): CoupleUnit[] {
+  const pivot = p.inLaw && p.spouseIds?.[0] ? (person(p.spouseIds[0]) ?? p) : p;
+  return ancestorsOf(pivot, limit)
+    .slice()
+    .reverse()
+    .map((a) => ({ blood: a, spouses: spousesOf(a) }));
+}
+
+export function descendantCoupleRows(p: Person, depth = 4): CoupleUnit[][] {
+  const pivot = p.inLaw && p.spouseIds?.[0] ? (person(p.spouseIds[0]) ?? p) : p;
+  const rows: CoupleUnit[][] = [];
+  let frontier = childrenOf(pivot).filter((c) => !c.inLaw && !c.unplaced);
+  for (let i = 0; i < depth && frontier.length > 0; i += 1) {
+    rows.push(coupleUnits(frontier));
+    frontier = frontier.flatMap((c) => childrenOf(c).filter((x) => !x.inLaw && !x.unplaced));
+  }
+  return rows;
+}
+
+export function genderWord(gender: Person["gender"], locale: Locale): string {
+  switch (gender) {
+    case "male":
+      switch (locale) {
+        case "zh-Hans":
+        case "zh-Hant":
+          return "男";
+        case "th":
+          return "ชาย";
+        case "en":
+        case "ja":
+        case "ko":
+        case "nl":
+          return "M";
+        default: {
+          const _exhaustive: never = locale;
+          return _exhaustive;
+        }
+      }
+    case "female":
+      switch (locale) {
+        case "zh-Hans":
+        case "zh-Hant":
+          return "女";
+        case "th":
+          return "หญิง";
+        case "en":
+        case "ja":
+        case "ko":
+        case "nl":
+          return "F";
+        default: {
+          const _exhaustive: never = locale;
+          return _exhaustive;
+        }
+      }
+    case "unknown":
+      switch (locale) {
+        case "zh-Hans":
+        case "zh-Hant":
+          return "未记";
+        case "th":
+          return "ไม่ระบุ";
+        case "en":
+        case "ja":
+        case "ko":
+        case "nl":
+          return "—";
+        default: {
+          const _exhaustive: never = locale;
+          return _exhaustive;
+        }
+      }
+    default: {
+      const _exhaustive: never = gender;
+      return _exhaustive;
+    }
+  }
+}
+
 /** Father-line ancestors, nearest first, up to `limit`. */
 export function ancestorsOf(p: Person, limit = 4): Person[] {
   const out: Person[] = [];

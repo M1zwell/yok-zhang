@@ -9,25 +9,26 @@ import {
   submitCheckin,
   type CheckinRow,
 } from "@/lib/hometown/checkin";
+import { placePhotos } from "@/lib/hometown/place-media";
 import {
   CLAIMABLE_IDS,
   MAP_PLACE_IDS,
-  ancestorsOf,
+  ancestorCoupleRows,
   book,
-  childrenOf,
-  descendantsOf,
+  coupleUnits,
+  descendantCoupleRows,
   displayName,
+  genderWord,
+  generationBlood,
   generationLabel,
   givenLine,
-  parentsOf,
   peopleAtPlace,
   person,
   placesById,
-  siblingsOf,
-  spousesOf,
   yearText,
+  type CoupleUnit,
 } from "@/lib/hometown/tree";
-import { pickText } from "@/lib/hometown/types";
+import { pickText, type Person } from "@/lib/hometown/types";
 import "./hometown.css";
 
 function Chip({
@@ -43,16 +44,22 @@ function Chip({
 }) {
   const p = person(id);
   if (!p) return null;
-  const gen = generationLabel(p.generation, locale);
   const years = yearText(p);
+  const sex = genderWord(p.gender, locale);
+  const sexClass = p.gender === "male" ? " is-m" : p.gender === "female" ? " is-f" : "";
   return (
     <button
       type="button"
-      className={`ht-chip${on ? " is-on" : ""}${p.placeholder ? " is-dim" : ""}`}
+      className={`ht-chip${on ? " is-on" : ""}${p.placeholder ? " is-dim" : ""}${sexClass}`}
       onClick={() => !p.placeholder && onPick(id)}
       disabled={!!p.placeholder}
     >
-      <span className="ht-chip-gen">{gen}</span>
+      <span className="ht-chip-top">
+        <span className="ht-chip-gen">{generationLabel(p.generation, locale)}</span>
+        <span className="ht-sex" aria-label={sex}>
+          {sex}
+        </span>
+      </span>
       <span className="ht-chip-name">{displayName(p, locale)}</span>
       {givenLine(p, locale) !== pickText(p.style ?? p.name, locale) ? (
         <span className="ht-chip-meta">{givenLine(p, locale)}</span>
@@ -62,44 +69,92 @@ function Chip({
   );
 }
 
-function Row({
-  ids,
+function Unit({
+  unit,
   locale,
   focusId,
   onPick,
 }: {
-  ids: string[];
+  unit: CoupleUnit;
   locale: Locale;
   focusId: string;
   onPick: (id: string) => void;
 }) {
-  if (ids.length === 0) return null;
+  const ids = [unit.blood.id, ...unit.spouses.map((s) => s.id)];
+  const lit = ids.includes(focusId);
   return (
-    <div className="ht-row">
-      {ids.map((id) => (
-        <Chip key={id} id={id} locale={locale} on={id === focusId} onPick={onPick} />
+    <div className={`ht-unit${lit ? " is-lit" : ""}`}>
+      <Chip id={unit.blood.id} locale={locale} on={unit.blood.id === focusId} onPick={onPick} />
+      {unit.spouses.map((s) => (
+        <span key={s.id} className="ht-pair">
+          <span className="ht-eq" aria-hidden="true">
+            ＝
+          </span>
+          <Chip id={s.id} locale={locale} on={s.id === focusId} onPick={onPick} />
+        </span>
       ))}
     </div>
   );
 }
 
-function Spine() {
-  return <div className="ht-spine" aria-hidden="true" />;
+function GenRow({
+  units,
+  label,
+  locale,
+  focusId,
+  onPick,
+  current,
+}: {
+  units: CoupleUnit[];
+  label: string;
+  locale: Locale;
+  focusId: string;
+  onPick: (id: string) => void;
+  current?: boolean;
+}) {
+  if (units.length === 0) return null;
+  return (
+    <div className={`ht-gen${current ? " is-now" : ""}`}>
+      <p className="ht-gen-lab">{label}</p>
+      <div className="ht-gen-track">
+        {units.map((unit) => (
+          <Unit key={unit.blood.id} unit={unit} locale={locale} focusId={focusId} onPick={onPick} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 function project(lat: number, lng: number) {
-  const x = ((lng - 99) / (18)) * 100;
-  const y = ((24.6 - lat) / (12.2)) * 100;
+  const x = ((lng - 99) / 18) * 100;
+  const y = ((24.6 - lat) / 12.2) * 100;
   return {
     x: Math.min(96, Math.max(4, x)),
     y: Math.min(94, Math.max(6, y)),
   };
 }
 
+function photoCaption(id: PlacePhotoId, m: ReturnType<typeof t>["hometown"]): string {
+  switch (id) {
+    case "houses":
+      return m.photoHouses;
+    case "plain":
+      return m.photoPlain;
+    case "college":
+      return m.photoCollege;
+    default: {
+      const _exhaustive: never = id;
+      return _exhaustive;
+    }
+  }
+}
+
+type PlacePhotoId = (typeof placePhotos)[number]["id"];
+
 export function HometownView({ locale = "en" }: { locale?: Locale }) {
   const m = t(locale).hometown;
   const [focusId, setFocusId] = useState(book.meta.defaultFocusId);
-  const [placeId, setPlaceId] = useState<string | null>(null);
+  const [placeId, setPlaceId] = useState<string | null>("xiulong");
   const [rows, setRows] = useState<CheckinRow[]>([]);
   const [sending, setSending] = useState(false);
   const [flash, setFlash] = useState<string | null>(null);
@@ -114,13 +169,10 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
   });
 
   const focus = person(focusId) ?? person(book.meta.defaultFocusId)!;
-  const { father, mother } = parentsOf(focus);
-  const spouses = spousesOf(focus);
-  const kids = childrenOf(focus);
-  const sibs = siblingsOf(focus);
-  const ancestors = ancestorsOf(focus, 4);
-  const up = (father ? ancestors.filter((p) => p.id !== father.id) : ancestors).slice().reverse();
-  const down = descendantsOf(focus, 4);
+  const thisBlood = generationBlood(focus);
+  const thisGen = coupleUnits(thisBlood);
+  const up = ancestorCoupleRows(focus, 4);
+  const down = descendantCoupleRows(focus, 4);
   const wired = checkinConfigured();
   const place = placeId ? placesById[placeId] : undefined;
   const atPlace = placeId ? peopleAtPlace(placeId) : [];
@@ -142,7 +194,7 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
   }, [loadBoard]);
 
   const claimOptions = useMemo(
-    () => CLAIMABLE_IDS.map((id) => person(id)).filter((p): p is NonNullable<typeof p> => Boolean(p)),
+    () => CLAIMABLE_IDS.map((id) => person(id)).filter((p): p is Person => Boolean(p)),
     [],
   );
 
@@ -176,10 +228,12 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
     }
   }
 
-  const parentIds = [father?.id, mother?.id].filter((id): id is string => Boolean(id));
+  const placeNames = focus.places
+    .map((id) => placesById[id])
+    .filter((pl): pl is NonNullable<typeof pl> => Boolean(pl));
 
   return (
-    <article className="page-x hometown mx-auto max-w-3xl py-14 sm:py-24">
+    <article className="page-x hometown mx-auto max-w-5xl py-14 sm:py-24">
       <p className="kicker">{m.kicker}</p>
       <h1 className="mt-4 font-display text-[clamp(2.1rem,6vw,3.6rem)] leading-[0.95] tracking-tight">
         {m.title}
@@ -218,89 +272,70 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
 
       <section className="mt-12">
         <p className="kicker">{m.hourglassHint}</p>
-        <div className="ht-hourglass mt-4">
-          {up.length > 0 ? (
-            <>
-              <p className="ht-band">{m.ancestors}</p>
-              {up.map((p) => (
-                <div key={p.id}>
-                  <Chip id={p.id} locale={locale} on={p.id === focusId} onPick={setFocusId} />
-                  <Spine />
-                </div>
-              ))}
-            </>
-          ) : null}
-
-          {parentIds.length > 0 ? (
-            <>
-              <Row ids={parentIds} locale={locale} focusId={focusId} onPick={setFocusId} />
-              <Spine />
-            </>
-          ) : null}
-
-          <p className="ht-band">{m.focus}</p>
-          <Chip id={focus.id} locale={locale} on onPick={setFocusId} />
-
-          {spouses.length > 0 ? (
-            <>
-              <Spine />
-              <p className="ht-band">{m.spouses}</p>
-              <Row
-                ids={spouses.map((p) => p.id)}
+        <p className="ht-muted">{m.rowHint}</p>
+        <div className="ht-tree mt-5">
+          {up.map((unit) => (
+            <div key={unit.blood.id}>
+              <GenRow
+                units={[unit]}
+                label={generationLabel(unit.blood.generation, locale)}
                 locale={locale}
                 focusId={focusId}
                 onPick={setFocusId}
               />
-            </>
-          ) : null}
+              <div className="ht-spine" aria-hidden="true" />
+            </div>
+          ))}
 
-          {sibs.length > 0 ? (
-            <>
-              <p className="ht-band">{m.siblings}</p>
-              <Row
-                ids={sibs.map((p) => p.id)}
+          <GenRow
+            units={thisGen}
+            label={`${m.thisGeneration} · ${generationLabel(focus.generation, locale)}`}
+            locale={locale}
+            focusId={focusId}
+            onPick={setFocusId}
+            current
+          />
+
+          {down.map((row, i) => (
+            <div key={`d-${i}`}>
+              <div className="ht-spine" aria-hidden="true" />
+              <GenRow
+                units={row}
+                label={generationLabel(row[0]?.blood.generation ?? null, locale)}
                 locale={locale}
                 focusId={focusId}
                 onPick={setFocusId}
               />
-            </>
-          ) : null}
-
-          {kids.length > 0 ? (
-            <>
-              <Spine />
-              <p className="ht-band">{m.children}</p>
-              <Row
-                ids={kids.map((p) => p.id)}
-                locale={locale}
-                focusId={focusId}
-                onPick={setFocusId}
-              />
-            </>
-          ) : null}
-
-          {down.length > 1 ? (
-            <>
-              <p className="ht-band">{m.descendants}</p>
-              {down.slice(1).map((row, i) => (
-                <div key={`d-${i}`}>
-                  <Spine />
-                  <Row
-                    ids={row.map((p) => p.id)}
-                    locale={locale}
-                    focusId={focusId}
-                    onPick={setFocusId}
-                  />
-                </div>
-              ))}
-            </>
-          ) : null}
+            </div>
+          ))}
         </div>
+      </section>
 
-        {focus.notes ? <p className="ht-muted mt-4">{pickText(focus.notes, locale)}</p> : null}
-        {focus.id === "yao-xiao-qiong" ? (
-          <p className="ht-muted mt-3">{m.unnamedDaughtersNote}</p>
+      <section className="ht-sheet card mt-8 p-5 sm:p-6">
+        <p className="kicker">{m.personSheet}</p>
+        <h2 className="mt-2 font-display text-[1.7rem] leading-tight tracking-tight">
+          {displayName(focus, locale)}
+        </h2>
+        <p className="ht-sheet-meta">
+          <span>{generationLabel(focus.generation, locale)}</span>
+          <span>{genderWord(focus.gender, locale)}</span>
+          {yearText(focus) ? <span>{yearText(focus)}</span> : null}
+        </p>
+        {givenLine(focus, locale) !== displayName(focus, locale) ? (
+          <p className="ht-muted">{givenLine(focus, locale)}</p>
         ) : null}
+        {focus.deathNote ? (
+          <p className="ht-muted">
+            {m.death} · {pickText(focus.deathNote, locale)}
+          </p>
+        ) : null}
+        {placeNames.length > 0 ? (
+          <p className="ht-muted">
+            {m.placesOnCard} · {placeNames.map((pl) => pickText(pl.name, locale)).join(" · ")}
+          </p>
+        ) : null}
+        {focus.notes ? <p className="ht-muted">{pickText(focus.notes, locale)}</p> : null}
+        {focus.id === "yao-xiao-qiong" ? <p className="ht-muted">{m.unnamedDaughtersNote}</p> : null}
       </section>
 
       <section className="card mt-10 p-5 sm:p-6">
@@ -311,9 +346,35 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
         </div>
       </section>
 
-      <section className="mt-12">
-        <h2 className="font-display text-2xl tracking-tight">{m.mapTitle}</h2>
-        <p className="ht-muted mt-2">{m.mapLead}</p>
+      <section className="mt-14">
+        <h2 className="font-display text-2xl tracking-tight">{m.geoTitle}</h2>
+        <p className="ht-muted mt-2">{m.geoLead}</p>
+        <p className="ht-copy">{m.cultureP1}</p>
+        <p className="ht-copy">{m.cultureP2}</p>
+        <h3 className="mt-8 font-display text-xl tracking-tight">{m.historyTitle}</h3>
+        <p className="ht-copy">{m.historyP1}</p>
+        <p className="ht-copy">{m.historyP2}</p>
+
+        <h3 className="mt-8 font-display text-xl tracking-tight">{m.photosTitle}</h3>
+        <p className="ht-muted">{m.photosLead}</p>
+        <div className="ht-photos mt-4">
+          {placePhotos.map((ph) => (
+            <figure key={ph.id} className="ht-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={ph.src} alt={photoCaption(ph.id, m)} />
+              <figcaption>
+                <span>{photoCaption(ph.id, m)}</span>
+                <a href={ph.href} target="_blank" rel="noopener noreferrer">
+                  {m.photoCredit} · {ph.author} · {ph.license}
+                </a>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="ht-muted">{m.photoNote}</p>
+
+        <h3 className="mt-10 font-display text-xl tracking-tight">{m.mapTitle}</h3>
+        <p className="ht-muted">{m.mapLead}</p>
         <div className="ht-map mt-4">
           <svg viewBox="0 0 100 56" role="img" aria-label={m.mapTitle}>
             {MAP_PLACE_IDS.map((id) => {

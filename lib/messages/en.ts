@@ -446,6 +446,30 @@ export const en = {
     ziBei: "Generation names",
     brothers: "The three brothers",
     hourglassHint: "Click a name. Parents above, children below.",
+    rowHint: "One generation, one row. Siblings sit with their spouses.",
+    thisGeneration: "This generation",
+    personSheet: "Person",
+    death: "Memorial",
+    placesOnCard: "Places",
+    geoTitle: "Place",
+    geoLead:
+      "The book writes 秀陇 / 普宁. Liusha East is today's street, not a 谱 word.",
+    historyTitle: "History",
+    historyP1:
+      "Gazetteers — not this fang's register — say a Zhang line from Putian, Fujian, settled here around 1640, late Ming. In 1745 the place was recorded as 秀陇乡. Later names pass through 流沙, a later admin layer.",
+    historyP2:
+      "This page does not invent 谱 facts. Pages 174–176 write 秀陇 / 普宁. They do not write 流沙.",
+    cultureP1:
+      "Xiulong sits on the Chaoshan plain. The spoken home is Teochew. The register already walks: Thailand, Hong Kong, Shenzhen.",
+    cultureP2:
+      "Marriage villages in the book — 泥沟, 斗文, 军屯, 郭厝寮, 北山, 南园 — sit in the same plain. People follow land.",
+    photosTitle: "The ground, photographed",
+    photosLead: "Real photographs of Puning / Chaoshan. Not family albums. Not this house's courtyard.",
+    photoHouses: "Chaoshan houses on the Puning plain",
+    photoPlain: "Puning countryside",
+    photoCollege: "Gate of Chaoshan College, Puning",
+    photoCredit: "Photo",
+    photoNote: "CC BY-SA 3.0. Not a 谱 page. Not a private house.",
     ancestors: "Above",
     focus: "This person",
     spouses: "Spouse",
