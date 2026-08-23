@@ -11,6 +11,7 @@ The improved dseek mark lives on this garden only — it is not deployed to dsee
 ## Routes
 
 - `/` garden home (English, unprefixed)
+- `/hometown` 秀陇张家 this-room tree (hourglass + map + 字辈 + family check-in). Locales: `/zh-Hans/hometown`, `/zh-Hant/hometown`, `/th/hometown`, …
 - `/writing` one stream: notes, research theme chips, and the live dseek research desk
 - `/writing/[slug]` notes
 - `/blog` redirects to `/writing` (old links)
@@ -32,5 +33,7 @@ Locale is stored in a `locale` cookie and reflected in the URL. Default English 
 3. Open http://localhost:3100
 
 4. Production: run the build script. Static files land in `out/` (output export is on).
+
+Family check-in on `/hometown` is optional. Apply `supabase/hometown_checkins.sql`, then set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` at build. The public board never reads WeChat, phone, or email. The tree still works without keys.
 
 This is Yok Zhang personal brand and garden site.
