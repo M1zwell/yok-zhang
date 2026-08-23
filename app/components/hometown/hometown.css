@@ -1,0 +1,244 @@
+.hometown {
+  --ht-gold: var(--color-gold);
+  --ht-line: color-mix(in srgb, var(--color-gold) 35%, var(--color-hair));
+}
+
+.ht-lead {
+  margin-top: 1rem;
+  max-width: 40rem;
+  color: var(--color-secondary);
+  line-height: 1.65;
+}
+
+.ht-muted {
+  margin-top: 0.65rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.ht-hourglass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ht-band {
+  margin: 0.35rem 0 0.2rem;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.ht-form {
+  position: relative;
+}
+
+.ht-ph {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  background: var(--color-hair);
+  flex-shrink: 0;
+}
+
+.ht-chip {
+  cursor: pointer;
+}
+
+.ht-chip:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.ht-chip {
+  display: flex;
+  min-width: 7.5rem;
+  max-width: 11rem;
+  flex-direction: column;
+  gap: 0.15rem;
+  border: 1px solid var(--color-hair);
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  color: var(--color-fg);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.ht-chip:hover {
+  border-color: color-mix(in srgb, var(--color-gold) 50%, var(--color-hair));
+}
+
+.ht-chip.is-on {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-gold) 40%, transparent);
+}
+
+.ht-chip.is-dim {
+  opacity: 0.72;
+}
+
+.ht-chip-gen {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+}
+
+.ht-chip-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.ht-chip-meta {
+  font-size: 11px;
+  color: var(--color-muted);
+  line-height: 1.35;
+}
+
+.ht-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.ht-spine {
+  width: 1px;
+  height: 1.1rem;
+  margin: 0.15rem auto;
+  background: var(--ht-line);
+}
+
+.ht-map {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-hair);
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse 80% 70% at 70% 35%, color-mix(in srgb, var(--color-gold) 8%, transparent), transparent 55%),
+    var(--color-surface);
+}
+
+.ht-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ht-pin {
+  cursor: pointer;
+}
+
+.ht-pin circle {
+  fill: var(--color-gold);
+  stroke: var(--color-bg);
+  stroke-width: 1.2;
+}
+
+.ht-pin.is-on circle {
+  fill: var(--color-accent);
+}
+
+.ht-pin text {
+  font-size: 9px;
+  fill: var(--color-secondary);
+  font-family: var(--font-ui);
+}
+
+.ht-form input,
+.ht-form select,
+.ht-form textarea {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--color-hair);
+  background: var(--color-bg);
+  border-radius: 12px;
+  padding: 0.55rem 0.8rem;
+  color: var(--color-fg);
+  font-size: 0.875rem;
+}
+
+.ht-form textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.ht-form label {
+  display: block;
+  margin-bottom: 0.85rem;
+}
+
+.ht-form .ht-lab {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.ht-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.ht-board {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.ht-board-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  border: 1px solid var(--color-hair);
+  border-radius: 12px;
+  padding: 0.55rem 0.75rem;
+}
+
+.ht-board-item img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.ht-zi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.ht-zi span {
+  display: grid;
+  place-items: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-hair);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
+.ht-zi span.is-on {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: color-mix(in srgb, var(--color-gold) 10%, transparent);
+}
+
+html.light .ht-chip.is-on {
+  box-shadow: 0 8px 20px rgba(22, 20, 15, 0.06);
+}

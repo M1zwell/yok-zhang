@@ -18,6 +18,7 @@ export function SiteHeader() {
   const href = (p: string) => localizeHref(p, locale);
   const nav = [
     { href: "/", label: m.nav.garden },
+    { href: "/hometown", label: m.nav.hometown },
     { href: "/writing", label: m.nav.writing },
     { href: "/tools", label: m.nav.tools },
     { href: "/products", label: m.nav.products },
