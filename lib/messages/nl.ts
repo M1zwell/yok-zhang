@@ -3,7 +3,6 @@ import type { Messages } from "./en";
 export const nl: Messages = {
   nav: {
     garden: "Tuin",
-    hometown: "Geboortestreek",
     writing: "Schrijven",
     tools: "Tools",
     products: "Producten",

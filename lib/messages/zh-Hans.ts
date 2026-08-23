@@ -3,7 +3,6 @@ import type { Messages } from "./en";
 export const zhHans: Messages = {
   nav: {
     garden: "园地",
-    hometown: "家乡",
     writing: "写作",
     tools: "工具",
     products: "产品",

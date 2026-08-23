@@ -3,7 +3,6 @@ import type { Messages } from "./en";
 export const ja: Messages = {
   nav: {
     garden: "庭",
-    hometown: "故郷",
     writing: "文章",
     tools: "ツール",
     products: "プロダクト",

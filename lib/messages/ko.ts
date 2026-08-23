@@ -3,7 +3,6 @@ import type { Messages } from "./en";
 export const ko: Messages = {
   nav: {
     garden: "정원",
-    hometown: "고향",
     writing: "글",
     tools: "도구",
     products: "제품",
