@@ -74,6 +74,7 @@ export const links = {
 
 export const nav = [
   { href: "/", label: "Garden" },
+  { href: "/hometown", label: "Hometown" },
   { href: "/writing", label: "Writing" },
   { href: "/tools", label: "Tools" },
   { href: "/products", label: "Products" },
