@@ -487,6 +487,7 @@ export const ja: Messages = {
     planCourt: "天井",
     planArm: "伸手",
     planFront: "門庁",
+    planGate: "門",
     planWall: "壁",
     planNote: "模式平面。この家の実測ではない。",
     photosTitle: "地上の写真",

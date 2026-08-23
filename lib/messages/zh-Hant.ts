@@ -485,6 +485,7 @@ export const zhHant: Messages = {
     planCourt: "天井",
     planArm: "伸手",
     planFront: "門廳",
+    planGate: "門",
     planWall: "牆",
     planNote: "示意平面，不是本房實測。",
     photosTitle: "地上的照片",

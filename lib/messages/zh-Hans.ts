@@ -485,6 +485,7 @@ export const zhHans: Messages = {
     planCourt: "天井",
     planArm: "伸手",
     planFront: "门厅",
+    planGate: "门",
     planWall: "墙",
     planNote: "示意平面，不是本房实测。",
     photosTitle: "地上的照片",

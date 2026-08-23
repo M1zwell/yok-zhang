@@ -494,6 +494,7 @@ export const en = {
     planCourt: "Well",
     planArm: "Wing",
     planFront: "Front",
+    planGate: "Gate",
     planWall: "Wall",
     planNote: "Schematic plans. Not a survey of this house.",
     photosTitle: "The ground, photographed",

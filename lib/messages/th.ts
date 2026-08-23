@@ -488,6 +488,7 @@ export const th: Messages = {
     planCourt: "บ่อฟ้า",
     planArm: "ปีก",
     planFront: "โถงหน้า",
+    planGate: "ประตู",
     planWall: "กำแพง",
     planNote: "ผังโดยสังเขป ไม่ใช่การรังวัดบ้านนี้",
     photosTitle: "ภาพพื้นดิน",

@@ -489,6 +489,7 @@ export const nl: Messages = {
     planCourt: "Put",
     planArm: "Vleugel",
     planFront: "Voor",
+    planGate: "Poort",
     planWall: "Muur",
     planNote: "Schematische plattegronden. Geen opmeting van dit huis.",
     photosTitle: "De grond, gefotografeerd",

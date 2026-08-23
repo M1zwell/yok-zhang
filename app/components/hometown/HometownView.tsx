@@ -192,7 +192,7 @@ function HousePlans({ m }: { m: ReturnType<typeof t>["hometown"] }) {
           <PlanCell x={35} y={32} w={30} h={22} label={m.planCourt} kind="court" />
           <PlanCell x={66} y={32} w={30} h={22} label={m.planArm} kind="arm" />
           <PlanCell x={4} y={56} w={30} h={18} label={m.planWall} kind="wall" />
-          <PlanCell x={35} y={56} w={30} h={18} label={m.planFront} kind="front" />
+          <PlanCell x={35} y={56} w={30} h={18} label={m.planGate} kind="front" />
           <PlanCell x={66} y={56} w={30} h={18} label={m.planWall} kind="wall" />
         </svg>
         <figcaption>{m.planTiger}</figcaption>

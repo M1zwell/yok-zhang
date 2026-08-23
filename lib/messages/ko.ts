@@ -487,6 +487,7 @@ export const ko: Messages = {
     planCourt: "天井",
     planArm: "익랑",
     planFront: "문홀",
+    planGate: "문",
     planWall: "벽",
     planNote: "도식 평면. 이 집의 실측이 아니다.",
     photosTitle: "땅의 사진",
