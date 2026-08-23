@@ -484,9 +484,9 @@ export const en = {
     placeFar: "Farther",
     contextTitle: "Xiulong",
     contextGeo:
-      "秀陇村, now Liusha East Subdistrict, Puning, Jieyang, Guangdong. Chaoshan / central Puning. The book writes Xiulong / Puning; Liusha East is today's street name, not a 谱 word.",
+      "秀陇村, now Liusha East Subdistrict, Puning, Jieyang, Guangdong. West edge of the Chaoshan plain, east of Liusha on the Lianjiang plain. The book writes Xiulong / Puning; Liushadong is a 2000 street name, not a 谱 word.",
     contextHistory:
-      "This fang: Jinfeng line, Xiulong Jinyuan fang, Chengcheng sixth fang, Xiuqian. Generation 17 Maoxiu lived in Thailand; Maozhuo in Hong Kong. The photographed pages do not give a village founding year or ancestral-hall history, so none is invented here.",
+      "This fang: Jinfeng line, Xiulong Jinyuan fang, Chengcheng sixth fang, Xiuqian. Generation 17 Maoxiu lived in Thailand; Maozhuo in Hong Kong. Puning is an official qiaoxiang and Thailand is a main destination for Puning people — city-level, not a village monograph. No founding year, 祠堂, or 堂号 on the photographed pages.",
     contextPhotos:
       "The register is photographed pages, not village photography. Check-in can add a recent photo. Places below are names from the book.",
     claimedAs: "claimed",

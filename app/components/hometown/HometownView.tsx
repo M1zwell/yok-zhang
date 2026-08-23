@@ -29,7 +29,8 @@ import {
   spousesOf,
   yearText,
 } from "@/lib/hometown/tree";
-import { pickText } from "@/lib/hometown/types";
+import { pickText, type I18nText } from "@/lib/hometown/types";
+import media from "@/lib/hometown/xiulong-media.json";
 import type { Person } from "@/lib/hometown/types";
 import "./hometown.css";
 
@@ -300,6 +301,18 @@ export function HometownView({ locale = "en" }: { locale?: Locale }) {
         <p className="mt-3">{m.contextGeo}</p>
         <p>{m.contextHistory}</p>
         <p className="ht-muted">{m.contextPhotos}</p>
+        <div className="ht-photos mt-5">
+          {(media as { src: string; credit: string; caption: I18nText }[]).map((shot) => (
+            <figure key={shot.src} className="ht-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={shot.src} alt={pickText(shot.caption, locale)} />
+              <figcaption>
+                {pickText(shot.caption, locale)}
+                <span className="ht-credit">{shot.credit}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       <section className="card mt-10 p-5 sm:p-6">
