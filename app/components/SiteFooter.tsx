@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AuthRegisterLink } from "@/app/components/AuthCta";
 import { EnterButton } from "@/app/components/JoinFlow";
 import { localizeHref, stripLocale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
@@ -33,9 +34,7 @@ export function SiteFooter() {
             <a href={links.dseekHome} className="btn btn-ghost">
               {m.footer.openDseek}
             </a>
-            <a href={links.jubitSignup} className="btn btn-ghost">
-              {m.cta.register}
-            </a>
+            <AuthRegisterLink className="btn btn-ghost" />
           </div>
         </div>
         <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2.5 border-t border-hair pt-6 text-[13px]">

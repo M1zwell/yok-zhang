@@ -7,7 +7,8 @@
     "predev": "node scripts/build-rss.mjs",
     "dev": "next dev -p 3100",
     "build": "next build",
-    "start": "next start -p 3100"
+    "start": "next start -p 3100",
+    "verify:sso": "node --experimental-strip-types scripts/verify-auth-callback.ts"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.8",

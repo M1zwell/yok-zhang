@@ -52,6 +52,22 @@ export const ja: Messages = {
     copyKit: "キットをコピー",
     pack: "パック",
     openPlatform: "開く",
+    signOut: "ログアウト",
+    signedIn: "ログイン中",
+  },
+  auth: {
+    kicker: "ファミリーログイン",
+    title: "Jubit ログイン",
+    signingIn: "ログインしています…",
+    signingInHint: "家族ハブとワンタイムトークンを交換しています。",
+    success: "ログインしました",
+    successHint: "ガーデンに戻ります。",
+    failed: "ログインできませんでした",
+    missingToken: "このリンクにログイントークンがありません。ガーデンからログインしてください。",
+    exchangeFailed:
+      "ハブがこのトークンを拒否しました。期限切れか使用済みです。もう一度ログインしてください。",
+    goHome: "ガーデンに戻る",
+    tryAgain: "もう一度ログイン",
   },
   flagship: {
     kicker: "フラッグシップ",

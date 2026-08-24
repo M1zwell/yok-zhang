@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AuthHeaderButtons, AuthRailLink } from "@/app/components/AuthCta";
 import { EnterButton } from "@/app/components/JoinFlow";
 import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
 import { ThemeToggle } from "@/app/components/ThemeToggle";
@@ -98,12 +99,7 @@ export function SiteHeader() {
             <kbd className="rounded bg-tertiary px-1.5 py-0.5 text-[10px] text-secondary">⌘K</kbd>
           </button>
           <EnterButton className="btn btn-ghost hidden sm:inline-flex" />
-          <a href={links.jubitLogin} className="btn btn-ghost hidden lg:inline-flex">
-            {m.cta.signIn}
-          </a>
-          <a href={links.jubitSignup} className="btn btn-primary cta-pop">
-            {m.cta.register}
-          </a>
+          <AuthHeaderButtons />
         </div>
       </div>
       <nav
@@ -117,9 +113,7 @@ export function SiteHeader() {
         >
           {m.cta.enter}
         </button>
-        <a href={links.jubitLogin} className="shrink-0 text-[12px] font-medium text-accent lg:hidden">
-          {m.cta.signIn}
-        </a>
+        <AuthRailLink />
         {nav.map((item) => (
           <Link
             key={item.href}

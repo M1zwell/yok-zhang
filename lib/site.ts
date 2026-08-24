@@ -47,6 +47,7 @@ export const deployHost = "yok-zhang.vercel.app";
 export const links = {
   jubitSignup: "https://www.jubit.ai/signup",
   jubitLogin: "https://www.jubit.ai/login",
+  jubitSso: "https://www.jubit.ai/auth/sso",
   jubitHome: "https://jubit.ai",
   dseekHome: "https://dseek.ai",
   dseekSignup: "https://dseek.ai/signup",
