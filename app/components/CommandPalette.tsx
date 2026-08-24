@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import type { PostMeta } from "@/lib/post-meta";
 import { localizeHref, stripLocale } from "@/lib/i18n";
 import { researchThemes } from "@/lib/research";
+import { familySsoUrl } from "@/lib/jubit-sso";
 import { links, liveProducts, nav, tools } from "@/lib/site";
 
 type Item = {
@@ -87,16 +88,16 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
       {
         id: "register",
         label: "Register",
-        hint: "jubit.ai/signup",
-        href: links.jubitSignup,
+        hint: "jubit.ai/auth/sso",
+        href: familySsoUrl({ next: pathname, mode: "register" }),
         external: true,
         group: "Actions",
       },
       {
         id: "signin",
         label: "Sign in",
-        hint: "jubit.ai/login",
-        href: links.jubitLogin,
+        hint: "jubit.ai/auth/sso",
+        href: familySsoUrl({ next: pathname }),
         external: true,
         group: "Actions",
       },
@@ -181,7 +182,7 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
       },
     ];
     return [...pages, ...postItems, ...themeItems, ...toolItems, ...productItems, ...actions];
-  }, [posts, locale]);
+  }, [posts, locale, pathname]);
 
   const filtered = useMemo(() => {
     const query = q.trim().toLowerCase();

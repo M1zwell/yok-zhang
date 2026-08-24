@@ -52,6 +52,22 @@ export const ko: Messages = {
     copyKit: "키트 복사",
     pack: "팩",
     openPlatform: "열기",
+    signOut: "로그아웃",
+    signedIn: "로그인됨",
+  },
+  auth: {
+    kicker: "패밀리 로그인",
+    title: "Jubit 로그인",
+    signingIn: "로그인하는 중…",
+    signingInHint: "패밀리 허브와 일회용 토큰을 교환합니다.",
+    success: "로그인되었습니다",
+    successHint: "가든으로 돌아갑니다.",
+    failed: "로그인하지 못했습니다",
+    missingToken: "이 링크에 로그인 토큰이 없습니다. 가든에서 다시 로그인해 주세요.",
+    exchangeFailed:
+      "허브가 이 토큰을 거절했습니다. 만료되었거나 이미 사용됐을 수 있습니다. 다시 로그인해 주세요.",
+    goHome: "가든으로",
+    tryAgain: "다시 로그인",
   },
   flagship: {
     kicker: "플래그십",

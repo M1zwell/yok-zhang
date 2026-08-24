@@ -50,6 +50,22 @@ export const en = {
     copyKit: "Copy kit",
     pack: "Pack",
     openPlatform: "Open",
+    signOut: "Sign out",
+    signedIn: "Signed in",
+  },
+  auth: {
+    kicker: "Family sign-in",
+    title: "Jubit sign-in",
+    signingIn: "Signing you in…",
+    signingInHint: "Exchanging the one-time token with the family hub.",
+    success: "Signed in",
+    successHint: "Taking you back to the garden.",
+    failed: "Could not sign in",
+    missingToken: "This link has no sign-in token. Go back to the garden and tap Sign in.",
+    exchangeFailed:
+      "The hub rejected this token. It may have expired or already been used. Try signing in again.",
+    goHome: "Back to the garden",
+    tryAgain: "Sign in again",
   },
   flagship: {
     kicker: "Flagship",

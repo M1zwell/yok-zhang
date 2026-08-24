@@ -52,6 +52,22 @@ export const nl: Messages = {
     copyKit: "Kopieer kit",
     pack: "Pak",
     openPlatform: "Open",
+    signOut: "Uitloggen",
+    signedIn: "Ingelogd",
+  },
+  auth: {
+    kicker: "Familie-login",
+    title: "Jubit-login",
+    signingIn: "Je wordt ingelogd…",
+    signingInHint: "Eenmalig token wisselen met de familiehub.",
+    success: "Ingelogd",
+    successHint: "Terug naar de tuin.",
+    failed: "Inloggen mislukt",
+    missingToken: "Deze link heeft geen login-token. Ga terug naar de tuin en tik op Inloggen.",
+    exchangeFailed:
+      "De hub wees dit token af. Het is verlopen of al gebruikt. Probeer opnieuw in te loggen.",
+    goHome: "Terug naar de tuin",
+    tryAgain: "Opnieuw inloggen",
   },
   flagship: {
     kicker: "Vlaggenschip",
