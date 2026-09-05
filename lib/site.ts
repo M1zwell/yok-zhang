@@ -163,6 +163,17 @@ export const tools: Tool[] = [
     embedSrc: "/game",
   },
   {
+    id: "kiosk",
+    title: "Hostel kiosk",
+    href: "/kiosk",
+    path: "ichina.co/kiosk",
+    group: "jubit",
+    present: "Kiosk",
+    note: "Self-service hostel check-in. Cloudbeds + QFPay + ProUSB, hardware mocked in the browser.",
+    embeddable: false,
+    embedSrc: "/kiosk",
+  },
+  {
     id: "worlds",
     title: "gghere.com/worlds",
     href: links.gghereWorlds,
@@ -322,6 +333,13 @@ export const productGroups: Group[] = [
         path: "jubuddy.com",
         live: true,
         note: "theme factory; chatlab buddy in jubit universe.",
+      },
+      {
+        title: "Hostel kiosk",
+        href: "/kiosk",
+        path: "ichina.co/kiosk",
+        live: true,
+        note: "Self-service hostel check-in terminal. Cloudbeds PMS, QFPay POS, ProUSB lock encode, Creator card dispenser — simulated.",
       },
       {
         title: "JubitMind",
