@@ -7,7 +7,8 @@
 
 html:has(.kiosk-root) .glass-header,
 html:has(.kiosk-root) .site-footer,
-html:has(.kiosk-root) .cursor-glow {
+html:has(.kiosk-root) .cursor-glow,
+html:has(.kiosk-root) a[href="#content"] {
   display: none;
 }
 

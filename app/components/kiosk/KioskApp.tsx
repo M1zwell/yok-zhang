@@ -78,7 +78,7 @@ export function KioskApp({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
         </header>
 
         <main className="kiosk-stage">
-          {errText && state.step !== "welcome" ? (
+          {errText && state.step !== "welcome" && state.step !== "blocked" && state.step !== "error" ? (
             <div className="kiosk-error" data-testid="kiosk-error" role="alert">
               {errText}
             </div>
@@ -109,7 +109,7 @@ export function KioskApp({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
               Cloudbeds <b>{state.health.pms}</b>
             </span>
           </div>
-          <button type="button" className="kiosk-btn ghost" onClick={() => setOperator((v) => !v)}>
+          <button type="button" className="kiosk-btn ghost" data-testid="kiosk-demo-toggle" onClick={() => setOperator((v) => !v)}>
             {t.demo}
           </button>
           {operator ? <OperatorPanel runtime={runtime} /> : null}

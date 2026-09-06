@@ -79,6 +79,7 @@ export class KioskRuntime {
   private listeners = new Set<() => void>();
   private nowFn: () => Date;
   private pmsCheckedIn = new Set<string>();
+  private cachedState?: KioskViewState;
 
   constructor(opts?: {
     terminalId?: string;
@@ -100,7 +101,8 @@ export class KioskRuntime {
   }
 
   getState(): KioskViewState {
-    return {
+    if (this.cachedState) return this.cachedState;
+    const snapshot: KioskViewState = {
       lang: this.lang,
       step: this.step,
       intent: this.intent,
@@ -117,6 +119,8 @@ export class KioskRuntime {
       logs: [...this.logs].slice(-12).reverse(),
       demoBookings: this.demoBookings(),
     };
+    this.cachedState = snapshot;
+    return snapshot;
   }
 
   setLang(lang: KioskLang) {
@@ -794,6 +798,7 @@ export class KioskRuntime {
   }
 
   private emit() {
+    this.cachedState = undefined;
     this.listeners.forEach((fn) => fn());
   }
 }
