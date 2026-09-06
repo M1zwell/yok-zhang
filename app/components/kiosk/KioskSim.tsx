@@ -42,7 +42,7 @@ export function KioskSim({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
   const [mission, setMission] = useState<KioskMission | null>(null);
   const [runtime, setRuntime] = useState<KioskRuntime | null>(null);
   const [runId, setRunId] = useState(0);
-  const [now, setNow] = useState(() => new Date());
+  const [now, setNow] = useState<Date | null>(null);
   const [bannerXp, setBannerXp] = useState(0);
   const awarded = useRef<number | null>(null);
   const state = useRuntime(runtime);
@@ -57,7 +57,7 @@ export function KioskSim({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
       setLang(initialLang);
       setMission(booted.mission);
       setRuntime(booted.runtime);
-      setRunId(1);
+      setRunId(Date.now());
     }
   }, [initialLang]);
 
@@ -67,6 +67,7 @@ export function KioskSim({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
   }, [score, hydrated]);
 
   useEffect(() => {
+    setNow(new Date());
     const tick = window.setInterval(() => setNow(new Date()), 1000);
     return () => window.clearInterval(tick);
   }, []);
@@ -112,7 +113,7 @@ export function KioskSim({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
     setLang(nextLang);
     setMission(booted.mission);
     setRuntime(booted.runtime);
-    setRunId((n) => n + 1);
+    setRunId(Date.now());
   }
 
   function abort() {
@@ -140,7 +141,7 @@ export function KioskSim({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
           </header>
 
           <p className="kiosk-shift-clock" data-testid="kiosk-mission-clock">
-            {zh ? "夜班" : "SHIFT"} {formatClock(now)}
+            {zh ? "夜班" : "SHIFT"} {now ? formatClock(now) : ""}
           </p>
           <p className="kiosk-lead">{zh ? "機子就是遊戲。聯鎖不會讓步。" : "The kiosk is the game. The interlocks do not yield."}</p>
           <p className="kiosk-xp" data-testid="kiosk-xp">
@@ -184,7 +185,7 @@ export function KioskSim({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
       <div className="kiosk-hud" data-testid="kiosk-hud">
         <div>
           <p className="kiosk-shift-clock">
-            {zh ? "夜班" : "SHIFT"} {formatClock(now)} · {mission.id.toUpperCase()}
+            {zh ? "夜班" : "SHIFT"} {now ? formatClock(now) : ""} · {mission.id.toUpperCase()}
           </p>
           <strong>{zh ? mission.titleZh : mission.titleEn}</strong>
           <p>{zh ? mission.hintZh : mission.hintEn}</p>
@@ -215,7 +216,7 @@ export function KioskSim({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
         >
           <p className="kiosk-lead">{zh ? verdict.titleZh : verdict.titleEn}</p>
           <p>{zh ? verdict.detailZh : verdict.detailEn}</p>
-          {verdict.pass ? <p className="kiosk-xp">+{bannerXp} XP</p> : null}
+          {verdict.pass && bannerXp > 0 ? <p className="kiosk-xp">+{bannerXp} XP</p> : null}
           <div className="kiosk-grid two">
             <button type="button" className="kiosk-btn primary" data-testid="kiosk-retry" onClick={() => start(mission.id)}>
               {zh ? "再來一班" : "Run it again"}
