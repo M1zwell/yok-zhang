@@ -286,6 +286,8 @@ export const en = {
     cardLifeNote: "Fun AI from dseek Life. Mahjong parlour, Temple Street stall. Same-tab toys.",
     cardDoodle: "Doodle",
     cardDoodleNote: "Crayon desk. Cork the bottle. Ugly is the point.",
+    cardPms: "Night shift",
+    cardPmsNote: "The hostel kiosk. Interlocks are the rules.",
     waiting: {
       kicker: "Wasteland",
       title: "Waiting",

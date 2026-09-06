@@ -1,4 +1,4 @@
-import { KioskApp } from "@/app/components/kiosk/KioskApp";
+import { KioskSim } from "@/app/components/kiosk/KioskSim";
 import { isPrefixedLocale, type Locale } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
 import { notFound } from "next/navigation";
@@ -15,7 +15,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
   if (!isPrefixedLocale(locale)) return {};
   return seo({
     title: "Hostel PMS",
-    description: "Self-service hostel check-in — Cloudbeds, QFPay, ProUSB, and card dispenser, simulated on this garden.",
+    description:
+      "Night-shift hostel kiosk sim — Cloudbeds, QFPay, ProUSB. The interlocks are the game.",
     path: "/PMS",
     locale,
   });
@@ -24,5 +25,5 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
 export default async function LocalePms({ params }: { params: Promise<Params> }) {
   const { locale } = await params;
   if (!isPrefixedLocale(locale)) notFound();
-  return <KioskApp initialLang={kioskLang(locale)} />;
+  return <KioskSim initialLang={kioskLang(locale)} />;
 }

@@ -1,12 +1,13 @@
-import { KioskApp } from "@/app/components/kiosk/KioskApp";
+import { KioskSim } from "@/app/components/kiosk/KioskSim";
 import { seo } from "@/lib/seo";
 
 export const metadata = seo({
   title: "Hostel PMS",
-  description: "Self-service hostel check-in — Cloudbeds, QFPay, ProUSB, and card dispenser, simulated on this garden.",
+  description:
+    "Night-shift hostel kiosk sim — Cloudbeds, QFPay, ProUSB. The interlocks are the game.",
   path: "/PMS",
 });
 
 export default function PmsPage() {
-  return <KioskApp initialLang="zh-Hant" />;
+  return <KioskSim initialLang="zh-Hant" />;
 }

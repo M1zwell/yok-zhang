@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { endpoints, openApiDocument } from "../lib/kiosk/catalog.ts";
+import { applyMissionPass, bootMission, emptyScore, KIOSK_MISSION_IDS, parseNightshiftScore, requireMission } from "../lib/kiosk/missions.ts";
 import { KioskRuntime } from "../lib/kiosk/engine.ts";
 import { fleetSummary, lockCode, terminals } from "../lib/kiosk/terminals.ts";
 import type { KioskErrorCode, Step } from "../lib/kiosk/types.ts";
@@ -24,7 +25,10 @@ function checkinPaid(k: KioskRuntime, booking = "BK80102") {
 function testPmsPublicRoute() {
   const page = readFileSync(join(process.cwd(), "app/PMS/page.tsx"), "utf8");
   assert.match(page, /path: "\/PMS"/);
-  assert.match(page, /KioskApp/);
+  assert.match(page, /KioskSim/);
+  const hub = readFileSync(join(process.cwd(), "app/components/game/GameHub.tsx"), "utf8");
+  assert.match(hub, /\/PMS/);
+  assert.match(hub, /cardPms/);
   const tools = readFileSync(join(process.cwd(), "lib/site.ts"), "utf8");
   assert.match(tools, /href: "\/PMS"/);
   assert.match(tools, /ichina\.co\/PMS/);
@@ -284,6 +288,76 @@ function testAlreadyCheckedIn() {
   assert.equal(again.code, "ALREADY_CHECKED_IN");
 }
 
+function testNightshiftMissions() {
+  for (const id of KIOSK_MISSION_IDS) {
+    switch (id) {
+      case "prepaid":
+      case "typhoon":
+      case "jam":
+      case "annex":
+      case "free":
+        break;
+      default:
+        exhaustive(id, "kiosk-mission");
+    }
+  }
+
+  const prepaid = bootMission("prepaid");
+  assert.equal(checkinPaid(prepaid.runtime).ok, true);
+  const prepaidVerdict = prepaid.mission.judge(prepaid.runtime.getState());
+  assert.equal(prepaidVerdict.open, false);
+  assert.equal(prepaidVerdict.pass, true);
+
+  const typhoon = bootMission("typhoon");
+  typhoon.runtime.startReservationCheckin();
+  typhoon.runtime.setQuery("BK83099");
+  assert.equal(typhoon.runtime.lookup().ok, true);
+  assert.equal(typhoon.runtime.captureIdentity("hkid").ok, true);
+  assert.equal(typhoon.runtime.confirmStay().ok, false);
+  const typhoonVerdict = typhoon.mission.judge(typhoon.runtime.getState());
+  assert.equal(typhoonVerdict.pass, true);
+  assert.equal(typhoon.runtime.getState().error?.code, "UNPAID_OFFLINE");
+
+  const typhoonWrong = bootMission("typhoon");
+  assert.equal(checkinPaid(typhoonWrong.runtime).ok, true);
+  const typhoonFail = typhoonWrong.mission.judge(typhoonWrong.runtime.getState());
+  assert.equal(typhoonFail.pass, false);
+  assert.equal(typhoonFail.open, false);
+
+  const jam = bootMission("jam");
+  jam.runtime.startReservationCheckin();
+  jam.runtime.setQuery("BK83099");
+  jam.runtime.lookup();
+  jam.runtime.captureIdentity("passport");
+  assert.equal(jam.runtime.confirmStay().ok, false);
+  const jamVerdict = jam.mission.judge(jam.runtime.getState());
+  assert.equal(jamVerdict.pass, true);
+  assert.equal(jam.runtime.getState().lastPayment?.channel, "refund");
+
+  const annex = bootMission("annex");
+  assert.equal(annex.runtime.getState().terminal.terminalId, "KSK-HK-07");
+  annex.runtime.startReservationCheckin();
+  annex.runtime.setQuery("BK7V101");
+  assert.equal(annex.runtime.lookup().ok, true);
+  assert.equal(annex.runtime.captureIdentity("hkid").ok, true);
+  assert.equal(annex.runtime.confirmStay().ok, true);
+  const annexVerdict = annex.mission.judge(annex.runtime.getState());
+  assert.equal(annexVerdict.pass, true);
+  assert.equal(annex.runtime.getState().lastCard?.roomNumber, "V101");
+
+  const free = bootMission("free");
+  assert.equal(checkinPaid(free.runtime).ok, true);
+  assert.equal(free.mission.judge(free.runtime.getState()).open, true);
+
+  const first = applyMissionPass(emptyScore(), requireMission("prepaid"));
+  assert.equal(first.gained, 150);
+  const second = applyMissionPass(first.score, requireMission("prepaid"));
+  assert.equal(second.gained, 100);
+  assert.equal(applyMissionPass(emptyScore(), requireMission("free")).gained, 0);
+  assert.equal(parseNightshiftScore("nope").xp, 0);
+  assert.equal(parseNightshiftScore(null).clears.prepaid, undefined);
+}
+
 function testExhaustiveStepHelper() {
   const steps: Step[] = [
     "welcome",
@@ -367,6 +441,7 @@ function main() {
   testCheckoutClear();
   testDormTerminal();
   testAlreadyCheckedIn();
+  testNightshiftMissions();
   testExhaustiveStepHelper();
   testErrorCodesBound();
   console.log("verify-kiosk: ok");

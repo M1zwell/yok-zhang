@@ -284,6 +284,8 @@ export const ja: Messages = {
     cardLifeNote: "dseek Life の Fun AI。麻雀館と廟街の露店。同じタブで開く。",
     cardDoodle: "手绘邮筒",
     cardDoodleNote: "クレヨン机。醜いほど良い。瓶に詰める。",
+    cardPms: "夜勤",
+    cardPmsNote: "ホステルのキオスク。インターロックが規則。",
     waiting: {
       kicker: "荒野",
       title: "Waiting",

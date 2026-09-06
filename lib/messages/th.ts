@@ -283,6 +283,8 @@ export const th: Messages = {
     cardLifeNote: "Fun AI จาก dseek Life ร้านไพ่นกกระจอกและแผงดูดวงถนนวัด เปิดแท็บเดียวกัน",
     cardDoodle: "手绘邮筒",
     cardDoodleNote: "โต๊ะสีเทียน ยิ่งขี้เหร่ยิ่งดี ยัดลงขวด",
+    cardPms: "กะดึก",
+    cardPmsNote: "คีออสก์โฮสเทล กฎคืออินเตอร์ล็อก",
     waiting: {
       kicker: "ทะเลทราย",
       title: "Waiting",

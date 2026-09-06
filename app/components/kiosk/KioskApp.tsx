@@ -24,25 +24,63 @@ function healthDot(value: string): "ok" | "off" | "bad" {
   return "off";
 }
 
-export function KioskApp({ initialLang = "zh-Hant" }: { initialLang?: KioskLang }) {
-  const runtimeRef = useRef<KioskRuntime | null>(null);
-  if (!runtimeRef.current) {
-    runtimeRef.current = new KioskRuntime({ persist: false, lang: initialLang });
+export type KioskAppProps = {
+  initialLang?: KioskLang;
+  runtime?: KioskRuntime;
+  idleMs?: number;
+  encodeDelayMs?: number;
+  showOperator?: boolean;
+  embedded?: boolean;
+};
+
+export function KioskApp({
+  initialLang = "zh-Hant",
+  runtime: supplied,
+  idleMs = 45000,
+  encodeDelayMs = 0,
+  showOperator = true,
+  embedded = false,
+}: KioskAppProps) {
+  const owned = useRef<KioskRuntime | null>(null);
+  if (!supplied && !owned.current) {
+    owned.current = new KioskRuntime({ persist: false, lang: initialLang });
   }
-  const runtime = runtimeRef.current;
+  const runtime = supplied ?? owned.current!;
   const state = useRuntime(runtime);
   const t = copy(state.lang);
   const [operator, setOperator] = useState(false);
+  const [encoding, setEncoding] = useState(false);
   const idle = useRef<number | null>(null);
+  const encodeTimer = useRef<number | null>(null);
 
   useEffect(() => {
-    if (state.step === "welcome") return;
+    if (!idleMs || state.step === "welcome" || encoding) return;
     if (idle.current) window.clearTimeout(idle.current);
-    idle.current = window.setTimeout(() => runtime.home(), 45000);
+    idle.current = window.setTimeout(() => runtime.home(), idleMs);
     return () => {
       if (idle.current) window.clearTimeout(idle.current);
     };
-  }, [runtime, state.step, state.query]);
+  }, [runtime, state.step, state.query, idleMs, encoding]);
+
+  useEffect(() => {
+    return () => {
+      if (encodeTimer.current) window.clearTimeout(encodeTimer.current);
+    };
+  }, []);
+
+  function onConfirmStay() {
+    if (encoding) return;
+    if (!encodeDelayMs) {
+      runtime.confirmStay();
+      return;
+    }
+    setEncoding(true);
+    encodeTimer.current = window.setTimeout(() => {
+      encodeTimer.current = null;
+      runtime.confirmStay();
+      setEncoding(false);
+    }, encodeDelayMs);
+  }
 
   const roomTypes = useMemo(() => {
     const seen = new Set<RoomType>();
@@ -53,8 +91,10 @@ export function KioskApp({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
   const err = state.error;
   const errText = err ? (state.lang === "zh-Hant" ? err.messageZh : err.messageEn) : "";
 
+  const shownStep: Step = encoding ? "processing" : state.step;
+
   return (
-    <div className="kiosk-root" data-testid="kiosk-root">
+    <div className={`kiosk-root${embedded ? " is-embedded" : ""}`} data-testid="kiosk-root">
       <div className="kiosk-shell">
         <header className="kiosk-top">
           <div className="kiosk-brand">
@@ -83,7 +123,7 @@ export function KioskApp({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
               {errText}
             </div>
           ) : null}
-          {renderStep(state.step, { runtime, t, state, roomTypes })}
+          {renderStep(shownStep, { runtime, t, state, roomTypes, onConfirmStay })}
         </main>
 
         <footer className="kiosk-foot">
@@ -109,10 +149,12 @@ export function KioskApp({ initialLang = "zh-Hant" }: { initialLang?: KioskLang 
               Cloudbeds <b>{state.health.pms}</b>
             </span>
           </div>
-          <button type="button" className="kiosk-btn ghost" data-testid="kiosk-demo-toggle" onClick={() => setOperator((v) => !v)}>
-            {t.demo}
-          </button>
-          {operator ? <OperatorPanel runtime={runtime} /> : null}
+          {showOperator ? (
+            <button type="button" className="kiosk-btn ghost" data-testid="kiosk-demo-toggle" onClick={() => setOperator((v) => !v)}>
+              {t.demo}
+            </button>
+          ) : null}
+          {showOperator && operator ? <OperatorPanel runtime={runtime} /> : null}
         </footer>
       </div>
     </div>
@@ -126,6 +168,7 @@ function renderStep(
     t: ReturnType<typeof copy>;
     state: ReturnType<KioskRuntime["getState"]>;
     roomTypes: RoomType[];
+    onConfirmStay: () => void;
   },
 ) {
   switch (step) {
@@ -141,7 +184,7 @@ function renderStep(
       return <Payment {...ctx} />;
     case "processing":
       return (
-        <section className="kiosk-success">
+        <section className="kiosk-success" data-testid="kiosk-processing">
           <p className="kiosk-lead">{ctx.t.processingTitle}</p>
           <p>{ctx.t.processingHint}</p>
         </section>
@@ -294,10 +337,12 @@ function Payment({
   runtime,
   t,
   state,
+  onConfirmStay,
 }: {
   runtime: KioskRuntime;
   t: ReturnType<typeof copy>;
   state: ReturnType<KioskRuntime["getState"]>;
+  onConfirmStay: () => void;
 }) {
   const bill = state.bill;
   return (
@@ -316,7 +361,7 @@ function Payment({
         </div>
       ) : null}
       <div className="kiosk-grid two">
-        <button type="button" className="kiosk-btn primary" data-testid="kiosk-pay" onClick={() => runtime.confirmStay()}>
+        <button type="button" className="kiosk-btn primary" data-testid="kiosk-pay" onClick={onConfirmStay}>
           {bill?.alreadyPaid ? t.skipPrepaid : t.tapPos}
         </button>
         <button type="button" className="kiosk-btn ghost" onClick={() => runtime.home()}>

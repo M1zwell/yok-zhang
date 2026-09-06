@@ -281,6 +281,8 @@ export const zhHant: Messages = {
     cardLifeNote: "dseek Life 的 Fun AI。深水埗麻雀館、廟街算命檔。同一分頁打開。",
     cardDoodle: "手繪郵筒",
     cardDoodleNote: "蠟筆桌。畫得越醜越好。塞進漂流瓶。",
+    cardPms: "夜班",
+    cardPmsNote: "旅宿自助機。聯鎖就是規則。",
     waiting: {
       kicker: "荒原",
       title: "等待",
