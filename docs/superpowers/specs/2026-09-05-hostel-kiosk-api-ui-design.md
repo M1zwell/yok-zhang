@@ -1,7 +1,7 @@
 # Hostel kiosk API + UI design
 
 Date: 2026-09-05  
-Status: implemented on this garden as `/kiosk` (browser HAL mock)  
+Status: implemented on this garden as `/PMS` (browser HAL mock). `/kiosk` redirects there.  
 Languages: 中文 / English
 
 ## Objective / 目标
@@ -57,7 +57,7 @@ Six modules, guest-facing on the IPC:
 Closest to production. Needs `proRFL.dll`, Creator COM, QFPay ECR on the real PC.
 
 **B. Static garden simulator: one TypeScript engine, no Node server.**  
-Chosen for this repo (`output: "export"`). The same engine is the contract tests + the `/kiosk` UI. Production later swaps mock HAL adapters for Win32.
+Chosen for this repo (`output: "export"`). The same engine is the contract tests + the `/PMS` UI. Production later swaps mock HAL adapters for Win32.
 
 **C. Full Cloudbeds + QFPay live sandbox in this garden.**  
 Rejected: this site has no backend, no secrets, and must not mint merchant keys.
@@ -67,7 +67,7 @@ Recommendation: **B now, A later.** The OpenAPI document is the seam.
 ## Architecture / 架构
 
 ```text
-[Guest touch UI]  React /kiosk
+[Guest touch UI]  React /PMS
         |  invoke(method, path, body)
 [KioskRuntime]    lib/kiosk/engine.ts
         |-- HAL mock (K750-B, proRFL.dll, UVC)
@@ -107,7 +107,7 @@ Demo operator strip (not production): terminal switch, WAN, jam, encode fail, em
 
 - `npm run verify:kiosk` — fleet counts, OpenAPI coverage, prepaid, unpaid-offline, saga refund, gate-closed, dorm terminal KSK-HK-07, sync conflict.
 - `python3 scripts/kiosk_sync_mock.py` — SQLite companion (not the source of truth).
-- Open `/kiosk` and walk BK80102 (prepaid) and BK83099 with encode-fail (refund).
+- Open `/PMS` and walk BK80102 (prepaid) and BK83099 with encode-fail (refund).
 
 ## Production host notes / 工控机落地（未在本仓库实现 DLL）
 

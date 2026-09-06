@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { endpoints, openApiDocument } from "../lib/kiosk/catalog.ts";
 import { KioskRuntime } from "../lib/kiosk/engine.ts";
 import { fleetSummary, lockCode, terminals } from "../lib/kiosk/terminals.ts";
@@ -17,6 +19,22 @@ function checkinPaid(k: KioskRuntime, booking = "BK80102") {
   const id = k.captureIdentity("hkid");
   assert.equal(id.ok, true, "identity");
   return k.confirmStay();
+}
+
+function testPmsPublicRoute() {
+  const page = readFileSync(join(process.cwd(), "app/PMS/page.tsx"), "utf8");
+  assert.match(page, /path: "\/PMS"/);
+  assert.match(page, /KioskApp/);
+  const tools = readFileSync(join(process.cwd(), "lib/site.ts"), "utf8");
+  assert.match(tools, /href: "\/PMS"/);
+  assert.match(tools, /ichina\.co\/PMS/);
+  const out = join(process.cwd(), "out");
+  if (!existsSync(out)) return;
+  const candidates = [join(out, "PMS.html"), join(out, "PMS/index.html")];
+  const built = candidates.find((file) => existsSync(file));
+  assert.ok(built, "static export must include /PMS");
+  const html = readFileSync(built, "utf8");
+  assert.match(html, /kiosk-root|Hostel PMS|自助旅宿/i);
 }
 
 function testFleet() {
@@ -330,6 +348,7 @@ function testErrorCodesBound() {
 }
 
 function main() {
+  testPmsPublicRoute();
   testFleet();
   testOpenApi();
   testPrepaidOnline();

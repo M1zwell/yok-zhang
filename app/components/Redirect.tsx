@@ -8,10 +8,12 @@ export function Redirect({
   to,
   keepQuery,
   slug,
+  kicker = "Writing",
 }: {
   to: string;
   keepQuery?: boolean;
   slug?: string;
+  kicker?: string;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -24,7 +26,7 @@ export function Redirect({
 
   return (
     <main className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
-      <p className="kicker">Writing</p>
+      <p className="kicker">{kicker}</p>
       <p className="mt-4 text-sm text-muted">
         This page moved.{" "}
         <Link href={href} className="text-accent hover:text-accent-hover">

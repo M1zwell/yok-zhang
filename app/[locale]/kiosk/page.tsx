@@ -1,28 +1,28 @@
-import { KioskApp } from "@/app/components/kiosk/KioskApp";
-import { isPrefixedLocale, type Locale } from "@/lib/i18n";
+import { Suspense } from "react";
+import { Redirect } from "@/app/components/Redirect";
+import { isPrefixedLocale, localizeHref } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
 import { notFound } from "next/navigation";
 
 type Params = { locale: string };
 
-function kioskLang(locale: Locale): "zh-Hant" | "en" {
-  if (locale === "zh-Hant" || locale === "zh-Hans") return "zh-Hant";
-  return "en";
-}
-
 export async function generateMetadata({ params }: { params: Promise<Params> }) {
   const { locale } = await params;
   if (!isPrefixedLocale(locale)) return {};
   return seo({
-    title: "Hostel kiosk",
-    description: "Self-service hostel check-in — Cloudbeds, QFPay, ProUSB, and card dispenser, simulated on this garden.",
-    path: "/kiosk",
+    title: "Hostel PMS",
+    description: "Self-service hostel check-in moved to /PMS.",
+    path: "/PMS",
     locale,
   });
 }
 
-export default async function LocaleKiosk({ params }: { params: Promise<Params> }) {
+export default async function LocaleKioskRedirect({ params }: { params: Promise<Params> }) {
   const { locale } = await params;
   if (!isPrefixedLocale(locale)) notFound();
-  return <KioskApp initialLang={kioskLang(locale)} />;
+  return (
+    <Suspense fallback={<p className="px-5 py-24 text-sm text-muted">Continue to PMS…</p>}>
+      <Redirect to={localizeHref("/PMS", locale)} kicker="PMS" keepQuery />
+    </Suspense>
+  );
 }
