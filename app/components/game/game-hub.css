@@ -30,14 +30,9 @@
 }
 
 .nz-hub .nz-grid .nz-card:nth-child(5) {
-  transform: rotate(-1deg);
-  grid-column: 1 / -1;
-  max-width: 28rem;
-  margin-left: 8%;
+  transform: rotate(-1deg) translateY(4px);
 }
 
-@media (max-width: 719px) {
-  .nz-hub .nz-grid .nz-card:nth-child(5) {
-    margin-left: 0;
-  }
+.nz-hub .nz-grid .nz-card:nth-child(6) {
+  transform: rotate(0.7deg);
 }

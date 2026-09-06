@@ -1,0 +1,1093 @@
+{
+  "source": "design-default",
+  "terminals": [
+    {
+      "terminalId": "KSK-HK-01",
+      "rooms": 30,
+      "location": "Main-Lobby-Left"
+    },
+    {
+      "terminalId": "KSK-HK-02",
+      "rooms": 24,
+      "location": "Main-Lobby-Right"
+    },
+    {
+      "terminalId": "KSK-HK-03",
+      "rooms": 18,
+      "location": "Annex-Lift-L1"
+    },
+    {
+      "terminalId": "KSK-HK-04",
+      "rooms": 16,
+      "location": "Staff-Night-Desk"
+    },
+    {
+      "terminalId": "KSK-HK-05",
+      "rooms": 12,
+      "location": "Side-Street-Entry"
+    },
+    {
+      "terminalId": "KSK-HK-06",
+      "rooms": 8,
+      "location": "Rooftop-Pod-Hall"
+    },
+    {
+      "terminalId": "KSK-HK-07",
+      "rooms": 6,
+      "location": "Annex-Villa-Entrance"
+    }
+  ],
+  "detail": [
+    {
+      "terminalId": "KSK-HK-01",
+      "location": "Main-Lobby-Left",
+      "propertyName": "Harbour Stack Hostel — Main",
+      "building": 1,
+      "roomCount": 30,
+      "hardware": {
+        "cardDispenser": {
+          "model": "Creator-K750-B",
+          "comPort": "COM3",
+          "baudRate": 9600,
+          "timeoutMs": 5000,
+          "hopperSpring": "high",
+          "stockCapacity": 80
+        },
+        "doorLockEncoder": {
+          "dllName": "proRFL.dll",
+          "connectionType": "USB",
+          "encoderModel": "ProUSB-RF-01",
+          "lockBrand": "ProUSB-RF"
+        },
+        "paymentTerminal": {
+          "model": "QFPay-POS-T1",
+          "connection": "LAN",
+          "ipAddress": "192.168.1.101",
+          "port": 8800
+        },
+        "camera": {
+          "model": "UVC-Binocular",
+          "liveness": true
+        }
+      },
+      "roomMatrix": [
+        {
+          "pmsRoomId": "cb_KSK-HK-01_801",
+          "roomNumber": "801",
+          "roomType": "TWIN",
+          "lockCode": "010801",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_802",
+          "roomNumber": "802",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010802",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_803",
+          "roomNumber": "803",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010803",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_804",
+          "roomNumber": "804",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010804",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_805",
+          "roomNumber": "805",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010805",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_806",
+          "roomNumber": "806",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010806",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_807",
+          "roomNumber": "807",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010807",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_808",
+          "roomNumber": "808",
+          "roomType": "TWIN",
+          "lockCode": "010808",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_809",
+          "roomNumber": "809",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010809",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_810",
+          "roomNumber": "810",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010810",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_811",
+          "roomNumber": "811",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010811",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_812",
+          "roomNumber": "812",
+          "roomType": "POD",
+          "lockCode": "010812",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_813",
+          "roomNumber": "813",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010813",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_814",
+          "roomNumber": "814",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010814",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_815",
+          "roomNumber": "815",
+          "roomType": "TWIN",
+          "lockCode": "010815",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_816",
+          "roomNumber": "816",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010816",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_817",
+          "roomNumber": "817",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010817",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_818",
+          "roomNumber": "818",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010818",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_819",
+          "roomNumber": "819",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010819",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_820",
+          "roomNumber": "820",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010820",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_821",
+          "roomNumber": "821",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010821",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_822",
+          "roomNumber": "822",
+          "roomType": "TWIN",
+          "lockCode": "010822",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_823",
+          "roomNumber": "823",
+          "roomType": "POD",
+          "lockCode": "010823",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_824",
+          "roomNumber": "824",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010824",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_825",
+          "roomNumber": "825",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010825",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_826",
+          "roomNumber": "826",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010826",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_827",
+          "roomNumber": "827",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010827",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_828",
+          "roomNumber": "828",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010828",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_829",
+          "roomNumber": "829",
+          "roomType": "TWIN",
+          "lockCode": "010829",
+          "floor": 8
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-01_830",
+          "roomNumber": "830",
+          "roomType": "EXECUTIVE_SUITE",
+          "lockCode": "010830",
+          "floor": 8
+        }
+      ]
+    },
+    {
+      "terminalId": "KSK-HK-02",
+      "location": "Main-Lobby-Right",
+      "propertyName": "Harbour Stack Hostel — Main",
+      "building": 1,
+      "roomCount": 24,
+      "hardware": {
+        "cardDispenser": {
+          "model": "Creator-K750-B",
+          "comPort": "COM3",
+          "baudRate": 9600,
+          "timeoutMs": 5000,
+          "hopperSpring": "high",
+          "stockCapacity": 60
+        },
+        "doorLockEncoder": {
+          "dllName": "proRFL.dll",
+          "connectionType": "USB",
+          "encoderModel": "ProUSB-RF-01",
+          "lockBrand": "ProUSB-RF"
+        },
+        "paymentTerminal": {
+          "model": "QFPay-POS-T1",
+          "connection": "LAN",
+          "ipAddress": "192.168.1.101",
+          "port": 8800
+        },
+        "camera": {
+          "model": "UVC-Binocular",
+          "liveness": true
+        }
+      },
+      "roomMatrix": [
+        {
+          "pmsRoomId": "cb_KSK-HK-02_601",
+          "roomNumber": "601",
+          "roomType": "TWIN",
+          "lockCode": "010601",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_602",
+          "roomNumber": "602",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010602",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_603",
+          "roomNumber": "603",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010603",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_604",
+          "roomNumber": "604",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010604",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_605",
+          "roomNumber": "605",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010605",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_606",
+          "roomNumber": "606",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010606",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_607",
+          "roomNumber": "607",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010607",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_608",
+          "roomNumber": "608",
+          "roomType": "TWIN",
+          "lockCode": "010608",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_609",
+          "roomNumber": "609",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010609",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_610",
+          "roomNumber": "610",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010610",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_611",
+          "roomNumber": "611",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010611",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_612",
+          "roomNumber": "612",
+          "roomType": "POD",
+          "lockCode": "010612",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_613",
+          "roomNumber": "613",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010613",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_614",
+          "roomNumber": "614",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010614",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_615",
+          "roomNumber": "615",
+          "roomType": "TWIN",
+          "lockCode": "010615",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_616",
+          "roomNumber": "616",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010616",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_617",
+          "roomNumber": "617",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010617",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_618",
+          "roomNumber": "618",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010618",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_619",
+          "roomNumber": "619",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010619",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_620",
+          "roomNumber": "620",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010620",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_621",
+          "roomNumber": "621",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010621",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_622",
+          "roomNumber": "622",
+          "roomType": "TWIN",
+          "lockCode": "010622",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_623",
+          "roomNumber": "623",
+          "roomType": "POD",
+          "lockCode": "010623",
+          "floor": 6
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-02_624",
+          "roomNumber": "624",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "010624",
+          "floor": 6
+        }
+      ]
+    },
+    {
+      "terminalId": "KSK-HK-03",
+      "location": "Annex-Lift-L1",
+      "propertyName": "Harbour Stack Annex",
+      "building": 2,
+      "roomCount": 18,
+      "hardware": {
+        "cardDispenser": {
+          "model": "Creator-K750-B",
+          "comPort": "COM3",
+          "baudRate": 9600,
+          "timeoutMs": 5000,
+          "hopperSpring": "high",
+          "stockCapacity": 45
+        },
+        "doorLockEncoder": {
+          "dllName": "proRFL.dll",
+          "connectionType": "USB",
+          "encoderModel": "ProUSB-RF-01",
+          "lockBrand": "ProUSB-RF"
+        },
+        "paymentTerminal": {
+          "model": "QFPay-POS-T1",
+          "connection": "LAN",
+          "ipAddress": "192.168.1.102",
+          "port": 8800
+        },
+        "camera": {
+          "model": "UVC-Binocular",
+          "liveness": true
+        }
+      },
+      "roomMatrix": [
+        {
+          "pmsRoomId": "cb_KSK-HK-03_401",
+          "roomNumber": "401",
+          "roomType": "TWIN",
+          "lockCode": "020401",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_402",
+          "roomNumber": "402",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020402",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_403",
+          "roomNumber": "403",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020403",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_404",
+          "roomNumber": "404",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020404",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_405",
+          "roomNumber": "405",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020405",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_406",
+          "roomNumber": "406",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020406",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_407",
+          "roomNumber": "407",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020407",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_408",
+          "roomNumber": "408",
+          "roomType": "TWIN",
+          "lockCode": "020408",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_409",
+          "roomNumber": "409",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020409",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_410",
+          "roomNumber": "410",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020410",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_411",
+          "roomNumber": "411",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020411",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_412",
+          "roomNumber": "412",
+          "roomType": "POD",
+          "lockCode": "020412",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_413",
+          "roomNumber": "413",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020413",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_414",
+          "roomNumber": "414",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020414",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_415",
+          "roomNumber": "415",
+          "roomType": "TWIN",
+          "lockCode": "020415",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_416",
+          "roomNumber": "416",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020416",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_417",
+          "roomNumber": "417",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020417",
+          "floor": 4
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-03_418",
+          "roomNumber": "418",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "020418",
+          "floor": 4
+        }
+      ]
+    },
+    {
+      "terminalId": "KSK-HK-04",
+      "location": "Staff-Night-Desk",
+      "propertyName": "Mong Kok Capsule",
+      "building": 3,
+      "roomCount": 16,
+      "hardware": {
+        "cardDispenser": {
+          "model": "Creator-K750-B",
+          "comPort": "COM3",
+          "baudRate": 9600,
+          "timeoutMs": 5000,
+          "hopperSpring": "high",
+          "stockCapacity": 40
+        },
+        "doorLockEncoder": {
+          "dllName": "proRFL.dll",
+          "connectionType": "USB",
+          "encoderModel": "ProUSB-RF-01",
+          "lockBrand": "ProUSB-RF"
+        },
+        "paymentTerminal": {
+          "model": "QFPay-POS-T1",
+          "connection": "LAN",
+          "ipAddress": "192.168.1.103",
+          "port": 8800
+        },
+        "camera": {
+          "model": "UVC-Binocular",
+          "liveness": true
+        }
+      },
+      "roomMatrix": [
+        {
+          "pmsRoomId": "cb_KSK-HK-04_301",
+          "roomNumber": "301",
+          "roomType": "TWIN",
+          "lockCode": "030301",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_302",
+          "roomNumber": "302",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030302",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_303",
+          "roomNumber": "303",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030303",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_304",
+          "roomNumber": "304",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030304",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_305",
+          "roomNumber": "305",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030305",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_306",
+          "roomNumber": "306",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030306",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_307",
+          "roomNumber": "307",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030307",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_308",
+          "roomNumber": "308",
+          "roomType": "TWIN",
+          "lockCode": "030308",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_309",
+          "roomNumber": "309",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030309",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_310",
+          "roomNumber": "310",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030310",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_311",
+          "roomNumber": "311",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030311",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_312",
+          "roomNumber": "312",
+          "roomType": "POD",
+          "lockCode": "030312",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_313",
+          "roomNumber": "313",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030313",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_314",
+          "roomNumber": "314",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030314",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_315",
+          "roomNumber": "315",
+          "roomType": "TWIN",
+          "lockCode": "030315",
+          "floor": 3
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-04_316",
+          "roomNumber": "316",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "030316",
+          "floor": 3
+        }
+      ]
+    },
+    {
+      "terminalId": "KSK-HK-05",
+      "location": "Side-Street-Entry",
+      "propertyName": "Yau Ma Tei Walk-up",
+      "building": 4,
+      "roomCount": 12,
+      "hardware": {
+        "cardDispenser": {
+          "model": "Creator-K750-B",
+          "comPort": "COM3",
+          "baudRate": 9600,
+          "timeoutMs": 5000,
+          "hopperSpring": "high",
+          "stockCapacity": 30
+        },
+        "doorLockEncoder": {
+          "dllName": "proRFL.dll",
+          "connectionType": "USB",
+          "encoderModel": "ProUSB-RF-01",
+          "lockBrand": "ProUSB-RF"
+        },
+        "paymentTerminal": {
+          "model": "QFPay-POS-T1",
+          "connection": "LAN",
+          "ipAddress": "192.168.1.104",
+          "port": 8800
+        },
+        "camera": {
+          "model": "UVC-Binocular",
+          "liveness": true
+        }
+      },
+      "roomMatrix": [
+        {
+          "pmsRoomId": "cb_KSK-HK-05_201",
+          "roomNumber": "201",
+          "roomType": "TWIN",
+          "lockCode": "040201",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-05_202",
+          "roomNumber": "202",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "040202",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-05_203",
+          "roomNumber": "203",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "040203",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-05_204",
+          "roomNumber": "204",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "040204",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-05_205",
+          "roomNumber": "205",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "040205",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-05_206",
+          "roomNumber": "206",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "040206",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-05_207",
+          "roomNumber": "207",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "040207",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-05_208",
+          "roomNumber": "208",
+          "roomType": "TWIN",
+          "lockCode": "040208",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-05_209",
+          "roomNumber": "209",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "040209",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-05_210",
+          "roomNumber": "210",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "040210",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-05_211",
+          "roomNumber": "211",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "040211",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-05_212",
+          "roomNumber": "212",
+          "roomType": "POD",
+          "lockCode": "040212",
+          "floor": 2
+        }
+      ]
+    },
+    {
+      "terminalId": "KSK-HK-06",
+      "location": "Rooftop-Pod-Hall",
+      "propertyName": "Jordan Pods",
+      "building": 5,
+      "roomCount": 8,
+      "hardware": {
+        "cardDispenser": {
+          "model": "Creator-K750-B",
+          "comPort": "COM3",
+          "baudRate": 9600,
+          "timeoutMs": 5000,
+          "hopperSpring": "low",
+          "stockCapacity": 24
+        },
+        "doorLockEncoder": {
+          "dllName": "proRFL.dll",
+          "connectionType": "USB",
+          "encoderModel": "ProUSB-RF-Dorm",
+          "lockBrand": "ProUSB-Dorm"
+        },
+        "paymentTerminal": {
+          "model": "QFPay-POS-T1",
+          "connection": "LAN",
+          "ipAddress": "192.168.1.105",
+          "port": 8800
+        },
+        "camera": {
+          "model": "UVC-Binocular",
+          "liveness": true
+        }
+      },
+      "roomMatrix": [
+        {
+          "pmsRoomId": "cb_KSK-HK-06_101",
+          "roomNumber": "101",
+          "roomType": "TWIN",
+          "lockCode": "050101",
+          "floor": 1
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-06_102",
+          "roomNumber": "102",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "050102",
+          "floor": 1
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-06_103",
+          "roomNumber": "103",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "050103",
+          "floor": 1
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-06_104",
+          "roomNumber": "104",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "050104",
+          "floor": 1
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-06_105",
+          "roomNumber": "105",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "050105",
+          "floor": 1
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-06_106",
+          "roomNumber": "106",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "050106",
+          "floor": 1
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-06_107",
+          "roomNumber": "107",
+          "roomType": "DELUXE_DOUBLE",
+          "lockCode": "050107",
+          "floor": 1
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-06_108",
+          "roomNumber": "108",
+          "roomType": "TWIN",
+          "lockCode": "050108",
+          "floor": 1
+        }
+      ]
+    },
+    {
+      "terminalId": "KSK-HK-07",
+      "location": "Annex-Villa-Entrance",
+      "propertyName": "Sai Kung Annex Villa",
+      "building": 7,
+      "roomCount": 6,
+      "hardware": {
+        "cardDispenser": {
+          "model": "Creator-K750-B",
+          "comPort": "COM3",
+          "baudRate": 9600,
+          "timeoutMs": 5000,
+          "hopperSpring": "low",
+          "stockCapacity": 18
+        },
+        "doorLockEncoder": {
+          "dllName": "proRFL.dll",
+          "connectionType": "USB",
+          "encoderModel": "ProUSB-RF-Dorm",
+          "lockBrand": "ProUSB-Dorm"
+        },
+        "paymentTerminal": {
+          "model": "QFPay-POS-T1",
+          "connection": "LAN",
+          "ipAddress": "192.168.1.107",
+          "port": 8800
+        },
+        "camera": {
+          "model": "UVC-Binocular",
+          "liveness": true
+        }
+      },
+      "roomMatrix": [
+        {
+          "pmsRoomId": "cb_KSK-HK-07_V101",
+          "roomNumber": "V101",
+          "roomType": "PREMIUM_VILLA",
+          "lockCode": "070101",
+          "floor": 1
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-07_V102",
+          "roomNumber": "V102",
+          "roomType": "PREMIUM_VILLA",
+          "lockCode": "070102",
+          "floor": 1
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-07_D201A",
+          "roomNumber": "D201-A",
+          "roomType": "DORM_BED",
+          "lockCode": "070211",
+          "sharedDoorLock": "070201",
+          "bedId": "BED_A",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-07_D201B",
+          "roomNumber": "D201-B",
+          "roomType": "DORM_BED",
+          "lockCode": "070212",
+          "sharedDoorLock": "070201",
+          "bedId": "BED_B",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-07_D202A",
+          "roomNumber": "D202-A",
+          "roomType": "DORM_BED",
+          "lockCode": "070221",
+          "sharedDoorLock": "070202",
+          "bedId": "BED_A",
+          "floor": 2
+        },
+        {
+          "pmsRoomId": "cb_KSK-HK-07_D202B",
+          "roomNumber": "D202-B",
+          "roomType": "DORM_BED",
+          "lockCode": "070222",
+          "sharedDoorLock": "070202",
+          "bedId": "BED_B",
+          "floor": 2
+        }
+      ]
+    }
+  ]
+}

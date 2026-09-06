@@ -285,6 +285,8 @@ export const nl: Messages = {
     cardLifeNote: "Fun AI van dseek Life. Mahjongzaak, Temple Street-kraam. Zelfde tabblad.",
     cardDoodle: "Doodle",
     cardDoodleNote: "Krijtbureau. Kurk de fles. Lelijk is het punt.",
+    cardPms: "Nachtdienst",
+    cardPmsNote: "De hostelkiosk. De vergrendelingen zijn de regels.",
     waiting: {
       kicker: "Woestenij",
       title: "Waiting",

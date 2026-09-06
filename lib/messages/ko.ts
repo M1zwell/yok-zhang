@@ -284,6 +284,8 @@ export const ko: Messages = {
     cardLifeNote: "dseek Life의 Fun AI. 마작관과 묘가 점집. 같은 탭에서 연다.",
     cardDoodle: "手绘邮筒",
     cardDoodleNote: "크레용 책상. 추할수록 좋다. 병에 넣는다.",
+    cardPms: "야근",
+    cardPmsNote: "호스텔 키오스크. 인터록이 규칙이다.",
     waiting: {
       kicker: "황무지",
       title: "Waiting",

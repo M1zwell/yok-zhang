@@ -1,0 +1,591 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Hostel kiosk edge API",
+    "version": "1.0.0",
+    "description": "Facade on the Windows IPC. Cloudbeds and QFPay are upstreams, not the guest-facing contract."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8787"
+    }
+  ],
+  "paths": {
+    "/api/v1/hal/card-dispenser/issue": {
+      "post": {
+        "tags": [
+          "hal"
+        ],
+        "summary": "Move encoded card from RF station to the take-out mouth",
+        "description": "將已編碼房卡從讀寫位送到取卡口 [notebook-attributed] creator: Creator K750-B serial/USB HID motor + IR sensors",
+        "operationId": "api_v1_hal_card-dispenser_issue_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/hal/card-dispenser/recycle": {
+      "post": {
+        "tags": [
+          "hal"
+        ],
+        "summary": "Reverse belt into the scrap bin after jam or encode failure",
+        "description": "寫卡失敗或卡阻時將卡片回收至廢卡槽 [notebook-attributed] creator: K750-B swallow / recycle cassette",
+        "operationId": "api_v1_hal_card-dispenser_recycle_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/hal/door-lock/encode": {
+      "post": {
+        "tags": [
+          "hal"
+        ],
+        "summary": "Write room, validity window, and sector key via proRFL.dll",
+        "description": "經 proRFL.dll 寫入房號、有效期與扇區密鑰 [notebook-attributed] prousb: Windows DLL at RF station after card is seated",
+        "operationId": "api_v1_hal_door-lock_encode_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/hal/door-lock/erase": {
+      "post": {
+        "tags": [
+          "hal"
+        ],
+        "summary": "Erase card before recycle so a blank never leaves the mouth",
+        "description": "回收前擦除卡片，避免空白卡流出 [design-extension] prousb: card_erase before recycle",
+        "operationId": "api_v1_hal_door-lock_erase_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/hal/pos/terminal-pay": {
+      "post": {
+        "tags": [
+          "hal"
+        ],
+        "summary": "Push amount to QFPay POS and wait for capture",
+        "description": "把金額下發到 QFPay POS 並等待扣款 [notebook-attributed] qfpay: POS / ECR for card + Octopus; confirm via enquiry",
+        "operationId": "api_v1_hal_pos_terminal-pay_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/hal/camera/capture": {
+      "post": {
+        "tags": [
+          "hal"
+        ],
+        "summary": "Capture live face and document stills from UVC binocular camera",
+        "description": "雙目 UVC 鏡頭抓拍人像與證件 [notebook-attributed] uvc: Local capture only; no cloud vision vendor pinned in source",
+        "operationId": "api_v1_hal_camera_capture_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/hal/system/health": {
+      "get": {
+        "tags": [
+          "hal"
+        ],
+        "summary": "IPC + peripheral heartbeat",
+        "description": "工控主機與外設心跳 [notebook-attributed] local: COM/USB/LAN probes",
+        "operationId": "api_v1_hal_system_health_get",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/security/pre-payment-check": {
+      "post": {
+        "tags": [
+          "security"
+        ],
+        "summary": "Fail closed if dispenser or lock encoder is not ready before charge",
+        "description": "扣款前雙向互鎖：發卡機與門鎖編碼器必須就緒 [notebook-attributed] local: Must pass before QFPay",
+        "operationId": "api_v1_security_pre-payment-check_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/security/card-stock": {
+      "get": {
+        "tags": [
+          "security"
+        ],
+        "summary": "Hopper count, jam flag, scrap-bin count",
+        "description": "卡箱存量、卡阻、廢卡槽 [notebook-attributed] creator: IR empty / overlap sensors",
+        "operationId": "api_v1_security_card-stock_get",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/workflow/walk-in": {
+      "post": {
+        "tags": [
+          "workflow"
+        ],
+        "summary": "Start a walk-in stay: assign vacant room, unpaid until POS",
+        "description": "散客入住：分配空房，支付前為未付 [notebook-attributed] cloudbeds: postReservation + postRoomAssign — Requires live PMS",
+        "operationId": "api_v1_workflow_walk-in_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/workflow/reservation-checkin": {
+      "post": {
+        "tags": [
+          "workflow"
+        ],
+        "summary": "Start booked check-in state machine",
+        "description": "有預訂入住狀態機 [notebook-attributed] cloudbeds: getReservations + putGuest — Kiosk cert: only confirmed reservations",
+        "operationId": "api_v1_workflow_reservation-checkin_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/workflow/gate-control": {
+      "post": {
+        "tags": [
+          "workflow"
+        ],
+        "summary": "Fail-closed: no encode until identity stub is archived",
+        "description": "證件存根未歸檔則不寫卡 [notebook-attributed] local: HK lodging registration gate",
+        "operationId": "api_v1_workflow_gate-control_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/workflow/checkout": {
+      "post": {
+        "tags": [
+          "workflow"
+        ],
+        "summary": "Self checkout, recycle card, flip room to dirty",
+        "description": "自助退房、收卡、房態待清掃 [notebook-attributed] cloudbeds: getReservationInvoiceInformation + putReservation checked_out — Checkout blocked while folio open",
+        "operationId": "api_v1_workflow_checkout_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/identity/ocr": {
+      "post": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Parse name and document number from the scan frame",
+        "description": "證件 OCR 解析姓名與號碼 [notebook-attributed] local: HKID / passport; vendor OCR not named in source",
+        "operationId": "api_v1_identity_ocr_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/identity/face-match": {
+      "post": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Live face vs document photo with liveness",
+        "description": "現場人像與證件照比對（活體） [notebook-attributed] uvc: Binocular liveness on device",
+        "operationId": "api_v1_identity_face-match_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/identity/stub-archive": {
+      "post": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Archive composite stub for lodging compliance",
+        "description": "證件存根合成歸檔 [notebook-attributed] cloudbeds: postGuestDocument + putGuest — Cloudbeds kiosk cert guest document upload",
+        "operationId": "api_v1_identity_stub-archive_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/payment/aggregate-pay": {
+      "post": {
+        "tags": [
+          "payment"
+        ],
+        "summary": "Charge due amount on QFPay POS after hardware interlock",
+        "description": "互鎖通過後在 QFPay POS 扣款 [notebook-attributed] qfpay: POS API + async notify + /trade enquiry",
+        "operationId": "api_v1_payment_aggregate-pay_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/payment/saga-compensate": {
+      "post": {
+        "tags": [
+          "payment"
+        ],
+        "summary": "Refund/void + recycle card + release room lock",
+        "description": "沖正退款、回收廢卡、釋放房態 [notebook-attributed] qfpay: POST /trade/v1/refund against original syssn",
+        "operationId": "api_v1_payment_saga-compensate_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/pms/house-account": {
+      "get": {
+        "tags": [
+          "pms"
+        ],
+        "summary": "Folio / house-account balance for the stay",
+        "description": "入住賬戶餘額與消費 [notebook-attributed] cloudbeds: getReservationInvoiceInformation / getHouseAccountDetails — Checkout requires zero open balance",
+        "operationId": "api_v1_pms_house-account_get",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/pms/room-assignment": {
+      "post": {
+        "tags": [
+          "pms"
+        ],
+        "summary": "Assign or confirm physical room + lock code",
+        "description": "動態分房並綁定鎖號 [notebook-attributed] cloudbeds: getRoomsUnassigned + postRoomAssign — Also getHouseKeepingStatus before encode",
+        "operationId": "api_v1_pms_room-assignment_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/pms/upsell-rates": {
+      "get": {
+        "tags": [
+          "pms"
+        ],
+        "summary": "Late checkout / breakfast add-on rates",
+        "description": "延遲退房、早餐等加購費率 [notebook-attributed] cloudbeds: getAvailableRoomTypes?detailedRates + getItems — postCustomItem / postItem on accept",
+        "operationId": "api_v1_pms_upsell-rates_get",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/pms/reservations": {
+      "get": {
+        "tags": [
+          "pms"
+        ],
+        "summary": "Lookup confirmed arrivals by booking ref, phone, or third-party id",
+        "description": "以預訂號、手機或第三方單號查今日到達 [cloudbeds-kiosk-cert] cloudbeds: getReservations + thirdPartyIdentifier — Required by Cloudbeds kiosk certification; omitted from the 3-source API list",
+        "operationId": "api_v1_pms_reservations_get",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/pms/sync-offline": {
+      "post": {
+        "tags": [
+          "pms"
+        ],
+        "summary": "Replay local offline check-ins when the WAN returns",
+        "description": "網絡恢復後回寫離線入住 [design-extension] cloudbeds: putReservation checked_in — Not in the 3 sources; required for 7 unattended machines",
+        "operationId": "api_v1_pms_sync-offline_post",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    },
+    "/api/v1/terminals": {
+      "get": {
+        "tags": [
+          "config"
+        ],
+        "summary": "List the 7 kiosk terminal configs",
+        "description": "七台終端配置列表 [design-extension] local: JSON fleet file on the IPC",
+        "operationId": "api_v1_terminals_get",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad request / business rule"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "503": {
+            "description": "Hardware or upstream unavailable"
+          }
+        }
+      }
+    }
+  }
+}

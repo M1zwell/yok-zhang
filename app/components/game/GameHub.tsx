@@ -12,6 +12,7 @@ const cards = [
   { href: "/game/post", titleKey: "cardPost", noteKey: "cardPostNote" },
   { href: "/game/life", titleKey: "cardLife", noteKey: "cardLifeNote" },
   { href: "/game/doodle", titleKey: "cardDoodle", noteKey: "cardDoodleNote" },
+  { href: "/PMS", titleKey: "cardPms", noteKey: "cardPmsNote" },
 ] as const;
 
 export function GameHub({ locale = "en" }: { locale?: Locale }) {

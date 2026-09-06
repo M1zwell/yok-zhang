@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/kiosk", "destination": "/PMS", "permanent": true },
+    { "source": "/pms", "destination": "/PMS", "permanent": true },
+    { "source": "/game/pms", "destination": "/PMS", "permanent": true },
+    { "source": "/:locale(zh-Hans|zh-Hant|ja|ko|th|nl)/kiosk", "destination": "/:locale/PMS", "permanent": true },
+    { "source": "/:locale(zh-Hans|zh-Hant|ja|ko|th|nl)/pms", "destination": "/:locale/PMS", "permanent": true },
+    { "source": "/:locale(zh-Hans|zh-Hant|ja|ko|th|nl)/game/pms", "destination": "/:locale/PMS", "permanent": true }
+  ]
+}
