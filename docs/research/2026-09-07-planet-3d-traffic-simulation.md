@@ -2,7 +2,7 @@
 
 Date: 2026-09-07  
 Status: research; **not implemented**  
-Companion: `docs/research/2026-09-07-hk-building-clickable-planet.md`  
+Companion: `docs/research/2026-09-07-hk-building-clickable-planet.md` · `docs/research/2026-09-07-cesium-ion-planet.md`  
 Target: `jubuddy.com/planet` · `gghere.com/hk?district=central-belt`  
 Languages: 中文 / English
 
@@ -199,7 +199,7 @@ Browser: **deck.gl `TripsLayer`** or MapLibre custom layer. Do not run SUMO in t
 | **Cesium for Unity** | Apache-2.0 | same | mobile/VR client |
 | **Cesium for Omniverse** | Apache-2.0 | USD + ray trace | studio / AI analytics, not the garden tab |
 | **MapLibre GL JS** + **deck.gl `Tile3DLayer`** | BSD/MIT | web, lighter than Cesium | if planet stays MapLibre |
-| **py3dtiles** / Cesium ion tiler | Apache / SaaS | CityGML, IFC, photogrammetry → 3D Tiles | ingest pipeline |
+| **Cesium ion** (`ion.cesium.com`) | SaaS / Self-Hosted | REST `api.cesium.com`: tile IFC/RVT/OBJ/LAS; OSM Buildings; Google Photoreal; BIM element query | **Ingest + 24-city fallback.** Not a replacement for CSDI HK tiles. Full brief: `docs/research/2026-09-07-cesium-ion-planet.md` |
 | **Esri CityEngine** | commercial | CGA procedural; export FBX/USD/SLPK; game-engine plugins | generate missing LOD2 from footprints + rules. Not required if CSDI mesh exists |
 | **IfcOpenShell** / That Open (IFC.js) | LGPL / MPL | BIM in the browser | indoor BIM viewer **inside** a clicked building |
 
@@ -313,6 +313,9 @@ Cesium for Unreal loads CSDI tiles. SUMO TraCI drives vehicle actors. Indoor: IF
 ```ts
 type PlanetSimLayer =
   | { kind: "tileset"; url: string; attribution: "landsd" | "overture" | "osm" }
+  | { kind: "ion-osm" }
+  | { kind: "ion-google-photoreal" }
+  | { kind: "ion-asset"; assetId: number }
   | { kind: "indoor-wfs"; venueId: string; source: "landsd-building" | "landsd-mtr" }
   | { kind: "vga-heatmap"; levelId: string; url: string; metric: VgaMetric }
   | { kind: "agent-trails"; levelId: string; url: string }
@@ -366,7 +369,7 @@ Do not start with Omniverse.
 **Video:** depthmapX 0.7.0 3D VGA + agents + Gate Counts.  
 **Port:** indoor heatmap/trails after building click.  
 **City traffic:** SUMO (code) + HK Road Network v2 + TD live speeds + GTFS/ETA (data).  
-**3D:** CSDI 3D Tiles in CesiumJS (web) / Cesium for Unreal (HD).  
+**3D:** CSDI 3D Tiles in CesiumJS (HK HD) / Cesium ion OSM or Google Photoreal (24 cities) / ion BIM+Database when you have IFC. HD client: Cesium for Unreal. See `2026-09-07-cesium-ion-planet.md`.  
 **Production scarce asset:** calibrated demand + signal timing + per-tower IFC — not another globe engine.
 
 视频是空间句法室内人流。接到 `/planet` 是点楼之后的热力/轨迹。马路用 SUMO + 路网二代 + 运输署实时 + GTFS。三维用地政 3D Tiles。真正稀缺的是标定需求和楼宇 IFC，不是再买一个地球引擎。
