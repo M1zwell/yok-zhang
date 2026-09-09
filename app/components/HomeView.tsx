@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CareerNavLink } from "@/app/components/career/CareerNavLink";
 import { JoinFlow } from "@/app/components/JoinFlow";
 import { PostCard } from "@/app/components/PostCard";
 import { PretextLines } from "@/app/components/PretextLines";
@@ -44,6 +45,7 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
               <Link href={href("/writing")} className="btn btn-ghost">
                 {m.nav.writing}
               </Link>
+              <CareerNavLink locale={locale} variant="home" />
             </div>
             <div className="mt-8">
               <QuoteRotator />

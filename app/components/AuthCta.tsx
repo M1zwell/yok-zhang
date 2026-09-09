@@ -1,33 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useFamilySession } from "@/lib/family-session";
 import { stripLocale } from "@/lib/i18n";
-import {
-  FAMILY_SESSION_EVENT,
-  familySsoUrl,
-  readFamilySession,
-  signOutFamilySession,
-  type FamilySession,
-} from "@/lib/jubit-sso";
+import { familySsoUrl, signOutFamilySession } from "@/lib/jubit-sso";
 import { t } from "@/lib/messages";
-
-function useFamilySession(): FamilySession | null {
-  const [session, setSession] = useState<FamilySession | null>(null);
-
-  useEffect(() => {
-    const sync = () => setSession(readFamilySession());
-    sync();
-    window.addEventListener(FAMILY_SESSION_EVENT, sync);
-    window.addEventListener("storage", sync);
-    return () => {
-      window.removeEventListener(FAMILY_SESSION_EVENT, sync);
-      window.removeEventListener("storage", sync);
-    };
-  }, []);
-
-  return session;
-}
 
 export function AuthHeaderButtons() {
   const pathname = usePathname() || "/";
