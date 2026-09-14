@@ -12,6 +12,150 @@
 - 3D + traffic sim: `docs/research/2026-09-07-planet-3d-traffic-simulation.md`  
 - Cesium ion: `docs/research/2026-09-07-cesium-ion-planet.md`
 
+> **2026-09-14 update below supersedes parts of this file.** Bundle is now `index-BsnyDxsX.js` + `PlanetRoute-e5aQHIHY.js` + `userSkins-y3w6rNso.js` + `userBuildings-DYz5FI-5.js`. Three ADR-0318 slices shipped 2026-09-11; interiors are no longer "parked" but designed (Marble rooms, not shipped). Jump to [§ 2026-09-14 update](#2026-09-14-update--the-center-card).
+
+---
+
+# 2026-09-14 update — The Center card
+
+## 中文
+
+### 用户看到的卡（2026-09-14 生产）
+
+```
+Well hello there! You've tapped right on The Center, our striking 346-metre tall
+neighbour. Around here, it's a pleasant 27C with low air quality, but do note our …
+
+💬 Ask about this spot
+live data: HK gov open data
+
+🏛 The Center
+Height 346 m · ≈ 108 storeys
+Footprint 50 m
+Crowns Central · Cube-Belt
+🎫 Stamp 13 / 442 · New stamp
+🌌 Sky above it
+📸 Photo
+🎨 Re-skin
+🏢 Real building
+```
+
+比 09-09 多了三样：**开场白**、**💬 Ask about this spot**、**🏢 Real building**。Re-skin 内部也变了。
+
+### 1. 开场白 + Ask（PlanetChatPanel，`/api/planet/ask`）
+
+- 系统提示（bundle 原文）："You are the friendly local voice of a tiny toy planet of Hong Kong … a neighbour who loves this city, never a brochure."
+- 地标上下文注入："The pin is on a landmark: The Center, about 346 m tall."
+- 实时读数来自 **`/api/hk/scan`**：气温 + 站名、AQHI + 等级、UV、雨量峰值、生效警告、停车场空位、最近站下一班。页脚 `live data: HK gov open data`。
+- 硬规则：**绝不编造实时数字**；不点名运输营办商/线路/八达通；≤ 90 字；无 markdown；用用户语言回答（EN / 繁中 / 韩 / 日 / 泰）。
+- 附近新闻标题可引用（注明媒体，不给 URL；"near, not at"）。
+- 模型芯片：Gemini 2.5 Flash（默认）· DeepSeek V4.1 Flash · Nemotron 3 Super · MiniMax M3 · Kimi K2.5 fast。
+- 频率：两次提问间隔 ≥ 3 s，每会话 40 次。
+- 非港星球：无实时层，提示改为"Live readings do not cover this spot"。
+
+### 2. 🎨 Re-skin 升级（ADR-0318 S2，#1525，`143803` / `79eaf1`）
+
+| 模式 | 规则 |
+|------|------|
+| **Poster — the whole tower** | 任意图 ≤ **1 MB**，覆盖塔的每一面，裁切填满；faceted 塔也支持 |
+| **Tiles** | 1×（原 256 方块）或 **5×** 大瓷片 |
+
+提示语改为 "shown to others only when you publish"。别人的海报以半分辨率绘制（`aae213`）。仍然：无 logo / 招牌。
+
+### 3. 🏢 Real building（ADR-0318 S3，#1526，`91939b`，2026-09-11）
+
+**这就是 09-09 计划里的 B「替换网格」——已上线，而且比 glTF 上传更激进：一张照片 → 3D。**
+
+- 文案："One clear photo of the whole building · forged into 3D in 5–15 minutes · private until you publish · **Pro**"。
+- 流程：`POST /api/forge/source`（≤ 3 MiB，6 次/分，magic-byte 验型，客户端先重编 JPEG 所以 **EXIF 不出手机**）→ `forge_jobs.product='building'`, `subject=lm-*` → 轮询 → 落地 `planet_creations kind='building'` → `GET|DELETE /api/planet/buildings/{lm-id}`（签名 1 h，仅本人）。
+- 引擎 `landmarkBuildingMeshes.ts`：toon 重着色、**等比塞进原高度/底盘**（不拉伸）、冠顶重新坐到新顶。是 **dressing**，不是 lot 状态：攻城倒塌逻辑不变；拆掉 = 走 lot rebuild。
+- 优先级：自己的 building > 自己的 skin；别人的公开 building 以幽灵出现，标 "Building by @name"。
+- **Restore the curated tower** 一键还原。
+- 迁移：`20260911000001_planet_creation_windows.sql` + `20260911000002_forge_buildings.sql` 必须先跑再推生产。
+
+### 4. 付费公开窗口（ADR-0318 S1，#1524，`6f0b95`）
+
+- 皮肤 / 重建 / 建筑三种 creation 共用一张 sheet：**claim → charge → paid**。
+- 窗口：1 小时 / 1 天 / 1 周 / 1 个月 / 1 年，单位 **ju**。私有永远免费；长窗口需 Pro 或 Max。
+- 计时从管理员批准开始；被拒或换图即作废，**不退款**。
+- 一座塔同时只有一个持有者（"Someone else holds this tower for now"）；每玩家有持有上限。
+- 管理员：账户页 "Review planet creations"，队列显示缩略图 + GLB 链接，留在 gghere。
+
+### 5. 室内：从「停工」到「已设计」
+
+- 规格 `2026-09-12-marble-landmark-interiors-design.md`（#1553）：地标卡加 **Enter**，打开懒加载 **360 环视房间**（看、盖章、离开），7 座有策展地标的城市各一间旗舰。
+- 全景来源用 ≤ 2,000 credit 的实验梯对比免费引擎内 toon 控制；World Labs **Marble** 港探针已花 310 credit；可行走 Spark splat 房间延后。
+- 计划 `2026-09-13-marble-landmark-rooms-{product,tooling}.md`：ADR-0328（拟）、`LANDMARK_ROOMS` 注册表、`roomVisits` 印章、`PlanetScene.setSuspended`。
+- **尚未上线。** 这是"玩具房间"，不是测绘几何；与 clickable 简报里"仅当 LandsD IFC 存在才进室内"不冲突——那是另一条（数据层）路。
+
+### 6. 同期其他
+
+Copernicus GLO-30 地形（ADR-0319）· 24 步玩具日太阳 · 14 种 tile gzip-at-rest · 52 城之间的 Ether Sea · Giant Queen raid（设计中）。
+
+### 09-09 计划对账
+
+| 09-09 计划 | 09-14 状态 |
+|-----------|-----------|
+| A Tune：完好塔的套件编辑 | **仍缺**。Rebuild 仍需先倒塌 |
+| B Mesh replace（glTF / ion BIM） | **已上线**为 Real building（照片→3D，Pro） |
+| C UV 重复 / 画廊 / 邮票卡 | Poster + 5× Tiles **已上线**；画廊、邮票卡仍缺 |
+| D 补名 ~60 | 未见变化 |
+| E 集邮任务 / 拍照挑战 | 未见；但 **ju 窗口经济**已成创作经济骨架 |
+| F 不声称室内 | 室内已有设计与计划，**未上线**——继续不对外承诺 |
+
+### 修订后的增强计划
+
+1. **Tune（最高优先，未变）**：完好塔也能改层级 / 冠顶 / 高度% / 色调；走与 skin 相同的 私有→窗口 发布。
+2. **Real building 精修**：
+   - 上传 **glTF/GLB** 直通道（已有模型的人不必绕过照片→3D）；
+   - ion BIM tileset 作为 Pro+ 来源（接 Cesium 简报）；
+   - 5–15 min 等待期给进度 + 离开后通知；
+   - 明确照片版权与"无招牌"规则在 forge 侧再过一次审核。
+3. **Re-skin**：过审公开画廊 / 一键试穿；Poster 的按层重复选项。
+4. **Ask 深化**：把 stamp 与 Ask 绑定（"你在这座塔下问过天气"）；地标卡里直接显示 AQHI / 温度芯片而不只在开场白。
+5. **室内**：按 Marble 计划出 1 间港旗舰（The Center 或 Jardine House）作 E0；进门 = 新印章类型 `roomVisits`。
+6. **命名**：继续两源规则；`lm-hsbc` 保持空白。
+7. **不做**：Centanet 描图；每栋 OSM 换皮；在本园实现；对外称室内已上线。
+
+### 营销文案修订
+
+**标题：** Walk up to the real tower. It talks back. Stamp it. Dress it. Forge it.
+
+**正文：** 走到 The Center 脚下，星球先开口——346 米、此刻 27 度、空气质素低，全部来自香港政府开放数据，绝不编数。问它附近的车、天气、值得看什么。盖一枚戳（13 / 442）。给塔换海报或瓷片；或者拍一张真楼照片，5–15 分钟锻成 3D 站在原位。默认只有你看得见；花 ju 买一小时到一年的公开窗口，管理员点头后全城可见。
+
+**不承诺：** 进室内（设计中）、改层数、每栋楼都能锻。
+
+## English
+
+### What the card shows now (2026-09-14)
+
+Three additions versus 09-09: an **AI greeting**, **💬 Ask about this spot**, **🏢 Real building**. Re-skin changed inside.
+
+**Greeting + Ask** (`/api/planet/ask`): system prompt "friendly local voice of a tiny toy planet of Hong Kong … never a brochure"; landmark injected as "The pin is on a landmark: The Center, about 346 m tall"; live readings from `/api/hk/scan` (temp + station, AQHI + band, UV, rain peak, warnings, car parks, next departures); rules: **never invent a live number**, no operator/route/fare-card names, under 90 words, reply in the user's language. Models: Gemini 2.5 Flash default, DeepSeek V4.1 Flash, Nemotron 3 Super, MiniMax M3, Kimi K2.5 fast. 3 s between asks, 40 per session.
+
+**Re-skin (ADR-0318 S2, #1525):** Poster mode (any picture ≤ 1 MB, every face, cropped to fill, faceted towers too) or Tiles 1× / 5×. Others' posters drawn at half res.
+
+**Real building (ADR-0318 S3, #1526, 2026-09-11):** one photo → GLB in 5–15 min, **Pro**. `POST /api/forge/source` (≤ 3 MiB, 6/min, magic-byte typed, client re-encodes JPEG so EXIF never leaves the phone) → `forge_jobs.product='building'` → `GET|DELETE /api/planet/buildings/{lm-id}`. Engine: toon re-shade, uniform fit under height/footprint, crown re-seated. A dressing, not lot state; own building beats own skin; others' public buildings are ghosts "Building by @name"; **Restore the curated tower**. This *is* plan item B from 09-09 — shipped, and more aggressive than glTF upload.
+
+**Paid public windows (ADR-0318 S1, #1524):** claim → charge → paid; 1 h / 1 d / 1 w / 1 m / 1 y in **ju**; private stays free; longer windows need Pro or Max; clock starts on admin approval; rejection or a new picture forfeits, no refunds; one holder per tower; per-player caps; admin queue "Review planet creations".
+
+**Interiors:** no longer parked. Spec `2026-09-12-marble-landmark-interiors-design.md` (#1553): **Enter** on the scan card → lazy 360 look-around room (look, stamp, leave), one flagship per curated city (7). World Labs Marble probe done (310 credits); ≤ 2,000-credit ladder vs free in-engine toon control; walkable Spark splats deferred. Plans 2026-09-13 (ADR-0328 proposed, `LANDMARK_ROOMS`, `roomVisits`). **Not shipped.** Toy room, not survey geometry.
+
+### Reconciled plan
+
+| 09-09 item | 09-14 |
+|---|---|
+| A Tune (standing kit edit) | **Still missing** — top priority |
+| B Mesh replace | **Shipped** as Real building (photo → 3D, Pro) |
+| C UV repeat / gallery / stamp card | Poster + 5× tiles shipped; gallery + stamp card missing |
+| D Name ~60 | No change seen |
+| E Quests | Missing; ju windows now form the creator economy |
+| F Don't claim interiors | Designed + planned, not live — keep not claiming |
+
+**Next:** Tune → glTF/GLB direct lane + ion BIM lane for Real building → moderated skin gallery → bind stamps to Ask → one HK flagship Marble room (The Center or Jardine House) → keep two-source naming.
+
+**Headline:** Walk up to the real tower. It talks back. Stamp it. Dress it. Forge it.
+
 ---
 
 # 中文
