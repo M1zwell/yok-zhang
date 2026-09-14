@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "next start -p 3100",
     "verify:sso": "node --experimental-strip-types scripts/verify-auth-callback.ts",
-    "verify:kiosk": "node --experimental-strip-types --import ./scripts/kiosk-register.mjs scripts/verify-kiosk.ts"
+    "verify:kiosk": "node --experimental-strip-types --import ./scripts/kiosk-register.mjs scripts/verify-kiosk.ts",
+    "verify:career": "node --experimental-strip-types scripts/verify-career-gate.ts"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.8",

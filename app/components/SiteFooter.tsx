@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AuthRegisterLink } from "@/app/components/AuthCta";
+import { CareerNavLink } from "@/app/components/career/CareerNavLink";
 import { EnterButton } from "@/app/components/JoinFlow";
 import { localizeHref, stripLocale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
@@ -58,6 +59,7 @@ export function SiteFooter() {
               {email.label}
             </a>
           ))}
+          <CareerNavLink locale={locale} variant="footer" />
           <Link href={localizeHref("/share", locale)} className="text-accent hover:text-accent-hover">
             {m.nav.share}
           </Link>

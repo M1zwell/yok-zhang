@@ -96,6 +96,7 @@ export const quotes = [
   "Scattered feeds, APIs, datasets and maps — held together and made seekable.",
   "Football and philosophy sit in the same life. They are not the work. The work is to ship.",
   "A game id kept as a name: m1zwell.",
+  "We know more than we can tell. The products are the rest.",
   "No account. Open the tab. The city is already there.",
 ];
 
