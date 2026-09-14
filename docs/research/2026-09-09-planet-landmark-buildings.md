@@ -158,6 +158,161 @@ Three additions versus 09-09: an **AI greeting**, **💬 Ask about this spot**, 
 
 ---
 
+# 🏢 Real building — sheet & flow refinement (2026-09-14)
+
+Spec for `Jubit-AI/jubuddy-game` (`apps/web/src/planet/scan/BuildingSheet.tsx`, `lib/forgeClient.ts`, `api/forge/*`). Not implemented in this garden.
+
+## 中文
+
+### 用户现在看到的 sheet
+
+```
+🏢 A real building on this tower                                   ✕
+[96×96 塔的剪影 / 当前建筑缩略图]
+Choose a photo of a building        [No file chosen]
+One clear photo of the whole building · forged into 3D in 5–15 minutes
+· private until you publish · Pro
+```
+
+### 代码现状（生产 chunk `BuildingSheet-DzrXbh4K.js` · `forgeClient-BWDELsVo.js` · `forgeContract-DWXfEnLM.js`）
+
+| 项 | 现状 |
+|----|------|
+| 选图 | 原生 `<input type="file" accept="image/*">`，无 `capture`，无所选照片预览，无裁切 |
+| 客户端处理 | `createImageBitmap` → 长边阶梯 **2048 → 1536 → 1024 → 768** → 白底填充 → JPEG q=0.9 → 必须 ≤ **3 MiB**（否则 `source-too-large`）；EXIF 因重编码不出手机 |
+| 上传 | `POST /api/forge/source` `{image: dataURL, requestId}` → `{imageUrl(https 签名), sourcePath, expiresAt}`；超时 35 s |
+| 开炉 | `POST /api/forge/start` `{imageUrl, requestId, product:"building", landmarkId}` → 返回 `job` + **providerCredits / dailyCreditsUsed / dailyCreditLimit / globalDailyCreditsUsed / globalDailyCreditLimit**（sheet **未显示**） |
+| 推进 | **客户端驱动** `POST /api/forge/advance {jobId}`；退避 3 s×3 → 8 s×5 → 20 s；硬上限 **35 min** → `timed-out` |
+| 阶段 | 复用角色锻造合同：`sculpting → rigging → landing → ready / failed / expired`；建筑不送 rig，同 tick 落地 |
+| 恢复 | 打开 sheet 时 `GET /api/forge/active?product=building`，若 `subject === landmarkId` 且未终止则继续轮询 |
+| 状态 | `idle · uploading · forging · done · signin · tier · busy · failed`（8 个） |
+| 错误映射 | `sign-in-required→signin`；`tier-required→tier`；`rate-limited / daily-limit / global-daily-limit / quota-exhausted / request-in-progress→busy`；其余→`failed`（一句 "The forge could not make a building from this photo"） |
+| 完成 | `onLanded()` 挂载 GLB → `done` → `PublishNextStep`（进入 ju 窗口发布） |
+| 还原 | `hasBuilding` 时显示 **Restore the curated tower** |
+| 引擎 | toon 重着色、等比塞进 hU/footU、冠顶重坐；是 dressing，不改 lot |
+
+### 痛点（按用户路径）
+
+1. **门槛后置**：非 Pro / 未登录用户要选完图、上传完才看到 "needs Pro" / "Sign in"。浪费一次 3 MiB 上传与一次 forge/source 配额。
+2. **"No file chosen"**：原生控件、无预览、无拍照直达、无拖放；不知道"整栋楼"该怎么拍。
+3. **看不见合身**：引擎会等比塞进原塔高度/底盘——宽照片变细塔、横拍变竖条。用户 15 分钟后才发现。
+4. **单张照片的 3D**：正面好、背面幻觉；无法选择"镜像正面到四面"或补第二张。
+5. **等待体验**：只有 `Forging… 42%`；关闭 sheet 即 abort（`f.current.abort()`），推进靠客户端 `advance`——**用户离开则不落地**，直到回来重开 sheet；provider 3 天后 `expired`。
+6. **失败只有一句**：`failed` 吞掉 `body-too-large / job-expired / timed-out / network-error / upstream-failed / source-too-large`；用户不知道是照片问题还是服务问题。
+7. **配额不可见**：start 已返回每日额度，sheet 不显示；`busy` 混合了"限流"和"额度用完"。
+8. **覆盖无确认**：重锻直接删旧 GLB + 缩略图；若旧建筑正处于**付费公开窗口**，按 S1 规则窗口作废、不退款——sheet 没警告。
+9. **政策空白**：皮肤规则是"no logos or signage"，但真楼照片必然带招牌；forge 侧无文字检测；用户未确认版权（"我拍的"）。
+10. **可访问性**：进度有 `role=status`，但错误行无 `role=alert`；文件 input 只靠 label 文字。
+
+### 改进方案
+
+**A. 门槛前置（零成本，先做）**
+- 打开 sheet 即读 `userStore.tier` + 登录态：非登录 → 只显示 "Sign in to forge a building" + 登录按钮；非 Pro → 显示 "Forging a building needs Pro" + 升级 CTA + **一张示例前后对比图**；file input 禁用。
+- `start` 返回的 `dailyCreditsUsed / dailyCreditLimit` 在 sheet 页脚常驻："今日 1 / 3 次"；为 0 时把 `busy` 拆成 `daily-limit`（"明天再来"）与 `rate-limited`（"稍等 1 分钟"）。
+
+**B. 选图 → 预览 → 合身预览（核心）**
+- 替换原生控件：一个大按钮 **📷 Take a photo**（`capture="environment"`）+ **🖼 Choose from library**；桌面支持拖放。
+- 选中后立刻显示 **所选照片缩略图**（当前只显示旧建筑/剪影）。
+- **合身预览**：把照片按引擎同样的 uniform-fit 规则叠到已有的 96×96 塔剪影 SVG 上（`o.boxes` 已在 sheet 里），再给一行 "Your photo will stand **346 m** tall, **50 m** wide — same as The Center"。宽照片会看到自己被留白的样子。
+- **裁切**：一个竖向裁切框，默认比例 = 塔的 `heightM : footprintM`（The Center ≈ 6.9 : 1；Jardine House ≈ 4.1 : 1）；可关。裁切在客户端 2048 阶梯之前完成。
+- **拍摄指引**（首次 3 行）：整栋入镜、留天空、正面或 45°、避开人和车；配一张 ✅/❌ 缩略示意。
+- 保留白底填充与 JPEG 重编码（EXIF 剥离）——在 UI 明说 "Location data never leaves your phone"。
+
+**C. 等待与离开**
+- **服务端推进**：为 `product='building'` 加定时 tick（`forge-tick.ts` 已有 tick 基础），不依赖客户端 `advance`；客户端只读状态。这样关掉 sheet / 关掉页面也能落地。
+- 完成通知：落地时写 `planet_creations` 并触发 in-app toast（回到星球时）+ 可选 email/push "Your building is up on The Center"。
+- 进度文案按阶段：`Uploading… → Queued (#n) → Sculpting ~5 min → Landing → Up`；显示 `startedAt` 和 "usually 5–15 min"；超过 20 min 显示 "taking longer than usual — we'll keep going"。
+- 把 `sculpting / rigging` 的角色向文案（"Teaching her to walk…"）与建筑产品隔离——建筑走自己的 `stageCopy`。
+
+**D. 结果与合身修正（落地后）**
+- 落地后 sheet 显示三个微调：**Height fit**（Fit height / Fit footprint 切换）、**Rotate 90°**（四个朝向）、**Ground offset**（±2 m）。全是 transform，不重锻。
+- **Mirror front**：单张照片的背面可选"镜像正面"替代幻觉面（引擎侧：对 GLB 做 UV/法线镜像或以正面纹理重贴四面）。
+- 可选 **second photo**（45° 角）在 forge 支持多视角时启用；UI 先留位。
+
+**E. 失败可诊断**
+- 用 `ForgeError.code` 分支文案：
+  - `source-too-large` → "Photo too large even after shrinking — try a tighter crop"
+  - `body-too-large` → 同上
+  - `job-failed` + provider message → "The forge couldn't see a whole building. Try: whole tower in frame, daytime, less sky glare"
+  - `job-expired` → "This forge expired (3 days). Forge again — no charge"（若已扣额度需退）
+  - `timed-out` → "Still working — come back later, it will finish on its own"（配合 C）
+  - `network-error` → "You went offline; the forge is still running"
+  - `upstream-failed / proxy-*` → "Our side, not your photo. Try again in a bit"
+- 每条错误行 `role="alert"`；保留一个 **Retry** 按钮复用同一 `requestId`（后端已幂等 `idempotentReplay`）。
+
+**F. 覆盖与窗口保护**
+- `hasBuilding && creation.window.active` 时，选图前弹确认："This replaces your current building. Its public window (until {when}) is forfeited — no refund." 两个按钮：Replace / Keep.
+- 还原（Restore）同样确认，若有活动窗口。
+
+**G. 政策与安全**
+- 选图后一行勾选（首次必选，之后记住）："I took this photo / have the right to use it."
+- forge 侧加 **文字/标志检测**（OCR bbox）；命中则在 landing 前模糊招牌区域，或标记 `needs-review` 给 admin 队列（队列已有缩略图 + GLB 链接）。
+- 人脸/车牌检测 → 模糊（照片本来就该是楼，命中率低但零容忍）。
+- 明确 "Real building" 只在**策展地标**上；普通 OSM 楼不显示按钮（现状如此，写进文案避免误解）。
+
+**H. 直传 glTF/GLB（Pro+）**
+- 同一 sheet 第二个入口 **"I have a 3D model"**：接受 `.glb ≤ 8 MiB`，走同一 `planet_creations kind='building'` + 同一 uniform-fit；跳过 forge，不耗额度。
+- 校验：单 mesh 或 ≤ 20 节点、≤ 100k 三角、纹理 ≤ 2048²、无动画、无外链。
+
+**I. 可访问性与小项**
+- 关闭按钮 aria 已有；错误 `role=alert`；进度 `aria-live=polite` 已有。
+- sheet 宽度 `min(360px, 100vw-32px)` 在 320 px 手机上文字换行拥挤——hint 缩到两行，或折叠到 "?"。
+- 缩略图 96×96 改为与塔同比例的竖图（例如 64×128）。
+
+### 建议的状态机
+
+```
+idle
+ ├─(not signed in)──────────► gate:signin
+ ├─(not Pro)────────────────► gate:tier
+ ├─(daily limit hit)────────► gate:limit
+ └─(pick / capture / drop)─► preview ──(crop, fit-preview, rights ✓)──► confirm-replace?
+                                                                      └► uploading ─► queued ─► forging(pct, stage) ─► landing ─► done ─► adjust ─► publish?
+                                                                                    └────────────── error(code) ─► retry(same requestId)
+resume: on open, GET active?product=building → if subject==lm → jump to queued/forging with pct
+leave:  sheet close does NOT abort the job (server tick); it only stops polling
+```
+
+### 新 i18n keys（建议，9 locales）
+
+`planet.scan.building.take` · `.library` · `.drop` · `.preview.fit` ("Stands {h} m tall, {w} m wide — like {name}") · `.guide.1-3` · `.rights` · `.replace.warn` · `.replace.keep` · `.stage.queued` · `.stage.sculpting` · `.stage.landing` · `.stage.slow` · `.quota` ("{used} / {limit} today") · `.err.tooLarge` · `.err.notBuilding` · `.err.expired` · `.err.timeout` · `.err.offline` · `.err.ours` · `.retry` · `.adjust.height` · `.adjust.rotate` · `.adjust.ground` · `.mirror` · `.glb.pick` · `.glb.hint` · `.notify`
+
+### 优先级
+
+| 波次 | 内容 | 依赖 |
+|-----|------|------|
+| 1 | A 门槛前置 · B 预览+拍照按钮 · E 错误分支 · F 覆盖确认 · G 版权勾选 | 仅前端 + i18n |
+| 2 | C 服务端 tick + 通知 · B 合身预览与裁切 · 配额显示 | forge-tick、planet_creations 事件 |
+| 3 | D 落地后微调 + Mirror front · H glTF 直传 · G OCR 模糊 | 引擎 transform 持久化、新校验器 |
+
+### 验收
+
+- 非 Pro 用户打开 sheet：0 次网络上传即看到 Pro 门槛。
+- 选一张 3:2 横图：预览显示留白的细塔；用户能裁到竖比后再上传。
+- 关闭 sheet 后 10 分钟回来：建筑已落地（不需要重开 sheet 等待）。
+- 拿一张猫的照片：错误行说明"看不到整栋楼"，不是通用 failed。
+- 有活动付费窗口时重锻：出现作废警告，Keep 可取消。
+
+## English
+
+### What the sheet does today
+Native `<input type="file" accept="image/*">` (no capture, no preview, no crop) → client downscale ladder 2048/1536/1024/768 → white fill → JPEG q0.9 ≤ 3 MiB → `POST /api/forge/source` → `POST /api/forge/start {product:"building", landmarkId}` → **client-driven** `POST /api/forge/advance` with backoff 3 s → 8 s → 20 s, 35 min hard cap → `onLanded()` → `PublishNextStep`. Eight states; every non-gate error collapses to one "could not make a building" line. Closing the sheet aborts polling; the job only lands when the user comes back. Start returns daily credit usage the sheet never shows.
+
+### Refinements, in order
+1. **Gate first** — sign-in / Pro / daily-limit shown before any upload; quota footer "1 / 3 today".
+2. **Pick → preview → fit** — Take photo (`capture`) + Library + drop; show the chosen photo; overlay it on the existing 96×96 tower silhouette with the engine's uniform-fit rule; vertical crop defaulting to the tower's `heightM : footprintM`; three-line shooting guide; say "Location data never leaves your phone".
+3. **Leave and come back** — server-side tick for `product='building'` so landing does not depend on the tab; in-app toast / optional email when up; stage copy specific to buildings.
+4. **After landing** — Fit height / Fit footprint, Rotate 90°, Ground ±2 m (transforms, no re-forge); Mirror front for single-photo backs; slot for a second 45° photo.
+5. **Diagnosable failures** — branch on `ForgeError.code` (`source-too-large`, `job-failed`, `job-expired`, `timed-out`, `network-error`, `upstream-failed`), `role="alert"`, Retry reusing the same `requestId`.
+6. **Overwrite guard** — confirm when a paid public window is active; forfeiture stated plainly.
+7. **Policy** — rights checkbox; OCR signage blur or `needs-review`; face/plate blur; button stays curated-landmark-only.
+8. **glTF/GLB direct lane** (Pro+) — ≤ 8 MiB, same creation row, same fit, no forge credits.
+9. **A11y / small** — alert roles, hint folded on 320 px, portrait thumbnail.
+
+Waves: (1) gates + preview + errors + guards, front-end only; (2) server tick + notify + fit preview/crop + quota; (3) post-landing transforms + mirror + GLB lane + OCR.
+
+---
+
 # 中文
 
 ## 一句话
