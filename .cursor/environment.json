@@ -1,6 +1,7 @@
 {
   "name": "yok-zhang garden",
   "install": "bash scripts/cloud-agent-install.sh",
+  "repositoryDependencies": ["github.com/Jubit-AI/jubuddy-game"],
   "terminals": [
     {
       "name": "next-dev",
