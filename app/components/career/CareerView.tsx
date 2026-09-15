@@ -435,6 +435,9 @@ export function CareerView({ locale = "en" }: { locale?: Locale }) {
             <button type="button" onClick={askNotify} className="btn btn-ghost">
               {c.notifyAsk}
             </button>
+            <Link href={href("/funding")} className="btn btn-ghost">
+              {m.nav.funding}
+            </Link>
             <Link href={href("/products")} className="btn btn-ghost">
               {m.cta.allProducts}
             </Link>
@@ -495,6 +498,9 @@ function Dashboard({
           <a href={links.emailGmail} className="btn btn-primary cta-pop">
             {copy.writeYok}
           </a>
+          <Link href={href("/funding")} className="btn btn-ghost">
+            {m.nav.funding}
+          </Link>
           <Link href={href("/products")} className="btn btn-ghost">
             {m.cta.allProducts}
           </Link>
