@@ -2,11 +2,11 @@ import type { CareerRole, CareerSnapshot } from "./types";
 import { isOpen, msUntil, urgency } from "./clock";
 
 export const snapshot: CareerSnapshot = {
-  updatedAt: "2026-09-09T19:20:00Z",
+  updatedAt: "2026-09-15T09:20:00Z",
   thesis:
-    "Licensed Hong Kong IM / Director / OMO / RO at a China top-15 quantitative fund, founder-executive of live AI products, and operator of an offshore hedge trading book since Sep 2025. Not a classic PE modeller. The edge is indwelling: ships, then holds the desk.",
+    "Licensed Hong Kong IM / Director / OMO / RO at a China top-15 quantitative fund, founder-executive of live AI products, and operator of an offshore hedge trading book since Sep 2025. Not a classic PE modeller. The edge is indwelling: ships, then holds the desk. Career lives at ichina.co/career. Funding lives at ichina.co/funding. Neither desk belongs to poker or planet. Doing both — including part-time building — does not merge applications, inboxes, or drafts.",
   thesisZh:
-    "香港持牌投资经理 / 董事 / 整体管理监督 / 负责人员，任职中国头部十五量化基金；同时是已上线 AI 产品的创始人兼执行董事，并自 2025 年 9 月起运营离岸对冲交易账簿。不是典型 PE 建模手。长处是默会：先做出来，再守住台面。",
+    "香港持牌投资经理 / 董事 / 整体管理监督 / 负责人员，任职中国头部十五量化基金；同时是已上线 AI 产品的创始人兼执行董事，并自 2025 年 9 月起运营离岸对冲交易账簿。不是典型 PE 建模手。长处是默会：先做出来，再守住台面。求职在 ichina.co/career。融资在 ichina.co/funding。两张台面都不属于 poker，也不属于 planet。两边同时做、包括兼职写代码，也不合并申请、邮箱或草稿。",
 };
 
 export const roles: CareerRole[] = [
