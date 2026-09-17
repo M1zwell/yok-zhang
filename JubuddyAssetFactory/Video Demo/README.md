@@ -22,4 +22,11 @@ Post these first from pass 2:
 - `14_courier_rush_roster.mp4` — Courier Rush start on Lower Manhattan
 - `still_coin_rally_nyc_street.png` — Rally that actually drove (video master later lost the route)
 
-Pass 3 (localhost / 30fps, cropped chrome, 1.45–1.7×): use `06-highlights/smooth_*.mp4` plus Remotion from `http://localhost:3100/film` (`localhost_film_en.mp4`, `localhost_film_zh_hans.mp4`). Those are the ones to post when the pass-2 masters feel slow.
+Pass 3 (localhost / 30fps kiosk, 8–9s):
+
+- `localhost_film_en.mp4` / `localhost_film_zh_hans.mp4` — Remotion from `http://localhost:3100/film`
+- `localhost_overview_central.mp4` — Central night overview
+- `localhost_paris_overview.mp4` — Paris Île de la Cité
+- `smooth_*.mp4` — cropped 1.45× recuts of pass-2 keepers (Depths dungeon, Courier, live pin, …)
+
+Skip `localhost_depths.mp4` (Paris duplicate). Rally proof remains `still_coin_rally_nyc_street.png`.

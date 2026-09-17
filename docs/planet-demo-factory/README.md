@@ -138,18 +138,25 @@ ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :1+0,0 -t 9 ...
 
 One verb per take. Poll canvas via CDP (`wait`) instead of sleeping. Do not confirm **Ask to be located**.
 
-### Pass 3 posting tray (`06-highlights/smooth_*.mp4`)
+### Pass 3 posting tray (`06-highlights/`)
+
+Shot on **localhost** (`:3100/film` Remotion + `127.0.0.1:4173` cached planet). 1920×1080, **30 fps**, 8–9s, kiosk (no tab chrome). Do not post the 25fps 40s+ masters as the hero.
 
 | Clip | Use |
 | --- | --- |
-| `smooth_depths_inside` | Depths dungeon (guest enter) |
-| `smooth_paris_ile_de_la_cite` | Second city |
-| `smooth_hud_overview` | Overview diorama |
-| `smooth_courier_rush` | Courier roster |
-| `smooth_night_weather` / `smooth_weather_cycle` | Weather HUD — prefer the shorter night cut |
-| `smooth_overview_central` | Central orbit |
-| `smooth_ultra_siege` | Siege Wave 1 |
-| `smooth_grey_hour_interior` | Interior + Print |
-| `localhost_film_en.mp4` / `localhost_film_zh_hans.mp4` | Remotion 9s from `/film` — no production wait |
+| `localhost_film_en.mp4` | Remotion CityPlanet 9s — EN captions, `/film` |
+| `localhost_film_zh_hans.mp4` | Same loop, 简体 captions — XHS |
+| `localhost_overview_central.mp4` | Central Cube-Belt overview, night, kiosk |
+| `localhost_paris_overview.mp4` | Paris Île de la Cité overview |
+| `localhost_weather_night_rain.mp4` | Night HUD on Central (already night; rain/typhoon not isolated) |
+| `smooth_depths_inside` / `smooth_depths_inside_v2` | Depths dungeon (guest enter) — recut of pass 2 |
+| `smooth_paris_ile_de_la_cite` | Second-city recut of pass 2 |
+| `smooth_hud_overview` / `smooth_overview_central` | Overview recuts |
+| `smooth_courier_rush` / `smooth_courier_roster` | Courier roster recuts |
+| `smooth_night_weather` | Weather HUD recut — prefer this over the 21s `smooth_weather_cycle` |
+| `smooth_ultra_siege` | Siege Wave 1 recut |
+| `smooth_grey_hour_interior` | Interior + Print recut |
+| `smooth_live_data_pin` | Live pin recut |
+| `smooth_hero_picker` | Hero picker recut |
 
-Still skip `07` (NYC + route-building) and `09`/`13`. Rally proof remains `still_coin_rally_nyc_street.png`.
+Skip posting `localhost_depths.mp4` (Paris duplicate) and `07` / `09` / `13`. Rally proof remains `still_coin_rally_nyc_street.png`.

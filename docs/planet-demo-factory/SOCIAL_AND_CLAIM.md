@@ -48,7 +48,7 @@ Caption template: **verb + place + proof of live**. Example: “Walk Central. Fl
 
 ## Flows worth a second pass (not fully in this library)
 
-**Pass 3 smoothness:** recut keepers with `scripts/smooth-cut.sh` (crop chrome, 30fps, 1.45×). New 9s Remotion loops come from garden localhost `/film` (EN) and `/zh-Hans/film` (XHS). Do not post the 25fps 40s+ masters as the hero.
+**Pass 3 smoothness:** recut keepers with `scripts/smooth-cut.sh` (crop chrome, 30fps, 1.45×). New 9s Remotion loops come from garden localhost `/film` (EN) and `/zh-Hans/film` (XHS). Live planet shorts (`localhost_overview_central`, `localhost_paris_overview`) were kiosk-filmed through `http://127.0.0.1:4173` (Chrome-UA cache). Do not post the 25fps 40s+ masters as the hero.
 
 | Flow | Today | Film next |
 | --- | --- | --- |
