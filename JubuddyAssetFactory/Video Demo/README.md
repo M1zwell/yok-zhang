@@ -21,3 +21,5 @@ Post these first from pass 2:
 - `10_paris_ile_de_la_cite.mp4` — second-city proof
 - `14_courier_rush_roster.mp4` — Courier Rush start on Lower Manhattan
 - `still_coin_rally_nyc_street.png` — Rally that actually drove (video master later lost the route)
+
+Pass 3 (localhost / 30fps, cropped chrome, 1.45–1.7×): use `06-highlights/smooth_*.mp4` plus Remotion from `http://localhost:3100/film` (`localhost_film_en.mp4`, `localhost_film_zh_hans.mp4`). Those are the ones to post when the pass-2 masters feel slow.

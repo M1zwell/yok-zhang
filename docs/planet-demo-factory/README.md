@@ -106,3 +106,50 @@ JubuddyAssetFactory/Video Demo/  →  D:\JubuddyAssetFactory\Video Demo\
 ```
 
 Keep `06-highlights` as the posting tray. Masters stay in `01`–`05`.
+
+---
+
+## Localhost smooth pipeline (pass 3)
+
+Production takes were slow because of 3–8s HUD sleeps, 25fps, ~96px browser chrome, and cold network waits. Recut those keepers, then film new shorts from **localhost**.
+
+### What runs locally
+
+| Surface | URL | What it is |
+| --- | --- | --- |
+| Garden Remotion | `http://localhost:3100/film` | Fullscreen `CityPlanet` Player, 1920×1080, **30 fps**, 270 frames (9s), loop, no garden chrome. Locale: `/zh-Hans/film`, `/zh-Hant/film`. `noindex`. |
+| Caching proxy | `http://127.0.0.1:4173` → `https://jubuddy.com` | Optional. Must send a **Chrome User-Agent** or Vercel/CF returns **403** on `/assets/*.js`. Script: `docs/planet-demo-factory/scripts/planet-proxy.mjs`. |
+
+Planet source is **not** in this garden. The live SPA stays jubuddy.com (or the proxy once JS is cached). `/film` is the honest localhost 30fps film.
+
+### Cut recipe
+
+```
+docs/planet-demo-factory/scripts/smooth-cut.sh SRC DST [SPEED]
+```
+
+Default **1.45×**. Crop `1920x1200` → drop ~96px chrome → `1920x1080` `fps=30` `crf 20`. Weather cycle used **1.70×** (21s is too long for a reel).
+
+Kiosk recapture (no crop needed if Chrome is `--kiosk` / fullscreen):
+
+```
+ffmpeg -f x11grab -video_size 1920x1080 -framerate 30 -i :1+0,0 -t 9 ...
+```
+
+One verb per take. Poll canvas via CDP (`wait`) instead of sleeping. Do not confirm **Ask to be located**.
+
+### Pass 3 posting tray (`06-highlights/smooth_*.mp4`)
+
+| Clip | Use |
+| --- | --- |
+| `smooth_depths_inside` | Depths dungeon (guest enter) |
+| `smooth_paris_ile_de_la_cite` | Second city |
+| `smooth_hud_overview` | Overview diorama |
+| `smooth_courier_rush` | Courier roster |
+| `smooth_night_weather` / `smooth_weather_cycle` | Weather HUD — prefer the shorter night cut |
+| `smooth_overview_central` | Central orbit |
+| `smooth_ultra_siege` | Siege Wave 1 |
+| `smooth_grey_hour_interior` | Interior + Print |
+| `localhost_film_en.mp4` / `localhost_film_zh_hans.mp4` | Remotion 9s from `/film` — no production wait |
+
+Still skip `07` (NYC + route-building) and `09`/`13`. Rally proof remains `still_coin_rally_nyc_street.png`.

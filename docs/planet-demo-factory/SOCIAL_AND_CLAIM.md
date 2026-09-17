@@ -48,6 +48,8 @@ Caption template: **verb + place + proof of live**. Example: “Walk Central. Fl
 
 ## Flows worth a second pass (not fully in this library)
 
+**Pass 3 smoothness:** recut keepers with `scripts/smooth-cut.sh` (crop chrome, 30fps, 1.45×). New 9s Remotion loops come from garden localhost `/film` (EN) and `/zh-Hans/film` (XHS). Do not post the 25fps 40s+ masters as the hero.
+
 | Flow | Today | Film next |
 | --- | --- | --- |
 | Guest → walk | **Strongest truth** — Central + Paris + Tokyo catalog | Crop browser chrome for cinematic; keep one take *with* the tab for “runs in a browser” |
