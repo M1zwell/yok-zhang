@@ -6,3 +6,9 @@ out
 
 tsconfig.tsbuildinfo
 kiosk_local.db
+
+# Local / Cloud Agent screen-capture library (binary masters stay off git)
+JubuddyAssetFactory/Video Demo/**/*.mp4
+JubuddyAssetFactory/Video Demo/**/*.png
+JubuddyAssetFactory/Video Demo/**/*.jpg
+JubuddyAssetFactory/Video Demo/**/*.webp
