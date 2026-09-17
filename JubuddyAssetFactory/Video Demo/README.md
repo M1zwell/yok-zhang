@@ -7,10 +7,17 @@ See `docs/planet-demo-factory/README.md` and `docs/planet-demo-factory/SOCIAL_AN
 Binaries (`*.mp4` / stills) are gitignored. Pull them from the Cloud Agent artifacts for this run, then copy the whole tree onto D:.
 
 ```
-01-modes/       Immersive, Overview, All HK, Kart, Siege, change planet
-02-hud-tools/   Weather, Photo, Interior, Pet, tram, live pin
-03-hero-pet/    Hero picker + Grey Hour
-04-depths-build Depths delver, Bastion, Grey Hour interior, Print
-05-flows/       Sign-in / 404 signup / Print $6 stills
-06-highlights/  8–18s posting tray
+01-modes/       Immersive, Overview, All HK, Kart, Siege, NYC Coin Rally, Courier, Tokyo, Paris
+02-hud-tools/   Weather, Photo, Interior, Pet, tram, live pin, Stargaze constellations, full HUD
+03-hero-pet/    Hero picker + Grey Hour + Bastion / Depths roster
+04-depths-build Depths enter + inside dungeon, Bastion, Grey Hour interior, Print / 3D
+05-flows/       Sign-in / 404 signup / Print $6 / Google 2FA phone verify
+06-highlights/  8–18s posting tray (`01`–`13`)
 ```
+
+Post these first from pass 2:
+
+- `08_bastion_depths_inside.mp4` — dungeon, not just the picker
+- `10_paris_ile_de_la_cite.mp4` — second-city proof
+- `14_courier_rush_roster.mp4` — Courier Rush start on Lower Manhattan
+- `still_coin_rally_nyc_street.png` — Rally that actually drove (video master later lost the route)

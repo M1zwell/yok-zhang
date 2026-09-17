@@ -31,8 +31,8 @@ Same beat **CN (小红书)** + **EN (X)**. Skip Reddit until captcha is easy.
 
 | Lane | Cadence | Use these files |
 | --- | --- | --- |
-| Hero / acquisition | 3–4×/week X + XHS | `01_overview_central_diorama` · `02_night_weather_central` · NYC still |
-| Feature HUD | 2×/week | Photo/Interior/Pet · Hero picker · Kart HUD · Siege Wave 1 — **one verb per short** |
+| Hero / acquisition | 3–4×/week X + XHS | `01_overview_central_diorama` · `10_paris_ile_de_la_cite` · `11_full_hud_overview` · still `still_coin_rally_nyc_street.png` |
+| Feature HUD | 2×/week | `08_bastion_depths_inside` · `14_courier_rush_roster` · Kart HUD · Siege Wave 1 — **one verb per short** |
 | Money honesty | 1×/week | Print $6 still + “Sign in to order” · never pay-to-win |
 | BiP / trust | weekday desk | Depths delver · Bastion 0 walls · Cursor/debug, no spend |
 
@@ -50,13 +50,15 @@ Caption template: **verb + place + proof of live**. Example: “Walk Central. Fl
 
 | Flow | Today | Film next |
 | --- | --- | --- |
-| Guest → walk | **Strongest truth** — already in batch 1 | Crop browser chrome for cinematic; keep one take *with* the tab for “runs in a browser” |
-| Register | `/signup` 404; Jubit `/signin` works | Start on planet Sign in → “Open sign-in” → jubit.ai/signin. Stop before Google. |
-| Refill ju | Pack picker exists; guest cannot open checkout | Sign in, click Refill ju, show $5/$10/$25, **do not pay** |
+| Guest → walk | **Strongest truth** — Central + Paris + Tokyo catalog | Crop browser chrome for cinematic; keep one take *with* the tab for “runs in a browser” |
+| Register | `/signup` 404; Jubit `/signin` works; Google 2FA filmed (`05-flows/signin_google_phone_verify.mp4`) | Complete phone verify on a trusted device, then film `☁️ Synced` |
+| Refill ju | Pack picker exists; guest cannot open checkout | After Synced: click Refill ju, show $5/$10/$25, **do not pay** |
 | Subscribe | Not on planet; ChatLab is a debate lab | If you show $8.88, label **ChatLab**, not planet P2W |
 | HUD keywords | I / P / M / O / G visible | 8–12s cuts, one key each |
-| Re-skin / Build 30 ju | Buttons exist (Re-skin, Real building, empty lot copy) | Open sheet, **no file, no ju spend** |
+| Re-skin / Build 30 ju | Interior + Shop / 3D / Print filmed; empty-lot sheet still flaky | Open sheet, **no file, no ju spend** |
 | Alt+Shift rotate | Attempted; not a clean isolated take | Dedicated 8s: hold Alt+Shift, drag canvas |
+| Coin Rally | **Street still works** (`still_coin_rally_nyc_street.png` — Gas/Brake, 26 km/h). The 65s master later toasts **no connected drivable route**. `07` is NYC planet + route-building, not a clean drive. | Re-record 12s after the route exists; do not post Central’s “no road” take |
+| Bastion Depths | **Entered** as guest — portal + hex dungeon + Jubit 3D (`08` / `09`) | Longer combat / Boss Lair if you want a boss reel |
 
 ---
 
@@ -70,6 +72,8 @@ EN
 4. Night on a city-planet. Not a screenshot — a tab.
 5. Print the globe you walked. Desk 80 mm is $6. Not pay-to-win.
 6. Drop me somewhere → Lower Manhattan. Same toy, another city.
+7. Coin Rally on NYC: we have a street still (Gas/Brake). The 65s take later says no route — don’t post that toast.
+8. Bastion Depths is a dungeon on the planet. Guest can walk in.
 
 CN
 
@@ -79,3 +83,5 @@ CN
 4. 城市行星的夜。不是渲染圖，是一個分頁。
 5. 把你走過的行星打出來。桌上 80mm 美金 6。不是課金贏。
 6. 「隨便丟我去」——下城曼哈頓。同一套玩具，另一座城。
+7. 紐約 Coin Rally：有一張街頭油門剎車靜幀。65 秒母帶後面會跳出「還沒路」——別當完成片發。
+8. 堡壘深淵是行星上的地牢。遊客也能走進去。
