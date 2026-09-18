@@ -1401,3 +1401,29 @@ html.light .frame-fallback {
   padding-top: max(1.5rem, env(safe-area-inset-top, 0px), 6dvh);
 }
 
+/* --- /film kiosk: hide garden chrome for 30fps Remotion capture --- */
+
+html:has(.film-root) .glass-header,
+html:has(.film-root) .site-footer,
+html:has(.film-root) .cursor-glow,
+html:has(.film-root) .film-grain,
+html:has(.film-root) .site-atmosphere,
+html:has(.film-root) a[href="#content"] {
+  display: none !important;
+}
+
+html:has(.film-root),
+html:has(.film-root) body {
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+.film-root {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  width: 100vw;
+  height: 100dvh;
+  background: #0a0a0a;
+}
+
