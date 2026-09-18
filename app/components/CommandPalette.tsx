@@ -30,13 +30,23 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const items = useMemo<Item[]>(() => {
-    const pages: Item[] = nav.map((n) => ({
-      id: `page-${n.href}`,
-      label: n.label,
-      hint: n.href,
-      href: localizeHref(n.href, locale),
-      group: "Garden",
-    }));
+    const pages: Item[] = [
+      ...nav.map((n) => ({
+        id: `page-${n.href}`,
+        label: n.label,
+        hint: n.href,
+        href: localizeHref(n.href, locale),
+        group: "Garden",
+      })),
+      {
+        id: "page-tekoart",
+        label: "TekO Art",
+        hint: "/tekoart",
+        href: localizeHref("/tekoart", locale),
+        group: "Garden",
+        summary: "Window cases. Dawn tokens. Checkout on Shopify.",
+      },
+    ];
     const postItems: Item[] = posts.map((p) => ({
       id: `post-${p.slug}`,
       label: p.title,

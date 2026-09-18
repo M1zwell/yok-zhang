@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "hero": { "type": "hero" },
+    "face-hubs": { "type": "face-hubs" },
+    "featured": { "type": "featured-products" },
+    "how": { "type": "how-it-works" }
+  },
+  "order": ["hero", "face-hubs", "featured", "how"]
+}

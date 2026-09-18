@@ -127,6 +127,7 @@ export const ko: Messages = {
     groupGames: "게임",
     groupJubit: "Jubit",
     groupDseek: "dseek.ai",
+    groupShop: "TekO Art",
     groupOther: "그 외 라이브",
   },
   toolsPage: {

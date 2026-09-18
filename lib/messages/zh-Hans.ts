@@ -124,6 +124,7 @@ export const zhHans: Messages = {
     groupGames: "游戏",
     groupJubit: "Jubit",
     groupDseek: "dseek.ai",
+    groupShop: "TekO Art",
     groupOther: "也在线",
   },
   toolsPage: {

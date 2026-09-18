@@ -1,0 +1,35 @@
+<section class="teko-section">
+  <p class="teko-kicker">{{ section.settings.kicker }}</p>
+  <h2>{{ section.settings.title }}</h2>
+  <div class="teko-how">
+    {% for block in section.blocks %}
+      <article {{ block.shopify_attributes }}>
+        {% if block.settings.video %}
+          {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
+        {% endif %}
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.text }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "How it works",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "How it works" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Slide. Dress. Swap." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "video", "id": "video", "label": "Video" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "text", "label": "Text" }
+      ]
+    }
+  ]
+}
+{% endschema %}

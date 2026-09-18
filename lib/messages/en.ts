@@ -126,6 +126,7 @@ export const en = {
     groupGames: "Games",
     groupJubit: "Jubit",
     groupDseek: "dseek.ai",
+    groupShop: "TekO Art",
     groupOther: "Also live",
   },
   toolsPage: {

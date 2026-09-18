@@ -1,0 +1,24 @@
+<section class="teko-section">
+  <p class="teko-kicker">{{ page.title | default: 'Page' }}</p>
+  <h2>{{ page.title | default: 'TekO Art' }}</h2>
+  <div class="teko-html">
+    {{ page.content | default: collection.description }}
+    {% if search.performed %}
+      <div class="teko-grid">
+        {% for item in search.results %}
+          {% if item.object_type == 'product' %}
+            {% render 'product-card', product: item %}
+          {% endif %}
+        {% else %}
+          <p>No matches on this desk.</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Page",
+  "settings": []
+}
+{% endschema %}

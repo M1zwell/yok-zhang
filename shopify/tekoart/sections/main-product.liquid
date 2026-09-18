@@ -1,0 +1,38 @@
+<section class="teko-product">
+  <div class="teko-gallery">
+    {% if product.featured_image %}
+      <img src="{{ product.featured_image | image_url: width: 1400 }}" alt="{{ product.featured_image.alt | escape }}">
+    {% endif %}
+  </div>
+  <div class="teko-product-copy">
+    <p class="teko-kicker">{{ product.type | default: 'TekO' }}</p>
+    <h1>{{ product.title }}</h1>
+    <p class="teko-price">{{ product.selected_or_first_available_variant.price | money }}</p>
+    {% form 'product', product %}
+      {% unless product.has_only_default_variant %}
+        <p class="teko-kicker">Choose a phone</p>
+        <div class="teko-pills">
+          {% for variant in product.variants %}
+            <label class="teko-pill">
+              <input type="radio" name="id" value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}checked{% endif %} {% unless variant.available %}disabled{% endunless %}>
+              {{ variant.title }}
+            </label>
+          {% endfor %}
+        </div>
+      {% else %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      {% endunless %}
+      <input type="number" name="quantity" value="1" min="1" max="99">
+      <button class="teko-btn teko-btn-primary" type="submit" {% unless product.available %}disabled{% endunless %}>
+        {% if product.available %}Add to cart{% else %}Sold out{% endif %}
+      </button>
+    {% endform %}
+    <div class="teko-html">{{ product.description }}</div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Product",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,34 @@
+<section class="teko-hero">
+  <div>
+    <p class="teko-kicker">{{ section.settings.kicker }}</p>
+    <h1>{{ section.settings.title }}</h1>
+    <p class="teko-lead">{{ section.settings.lead }}</p>
+    <p class="teko-zh">{{ section.settings.zh }}</p>
+    <div class="teko-hero-actions">
+      <a class="teko-btn teko-btn-primary" href="{{ section.settings.cta_url }}">{{ section.settings.cta }}</a>
+      <a class="teko-btn teko-btn-ghost" href="{{ section.settings.secondary_url }}">{{ section.settings.secondary }}</a>
+    </div>
+  </div>
+  <div class="teko-hero-stage">
+    {% if section.settings.image %}
+      <img src="{{ section.settings.image | image_url: width: 1400 }}" alt="{{ section.settings.title }}">
+    {% endif %}
+    <p class="teko-hero-badge">Fits a standard 63×88 card</p>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Hong Kong · 63×88 window" },
+    { "type": "text", "id": "title", "label": "Title", "default": "A case you dress. A card you change." },
+    { "type": "textarea", "id": "lead", "label": "Lead", "default": "A pictorial-book window on the phone. Slide a 63×88. Tomorrow, swap the face." },
+    { "type": "text", "id": "zh", "label": "Chinese line", "default": "壳只是画框。我们不卖别人的牌。" },
+    { "type": "text", "id": "cta", "label": "Primary CTA", "default": "Shop the window" },
+    { "type": "url", "id": "cta_url", "label": "Primary URL" },
+    { "type": "text", "id": "secondary", "label": "Secondary CTA", "default": "Pick a face" },
+    { "type": "url", "id": "secondary_url", "label": "Secondary URL" },
+    { "type": "image_picker", "id": "image", "label": "Hero image" }
+  ]
+}
+{% endschema %}

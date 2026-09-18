@@ -1,0 +1,27 @@
+<section class="teko-section">
+  <p class="teko-kicker">Collection</p>
+  <h2>{{ collection.title | default: 'Products' }}</h2>
+  <div class="teko-grid">
+    {% if collection.products.size > 0 %}
+      {% for product in collection.products %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    {% elsif collections.all.products.size > 0 %}
+      {% for product in collections.all.products %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    {% else %}
+      {% for item in collections %}
+        <a class="teko-card" href="{{ item.url }}">
+          <span class="teko-card-body"><h3>{{ item.title }}</h3></span>
+        </a>
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Collection",
+  "settings": []
+}
+{% endschema %}

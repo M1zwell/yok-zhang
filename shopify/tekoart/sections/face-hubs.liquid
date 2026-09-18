@@ -1,0 +1,39 @@
+<section class="teko-section">
+  <p class="teko-kicker">{{ section.settings.kicker }}</p>
+  <h2>{{ section.settings.title }}</h2>
+  <div class="teko-hex-row">
+    {% for block in section.blocks %}
+      <a class="teko-hex" href="{{ block.settings.url }}" {{ block.shopify_attributes }}>
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}">
+        {% endif %}
+        <span class="teko-hex-label">
+          <strong>{{ block.settings.title }}</strong>
+          <span>{{ block.settings.meta }}</span>
+        </span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Face hubs",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Pictorial book" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Three faces print today" }
+  ],
+  "blocks": [
+    {
+      "type": "face",
+      "name": "Face",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Name" },
+        { "type": "text", "id": "meta", "label": "Book line" },
+        { "type": "url", "id": "url", "label": "Link" },
+        { "type": "image_picker", "id": "image", "label": "Image" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Face hubs" }]
+}
+{% endschema %}

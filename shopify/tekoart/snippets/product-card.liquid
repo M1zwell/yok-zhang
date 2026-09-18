@@ -1,0 +1,21 @@
+<article class="teko-card">
+  <a class="teko-card-media" href="{{ product.url }}">
+    {% if product.featured_image %}
+      <img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.featured_image.alt | escape }}">
+    {% endif %}
+    <span class="teko-badge{% unless product.available %} is-out{% endunless %}">
+      {% if product.available %}In stock{% else %}Sold out{% endif %}
+    </span>
+  </a>
+  <div class="teko-card-body">
+    <p class="teko-muted">{{ product.type }}</p>
+    <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <p class="teko-price">{{ product.price | money }}</p>
+    <form action="{{ routes.cart_add_url }}" method="post">
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <button class="teko-btn teko-btn-primary" type="submit" {% unless product.available %}disabled{% endunless %}>
+        {% if product.available %}Add to cart{% else %}Sold out{% endif %}
+      </button>
+    </form>
+  </div>
+</article>

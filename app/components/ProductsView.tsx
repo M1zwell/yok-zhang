@@ -14,6 +14,7 @@ const groupLabel: Record<string, keyof ReturnType<typeof t>["productsPage"]> = {
   games: "groupGames",
   jubit: "groupJubit",
   dseek: "groupDseek",
+  shop: "groupShop",
   other: "groupOther",
 };
 

@@ -1,0 +1,21 @@
+<section class="teko-section">
+  <p class="teko-kicker">{{ section.settings.kicker }}</p>
+  <h2>{{ section.settings.title }}</h2>
+  <div class="teko-grid">
+    {% assign collection = collections[section.settings.collection] %}
+    {% for product in collection.products limit: section.settings.limit %}
+      {% render 'product-card', product: product %}
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Featured products",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "In stock" },
+    { "type": "text", "id": "title", "label": "Title", "default": "The desk" },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "limit", "label": "Limit", "min": 2, "max": 12, "step": 1, "default": 4 }
+  ]
+}
+{% endschema %}

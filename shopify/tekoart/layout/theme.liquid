@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page_title }}{% if current_tags %} – {{ current_tags | join: ', ' }}{% endif %}{% if current_page != 1 %} – {{ current_page }}{% endif %} – {{ shop.name }}</title>
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+    {{ 'teko-storefront.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body class="teko-root">
+    {% sections 'header-group' %}
+    <div class="teko-wrap">
+      {{ content_for_layout }}
+    </div>
+    {% sections 'footer-group' %}
+    {{ 'teko-storefront.js' | asset_url | script_tag }}
+  </body>
+</html>
