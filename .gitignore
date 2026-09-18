@@ -6,3 +6,5 @@ out
 
 tsconfig.tsbuildinfo
 kiosk_local.db
+.vercel
+.env*
