@@ -1,6 +1,13 @@
 # Planet demo factory — jubuddy.com/planet
 
-Cloud reshoot, 17 Sep 2026. Folder map matches `D:\JubuddyAssetFactory\Video Demo`.
+**人在强机上拍，从这里开始（不要用云端 Linux 成片当成品）：**
+
+- [`FILM_ON_PC.md`](./FILM_ON_PC.md) — 摆桌、OBS、禁忌、还文件
+- [`SHOT_LIST.md`](./SHOT_LIST.md) — 对着打勾的清单
+- [`SOCIAL_AND_CLAIM.md`](./SOCIAL_AND_CLAIM.md) — 文案；不要说 world’s first
+- [`pc/`](./pc/) — Windows 一键建目录 / kiosk
+
+Cloud Linux 17 Sep 2026 那批只当「按钮在哪」的目录。Folder map matches `D:\JubuddyAssetFactory\Video Demo`.
 
 Masters and stills from this run live in the Cloud Agent artifacts (and locally under `JubuddyAssetFactory/Video Demo/`). Binaries are gitignored. Copy the folder onto the PC as:
 

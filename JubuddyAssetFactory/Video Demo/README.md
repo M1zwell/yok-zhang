@@ -2,7 +2,9 @@
 
 Mirrors `D:\JubuddyAssetFactory\Video Demo`.
 
-See `docs/planet-demo-factory/README.md` and `docs/planet-demo-factory/SOCIAL_AND_CLAIM.md` in the garden repo.
+**你来拍：** 打开仓库里的 `docs/planet-demo-factory/FILM_ON_PC.md`，对着 `SHOT_LIST.md` 打勾。云端 Linux 成片太慢，只当目录。
+
+See also `docs/planet-demo-factory/SOCIAL_AND_CLAIM.md`.
 
 Binaries (`*.mp4` / stills) are gitignored. Pull them from the Cloud Agent artifacts for this run, then copy the whole tree onto D:.
 

@@ -1,5 +1,7 @@
 # Claim + social routine (planet reels)
 
+**拍片请用 [`FILM_ON_PC.md`](./FILM_ON_PC.md) + [`SHOT_LIST.md`](./SHOT_LIST.md)。** 云端 Linux 成片太慢，不当 Hero。下面是发片时能说 / 不能说。
+
 ## Can we say “the 1st playable city planet with LIVE data”?
 
 **Lead with the category, not “1st.”** Academic HK 3D sandboxes (e.g. UrbanGround) and other globe toys exist. Absolute firsts get challenged.
