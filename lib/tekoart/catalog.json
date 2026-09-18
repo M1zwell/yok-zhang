@@ -1,0 +1,406 @@
+{
+  "shop": {
+    "name": "Tek O Art",
+    "domain": "tekoart.com",
+    "myshopify": "8bf8e1-b2.myshopify.com",
+    "shopId": 68803428596,
+    "currency": "HKD",
+    "country": "HK",
+    "theme": {
+      "name": "Dawn",
+      "schemaVersion": "13.0.0",
+      "themeStoreId": 887
+    },
+    "mark": "https://tekoart.com/cdn/shop/files/teko-mark.png",
+    "address": "Rm12, 20/F, Ho King Comm CTR, 2-16 Fayuen St, Mong Kok, Hong Kong",
+    "origin": "https://tekoart.com"
+  },
+  "products": [
+    {
+      "id": 9622889988340,
+      "title": "Juju Card Holder",
+      "handle": "juju-card-holder",
+      "bodyHtml": "<p>A simple stand / window holder for a 63×88 mm printed card. First print is Juju. Not a lock-in collector case. Not Showcased Cards. Original art from the pictorial book.</p>",
+      "vendor": "TekO",
+      "productType": "Card Holder",
+      "tags": [
+        "holder",
+        "juju",
+        "pictorial-book"
+      ],
+      "publishedAt": "2026-08-21T15:12:06+08:00",
+      "variants": [
+        {
+          "id": 49228633538804,
+          "title": "Default Title",
+          "sku": "TEKO-HOLD-JUJU",
+          "available": true,
+          "price": "88.00",
+          "compareAtPrice": null,
+          "option1": "Default Title",
+          "grams": 80
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": 53967099625716,
+          "src": "https://cdn.shopify.com/s/files/1/0688/0342/8596/files/juju-card-holder.png?v=1787295326",
+          "width": 1536,
+          "height": 1024,
+          "alt": null,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": 9622889922804,
+      "title": "Yutu Window Case",
+      "handle": "yutu-tcg-window-case",
+      "bodyHtml": "<p>A case you dress. A card you change.</p>\n<p>Transparent window. Standard 63×88, same as a standard TCG card. Made in Hong Kong. Not a lock.</p>\n<p><strong>How it works</strong></p>\n<ol>\n<li>Slide a 63×88 into the window. A 图鉴 print, or a card you already own.</li>\n<li>Put the case on the phone.</li>\n<li>Tomorrow, swap the face.</li>\n</ol>\n<p>In the box: the case, plus one pictorial-book 63×88 print — pick the face at checkout. <a href=\"https://jubuddy.com/pictorial-book\">jubuddy.com/pictorial-book</a></p>\n<p>made to order · 7–14 days · Hong Kong</p>\n<p>The case is a frame. We do not sell other people’s cards. Not affiliated with Showcased.</p>\n<p><strong>From the pictorial book</strong></p>\n<ul>\n<li>Printable faces: <a href=\"https://tekoart.com/pages/faces\">tekoart.com/pages/faces</a> — Juju, Qilin, Yutu only.</li>\n<li>Qilin in the book: <a href=\"https://jubuddy.com/pictorial-book/creature/qilin?series=plush-pocket-monster\">qilin</a>\n</li>\n<li>Yutu in the book: <a href=\"https://jubuddy.com/pictorial-book/creature/rabbit-yutu?series=plush-pocket-monster\">rabbit-yutu</a> (shop slug is yutu)</li>\n<li>意境 walk, not a SKU: <a href=\"https://tekoart.com/pages/poetry\">tekoart.com/pages/poetry</a>\n</li>\n<li>/jub create is extra, not in this order: <a href=\"https://jubuddy.com/jub?screen=create\">jubuddy.com/jub?screen=create</a>\n</li>\n</ul>\n<p>Juju is the shop pig, not book #001.</p>\n",
+      "vendor": "TekO",
+      "productType": "Phone Case",
+      "tags": [
+        "phone-case",
+        "pictorial-book",
+        "series-window",
+        "tcg",
+        "yutu"
+      ],
+      "publishedAt": "2026-08-21T15:12:04+08:00",
+      "variants": [
+        {
+          "id": 49228633342196,
+          "title": "iPhone 15",
+          "sku": "TEKO-TCG-YUTU-1",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 15",
+          "grams": 80
+        },
+        {
+          "id": 49228633374964,
+          "title": "iPhone 15 Pro",
+          "sku": "TEKO-TCG-YUTU-2",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 15 Pro",
+          "grams": 80
+        },
+        {
+          "id": 49228633407732,
+          "title": "iPhone 16",
+          "sku": "TEKO-TCG-YUTU-3",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 16",
+          "grams": 80
+        },
+        {
+          "id": 49228633440500,
+          "title": "iPhone 16 Pro",
+          "sku": "TEKO-TCG-YUTU-4",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 16 Pro",
+          "grams": 80
+        },
+        {
+          "id": 49228633473268,
+          "title": "iPhone 16 Pro Max",
+          "sku": "TEKO-TCG-YUTU-5",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 16 Pro Max",
+          "grams": 80
+        }
+      ],
+      "options": [
+        {
+          "name": "Phone",
+          "position": 1,
+          "values": [
+            "iPhone 15",
+            "iPhone 15 Pro",
+            "iPhone 16",
+            "iPhone 16 Pro",
+            "iPhone 16 Pro Max"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": 53967099592948,
+          "src": "https://cdn.shopify.com/s/files/1/0688/0342/8596/files/yutu-window-case.png?v=1787295326",
+          "width": 1536,
+          "height": 1024,
+          "alt": null,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": 9622889824500,
+      "title": "Qilin Window Case",
+      "handle": "qilin-tcg-window-case",
+      "bodyHtml": "<p>A case you dress. A card you change.</p>\n<p>Transparent window. Standard 63×88, same as a standard TCG card. Made in Hong Kong. Not a lock.</p>\n<p><strong>How it works</strong></p>\n<ol>\n<li>Slide a 63×88 into the window. A 图鉴 print, or a card you already own.</li>\n<li>Put the case on the phone.</li>\n<li>Tomorrow, swap the face.</li>\n</ol>\n<p>In the box: the case, plus one pictorial-book 63×88 print — pick the face at checkout. <a href=\"https://jubuddy.com/pictorial-book\">jubuddy.com/pictorial-book</a></p>\n<p>made to order · 7–14 days · Hong Kong</p>\n<p>The case is a frame. We do not sell other people’s cards. Not affiliated with Showcased.</p>\n<p><strong>From the pictorial book</strong></p>\n<ul>\n<li>Printable faces: <a href=\"https://tekoart.com/pages/faces\">tekoart.com/pages/faces</a> — Juju, Qilin, Yutu only.</li>\n<li>Qilin in the book: <a href=\"https://jubuddy.com/pictorial-book/creature/qilin?series=plush-pocket-monster\">qilin</a>\n</li>\n<li>Yutu in the book: <a href=\"https://jubuddy.com/pictorial-book/creature/rabbit-yutu?series=plush-pocket-monster\">rabbit-yutu</a> (shop slug is yutu)</li>\n<li>意境 walk, not a SKU: <a href=\"https://tekoart.com/pages/poetry\">tekoart.com/pages/poetry</a>\n</li>\n<li>/jub create is extra, not in this order: <a href=\"https://jubuddy.com/jub?screen=create\">jubuddy.com/jub?screen=create</a>\n</li>\n</ul>\n<p>Juju is the shop pig, not book #001.</p>\n",
+      "vendor": "TekO",
+      "productType": "Phone Case",
+      "tags": [
+        "phone-case",
+        "pictorial-book",
+        "qilin",
+        "series-window",
+        "tcg"
+      ],
+      "publishedAt": "2026-08-21T15:12:02+08:00",
+      "variants": [
+        {
+          "id": 49228633112820,
+          "title": "iPhone 15",
+          "sku": "TEKO-TCG-QILIN-1",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 15",
+          "grams": 80
+        },
+        {
+          "id": 49228633145588,
+          "title": "iPhone 15 Pro",
+          "sku": "TEKO-TCG-QILIN-2",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 15 Pro",
+          "grams": 80
+        },
+        {
+          "id": 49228633178356,
+          "title": "iPhone 16",
+          "sku": "TEKO-TCG-QILIN-3",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 16",
+          "grams": 80
+        },
+        {
+          "id": 49228633211124,
+          "title": "iPhone 16 Pro",
+          "sku": "TEKO-TCG-QILIN-4",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 16 Pro",
+          "grams": 80
+        },
+        {
+          "id": 49228633243892,
+          "title": "iPhone 16 Pro Max",
+          "sku": "TEKO-TCG-QILIN-5",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 16 Pro Max",
+          "grams": 80
+        }
+      ],
+      "options": [
+        {
+          "name": "Phone",
+          "position": 1,
+          "values": [
+            "iPhone 15",
+            "iPhone 15 Pro",
+            "iPhone 16",
+            "iPhone 16 Pro",
+            "iPhone 16 Pro Max"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": 53967099560180,
+          "src": "https://cdn.shopify.com/s/files/1/0688/0342/8596/files/qilin-window-case.png?v=1787295326",
+          "width": 1536,
+          "height": 1024,
+          "alt": null,
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": 9622646849780,
+      "title": "Juju Window Case",
+      "handle": "juju-tcg-window-case",
+      "bodyHtml": "<p>A case you dress. A card you change.</p>\n<p>Transparent window. Standard 63×88, same as a standard TCG card. Made in Hong Kong. Not a lock.</p>\n<p><strong>How it works</strong></p>\n<ol>\n<li>Slide a 63×88 into the window. A 图鉴 print, or a card you already own.</li>\n<li>Put the case on the phone.</li>\n<li>Tomorrow, swap the face.</li>\n</ol>\n<p>In the box: the case, plus one pictorial-book 63×88 print — pick the face at checkout. <a href=\"https://jubuddy.com/pictorial-book\">jubuddy.com/pictorial-book</a></p>\n<p>made to order · 7–14 days · Hong Kong</p>\n<p>The case is a frame. We do not sell other people’s cards. Not affiliated with Showcased.</p>\n<p><strong>From the pictorial book</strong></p>\n<ul>\n<li>Printable faces: <a href=\"https://tekoart.com/pages/faces\">tekoart.com/pages/faces</a> — Juju, Qilin, Yutu only.</li>\n<li>Qilin in the book: <a href=\"https://jubuddy.com/pictorial-book/creature/qilin?series=plush-pocket-monster\">qilin</a>\n</li>\n<li>Yutu in the book: <a href=\"https://jubuddy.com/pictorial-book/creature/rabbit-yutu?series=plush-pocket-monster\">rabbit-yutu</a> (shop slug is yutu)</li>\n<li>意境 walk, not a SKU: <a href=\"https://tekoart.com/pages/poetry\">tekoart.com/pages/poetry</a>\n</li>\n<li>/jub create is extra, not in this order: <a href=\"https://jubuddy.com/jub?screen=create\">jubuddy.com/jub?screen=create</a>\n</li>\n</ul>\n<p>Juju is the shop pig, not book #001.</p>\n",
+      "vendor": "Tek O Art",
+      "productType": "Phone Case",
+      "tags": [
+        "jubuddy",
+        "juju",
+        "phone-case",
+        "pictorial-book",
+        "series-window",
+        "tcg",
+        "tekoart"
+      ],
+      "publishedAt": "2026-08-21T12:07:01+08:00",
+      "variants": [
+        {
+          "id": 49227207508212,
+          "title": "iPhone 15",
+          "sku": "TEKO-TCG-JUJU-1",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 15",
+          "grams": 0
+        },
+        {
+          "id": 49227207540980,
+          "title": "iPhone 15 Pro",
+          "sku": "TEKO-TCG-JUJU-2",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 15 Pro",
+          "grams": 0
+        },
+        {
+          "id": 49227207573748,
+          "title": "iPhone 16",
+          "sku": "TEKO-TCG-JUJU-3",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 16",
+          "grams": 0
+        },
+        {
+          "id": 49227207606516,
+          "title": "iPhone 16 Pro",
+          "sku": "TEKO-TCG-JUJU-4",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 16 Pro",
+          "grams": 0
+        },
+        {
+          "id": 49227207639284,
+          "title": "iPhone 16 Pro Max",
+          "sku": "TEKO-TCG-JUJU-5",
+          "available": true,
+          "price": "188.00",
+          "compareAtPrice": null,
+          "option1": "iPhone 16 Pro Max",
+          "grams": 0
+        }
+      ],
+      "options": [
+        {
+          "name": "Phone",
+          "position": 1,
+          "values": [
+            "iPhone 15",
+            "iPhone 15 Pro",
+            "iPhone 16",
+            "iPhone 16 Pro",
+            "iPhone 16 Pro Max"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "id": 53963280417012,
+          "src": "https://cdn.shopify.com/s/files/1/0688/0342/8596/files/teko-tcg-case-juju.png?v=1787287835",
+          "width": 1536,
+          "height": 1024,
+          "alt": null,
+          "position": 1
+        }
+      ]
+    }
+  ],
+  "collections": [
+    {
+      "id": 421277794548,
+      "title": "Home page",
+      "handle": "frontpage",
+      "productsCount": 1,
+      "image": {
+        "id": 1686762717428,
+        "created_at": "2024-02-20T16:15:53+08:00",
+        "src": "https://cdn.shopify.com/s/files/1/0688/0342/8596/collections/Gemini_Generated_Image.jpg?v=1708416954",
+        "alt": null
+      },
+      "bodyHtml": ""
+    },
+    {
+      "id": 488013496564,
+      "title": "Pictorial Book Window",
+      "handle": "pictorial-book-window",
+      "productsCount": 3,
+      "image": null,
+      "bodyHtml": null
+    }
+  ],
+  "collectionProducts": {
+    "all": [
+      "juju-card-holder",
+      "juju-tcg-window-case",
+      "qilin-tcg-window-case",
+      "yutu-tcg-window-case"
+    ],
+    "pictorial-book-window": [
+      "yutu-tcg-window-case",
+      "qilin-tcg-window-case",
+      "juju-tcg-window-case"
+    ],
+    "holders": [
+      "juju-card-holder"
+    ],
+    "juju": [
+      "juju-card-holder",
+      "juju-tcg-window-case"
+    ],
+    "qilin": [
+      "qilin-tcg-window-case"
+    ],
+    "yutu": [
+      "yutu-tcg-window-case"
+    ]
+  },
+  "guideVideos": [
+    {
+      "src": "https://cdn.shopify.com/videos/c/o/v/f811318284814e6fad559fdb24c1100a.mp4",
+      "poster": "https://cdn.shopify.com/s/files/1/0688/0342/8596/files/preview_images/f811318284814e6fad559fdb24c1100a.thumbnail.0000000000.jpg?v=1787300175",
+      "caption": "Change the card."
+    },
+    {
+      "src": "https://cdn.shopify.com/videos/c/o/v/58e29cae474e48acb6539cdddd365207.mp4",
+      "poster": "https://cdn.shopify.com/s/files/1/0688/0342/8596/files/preview_images/58e29cae474e48acb6539cdddd365207.thumbnail.0000000000.jpg?v=1787300166",
+      "caption": "Put the case on the phone."
+    },
+    {
+      "src": "https://cdn.shopify.com/videos/c/o/v/8edb5107233e463ca002e45650106d6d.mp4",
+      "poster": "https://cdn.shopify.com/s/files/1/0688/0342/8596/files/preview_images/8edb5107233e463ca002e45650106d6d.thumbnail.0000000000.jpg?v=1787300166",
+      "caption": "On the phone."
+    }
+  ]
+}

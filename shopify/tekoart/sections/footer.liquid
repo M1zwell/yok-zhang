@@ -1,0 +1,32 @@
+<footer class="teko-footer">
+  <div class="teko-wrap teko-footer-grid">
+    <div>
+      <h2>{{ shop.name }}</h2>
+      <p>A case you dress. A card you change.</p>
+      <p>壳只是画框。我们不卖别人的牌。</p>
+      <p>{{ shop.address | default: 'Rm12, 20/F, Ho King Comm CTR, 2-16 Fayuen St, Mong Kok, Hong Kong' }}</p>
+    </div>
+    <div>
+      <p class="teko-kicker">Working hours</p>
+      <p>Made to order · 7–14 days</p>
+    </div>
+    <div>
+      <p class="teko-kicker">Location</p>
+      <p>Mong Kok, Hong Kong</p>
+    </div>
+    <div>
+      <p class="teko-kicker">Contact</p>
+      <ul>
+        <li><a href="/pages/contact">Contact</a></li>
+        <li><a href="/pages/guide">Guide</a></li>
+        <li><a href="https://jubuddy.com/pictorial-book">Pictorial book</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}

@@ -127,6 +127,7 @@ export const ja: Messages = {
     groupGames: "ゲーム",
     groupJubit: "Jubit",
     groupDseek: "dseek.ai",
+    groupShop: "TekO Art",
     groupOther: "ほかにライブ",
   },
   toolsPage: {

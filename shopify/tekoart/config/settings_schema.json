@@ -1,0 +1,49 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "TekO Beehive Desk",
+    "theme_version": "1.0.0",
+    "theme_author": "TekO",
+    "theme_documentation_url": "https://tekoart.com",
+    "theme_support_url": "https://tekoart.com/pages/contact"
+  },
+  {
+    "name": "Dawn tokens",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Keep these swatches. Structure can change; the palette cannot."
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#D8CBB3"
+      },
+      {
+        "type": "color",
+        "id": "color_foreground",
+        "label": "Foreground",
+        "default": "#292321"
+      },
+      {
+        "type": "color",
+        "id": "color_button",
+        "label": "Button",
+        "default": "#D9899D"
+      },
+      {
+        "type": "color",
+        "id": "color_button_text",
+        "label": "Button text",
+        "default": "#292321"
+      },
+      {
+        "type": "color",
+        "id": "color_contrast",
+        "label": "Contrast gold",
+        "default": "#AD915F"
+      }
+    ]
+  }
+]

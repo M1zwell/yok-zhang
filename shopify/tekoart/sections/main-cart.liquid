@@ -1,0 +1,28 @@
+<section class="teko-section">
+  <h2>Cart</h2>
+  {% if cart.item_count == 0 %}
+    <p class="teko-lead">The window is still a frame. Pick a face.</p>
+    <a class="teko-btn teko-btn-primary" href="{{ routes.all_products_collection_url }}">Continue shopping</a>
+  {% else %}
+    {% for item in cart.items %}
+      <div class="teko-line">
+        <img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title }}">
+        <div>
+          <a href="{{ item.url }}">{{ item.product.title }}</a>
+          <p class="teko-muted">{{ item.variant.title }} · {{ item.final_price | money }}</p>
+        </div>
+        <p class="teko-price">{{ item.final_line_price | money }}</p>
+      </div>
+    {% endfor %}
+    <p class="teko-price">Subtotal: {{ cart.total_price | money }}</p>
+    <form action="{{ routes.cart_url }}" method="post">
+      <button class="teko-btn teko-btn-primary" name="checkout" type="submit">Checkout</button>
+    </form>
+  {% endif %}
+</section>
+{% schema %}
+{
+  "name": "Cart",
+  "settings": []
+}
+{% endschema %}

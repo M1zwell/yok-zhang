@@ -1,0 +1,809 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+
+/* TekO Dawn 13 tokens — locked. Beehive-grade structure only. */
+.teko-root {
+  --color-background: 216, 203, 179;
+  --gradient-background: #d8cbb3;
+  --color-foreground: 41, 35, 33;
+  --color-background-contrast: 173, 145, 95;
+  --color-shadow: 18, 18, 18;
+  --color-button: 217, 137, 157;
+  --color-button-text: 41, 35, 33;
+  --color-secondary-button: 216, 203, 179;
+  --color-secondary-button-text: 41, 35, 33;
+  --color-link: 41, 35, 33;
+  --color-badge-foreground: 41, 35, 33;
+  --color-badge-background: 216, 203, 179;
+  --color-badge-border: 41, 35, 33;
+  --font-heading-family: "DM Serif Display", serif;
+  --font-body-family: "SF Mono", Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
+  --font-body-weight: 400;
+  --font-body-weight-bold: 700;
+  --font-heading-weight: 400;
+  --page-width: 120rem;
+  --buttons-radius: 0px;
+  --buttons-border-width: 1px;
+  --inputs-radius: 0px;
+  --variant-pills-radius: 40px;
+  --media-radius: 0px;
+  --product-card-corner-radius: 0px;
+  --badge-corner-radius: 4rem;
+  --grid-desktop-gap: 8px;
+  --grid-mobile-gap: 4px;
+  --teko-paper: rgb(var(--color-background));
+  --teko-ink: rgb(var(--color-foreground));
+  --teko-muted: rgba(var(--color-foreground), 0.62);
+  --teko-line: rgba(var(--color-foreground), 0.14);
+  --teko-gold: rgb(var(--color-background-contrast));
+  --teko-rose: rgb(var(--color-button));
+  --teko-cream: #f0e6d4;
+  --teko-header-h: 116px;
+  color: rgba(var(--color-foreground), 0.82);
+  background: var(--gradient-background);
+  font-family: var(--font-body-family);
+  font-weight: var(--font-body-weight);
+  min-height: 100dvh;
+  letter-spacing: -0.01em;
+}
+
+html:has(.teko-root) {
+  background: var(--gradient-background, #d8cbb3);
+  color-scheme: light;
+}
+
+html:has(.teko-root) body {
+  background: #d8cbb3;
+  color: #292321;
+}
+
+html:has(.teko-root) .glass-header,
+html:has(.teko-root) .site-footer,
+html:has(.teko-root) .site-atmosphere,
+html:has(.teko-root) .film-grain,
+html:has(.teko-root) .cursor-glow,
+html:has(.teko-root) .cursor-glow-core,
+html:has(.teko-root) .cursor-glow-bloom,
+html:has(.teko-root) a[href="#content"] {
+  display: none !important;
+}
+
+.teko-root *,
+.teko-root *::before,
+.teko-root *::after {
+  box-sizing: border-box;
+}
+
+.teko-root a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.teko-root button,
+.teko-root input,
+.teko-root select {
+  font: inherit;
+  color: inherit;
+}
+
+.teko-announce {
+  background: rgb(var(--color-foreground));
+  color: var(--teko-paper);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 8px 16px;
+}
+
+.teko-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(216, 203, 179, 0.94);
+  border-bottom: 1px solid var(--teko-line);
+  backdrop-filter: blur(16px);
+}
+
+.teko-header-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.teko-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 168px;
+  color: var(--teko-ink);
+}
+
+.teko-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  background: var(--teko-cream);
+  border: 1px solid var(--teko-line);
+}
+
+.teko-logo strong {
+  display: block;
+  font-family: var(--font-heading-family);
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.teko-logo span {
+  display: block;
+  margin-top: 3px;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teko-muted);
+}
+
+.teko-search {
+  flex: 1;
+  display: flex;
+  height: 44px;
+  border: var(--buttons-border-width) solid rgba(var(--color-foreground), 0.22);
+  border-radius: 20px;
+  background: rgba(240, 230, 212, 0.55);
+  overflow: hidden;
+}
+
+.teko-search input {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  padding: 0 16px;
+  outline: none;
+}
+
+.teko-search button {
+  width: 52px;
+  border: 0;
+  background: rgba(var(--color-foreground), 0.08);
+  cursor: pointer;
+}
+
+.teko-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.teko-icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+}
+
+.teko-icon-btn:hover,
+.teko-nav a:hover,
+.teko-nav a.is-on {
+  color: var(--teko-ink);
+}
+
+.teko-cart-count {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: var(--badge-corner-radius);
+  background: var(--teko-rose);
+  color: var(--teko-ink);
+  font-size: 10px;
+  line-height: 17px;
+  text-align: center;
+}
+
+.teko-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 12px 8px;
+  overflow-x: auto;
+}
+
+.teko-nav a,
+.teko-nav button {
+  white-space: nowrap;
+  padding: 8px 14px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teko-muted);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.teko-nav a.is-on {
+  color: var(--teko-ink);
+  box-shadow: inset 0 -2px 0 var(--teko-rose);
+}
+
+.teko-wrap {
+  width: min(var(--page-width), 100%);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.teko-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: center;
+  padding: 36px 0 28px;
+}
+
+.teko-kicker {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teko-gold);
+}
+
+.teko-hero h1,
+.teko-section h2,
+.teko-product-copy h1 {
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  color: var(--teko-ink);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.teko-hero h1 {
+  margin: 12px 0 16px;
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+}
+
+.teko-lead {
+  max-width: 38rem;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--teko-muted);
+}
+
+.teko-zh {
+  margin-top: 8px;
+  color: var(--teko-ink);
+}
+
+.teko-hero-actions,
+.teko-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.teko-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: var(--buttons-radius);
+  border: var(--buttons-border-width) solid rgb(var(--color-foreground));
+  font-weight: var(--font-body-weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.teko-btn:hover {
+  transform: translateY(-1px);
+}
+
+.teko-btn-primary {
+  background: var(--teko-rose);
+  color: rgb(var(--color-button-text));
+}
+
+.teko-btn-ghost {
+  background: transparent;
+  color: var(--teko-ink);
+}
+
+.teko-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.teko-hero-stage {
+  position: relative;
+  min-height: 420px;
+  background: var(--teko-cream);
+  border: 1px solid var(--teko-line);
+}
+
+.teko-hero-stage img {
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  display: block;
+}
+
+.teko-hero-badge {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  padding: 8px 12px;
+  background: var(--teko-paper);
+  border: 1px solid var(--teko-line);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.teko-section {
+  padding: 28px 0 12px;
+}
+
+.teko-section h2 {
+  margin: 8px 0 18px;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.teko-hex-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  justify-items: center;
+}
+
+.teko-hex {
+  width: min(100%, 280px);
+  aspect-ratio: 1;
+  clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+  background: var(--teko-cream);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.teko-hex img {
+  width: 118%;
+  height: 118%;
+  object-fit: cover;
+}
+
+.teko-hex-label {
+  position: absolute;
+  inset: auto 12% 18%;
+  text-align: center;
+  background: rgba(216, 203, 179, 0.92);
+  padding: 8px 10px 10px;
+}
+
+.teko-hex-label strong {
+  display: block;
+  font-family: var(--font-heading-family);
+  font-size: 1.35rem;
+  color: var(--teko-ink);
+}
+
+.teko-hex-label span {
+  font-size: 11px;
+  color: var(--teko-muted);
+}
+
+.teko-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--grid-desktop-gap);
+}
+
+.teko-card {
+  background: var(--teko-cream);
+  border: 1px solid var(--teko-line);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.teko-card-media {
+  position: relative;
+  aspect-ratio: 1;
+  background: #e7dcc6;
+  overflow: hidden;
+}
+
+.teko-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 280ms ease;
+}
+
+.teko-card:hover img {
+  transform: scale(1.04);
+}
+
+.teko-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border: 1px solid rgb(var(--color-badge-border));
+  border-radius: var(--badge-corner-radius);
+  background: rgb(var(--color-badge-background));
+  color: rgb(var(--color-badge-foreground));
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.teko-badge.is-out {
+  background: rgb(var(--color-foreground));
+  color: var(--teko-paper);
+}
+
+.teko-card-body {
+  padding: 12px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.teko-card h3 {
+  font-family: var(--font-heading-family);
+  font-size: 1.35rem;
+  color: var(--teko-ink);
+  line-height: 1.1;
+}
+
+.teko-price {
+  color: var(--teko-ink);
+  font-size: 13px;
+}
+
+.teko-muted {
+  color: var(--teko-muted);
+  font-size: 12px;
+}
+
+.teko-how {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.teko-how article,
+.teko-trust article {
+  background: var(--teko-cream);
+  border: 1px solid var(--teko-line);
+  padding: 0 0 16px;
+}
+
+.teko-how video,
+.teko-how img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 420px;
+  object-fit: contain;
+  background: rgb(var(--color-foreground));
+  display: block;
+}
+
+.teko-how h3,
+.teko-trust h3 {
+  font-family: var(--font-heading-family);
+  font-size: 1.4rem;
+  color: var(--teko-ink);
+  margin: 14px 16px 6px;
+}
+
+.teko-how p,
+.teko-trust p {
+  margin: 0 16px;
+  color: var(--teko-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.teko-trust {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.teko-trust article {
+  padding: 18px 16px 20px;
+}
+
+.teko-product {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 32px;
+  padding: 28px 0 48px;
+}
+
+.teko-gallery {
+  background: var(--teko-cream);
+  border: 1px solid var(--teko-line);
+}
+
+.teko-gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  display: block;
+}
+
+.teko-product-copy h1 {
+  margin: 10px 0 8px;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+}
+
+.teko-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.teko-pill {
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: var(--variant-pills-radius);
+  border: 1px solid rgba(var(--color-foreground), 0.55);
+  background: transparent;
+  cursor: pointer;
+}
+
+.teko-pill.is-on {
+  background: rgb(var(--color-foreground));
+  color: var(--teko-paper);
+  border-color: rgb(var(--color-foreground));
+}
+
+.teko-qty {
+  display: inline-flex;
+  border: 1px solid rgba(var(--color-foreground), 0.55);
+}
+
+.teko-qty button,
+.teko-qty input {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  text-align: center;
+}
+
+.teko-html {
+  margin-top: 22px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--teko-muted);
+}
+
+.teko-html a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.teko-html h2,
+.teko-html h3,
+.teko-html strong {
+  color: var(--teko-ink);
+}
+
+.teko-drawer-root {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+}
+
+.teko-drawer-root[hidden] {
+  display: none;
+}
+
+.teko-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(41, 35, 33, 0.35);
+}
+
+.teko-drawer,
+.teko-search-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(420px, 100%);
+  background: var(--teko-paper);
+  border-left: 1px solid var(--teko-line);
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.teko-search-panel {
+  left: 0;
+  right: 0;
+  width: min(720px, 100%);
+  margin: 0 auto;
+  height: auto;
+  max-height: min(80dvh, 640px);
+  top: 12vh;
+  border: 1px solid var(--teko-line);
+}
+
+.teko-drawer h2,
+.teko-search-panel h2 {
+  font-family: var(--font-heading-family);
+  font-size: 2rem;
+  color: var(--teko-ink);
+}
+
+.teko-line {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--teko-line);
+}
+
+.teko-line img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  background: var(--teko-cream);
+}
+
+.teko-sticky {
+  position: sticky;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: rgb(var(--color-foreground));
+  color: var(--teko-paper);
+}
+
+.teko-sticky[hidden] {
+  display: none;
+}
+
+.teko-footer {
+  margin-top: 48px;
+  background: rgb(var(--color-foreground));
+  color: var(--teko-paper);
+  padding: 36px 0 28px;
+}
+
+.teko-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.teko-footer h2 {
+  font-family: var(--font-heading-family);
+  font-size: 1.8rem;
+  margin: 0 0 8px;
+}
+
+.teko-footer a {
+  color: #f0e6d4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.teko-footer .teko-muted,
+.teko-footer p,
+.teko-footer li {
+  color: rgba(216, 203, 179, 0.78);
+}
+
+.teko-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.teko-footer li + li {
+  margin-top: 6px;
+}
+
+.teko-lang {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.teko-lang a {
+  text-decoration: none;
+  border: 1px solid rgba(216, 203, 179, 0.28);
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+.teko-lang a.is-on {
+  background: var(--teko-rose);
+  color: var(--teko-ink);
+  border-color: var(--teko-rose);
+}
+
+.teko-empty {
+  padding: 64px 0;
+  text-align: center;
+}
+
+@media (max-width: 1023px) {
+  .teko-hero,
+  .teko-product,
+  .teko-footer-grid,
+  .teko-grid,
+  .teko-how,
+  .teko-trust,
+  .teko-hex-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .teko-logo span,
+  .teko-header-top .teko-search {
+    display: none;
+  }
+
+  .teko-header-top {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 719px) {
+  .teko-hero,
+  .teko-product,
+  .teko-footer-grid,
+  .teko-grid,
+  .teko-how,
+  .teko-trust,
+  .teko-hex-row {
+    grid-template-columns: 1fr;
+  }
+
+  .teko-hero-stage {
+    min-height: 280px;
+  }
+
+  .teko-sticky {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .teko-card:hover img,
+  .teko-btn:hover {
+    transform: none;
+  }
+}

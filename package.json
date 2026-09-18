@@ -11,7 +11,9 @@
     "verify:sso": "node --experimental-strip-types scripts/verify-auth-callback.ts",
     "verify:kiosk": "node --experimental-strip-types --import ./scripts/kiosk-register.mjs scripts/verify-kiosk.ts",
     "verify:career": "node --experimental-strip-types scripts/verify-career-gate.ts",
-    "verify:funding": "node --experimental-strip-types scripts/verify-funding-gate.ts"
+    "verify:funding": "node --experimental-strip-types scripts/verify-funding-gate.ts",
+    "verify:tekoart": "node --experimental-strip-types scripts/verify-tekoart.ts",
+    "sync:tekoart": "node scripts/sync-tekoart-catalog.mjs"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.8",

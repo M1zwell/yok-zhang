@@ -1,0 +1,38 @@
+<header class="teko-header">
+  <div class="teko-header-top">
+    <a class="teko-logo" href="{{ routes.root_url }}">
+      {% if shop.brand.logo %}
+        <img src="{{ shop.brand.logo | image_url: width: 96 }}" alt="{{ shop.name }}">
+      {% else %}
+        <img src="{{ 'teko-mark.png' | asset_url }}" alt="{{ shop.name }}">
+      {% endif %}
+      <span>
+        <strong>{{ shop.name }}</strong>
+        <span>Hong Kong · 63×88 window</span>
+      </span>
+    </a>
+    <form class="teko-search" action="{{ routes.search_url }}" method="get" role="search">
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search Juju, Qilin, Yutu…">
+      <button type="submit" aria-label="Search">⌕</button>
+    </form>
+    <div class="teko-header-actions">
+      <a class="teko-icon-btn" href="{{ routes.cart_url }}">
+        Cart
+        <span class="teko-cart-count" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+  <nav class="teko-nav" aria-label="{{ shop.name }}">
+    <a href="{{ routes.root_url }}">Shop</a>
+    <a href="{{ routes.all_products_collection_url }}">All</a>
+    <a href="/collections/pictorial-book-window">Window cases</a>
+    <a href="/pages/faces">Faces</a>
+    <a href="/pages/guide">Guide</a>
+  </nav>
+</header>
+{% schema %}
+{
+  "name": "Header",
+  "settings": []
+}
+{% endschema %}

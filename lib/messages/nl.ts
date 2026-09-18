@@ -128,6 +128,7 @@ export const nl: Messages = {
     groupGames: "Spellen",
     groupJubit: "Jubit",
     groupDseek: "dseek.ai",
+    groupShop: "TekO Art",
     groupOther: "Ook live",
   },
   toolsPage: {

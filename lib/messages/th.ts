@@ -126,6 +126,7 @@ export const th: Messages = {
     groupGames: "เกม",
     groupJubit: "Jubit",
     groupDseek: "dseek.ai",
+    groupShop: "TekO Art",
     groupOther: "สดด้วย",
   },
   toolsPage: {
