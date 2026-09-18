@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { shopifyCartPermalink, TEKOART_ORIGIN, variantGid } from "../lib/tekoart/shopify.ts";
@@ -97,8 +97,14 @@ function testBuiltPage() {
   const html = readFileSync(page, "utf8");
   assert.match(html, /teko-root/);
   assert.match(html, /A case you dress/);
-  assert.match(html, /D8CBB3|#d8cbb3|216,\s*203,\s*179/i);
-  assert.doesNotMatch(html, /#fef7ff/);
+  const cssDir = join(out, "_next/static/css");
+  assert.ok(existsSync(cssDir), "exported CSS");
+  const css = readdirSync(cssDir)
+    .filter((file) => file.endsWith(".css"))
+    .map((file) => readFileSync(join(cssDir, file), "utf8"))
+    .join("\n");
+  assert.match(css, /216,\s*203,\s*179/);
+  assert.match(css, /217,\s*137,\s*157/);
 }
 
 function main() {

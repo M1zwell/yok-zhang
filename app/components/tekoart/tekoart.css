@@ -46,12 +46,14 @@
   letter-spacing: -0.01em;
 }
 
-html:has(.teko-root) {
+html:has(.teko-root),
+html.teko-shop {
   background: var(--gradient-background, #d8cbb3);
   color-scheme: light;
 }
 
-html:has(.teko-root) body {
+html:has(.teko-root) body,
+html.teko-shop body {
   background: #d8cbb3;
   color: #292321;
 }
@@ -63,7 +65,15 @@ html:has(.teko-root) .film-grain,
 html:has(.teko-root) .cursor-glow,
 html:has(.teko-root) .cursor-glow-core,
 html:has(.teko-root) .cursor-glow-bloom,
-html:has(.teko-root) a[href="#content"] {
+html:has(.teko-root) a[href="#content"],
+html.teko-shop .glass-header,
+html.teko-shop .site-footer,
+html.teko-shop .site-atmosphere,
+html.teko-shop .film-grain,
+html.teko-shop .cursor-glow,
+html.teko-shop .cursor-glow-core,
+html.teko-shop .cursor-glow-bloom,
+html.teko-shop a[href="#content"] {
   display: none !important;
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import type { Locale } from "@/lib/i18n";
 import type { TekoShopKind } from "@/lib/tekoart/types";
 import { TekoCartProvider } from "./TekoCartProvider";
@@ -18,6 +18,12 @@ export function TekoShell({
   handle?: string;
   children: ReactNode;
 }) {
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.add("teko-shop");
+    return () => root.classList.remove("teko-shop");
+  }, []);
+
   return (
     <div className="teko-root" data-shop="tekoart" data-kind={kind}>
       <TekoCartProvider>
