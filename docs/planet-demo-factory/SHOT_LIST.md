@@ -3,6 +3,9 @@
 对着这个打勾。一条一个文件。8–12 秒。先切模式再录。  
 Check these off. One file per take. 8–12s. Switch mode, then record.
 
+也可以先拍 **一条超长母带** 再按本表切片改名：[`LONG_TAKE.md`](./LONG_TAKE.md)。  
+Or record one long master, then slice and rename to these filenames.
+
 存盘：`D:\JubuddyAssetFactory\Video Demo\`  
 全屏：`F11`。不要确认 **Ask to be located**。不要付款。
 

@@ -1,0 +1,33 @@
+# Fill mm:ss from 00-masters/long-take-marks.txt, then uncomment.
+# 把时间码填进 -ss，取消注释后在 00-masters 目录跑。
+# Example:
+#   ffmpeg -ss 00:01:12 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\01-modes\pc_overview_central.mp4
+
+# Guest master → SHOT_LIST names
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\01-modes\pc_immersive_walk.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\01-modes\pc_overview_central.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\02-hud-tools\pc_altshift_orbit.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\02-hud-tools\pc_weather_night.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\02-hud-tools\pc_weather_rain_or_typhoon.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\02-hud-tools\pc_stargaze.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\02-hud-tools\pc_live_pin_ifc.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\02-hud-tools\pc_interior_grey_hour.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\02-hud-tools\pc_photo_pet_or_tram.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\01-modes\pc_kart.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\01-modes\pc_siege_wave1.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\01-modes\pc_sea_or_sail.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\03-hero-pet\pc_bastion_hero.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\03-hero-pet\pc_depths_picker.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\04-depths-build\pc_depths_inside.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\01-modes\pc_choose_planet_tokyo.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\01-modes\pc_drop_me.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\01-modes\pc_paris_ile_de_la_cite.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\01-modes\pc_nyc_courier.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_guest.mp4 -t 10 -c:v libx264 -an -crf 18 ..\01-modes\pc_nyc_rally.mp4
+
+# Synced master
+# ffmpeg -ss 00:00:00 -i pc_long_synced.mp4 -t 8 -c:v libx264 -an -crf 18 ..\05-flows\pc_synced.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_synced.mp4 -t 8 -c:v libx264 -an -crf 18 ..\05-flows\pc_refill_ju.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_synced.mp4 -t 8 -c:v libx264 -an -crf 18 ..\05-flows\pc_print_desk_6.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_synced.mp4 -t 8 -c:v libx264 -an -crf 18 ..\04-depths-build\pc_reskin_sheet.mp4
+# ffmpeg -ss 00:00:00 -i pc_long_synced.mp4 -t 8 -c:v libx264 -an -crf 18 ..\04-depths-build\pc_build_sheet.mp4

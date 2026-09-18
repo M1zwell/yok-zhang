@@ -1,0 +1,32 @@
+母带文件 / master file:  pc_long_guest.mp4
+开始时钟 / clock at record start:
+
+mm:ss   节拍  SHOT  备注 notes
+00:00   开始录 record start
+00:     1   B2   immersive WASD
+00:     2   B1   overview
+00:     3   B9   alt+shift
+00:     4   B3   night
+00:     5   B4   rain/typhoon
+00:     6   B8   stargaze
+00:     7   B5   live pin IFC
+00:     8   B6   interior
+00:     9   B7   photo/pet/tram
+00:     10  C1   kart
+00:     11  C2   siege
+00:     12  C3   sea/sail
+00:     13  E3   bastion/hero
+00:     14  E1   depths picker
+00:     15  E2   depths inside
+00:     16  D1   tokyo catalog
+00:     17  D3   drop me
+00:     18  D2   paris
+00:     19  C5   courier
+00:     20  C4   rally（没路就静帧 skip video）
+
+登录母带 / synced master:  pc_long_synced.mp4
+00:     S1  F1   synced
+00:     S2  F2   refill ju（不付款）
+00:     S3  F5   print
+00:     S4  F3   re-skin（不传文件）
+00:     S5  F4   build（不花 ju）

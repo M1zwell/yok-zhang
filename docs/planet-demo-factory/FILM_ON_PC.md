@@ -6,7 +6,8 @@ Cloud Linux recordings stutter. **Do not post them as the look.**
 你回家用自己的电脑 + Chrome（或 Edge）拍。拍完把文件夹丢回来即可。  
 This page is the human playbook. Powerful PC + browser. Drop the folder back when you are done.
 
-**对着拍的清单：** [`SHOT_LIST.md`](./SHOT_LIST.md)  
+**对着拍的清单：** [`SHOT_LIST.md`](./SHOT_LIST.md)（一条一条短拍）  
+**一条超长再切片：** [`LONG_TAKE.md`](./LONG_TAKE.md)  
 **文案 / 能不能说 LIVE：** [`SOCIAL_AND_CLAIM.md`](./SOCIAL_AND_CLAIM.md)  
 **存盘目录：** `D:\JubuddyAssetFactory\Video Demo\`
 
@@ -18,6 +19,7 @@ This page is the human playbook. Powerful PC + browser. Drop the folder back whe
 
 ```
 D:\JubuddyAssetFactory\Video Demo\
+  00-masters\          超长母带 + long-take-marks.txt
   01-modes\
   02-hud-tools\
   03-hero-pet\
@@ -59,8 +61,12 @@ Fullscreen: `F11`. Leave kiosk with `Alt+F4` or `F11` again.
 | 编码器 | NVENC / AMF（独显）。不要软编把星球拖卡 |
 | 音频 | 关。成片无声即可 |
 
-一条片子 **8–12 秒**。一个动作。先切好模式，**星球已经在动**，再按录制。  
-One take = **8–12s**. One verb. Switch the mode first, **planet already moving**, then record.
+两种拍法（可混用）：
+
+- **短条：** 一条片子 **8–12 秒**。一个动作。先切好模式，**星球已经在动**，再按录制。清单：[`SHOT_LIST.md`](./SHOT_LIST.md)。  
+- **超长母带：** OBS 一口气录 12–18 分钟，每个按钮后停住玩 8–12 秒，记时间码。回家再切。跑法：[`LONG_TAKE.md`](./LONG_TAKE.md)。母带进 `00-masters\`，**不要直接发 15 分钟**。
+
+Short takes or one long master you slice later. Mix them if you want.
 
 游戏栏备选：`Win+Alt+R` 开始/停。文件会进 `Videos\Captures`，再挪到 D:。  
 Game Bar fallback: `Win+Alt+R`. Move files out of `Videos\Captures` into D:.
@@ -129,11 +135,9 @@ Click **⋯ More controls** if weather / second row is missing.
 
 ## 6. 怎么拍才顺 / Pacing
 
-1. 打开 URL，等到出现 Immersive / Overview，能 WASD。  
-2. 点好模式（Overview / Night / Depths…）。  
-3. **现在**才按录制。  
-4. 8–12 秒：走、或转、或看 HUD。不要站着发呆。  
-5. 停录。下一条。不要一条片子里切十个按钮。
+**短条：** 打开 URL → 等到能走 → 点好模式 → **现在**才录 → 8–12 秒就停。不要一条短片里切十个按钮。
+
+**超长：** 能走之后再按录。每个动作后玩 8–12 秒再点下一个。加载就 **暂停** OBS。时间码记在 `00-masters\long-take-marks.txt`。细节：[`LONG_TAKE.md`](./LONG_TAKE.md)。
 
 Chrome「无法更新」弹窗：先点 X，再录。  
 Dismiss “Can’t update Chrome” before the take.
@@ -156,13 +160,14 @@ Rally：等第一人称出现 Gas/Brake 再录 8 秒。若只有 “Building a r
 
 ## 8. 拍完怎么还给我 / When you come back
 
-1. 文件已经在 `D:\JubuddyAssetFactory\Video Demo\` 按 `SHOT_LIST.md` 的文件名。  
+1. 文件已经在 `D:\JubuddyAssetFactory\Video Demo\`。短条按 `SHOT_LIST.md` 命名；超长放 `00-masters\` 并带 `long-take-marks.txt`。  
 2. 把整个 `Video Demo` 文件夹（或 zip）丢回这次对话。  
 3. 用三行笔记即可，例如：
 
 ```
 拍了：A1 A2 B1 B3 B5 D2 E2
 没拍：C4 Rally 没路；F2 没 Synced
+母带：pc_long_guest.mp4 + marks / 没有母带
 Rally 静帧：有 / 没有
 ```
 

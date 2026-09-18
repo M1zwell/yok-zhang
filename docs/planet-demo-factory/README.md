@@ -3,9 +3,10 @@
 **人在强机上拍，从这里开始（不要用云端 Linux 成片当成品）：**
 
 - [`FILM_ON_PC.md`](./FILM_ON_PC.md) — 摆桌、OBS、禁忌、还文件
-- [`SHOT_LIST.md`](./SHOT_LIST.md) — 对着打勾的清单
+- [`SHOT_LIST.md`](./SHOT_LIST.md) — 对着打勾的短条
+- [`LONG_TAKE.md`](./LONG_TAKE.md) — 一条超长母带，回家再切片
 - [`SOCIAL_AND_CLAIM.md`](./SOCIAL_AND_CLAIM.md) — 文案；不要说 world’s first
-- [`pc/`](./pc/) — Windows 一键建目录 / kiosk
+- [`pc/`](./pc/) — Windows 一键建目录 / kiosk / 时间码模板
 
 Cloud Linux 17 Sep 2026 那批只当「按钮在哪」的目录。Folder map matches `D:\JubuddyAssetFactory\Video Demo`.
 

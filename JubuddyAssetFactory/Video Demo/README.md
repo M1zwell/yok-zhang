@@ -2,13 +2,14 @@
 
 Mirrors `D:\JubuddyAssetFactory\Video Demo`.
 
-**你来拍：** 打开仓库里的 `docs/planet-demo-factory/FILM_ON_PC.md`，对着 `SHOT_LIST.md` 打勾。云端 Linux 成片太慢，只当目录。
+**你来拍：** `docs/planet-demo-factory/FILM_ON_PC.md`。短条打勾 `SHOT_LIST.md`；一条超长再切 `LONG_TAKE.md`。云端 Linux 成片太慢，只当目录。
 
 See also `docs/planet-demo-factory/SOCIAL_AND_CLAIM.md`.
 
 Binaries (`*.mp4` / stills) are gitignored. Pull them from the Cloud Agent artifacts for this run, then copy the whole tree onto D:.
 
 ```
+00-masters/     超长母带 + long-take-marks.txt（不直接发）
 01-modes/       Immersive, Overview, All HK, Kart, Siege, NYC Coin Rally, Courier, Tokyo, Paris
 02-hud-tools/   Weather, Photo, Interior, Pet, tram, live pin, Stargaze constellations, full HUD
 03-hero-pet/    Hero picker + Grey Hour + Bastion / Depths roster
