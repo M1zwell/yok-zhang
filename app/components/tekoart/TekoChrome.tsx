@@ -99,7 +99,7 @@ export function TekoChrome({
               {copy.nav.cart}
               {cart.count > 0 ? <span className="teko-cart-count">{cart.count}</span> : null}
             </button>
-            <a className="teko-icon-btn" href={TEKOART_ORIGIN} target="_blank" rel="noopener noreferrer">
+            <a className="teko-icon-btn teko-live-link" href={TEKOART_ORIGIN} target="_blank" rel="noopener noreferrer">
               {copy.nav.liveShopify} ↗
             </a>
           </div>

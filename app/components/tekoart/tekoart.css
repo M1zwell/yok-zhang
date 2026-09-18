@@ -198,6 +198,7 @@ html.teko-shop a[href="#content"] {
   border: 1px solid transparent;
   background: transparent;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .teko-icon-btn:hover,
@@ -770,6 +771,12 @@ html.teko-shop a[href="#content"] {
   text-align: center;
 }
 
+.teko-sticky .teko-btn {
+  white-space: nowrap;
+  min-width: auto;
+  padding: 0 14px;
+}
+
 @media (max-width: 1023px) {
   .teko-hero,
   .teko-product,
@@ -804,6 +811,16 @@ html.teko-shop a[href="#content"] {
 
   .teko-hero-stage {
     min-height: 280px;
+  }
+
+  .teko-live-link {
+    display: none;
+  }
+
+  .teko-icon-btn {
+    min-width: 40px;
+    padding: 0 8px;
+    font-size: 11px;
   }
 
   .teko-sticky {
