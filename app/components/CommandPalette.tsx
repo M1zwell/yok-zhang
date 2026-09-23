@@ -5,7 +5,9 @@ import { usePathname, useRouter } from "next/navigation";
 import type { PostMeta } from "@/lib/post-meta";
 import { localizeHref, stripLocale } from "@/lib/i18n";
 import { researchThemes } from "@/lib/research";
+import { useFamilySession } from "@/lib/family-session";
 import { familySsoUrl } from "@/lib/jubit-sso";
+import { isPlanningOwner } from "@/lib/planning/gate";
 import { links, liveProducts, nav, tools } from "@/lib/site";
 
 type Item = {
@@ -24,6 +26,8 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
   const router = useRouter();
   const pathname = usePathname() || "/";
   const { locale } = stripLocale(pathname);
+  const session = useFamilySession();
+  const showPlanning = isPlanningOwner(session?.email);
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
   const [active, setActive] = useState(0);
@@ -200,8 +204,10 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
         tags: ["rss", "feed"],
       },
     ];
-    return [...pages, ...postItems, ...themeItems, ...toolItems, ...productItems, ...actions];
-  }, [posts, locale, pathname]);
+    const all = [...pages, ...postItems, ...themeItems, ...toolItems, ...productItems, ...actions];
+    if (showPlanning) return all;
+    return all.filter((item) => item.id !== "planning" && !item.href.endsWith("/planning"));
+  }, [posts, locale, pathname, showPlanning]);
 
   const filtered = useMemo(() => {
     const query = q.trim().toLowerCase();

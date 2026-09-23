@@ -441,11 +441,35 @@ export type HeroFigures = {
   secondaryPoi: number | null;
   hotels: number | null;
   stops: number | null;
+  mixIndex: number | null;
+  mixType: string | null;
+  mixShare: number | null;
+  nightShare: number | null;
+  openHours: number | null;
+  allDayShare: number | null;
+  reviewScore: number | null;
+  retailCount: number | null;
+  cateringCount: number | null;
+  leisureCount: number | null;
+  if03Contested: boolean;
 };
+
+export function earlierValue(attempts: Attempt[], code: string): Attempt | undefined {
+  const history = historyFor(attempts, code);
+  const latest = history[history.length - 1];
+  if (!latest || latest.status !== "zero") return undefined;
+  return [...history]
+    .slice(0, -1)
+    .reverse()
+    .find((attempt) => attempt.status === "value");
+}
 
 export function heroFigures(attempts: Attempt[], latest: Map<string, Attempt>): HeroFigures {
   const collectedAt = attempts.reduce((max, attempt) => (attempt.collectTime > max ? attempt.collectTime : max), "");
   const anchor = latest.get("SE01");
+  const if03Earlier = earlierValue(attempts, "IF03");
+  const if03Latest = latest.get("IF03");
+  const facilities = if03Earlier ?? (if03Latest?.status === "value" ? if03Latest : undefined);
   return {
     city: anchor?.city ?? "",
     district: anchor?.district ?? "",
@@ -468,6 +492,17 @@ export function heroFigures(attempts: Attempt[], latest: Map<string, Attempt>): 
     secondaryPoi: leafNumber(latest.get("IF01"), "次要产业POI数量"),
     hotels: leafNumber(latest.get("SE14"), "步行圈酒店数"),
     stops: leafNumber(latest.get("SE14"), "步行圈公交站数"),
+    mixIndex: leafNumber(latest.get("IF04"), "功能复合度指数"),
+    mixType: leafText(latest.get("IF04"), "主导功能类型"),
+    mixShare: leafNumber(latest.get("IF04"), "主导功能占比"),
+    nightShare: leafNumber(latest.get("IF10"), "夜间营业占比(%)"),
+    openHours: leafNumber(latest.get("IF09"), "日均营业时长(小时)"),
+    allDayShare: leafNumber(latest.get("IF11"), "24小时设施占比(%)"),
+    reviewScore: leafNumber(latest.get("SE17"), "平均评分"),
+    retailCount: leafNumber(facilities, "商业零售数量"),
+    cateringCount: leafNumber(facilities, "餐饮服务数量"),
+    leisureCount: leafNumber(facilities, "文体休闲数量"),
+    if03Contested: Boolean(if03Earlier),
   };
 }
 

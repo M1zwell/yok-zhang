@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { AuthRegisterLink } from "@/app/components/AuthCta";
 import { CareerNavLink } from "@/app/components/career/CareerNavLink";
 import { FundingNavLink } from "@/app/components/funding/FundingNavLink";
+import { PlanningNavLink } from "@/app/components/planning/PlanningNavLink";
 import { EnterButton } from "@/app/components/JoinFlow";
 import { localizeHref, stripLocale } from "@/lib/i18n";
 import { t } from "@/lib/messages";
@@ -62,6 +63,7 @@ export function SiteFooter() {
           ))}
           <CareerNavLink locale={locale} variant="footer" />
           <FundingNavLink locale={locale} variant="footer" />
+          <PlanningNavLink locale={locale} variant="footer" />
           <Link href={localizeHref("/share", locale)} className="text-accent hover:text-accent-hover">
             {m.nav.share}
           </Link>

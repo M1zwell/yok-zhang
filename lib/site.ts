@@ -65,6 +65,7 @@ export const links = {
   gghereWorlds: "https://gghere.com/worlds",
   gghereHk: "https://gghere.com/hk?district=central-belt",
   ggherePlanet: "https://gghere.com/hk?district=central-belt",
+  ggherePlanetHome: "https://gghere.com/planet",
   tekoart: "https://tekoart.com",
   gozayden: "https://gozayden.com",
   github: "https://github.com/M1zwell",
@@ -296,13 +297,6 @@ export const productGroups: Group[] = [
         path: "jubuddy.com/planet",
         live: true,
         note: "Planet product surface. City-planet sibling to the worlds catalog — not a buried jubit link.",
-      },
-      {
-        title: "ichina.co/planning",
-        href: "/planning",
-        path: "ichina.co/planning",
-        live: true,
-        note: "Spatial, population, and economy advisory. 规划 desk. Task 9 follow-up. Space syntax, depthmapX, QGIS.",
       },
       {
         title: "gghere.com",

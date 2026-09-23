@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { isPlanningOwner, PLANNING_OWNER_EMAIL } from "../lib/planning/gate.ts";
 import type { Indicator, RawRecord } from "../lib/planning/logic.ts";
 import {
   coverage,
@@ -66,10 +67,55 @@ assert.equal(edge("IF11")?.state, "blocked");
 assert.equal(edge("SE05")?.state, "checked");
 assert.equal(edge("SE09")?.state, "checked");
 
+const task8 = JSON.parse(readFileSync(join(root, "lib/planning/task8.json"), "utf8")) as RawRecord[];
+const erqiAttempts = normalizeTask(task8);
+const erqiLatest = latestByCode(erqiAttempts);
+const erqi = heroFigures(erqiAttempts, erqiLatest);
+const erqiChecks = taskChecks(erqiLatest);
+assert.equal(erqi.city, "郑州");
+assert.equal(erqi.district, "二七区");
+assert.equal(erqi.usual, 1930400);
+assert.equal(erqi.workers, 634600);
+assert.equal(erqi.residents, 1295800);
+assert.equal(erqi.visitors, 3576859);
+assert.equal(erqiChecks.find((check) => check.id === "population")?.ok, true);
+assert.equal(erqiChecks.find((check) => check.id === "age")?.ok, true);
+assert.match(erqiChecks.find((check) => check.id === "area")?.detail ?? "", /78\.50 km²/);
+assert.match(erqiChecks.find((check) => check.id === "visitors")?.detail ?? "", /1\.9×/);
+assert.equal(erqi.if03Contested, true);
+assert.equal(erqi.retailCount, 10881);
+assert.equal(erqi.mixIndex, 43);
+assert.equal(erqi.mixType, "商业零售");
+assert.equal(erqi.industry, "制造业");
+assert.equal(erqi.nightShare, 26.67);
+assert.equal(erqi.openHours, 11.63);
+assert.equal(erqi.reviewScore, 4.62);
+assert.equal(erqiLatest.get("IF03")?.status, "zero");
+assert.equal(erqiLatest.get("IF06")?.status, "no_data");
+
+assert.equal(PLANNING_OWNER_EMAIL, "yying2010@gmail.com");
+assert.equal(isPlanningOwner("yying2010@gmail.com"), true);
+assert.equal(isPlanningOwner(" YYING2010@Gmail.com "), true);
+assert.equal(isPlanningOwner("yok@dseek.ai"), false);
+assert.equal(isPlanningOwner(""), false);
+assert.equal(isPlanningOwner(null), false);
+
 const page = readFileSync(join(root, "app/planning/page.tsx"), "utf8");
 const localePage = readFileSync(join(root, "app/[locale]/planning/page.tsx"), "utf8");
-assert.match(page, /PlanningDesk/);
-assert.match(localePage, /PlanningDesk/);
-assert.match(readFileSync(join(root, "app/components/SiteHeader.tsx"), "utf8"), /\/planning/);
+const gate = readFileSync(join(root, "app/components/planning/PlanningGate.tsx"), "utf8");
+const header = readFileSync(join(root, "app/components/SiteHeader.tsx"), "utf8");
+const site = readFileSync(join(root, "lib/site.ts"), "utf8");
+assert.match(page, /PlanningGate/);
+assert.match(localePage, /PlanningGate/);
+assert.match(page, /index: false/);
+assert.match(localePage, /index: false/);
+assert.doesNotMatch(page, /PlanningDesk/);
+assert.doesNotMatch(localePage, /PlanningDesk/);
+assert.match(gate, /PlanningDesk/);
+assert.match(gate, /ssr: false/);
+assert.match(gate, /verifyPlanningOwner/);
+assert.match(header, /PlanningNavLink/);
+assert.doesNotMatch(header, /href: "\/planning"/);
+assert.doesNotMatch(site, /ichina\.co\/planning/);
 
 console.log("planning checks ok");
