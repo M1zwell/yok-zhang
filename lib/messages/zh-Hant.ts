@@ -11,6 +11,7 @@ export const zhHant: Messages = {
     share: "分享",
     career: "職場",
     funding: "融資",
+    planning: "規劃",
   },
   heroLine: "香港。做 AI。走其餘的。",
   tacitLine: "能寫下的在這裡。其餘的要走 —— 行星、地圖、終端。",

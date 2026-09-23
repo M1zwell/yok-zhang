@@ -13,6 +13,7 @@
     "verify:career": "node --experimental-strip-types scripts/verify-career-gate.ts",
     "verify:funding": "node --experimental-strip-types scripts/verify-funding-gate.ts",
     "verify:tekoart": "node --experimental-strip-types scripts/verify-tekoart.ts",
+    "verify:planning": "node --experimental-strip-types scripts/verify-planning.ts",
     "sync:tekoart": "node scripts/sync-tekoart-catalog.mjs"
   },
   "dependencies": {

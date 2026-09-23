@@ -9,6 +9,7 @@ export const en = {
     share: "Share",
     career: "Career",
     funding: "Funding",
+    planning: "Planning",
   },
   heroLine: "Hong Kong. Builds AI. Walks the rest.",
   tacitLine: "What can be told is here. The rest you walk — planets, the map, the terminal.",
