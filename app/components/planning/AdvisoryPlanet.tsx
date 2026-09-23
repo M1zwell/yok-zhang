@@ -5,7 +5,7 @@ import type { PlanningCopy } from "@/lib/planning/copy";
 import { formatCount, type HeroFigures } from "@/lib/planning/logic";
 
 type Layer = "people" | "economy" | "syntax" | "carbon";
-export type RunId = "task-8" | "task-9";
+export type PlanetId = "zhengzhou" | "luoyang";
 
 function layerReading(layer: Layer, copy: PlanningCopy, figures: HeroFigures): string {
   switch (layer) {
@@ -44,26 +44,27 @@ function wedgePath(cx: number, cy: number, r: number, start: number, end: number
 export function AdvisoryPlanet({
   copy,
   figures,
-  runId,
-  onRun,
+  planetId,
 }: {
   copy: PlanningCopy;
   figures: HeroFigures;
-  runId: RunId;
-  onRun: (id: RunId) => void;
+  planetId: PlanetId;
 }) {
   const [layer, setLayer] = useState<Layer>("people");
   const peopleMax = Math.max(figures.visitors ?? 0, figures.usual ?? 0, 1);
-  const useMax = Math.max(figures.retailCount ?? 0, figures.cateringCount ?? 0, figures.leisureCount ?? 0, figures.poi ?? 0, 1);
+  const useMax = Math.max(
+    figures.retailCount ?? 0,
+    figures.cateringCount ?? 0,
+    figures.leisureCount ?? 0,
+    figures.poi ?? 0,
+    figures.secondaryPoi ?? 0,
+    1,
+  );
   const layers: { id: Layer; label: string }[] = [
     { id: "people", label: copy.layerPeople },
     { id: "economy", label: copy.layerEconomy },
     { id: "syntax", label: copy.layerSyntax },
     { id: "carbon", label: copy.layerCarbon },
-  ];
-  const runs: { id: RunId; label: string }[] = [
-    { id: "task-8", label: copy.runErqi },
-    { id: "task-9", label: copy.runUnresolved },
   ];
   const uses = [
     { value: figures.retailCount ?? 0, color: "#2dd4bf" },
@@ -78,39 +79,57 @@ export function AdvisoryPlanet({
     cursor += sweep;
     return { ...part, d: wedgePath(200, 200, 112, start, cursor - 0.4) };
   });
+  const globeId = `advisory-globe-${planetId}`;
+  const clipId = `advisory-clip-${planetId}`;
+  const streets =
+    planetId === "zhengzhou" ? (
+      <>
+        <circle cx="200" cy="200" r="78" strokeWidth="1.2" />
+        <circle cx="200" cy="200" r="46" strokeWidth="1" />
+        <path d="M200 92 V308" strokeWidth="1.3" />
+        <path d="M92 200 H308" strokeWidth="1.3" />
+        <path d="M124 124 L276 276" strokeWidth="1.1" />
+        <path d="M276 124 L124 276" strokeWidth="1.1" />
+        <path className="planet-spine" d="M118 214 C 160 168, 230 150, 292 186" strokeWidth="2.4" />
+      </>
+    ) : (
+      <>
+        <circle cx="200" cy="188" r="70" strokeWidth="1.2" />
+        <circle cx="214" cy="214" r="40" strokeWidth="1" />
+        <path d="M108 168 H292" strokeWidth="1.3" />
+        <path d="M164 96 V300" strokeWidth="1.2" />
+        <path d="M236 104 V292" strokeWidth="1.1" />
+        <path d="M112 248 H286" strokeWidth="1.1" />
+        <path className="planet-spine" d="M126 236 C 168 196, 214 188, 286 214" strokeWidth="2.4" />
+      </>
+    );
 
   return (
     <div className="planet-layout">
       <div>
-        <div className="planet-stage" data-layer={layer} data-run={runId}>
+        <div className="planet-stage" data-layer={layer} data-planet={planetId}>
           <div className="planet-glow" aria-hidden />
           <svg viewBox="0 0 400 400" role="img" aria-label={copy.schematic}>
             <defs>
-              <radialGradient id="advisory-globe" cx="36%" cy="32%" r="72%">
-                <stop offset="0%" stopColor="#24584f" />
-                <stop offset="48%" stopColor="#122421" />
+              <radialGradient id={globeId} cx="36%" cy="32%" r="72%">
+                <stop offset="0%" stopColor={planetId === "zhengzhou" ? "#24584f" : "#5a4630"} />
+                <stop offset="48%" stopColor={planetId === "zhengzhou" ? "#122421" : "#24180f"} />
                 <stop offset="100%" stopColor="#070908" />
               </radialGradient>
-              <clipPath id="advisory-clip">
+              <clipPath id={clipId}>
                 <circle cx="200" cy="200" r="112" />
               </clipPath>
             </defs>
             <ellipse className="planet-orbit" cx="200" cy="200" rx="158" ry="54" fill="none" stroke="currentColor" strokeOpacity="0.35" />
             <ellipse className="planet-orbit is-b" cx="200" cy="200" rx="178" ry="70" fill="none" stroke="currentColor" strokeOpacity="0.22" />
-            <circle cx="200" cy="200" r="112" fill="url(#advisory-globe)" />
-            <g clipPath="url(#advisory-clip)" className="planet-uses" opacity={layer === "economy" ? 0.72 : 0.16}>
+            <circle cx="200" cy="200" r="112" fill={`url(#${globeId})`} />
+            <g clipPath={`url(#${clipId})`} className="planet-uses" opacity={layer === "economy" ? 0.72 : 0.16}>
               {wedges.map((part) => (
                 <path key={part.color} d={part.d} fill={part.color} />
               ))}
             </g>
-            <g clipPath="url(#advisory-clip)" className="planet-streets" fill="none" stroke="#e7c27a" strokeLinecap="round">
-              <circle cx="200" cy="200" r="78" strokeWidth="1.2" />
-              <circle cx="200" cy="200" r="46" strokeWidth="1" />
-              <path d="M200 92 V308" strokeWidth="1.3" />
-              <path d="M92 200 H308" strokeWidth="1.3" />
-              <path d="M124 124 L276 276" strokeWidth="1.1" />
-              <path d="M276 124 L124 276" strokeWidth="1.1" />
-              <path className="planet-spine" d="M118 214 C 160 168, 230 150, 292 186" strokeWidth="2.4" />
+            <g clipPath={`url(#${clipId})`} className="planet-streets" data-slot="streets" fill="none" stroke="#e7c27a" strokeLinecap="round">
+              {streets}
             </g>
             <circle cx="200" cy="200" r="112" fill="none" stroke="#f3efe6" strokeOpacity="0.18" />
           </svg>
@@ -121,14 +140,7 @@ export function AdvisoryPlanet({
         </p>
       </div>
       <div>
-        <div className="planet-layers" role="group" aria-label={copy.compareTitle}>
-          {runs.map((item) => (
-            <button key={item.id} type="button" aria-pressed={runId === item.id} onClick={() => onRun(item.id)}>
-              {item.label}
-            </button>
-          ))}
-        </div>
-        <div className="planet-layers mt-2" role="group" aria-label={copy.planetTitle}>
+        <div className="planet-layers" role="group" aria-label={copy.planetTitle}>
           {layers.map((item) => (
             <button key={item.id} type="button" aria-pressed={layer === item.id} onClick={() => setLayer(item.id)}>
               {item.label}
@@ -136,20 +148,24 @@ export function AdvisoryPlanet({
           ))}
         </div>
         <p className="planning-prose mt-4">{layerReading(layer, copy, figures)}</p>
-        {layer === "people" ? (
-          <div className="planet-meters">
-            <Meter label={copy.visitors} value={figures.visitors} max={peopleMax} />
-            <Meter label={copy.residents} value={figures.residents} max={peopleMax} />
-            <Meter label={copy.workers} value={figures.workers} max={peopleMax} />
-          </div>
-        ) : null}
-        {layer === "economy" ? (
-          <div className="planet-meters">
-            <Meter label={figures.mixType ?? figures.industry ?? copy.industry} value={figures.retailCount ?? figures.poi} max={useMax} />
-            <Meter label={copy.industry} value={figures.poi} max={useMax} />
-            <Meter label={figures.secondary ?? ""} value={figures.secondaryPoi} max={useMax} />
-          </div>
-        ) : null}
+        <div className="planet-meters" data-reading="people">
+          <p className="planning-k">{copy.layerPeople}</p>
+          <Meter label={copy.usual} value={figures.usual} max={peopleMax} />
+          <Meter label={copy.visitors} value={figures.visitors} max={peopleMax} />
+          <Meter label={copy.residents} value={figures.residents} max={peopleMax} />
+          <Meter label={copy.workers} value={figures.workers} max={peopleMax} />
+        </div>
+        <div className="planet-meters" data-reading="economy">
+          <p className="planning-k">{copy.layerEconomy}</p>
+          <Meter label={figures.industry ?? copy.industry} value={figures.poi} max={useMax} />
+          <Meter label={figures.secondary ?? ""} value={figures.secondaryPoi} max={useMax} />
+          {figures.retailCount !== null ? (
+            <Meter label={figures.mixType ?? copy.industry} value={figures.retailCount} max={useMax} />
+          ) : null}
+        </div>
+        <p className="planet-slot" data-slot="streets">
+          {copy.streetSlot}
+        </p>
         {layer === "syntax" ? (
           <ul className="planet-meters text-sm text-secondary">
             <li>QGIS · boundary + centre lines</li>
@@ -170,6 +186,7 @@ export function AdvisoryPlanet({
 }
 
 function Meter({ label, value, max }: { label: string; value: number | null; max: number }) {
+  if (!label) return null;
   return (
     <div className="planet-meter">
       <span>

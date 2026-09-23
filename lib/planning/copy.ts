@@ -72,6 +72,15 @@ export type PlanningCopy = {
   schematic: string;
   runErqi: string;
   runUnresolved: string;
+  openZhengzhou: string;
+  openLuoyang: string;
+  planetZhengzhou: string;
+  planetLuoyang: string;
+  collectedCity: string;
+  collectedDistrict: string;
+  streetSlot: string;
+  circleNote: string;
+  notPublished: string;
   boundaryErqi: string;
   contestedIf03: string;
   industryClash: string;
@@ -111,7 +120,8 @@ export type PlanningCopy = {
   colModule: string;
   colRequired: string;
   colDepends: string;
-  colTask: string;
+  colTask8: string;
+  colTask9: string;
   close: string;
   syntaxKicker: string;
   syntaxTitle: string;
@@ -135,11 +145,11 @@ export type PlanningCopy = {
 const en: PlanningCopy = {
   metaTitle: "Planning",
   metaDescription:
-    "One advisory planet for gghere.com/planet. Erqi District and an unresolved boundary, joined to space syntax, depthmapX, and QGIS.",
+    "Two private advisory planets. Zhengzhou Erqi, and a Luoyang reading stored as city 郑州. Joined to space syntax, depthmapX, and QGIS. Not published into the gghere repo.",
   kicker: "ichina.co/planning · gghere.com/planet",
-  title: "One planet for the district you can name.",
-  titleAlt: "把能叫出边界的片区，放到一颗行星上。",
-  lede: "Two collected runs, one surface. Task 8 is Zhengzhou, Erqi District. Task 9 stores city 郑州 and district 洛阳, which is not a boundary. QGIS would hold the polygon. depthmapX would write the streets. gghere.com/planet is where that surface is walked. The globe here is that port, with the graph still empty.",
+  title: "Two advisory planets.",
+  titleAlt: "两颗咨询行星，各自站在自己的采集上。",
+  lede: "Task 8 is the Zhengzhou planet: city 郑州, district 二七区. That is the district this file can name. Task 9 is the Luoyang planet. The collection stores city 郑州 and district 洛阳. Luoyang is a prefecture-level city in Henan, not a district of Zhengzhou. Each planet keeps its own people, its own economy, and an empty street slot. QGIS would hold each polygon. depthmapX would write the streets. Neither planet is published into the gghere repo.",
   boundary:
     "The file stores city 郑州 and district 洛阳. Luoyang is a prefecture-level city in Henan, not a district of Zhengzhou. SE12 records the scope as 「郑州洛阳」. Keep the pair as collected, and confirm one polygon in QGIS before either name becomes the boundary.",
   jump: "On this page",
@@ -149,9 +159,9 @@ const en: PlanningCopy = {
   navSyntax: "Syntax",
   navResearch: "Research",
   followKicker: "Collected output",
-  followTitle: "What Task 9 actually returned",
+  followTitle: "What this collection returned",
   followLede:
-    "Figures below are the stored values. Derived checks are labelled as checks. Nothing here is a DepthmapX result.",
+    "Figures below are the stored values for this planet. Derived checks are labelled as checks. Nothing here is a depthmapX result.",
   usual: "Usual population",
   residents: "Residents",
   workers: "Workers",
@@ -173,12 +183,12 @@ const en: PlanningCopy = {
   mix: "IF04 has an empty definition in the catalog and an empty result in the run. It asked for a supporting workbook. Functional mix needs a formula before it needs another export.",
   night: "IF09, IF10, and IF11 were not extracted. Night economy and 24-hour service cannot be read from this file. IF10 and IF11 also depend on IF09, so the dependency is blocked.",
   carbon: "IF06, IF07, and IF08 returned no data from the web and certification sources. The carbon ring stays off.",
-  events: "SE12 was collected as zero events for 2026, scope 「郑州洛阳」. A zero is a value. It is not the same failure as a missing extractor.",
-  checksTitle: "Accounts that close",
-  checkPopulation: "Resident plus workplace equals usual population",
-  checkAge: "Ages 18–64 sum to the working-age share",
-  checkArea: "Usual population divided by density",
-  checkVisitors: "Visitors divided by usual population",
+  events: "SE12 was collected as zero events for 2026. A zero is a value. It is not the same failure as a missing extractor. The stored scope sits beside this note.",
+  checksTitle: "Checks, not measurements",
+  checkPopulation: "Check: resident plus workplace equals usual population",
+  checkAge: "Check: ages 18–64 sum to the working-age share",
+  checkArea: "Check: usual population divided by density. Implied area, not a boundary survey.",
+  checkVisitors: "Check: visitors divided by usual population",
   pass: "Holds",
   fail: "Breaks",
   coverage: "Latest status across the 39 authorised codes",
@@ -195,9 +205,9 @@ const en: PlanningCopy = {
   distCarrier: "Carrier",
   distSex: "Sex",
   planetKicker: "jubuddy.com/planet",
-  planetTitle: "Port the reading onto gghere.com/planet",
+  planetTitle: "Open Zhengzhou. Open Luoyang.",
   planetLede:
-    "Do not add a twenty-fifth city to the walked catalog. Add one advisory planet. Its layers are the boundary, the segment graph, and this collection. Switch runs on the same sphere.",
+    "Two stages, two collections. There is no run switch on one sphere that hides the other city. Streets on both are the depthmapX and QGIS slot, drawn until a graph is actually run.",
   layerPeople: "Population",
   layerEconomy: "Economy",
   layerSyntax: "Syntax",
@@ -206,11 +216,21 @@ const en: PlanningCopy = {
   economyReading: "Catering leads, manufacturing is close behind. Office rent is a low daily rate beside a hotel-heavy walk circle. Night hours were not extracted.",
   syntaxReading: "These streets are drawn for the presentation. They are not an integration map. Run depthmapX before this layer is allowed to mean anything.",
   carbonReading: "Low-carbon strategy, LID, and green certification returned no data. The ring stays dim on purpose.",
-  schematic: "Advisory planet. Numbers are the selected run. Streets are the depthmapX slot, not a result.",
+  schematic: "Advisory planet. Numbers are this collection. Streets are the depthmapX slot, not a result.",
   runErqi: "郑州 · 二七区",
-  runUnresolved: "郑州 · 洛阳",
+  runUnresolved: "洛阳",
+  openZhengzhou: "Open Zhengzhou",
+  openLuoyang: "Open Luoyang",
+  planetZhengzhou: "Zhengzhou · Erqi",
+  planetLuoyang: "Luoyang",
+  collectedCity: "Collected city",
+  collectedDistrict: "Collected district",
+  streetSlot: "depthmapX · QGIS street slot. Empty until a segment graph is run.",
+  circleNote: "SE14 is a 10-minute circle around a centroid. It is not network accessibility.",
+  notPublished:
+    "These two planets stay on this desk. They are not a publish into the gghere repo. gghere.com/planet is the walked surface. The Hong Kong Central Belt stays at gghere.com/hk.",
   boundaryErqi:
-    "Erqi is a district of Zhengzhou, and SE12 records the scope as 「郑州二七区」. Usual population divided by density implies about 78.5 km². That figure is a check, not the administrative boundary. The planet is published only after QGIS holds one polygon.",
+    "Erqi is a district of Zhengzhou, and SE12 records the scope as 「郑州二七区」. Usual population divided by density is a check, shown with the other checks, not the administrative boundary. This planet stays a desk presentation until QGIS holds one polygon.",
   contestedIf03:
     "An IF03 pass counted 10,881 retail, 3,134 catering, and 1,730 leisure facilities. A later pass, three seconds on, wrote zeros. IF04 in the same minute still holds 19,799 POI and a mix index of 43, led by retail. The planet draws the earlier pass. The table keeps the later zero, because a last-write pipeline would publish that.",
   industryClash:
@@ -218,15 +238,15 @@ const en: PlanningCopy = {
   nightKnown:
     "On a 120-venue sample, core stores average 11.63 hours, 26.67% stay open past 22:00, and none are 24-hour. The mean review score is 4.62.",
   portBody:
-    "Yes. Planning, space syntax, and the planet are one object. QGIS keeps the boundary, the road centre lines, and the join. depthmapX runs angular segment analysis and writes NAIN and NACH. gghere.com/planet draws that graph with the population and economy attributes on it. Until the graph exists, this page is the presentation of the planet, not a second product beside it.",
+    "Planning, space syntax, and the walked planet are one object. These two readings are the desk presentation of it. QGIS keeps each boundary, the road centre lines, and the join. depthmapX runs angular segment analysis and writes NAIN and NACH. gghere.com/planet is where a finished graph would be walked. These Zhengzhou and Luoyang planets have not been published into the gghere repo. Until each graph exists, this page is the presentation.",
   openGghere: "gghere.com/planet",
-  compareTitle: "Two runs, one planet",
+  compareTitle: "Two planets",
   openPlanet: "jubuddy.com/planet",
   openWorlds: "gghere.com/worlds",
   indicatorKicker: "Authorised catalog",
   indicatorTitle: "Indicator definition query",
   indicatorLede:
-    "Same fields as the collection desk: code, name, unit, type, grain, dimension, module, definition, required, dependency, category. Task 9 is joined on the right.",
+    "Same fields as the collection desk: code, name, unit, type, grain, dimension, module, definition, required, dependency, category. Task 8 and Task 9 each keep a column. SX codes stay out of the authorised export until the proposed-measure checkbox is on.",
   code: "Indicator code",
   name: "Indicator name",
   query: "Query",
@@ -254,23 +274,24 @@ const en: PlanningCopy = {
   colModule: "Module",
   colRequired: "Required",
   colDepends: "Depends",
-  colTask: "Task 9",
+  colTask8: "Task 8 · Zhengzhou",
+  colTask9: "Task 9 · Luoyang",
   close: "Close",
   syntaxKicker: "UCL Space Syntax",
   syntaxTitle: "The catalog is rich in attributes and silent on configuration",
   syntaxLede:
-    "Task 9 can say who is there and which POI class leads. It cannot say whether those uses sit on a through-movement street or a deep one. That is a Space Syntax question. depthmapX computes it. QGIS holds the boundary, the road centre lines, and the join.",
-  stepBoundary: "Confirm one study polygon. Do not leave 郑州 and 洛阳 as two names for an unmeasured area.",
+    "Task 8 and Task 9 can say who is there and which POI class leads. They cannot say whether those uses sit on a through-movement street or a deep one. That is a Space Syntax question. depthmapX computes it. QGIS holds each boundary, the road centre lines, and the join.",
+  stepBoundary: "Confirm one study polygon per planet. Luoyang is not a district of Zhengzhou, so it does not share Erqi’s polygon.",
   stepGraph: "Road centre lines to a segment map. Angular segment analysis in depthmapX, with choice, at 400, 800, 1200, and n.",
-  stepJoin: "Write NAIN and NACH back to the segments. Join POI, entrances, and the Task 9 attributes. Then the planet has a layer to show.",
+  stepJoin: "Write NAIN and NACH back to the segments. Join POI, entrances, and that planet’s collected attributes. Then the planet has a layer to show.",
   radii:
-    "For a district of about three square kilometres, 400 m and 800 m are the local readings. 800 m is also the network version of a 10-minute walk if speed is taken as 80 metres a minute. That speed is a convention, not a measured speed for this place.",
+    "Once a polygon exists, 400 m and 800 m are the local radii. 800 m is the network version of a 10-minute walk only if speed is taken as 80 metres a minute. That speed is a convention, not a measured speed for either place.",
   formula:
     "In depthmapX, NAIN = node count^1.2 / (total depth + 2) and NACH = log(choice + 1) / log(total depth + 3). Hillier, Yang & Turner, 2012.",
   se14: "SE14 reports hotels and bus stops inside a 10-minute circle. A circle from the centroid cuts through blocks. Mouratidis (2024) is the caution: a facility count in a buffer is not accessibility. SX04 replaces the circle with a network service area from the Space Syntax Toolkit.",
   also: "sDNA and the Urban Network Analysis toolbox compute related reach and betweenness. The path that matches this lab is depthmapX through the UCL toolkit, because the measures planners will compare are NAIN and NACH.",
   proposedTitle: "Proposed measures, not in the authorised catalog",
-  notRun: "Not run on Task 9",
+  notRun: "Not run",
   researchKicker: "Ground",
   researchTitle: "What the reading is standing on",
   researchLede:
@@ -283,11 +304,11 @@ const en: PlanningCopy = {
 const zhHans: PlanningCopy = {
   metaTitle: "规划",
   metaDescription:
-    "一颗给 gghere.com/planet 的咨询行星。二七区与一条未闭合的边界，接上空间句法、depthmapX 和 QGIS。",
+    "两颗私人咨询行星。郑州二七区，以及一份把城市写成郑州的洛阳采集。接上空间句法、depthmapX 和 QGIS。没有发布进 gghere 仓库。",
   kicker: "ichina.co/planning · gghere.com/planet",
-  title: "把能叫出边界的片区，放到一颗行星上。",
-  titleAlt: "One planet for the district you can name.",
-  lede: "两次采集，一个表面。任务 8 是郑州二七区。任务 9 把城市写成郑州、区县写成洛阳，那不是一条边界。QGIS 存放多边形。depthmapX 写入街道。gghere.com/planet 是这条表面被走的地方。这里的球体就是那个端口，街道图仍然是空的。",
+  title: "两颗咨询行星。",
+  titleAlt: "Two advisory planets.",
+  lede: "任务 8 是郑州行星：城市郑州，区县二七区。这是这份文件能够叫出名字的区。任务 9 是洛阳行星。采集把城市写成郑州、区县写成洛阳。洛阳是河南的地级市，不是郑州的区。每颗行星保留自己的人口、经济和一条空着的街道槽。QGIS 存放多边形。depthmapX 写入街道。这两颗行星没有发布进 gghere 仓库。",
   boundary:
     "文件里的城市是郑州，区县是洛阳。洛阳是河南的地级市，不是郑州的区。SE12 把统计范围写成「郑州洛阳」。先按采集原值保留这对名称，在 QGIS 里确认一个多边形之后，再让其中任何一个名字成为边界。",
   jump: "本页",
@@ -297,8 +318,8 @@ const zhHans: PlanningCopy = {
   navSyntax: "句法",
   navResearch: "研究",
   followKicker: "采集输出",
-  followTitle: "任务 9 实际返回了什么",
-  followLede: "下面的数字是入库原值。推导检查会标明是检查。这里没有任何 depthmapX 结果。",
+  followTitle: "这次采集实际返回了什么",
+  followLede: "下面的数字是这颗行星的入库原值。推导检查会标明是检查。这里没有任何 depthmapX 结果。",
   usual: "常驻人口",
   residents: "居住人口",
   workers: "工作人口",
@@ -320,12 +341,12 @@ const zhHans: PlanningCopy = {
   mix: "IF04 在目录里没有定义，在这次运行里也没有结果。它要求上传配套工作簿。功能复合度要先有公式，再谈下一次导出。",
   night: "IF09、IF10、IF11 没有提取到。夜间经济和 24 小时服务不能从这份文件里读出。IF10 与 IF11 依赖 IF09，所以这条依赖是阻断的。",
   carbon: "IF06、IF07、IF08 从网页和认证来源返回无数据。碳环因此保持关闭。",
-  events: "SE12 按 2026 年、范围「郑州洛阳」采集为 0 场活动。零是一个值。它和提取器失败不是同一种状态。",
-  checksTitle: "能够闭合的账",
-  checkPopulation: "居住人口加工作人口等于常驻人口",
-  checkAge: "18–64 岁占比之和等于劳动年龄占比",
-  checkArea: "常驻人口除以密度",
-  checkVisitors: "到访人口除以常驻人口",
+  events: "SE12 按 2026 年采集为 0 场活动。零是一个值。它和提取器失败不是同一种状态。统计范围写在这条说明旁边。",
+  checksTitle: "检查，不是测量",
+  checkPopulation: "检查：居住人口加工作人口等于常驻人口",
+  checkAge: "检查：18–64 岁占比之和等于劳动年龄占比",
+  checkArea: "检查：常驻人口除以密度。这是推算面积，不是边界测量。",
+  checkVisitors: "检查：到访人口除以常驻人口",
   pass: "成立",
   fail: "不成立",
   coverage: "39 个授权编码的最新状态",
@@ -342,8 +363,8 @@ const zhHans: PlanningCopy = {
   distCarrier: "运营商",
   distSex: "性别",
   planetKicker: "jubuddy.com/planet",
-  planetTitle: "把读数移植到 gghere.com/planet",
-  planetLede: "不要往可走目录里再加第二十五座城。加一颗咨询行星。它的层是边界、线段图和这次采集。在同一个球体上切换两次运行。",
+  planetTitle: "打开郑州。打开洛阳。",
+  planetLede: "两个舞台，两次采集。球体上没有用来藏起另一座城的运行开关。两边的街道都是 depthmapX 和 QGIS 的空位，在真正跑出街道图之前只是示意。",
   layerPeople: "人口",
   layerEconomy: "经济",
   layerSyntax: "句法",
@@ -352,11 +373,21 @@ const zhHans: PlanningCopy = {
   economyReading: "餐饮领先，制造业紧随。写字楼日租金很低，步行圈里的酒店却很多。营业时间没有提取到。",
   syntaxReading: "这些街道是为演示画的。它们不是整合度图。在 depthmapX 跑完之前，这一层不能被读成分析结果。",
   carbonReading: "低碳策略、低影响开发和绿色认证都返回无数据。环保持暗，是有意的。",
-  schematic: "咨询行星。数字来自当前这次运行。街道是 depthmapX 的空位，不是计算结果。",
+  schematic: "咨询行星。数字来自这次采集。街道是 depthmapX 的空位，不是计算结果。",
   runErqi: "郑州 · 二七区",
-  runUnresolved: "郑州 · 洛阳",
+  runUnresolved: "洛阳",
+  openZhengzhou: "打开郑州",
+  openLuoyang: "打开洛阳",
+  planetZhengzhou: "郑州 · 二七区",
+  planetLuoyang: "洛阳",
+  collectedCity: "采集城市",
+  collectedDistrict: "采集区县",
+  streetSlot: "depthmapX · QGIS 街道槽。线段图跑出来之前，这里是空的。",
+  circleNote: "SE14 是中心点外的 10 分钟圈。它不是网络可达性。",
+  notPublished:
+    "这两颗行星留在这张台面上。它们不是向 gghere 仓库的发布。gghere.com/planet 是被走的表面。香港中环带仍在 gghere.com/hk。",
   boundaryErqi:
-    "二七区是郑州的区，SE12 的统计范围是「郑州二七区」。常驻人口除以密度大约得到 78.5 km²。这是检查，不是行政区边界。只有 QGIS 里放进一个多边形之后，这颗行星才可以发布。",
+    "二七区是郑州的区，SE12 的统计范围是「郑州二七区」。常驻人口除以密度是一项检查，写在下面的检查里，不是行政区边界。在 QGIS 放进一个多边形之前，这颗行星只是台面上的演示。",
   contestedIf03:
     "一次 IF03 计到商业零售 10881、餐饮 3134、文体休闲 1730。三秒后的另一次把这些数写成 0。同一分钟的 IF04 仍有 19799 个 POI，复合度指数 43，主导功能是商业零售。行星画的是较早的那次。表上保留较晚的零，因为只留最后一次写入的流水线会发布那个零。",
   industryClash:
@@ -364,15 +395,15 @@ const zhHans: PlanningCopy = {
   nightKnown:
     "在 120 个有营业时间的样本里，核心门店日均 11.63 小时，26.67% 延续到 22:00 以后，没有 24 小时设施。平均点评分为 4.62。",
   portBody:
-    "应该合成。规划演示、空间句法和行星是同一个东西。QGIS 存放边界、道路中心线和接合。depthmapX 做角度线段分析，写下 NAIN 和 NACH。gghere.com/planet 把这张图和人口、经济属性一起走出来。在街道图出现之前，这个页面就是那颗行星的演示，而不是旁边的另一件产品。",
+    "规划演示、空间句法和被走的行星是同一个东西。这两次读数是它在台面上的演示。QGIS 存放各自的边界、道路中心线和接合。depthmapX 做角度线段分析，写下 NAIN 和 NACH。gghere.com/planet 是一张完成的街道图会被走的地方。郑州行星和洛阳行星都没有发布进 gghere 仓库。在各自的街道图出现之前，这个页面就是演示。",
   openGghere: "gghere.com/planet",
-  compareTitle: "两次运行，一颗行星",
+  compareTitle: "两颗行星",
   openPlanet: "jubuddy.com/planet",
   openWorlds: "gghere.com/worlds",
   indicatorKicker: "授权目录",
   indicatorTitle: "指标定义查询",
   indicatorLede:
-    "与采集台相同的字段：编码、名称、单位、类型、时间粒度、维度、模块、定义、必填、依赖、分类。右侧接上任务 9。",
+    "与采集台相同的字段：编码、名称、单位、类型、时间粒度、维度、模块、定义、必填、依赖、分类。任务 8 和任务 9 各占一列。提议测度的复选框关掉时，SX 不进入授权导出。",
   code: "指标编码",
   name: "指标名称",
   query: "查询",
@@ -400,23 +431,24 @@ const zhHans: PlanningCopy = {
   colModule: "模块",
   colRequired: "必填",
   colDepends: "依赖",
-  colTask: "任务 9",
+  colTask8: "任务 8 · 郑州",
+  colTask9: "任务 9 · 洛阳",
   close: "关闭",
   syntaxKicker: "UCL 空间句法",
   syntaxTitle: "目录里属性很多，构形是沉默的",
   syntaxLede:
-    "任务 9 能说明谁在这里、哪一类 POI 领先。它不能说明这些功能是落在穿越性街道上，还是落在很深的街道上。这是空间句法的问题。depthmapX 负责计算。QGIS 负责边界、道路中心线和结果回写。",
-  stepBoundary: "确认一个研究多边形。不要让郑州和洛阳继续作为一块未测量范围的两个名字。",
+    "任务 8 和任务 9 能说明谁在这里、哪一类 POI 领先。它们不能说明这些功能是落在穿越性街道上，还是落在很深的街道上。这是空间句法的问题。depthmapX 负责计算。QGIS 负责各自的边界、道路中心线和结果回写。",
+  stepBoundary: "为每颗行星确认一个研究多边形。洛阳不是郑州的区，所以不与二七区共用一个多边形。",
   stepGraph: "道路中心线转为线段图。在 depthmapX 里做角度线段分析，包含选择度，半径取 400、800、1200 和 n。",
-  stepJoin: "把 NAIN 和 NACH 写回线段。接合 POI、出入口和任务 9 的属性。然后行星才有一层可以显示。",
+  stepJoin: "把 NAIN 和 NACH 写回线段。接合 POI、出入口和这次采集的属性。然后这颗行星才有一层可以显示。",
   radii:
-    "大约三平方公里的片区，400 米和 800 米是局部读数。若步速取每分钟 80 米，800 米也就是 10 分钟步行的网络版本。这个步速是约定，不是此地测到的速度。",
+    "多边形确定之后，400 米和 800 米是局部半径。只有把步速取成每分钟 80 米时，800 米才是 10 分钟步行的网络版本。这个步速是约定，不是这两地测到的速度。",
   formula:
     "在 depthmapX 中，NAIN = 节点数^1.2 /（总深度 + 2），NACH = log(选择度 + 1) / log(总深度 + 3)。Hillier、Yang 与 Turner，2012。",
   se14: "SE14 报告的是 10 分钟圈内的酒店和公交站。从中心点画出的圆会切过街坊。Mouratidis（2024）的提醒是：缓冲区内的设施计数不是可达性。SX04 用空间句法工具包里的网络服务区替换这个圆。",
   also: "sDNA 和 Urban Network Analysis 工具箱也能算相近的到达与中介性。和这个实验室对齐的路径，是通过 UCL 工具包使用 depthmapX，因为规划上要对照的是 NAIN 和 NACH。",
   proposedTitle: "建议测度，不在授权目录里",
-  notRun: "任务 9 未计算",
+  notRun: "未计算",
   researchKicker: "依据",
   researchTitle: "这次数读站在什么上面",
   researchLede: "指标清单是授权的产品结构。这些文献说明下一层为什么是街道图，以及行星为什么要等这张图。",
@@ -428,11 +460,11 @@ const zhHans: PlanningCopy = {
 const zhHant: PlanningCopy = {
   metaTitle: "規劃",
   metaDescription:
-    "一顆給 gghere.com/planet 的諮詢行星。二七區與一條未閉合的邊界，接上空間句法、depthmapX 和 QGIS。",
+    "兩顆私人諮詢行星。鄭州二七區，以及一份把城市寫成鄭州的洛陽採集。接上空間句法、depthmapX 和 QGIS。沒有發布進 gghere 倉庫。",
   kicker: "ichina.co/planning · gghere.com/planet",
-  title: "把能叫出邊界的片區，放到一顆行星上。",
-  titleAlt: "One planet for the district you can name.",
-  lede: "兩次採集，一個表面。任務 8 是鄭州二七區。任務 9 把城市寫成鄭州、區縣寫成洛陽，那不是一條邊界。QGIS 存放多邊形。depthmapX 寫入街道。gghere.com/planet 是這條表面被走的地方。這裡的球體就是那個端口，街道圖仍然是空的。",
+  title: "兩顆諮詢行星。",
+  titleAlt: "Two advisory planets.",
+  lede: "任務 8 是鄭州行星：城市鄭州，區縣二七區。這是這份檔案能夠叫出名字的區。任務 9 是洛陽行星。採集把城市寫成鄭州、區縣寫成洛陽。洛陽是河南的地級市，不是鄭州的區。每顆行星保留自己的人口、經濟和一條空著的街道槽。QGIS 存放多邊形。depthmapX 寫入街道。這兩顆行星沒有發布進 gghere 倉庫。",
   boundary:
     "檔案裡的城市是鄭州，區縣是洛陽。洛陽是河南的地級市，不是鄭州的區。SE12 把統計範圍寫成「郑州洛阳」。先按採集原值保留這對名稱，在 QGIS 裡確認一個多邊形之後，再讓其中任何一個名字成為邊界。",
   jump: "本頁",
@@ -442,8 +474,8 @@ const zhHant: PlanningCopy = {
   navSyntax: "句法",
   navResearch: "研究",
   followKicker: "採集輸出",
-  followTitle: "任務 9 實際返回了什麼",
-  followLede: "下面的數字是入庫原值。推導檢查會標明是檢查。這裡沒有任何 depthmapX 結果。",
+  followTitle: "這次採集實際返回了什麼",
+  followLede: "下面的數字是這顆行星的入庫原值。推導檢查會標明是檢查。這裡沒有任何 depthmapX 結果。",
   usual: "常駐人口",
   residents: "居住人口",
   workers: "工作人口",
@@ -465,12 +497,12 @@ const zhHant: PlanningCopy = {
   mix: "IF04 在目錄裡沒有定義，在這次運行裡也沒有結果。它要求上傳配套工作簿。功能複合度要先有公式，再談下一次匯出。",
   night: "IF09、IF10、IF11 沒有提取到。夜間經濟和 24 小時服務不能從這份檔案裡讀出。IF10 與 IF11 依賴 IF09，所以這條依賴是阻斷的。",
   carbon: "IF06、IF07、IF08 從網頁和認證來源返回無資料。碳環因此保持關閉。",
-  events: "SE12 按 2026 年、範圍「郑州洛阳」採集為 0 場活動。零是一個值。它和提取器失敗不是同一種狀態。",
-  checksTitle: "能夠閉合的帳",
-  checkPopulation: "居住人口加工作人口等於常駐人口",
-  checkAge: "18–64 歲占比之和等於勞動年齡占比",
-  checkArea: "常駐人口除以密度",
-  checkVisitors: "到訪人口除以常駐人口",
+  events: "SE12 按 2026 年採集為 0 場活動。零是一個值。它和提取器失敗不是同一種狀態。統計範圍寫在這條說明旁邊。",
+  checksTitle: "檢查，不是測量",
+  checkPopulation: "檢查：居住人口加工作人口等於常駐人口",
+  checkAge: "檢查：18–64 歲占比之和等於勞動年齡占比",
+  checkArea: "檢查：常駐人口除以密度。這是推算面積，不是邊界測量。",
+  checkVisitors: "檢查：到訪人口除以常駐人口",
   pass: "成立",
   fail: "不成立",
   coverage: "39 個授權編碼的最新狀態",
@@ -487,8 +519,8 @@ const zhHant: PlanningCopy = {
   distCarrier: "運營商",
   distSex: "性別",
   planetKicker: "jubuddy.com/planet",
-  planetTitle: "把讀數移植到 gghere.com/planet",
-  planetLede: "不要往可走目錄裡再加第二十五座城。加一顆諮詢行星。它的層是邊界、線段圖和這次採集。在同一個球體上切換兩次運行。",
+  planetTitle: "打開鄭州。打開洛陽。",
+  planetLede: "兩個舞台，兩次採集。球體上沒有用來藏起另一座城的運行開關。兩邊的街道都是 depthmapX 和 QGIS 的空位，在真正跑出街道圖之前只是示意。",
   layerPeople: "人口",
   layerEconomy: "經濟",
   layerSyntax: "句法",
@@ -497,11 +529,21 @@ const zhHant: PlanningCopy = {
   economyReading: "餐飲領先，製造業緊隨。寫字樓日租金很低，步行圈裡的酒店卻很多。營業時間沒有提取到。",
   syntaxReading: "這些街道是為演示畫的。它們不是整合度圖。在 depthmapX 跑完之前，這一層不能被讀成分析結果。",
   carbonReading: "低碳策略、低影響開發和綠色認證都返回無資料。環保持暗，是有意的。",
-  schematic: "諮詢行星。數字來自當前這次運行。街道是 depthmapX 的空位，不是計算結果。",
+  schematic: "諮詢行星。數字來自這次採集。街道是 depthmapX 的空位，不是計算結果。",
   runErqi: "鄭州 · 二七區",
-  runUnresolved: "鄭州 · 洛陽",
+  runUnresolved: "洛陽",
+  openZhengzhou: "打開鄭州",
+  openLuoyang: "打開洛陽",
+  planetZhengzhou: "鄭州 · 二七區",
+  planetLuoyang: "洛陽",
+  collectedCity: "採集城市",
+  collectedDistrict: "採集區縣",
+  streetSlot: "depthmapX · QGIS 街道槽。線段圖跑出來之前，這裡是空的。",
+  circleNote: "SE14 是中心點外的 10 分鐘圈。它不是網絡可達性。",
+  notPublished:
+    "這兩顆行星留在這張檯面上。它們不是向 gghere 倉庫的發布。gghere.com/planet 是被走的表面。香港中環帶仍在 gghere.com/hk。",
   boundaryErqi:
-    "二七區是鄭州的區，SE12 的統計範圍是「郑州二七区」。常駐人口除以密度大約得到 78.5 km²。這是檢查，不是行政區邊界。只有 QGIS 裡放進一個多邊形之後，這顆行星才可以發布。",
+    "二七區是鄭州的區，SE12 的統計範圍是「郑州二七区」。常駐人口除以密度是一項檢查，寫在下面的檢查裡，不是行政區邊界。在 QGIS 放進一個多邊形之前，這顆行星只是檯面上的演示。",
   contestedIf03:
     "一次 IF03 計到商業零售 10881、餐飲 3134、文體休閒 1730。三秒後的另一次把這些數寫成 0。同一分鐘的 IF04 仍有 19799 個 POI，複合度指數 43，主導功能是商業零售。行星畫的是較早的那次。表上保留較晚的零，因為只留最後一次寫入的流水線會發布那個零。",
   industryClash:
@@ -509,15 +551,15 @@ const zhHant: PlanningCopy = {
   nightKnown:
     "在 120 個有營業時間的樣本裡，核心門店日均 11.63 小時，26.67% 延續到 22:00 以後，沒有 24 小時設施。平均點評分為 4.62。",
   portBody:
-    "應該合成。規劃演示、空間句法和行星是同一個東西。QGIS 存放邊界、道路中心線和接合。depthmapX 做角度線段分析，寫下 NAIN 和 NACH。gghere.com/planet 把這張圖和人口、經濟屬性一起走出來。在街道圖出現之前，這個頁面就是那顆行星的演示，而不是旁邊的另一件產品。",
+    "規劃演示、空間句法和被走的行星是同一個東西。這兩次讀數是它在檯面上的演示。QGIS 存放各自的邊界、道路中心線和接合。depthmapX 做角度線段分析，寫下 NAIN 和 NACH。gghere.com/planet 是一張完成的街道圖會被走的地方。鄭州行星和洛陽行星都沒有發布進 gghere 倉庫。在各自的街道圖出現之前，這個頁面就是演示。",
   openGghere: "gghere.com/planet",
-  compareTitle: "兩次運行，一顆行星",
+  compareTitle: "兩顆行星",
   openPlanet: "jubuddy.com/planet",
   openWorlds: "gghere.com/worlds",
   indicatorKicker: "授權目錄",
   indicatorTitle: "指標定義查詢",
   indicatorLede:
-    "與採集台相同的欄位：編碼、名稱、單位、類型、時間粒度、維度、模組、定義、必填、依賴、分類。右側接上任務 9。",
+    "與採集台相同的欄位：編碼、名稱、單位、類型、時間粒度、維度、模組、定義、必填、依賴、分類。任務 8 和任務 9 各佔一列。提議測度的核取方塊關掉時，SX 不進入授權匯出。",
   code: "指標編碼",
   name: "指標名稱",
   query: "查詢",
@@ -545,23 +587,24 @@ const zhHant: PlanningCopy = {
   colModule: "模組",
   colRequired: "必填",
   colDepends: "依賴",
-  colTask: "任務 9",
+  colTask8: "任務 8 · 鄭州",
+  colTask9: "任務 9 · 洛陽",
   close: "關閉",
   syntaxKicker: "UCL 空間句法",
   syntaxTitle: "目錄裡屬性很多，構形是沉默的",
   syntaxLede:
-    "任務 9 能說明誰在這裡、哪一類 POI 領先。它不能說明這些功能是落在穿越性街道上，還是落在很深的街道上。這是空間句法的問題。depthmapX 負責計算。QGIS 負責邊界、道路中心線和結果回寫。",
-  stepBoundary: "確認一個研究多邊形。不要讓鄭州和洛陽繼續作為一塊未測量範圍的兩個名字。",
+    "任務 8 和任務 9 能說明誰在這裡、哪一類 POI 領先。它們不能說明這些功能是落在穿越性街道上，還是落在很深的街道上。這是空間句法的問題。depthmapX 負責計算。QGIS 負責各自的邊界、道路中心線和結果回寫。",
+  stepBoundary: "為每顆行星確認一個研究多邊形。洛陽不是鄭州的區，所以不與二七區共用一個多邊形。",
   stepGraph: "道路中心線轉為線段圖。在 depthmapX 裡做角度線段分析，包含選擇度，半徑取 400、800、1200 和 n。",
-  stepJoin: "把 NAIN 和 NACH 寫回線段。接合 POI、出入口和任務 9 的屬性。然後行星才有一層可以顯示。",
+  stepJoin: "把 NAIN 和 NACH 寫回線段。接合 POI、出入口和這次採集的屬性。然後這顆行星才有一層可以顯示。",
   radii:
-    "大約三平方公里的片區，400 米和 800 米是局部讀數。若步速取每分鐘 80 米，800 米也就是 10 分鐘步行的網絡版本。這個步速是約定，不是此地測到的速度。",
+    "多邊形確定之後，400 米和 800 米是局部半徑。只有把步速取成每分鐘 80 米時，800 米才是 10 分鐘步行的網絡版本。這個步速是約定，不是這兩地測到的速度。",
   formula:
     "在 depthmapX 中，NAIN = 節點數^1.2 /（總深度 + 2），NACH = log(選擇度 + 1) / log(總深度 + 3)。Hillier、Yang 與 Turner，2012。",
   se14: "SE14 報告的是 10 分鐘圈內的酒店和公交站。從中心點畫出的圓會切過街坊。Mouratidis（2024）的提醒是：緩衝區內的設施計數不是可達性。SX04 用空間句法工具包裡的網絡服務區替換這個圓。",
   also: "sDNA 和 Urban Network Analysis 工具箱也能算相近的到達與中介性。和這個實驗室對齊的路徑，是透過 UCL 工具包使用 depthmapX，因為規劃上要對照的是 NAIN 和 NACH。",
   proposedTitle: "建議測度，不在授權目錄裡",
-  notRun: "任務 9 未計算",
+  notRun: "未計算",
   researchKicker: "依據",
   researchTitle: "這次讀數站在什麼上面",
   researchLede: "指標清單是授權的產品結構。這些文獻說明下一層為什麼是街道圖，以及行星為什麼要等這張圖。",
