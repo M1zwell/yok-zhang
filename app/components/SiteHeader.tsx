@@ -24,6 +24,7 @@ export function SiteHeader() {
     { href: "/writing", label: m.nav.writing },
     { href: "/tools", label: m.nav.tools },
     { href: "/products", label: m.nav.products },
+    { href: "/planning", label: m.nav.planning },
     { href: "/game", label: m.nav.game },
     { href: "/share", label: m.nav.share },
   ];

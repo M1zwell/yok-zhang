@@ -167,6 +167,15 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
         group: "Worlds",
       },
       {
+        id: "planning",
+        label: "Planning desk",
+        hint: "/planning",
+        href: localizeHref("/planning", locale),
+        group: "Garden",
+        summary: "Spatial, population, and economy advisory. Task 9 follow-up.",
+        tags: ["规划", "規劃", "空间句法", "空間句法", "space syntax", "depthmap", "depthmapx", "qgis", "指标", "指標"],
+      },
+      {
         id: "share",
         label: "Publish desk",
         hint: "/share",

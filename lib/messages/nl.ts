@@ -11,6 +11,7 @@ export const nl: Messages = {
     share: "Delen",
     career: "Loopbaan",
     funding: "Funding",
+    planning: "Planning",
   },
   heroLine: "Hongkong. Bouwt AI. Loopt de rest.",
   tacitLine: "Wat gezegd kan worden staat hier. De rest loop je — planeten, de kaart, de terminal.",

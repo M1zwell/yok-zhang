@@ -11,6 +11,7 @@ export const ko: Messages = {
     share: "공유",
     career: "커리어",
     funding: "자금",
+    planning: "계획",
   },
   heroLine: "홍콩. AI를 만든다. 나머지는 산다.",
   tacitLine: "말할 수 있는 것은 여기 있다. 나머지는 걷는다 — 행성, 지도, 터미널.",

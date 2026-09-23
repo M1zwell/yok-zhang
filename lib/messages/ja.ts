@@ -11,6 +11,7 @@ export const ja: Messages = {
     share: "共有",
     career: "キャリア",
     funding: "資金",
+    planning: "計画",
   },
   heroLine: "香港。AI を作る。残りは歩く。",
   tacitLine: "書けるものはここにある。残りは歩く —— 惑星、地図、ターミナル。",
