@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import indicatorData from "@/lib/planning/indicators.json";
-import taskData from "@/lib/planning/task9.json";
+import task8Data from "@/lib/planning/task8.json";
+import task9Data from "@/lib/planning/task9.json";
 import { planningCopy, type PlanningCopy } from "@/lib/planning/copy";
 import {
   coverage,
@@ -22,7 +23,6 @@ import {
   taskChecks,
   toCsv,
   uniqueSorted,
-  type Attempt,
   type AttemptStatus,
   type Indicator,
   type RawRecord,
@@ -30,12 +30,28 @@ import {
 import { planningSources } from "@/lib/planning/sources";
 import type { Locale } from "@/lib/i18n";
 import { links } from "@/lib/site";
-import { AdvisoryPlanet } from "./AdvisoryPlanet";
+import { AdvisoryPlanet, type RunId } from "./AdvisoryPlanet";
 import "./planning.css";
 
 const indicators = indicatorData as Indicator[];
-const attempts = normalizeTask(taskData as RawRecord[]);
-const latest = latestByCode(attempts);
+
+function prepare(records: RawRecord[]) {
+  const attempts = normalizeTask(records);
+  const latest = latestByCode(attempts);
+  return {
+    attempts,
+    latest,
+    figures: heroFigures(attempts, latest),
+    checks: taskChecks(latest),
+    counts: coverage(indicators, latest),
+    edges: dependencyEdges(latest, indicators),
+  };
+}
+
+const bundles: Record<RunId, ReturnType<typeof prepare>> = {
+  "task-8": prepare(task8Data as RawRecord[]),
+  "task-9": prepare(task9Data as RawRecord[]),
+};
 
 const charts: { id: string; code: string; root: string; sort: boolean; title: keyof PlanningCopy }[] = [
   { id: "age", code: "SE04", root: "年龄段分布", sort: false, title: "distAge" },
@@ -98,10 +114,8 @@ function download(filename: string, body: string, type: string) {
 
 export function PlanningDesk({ locale }: { locale: Locale }) {
   const copy = planningCopy(locale);
-  const figures = useMemo(() => heroFigures(attempts, latest), []);
-  const checks = useMemo(() => taskChecks(latest), []);
-  const counts = useMemo(() => coverage(indicators, latest), []);
-  const edges = useMemo(() => dependencyEdges(latest, indicators), []);
+  const [runId, setRunId] = useState<RunId>("task-8");
+  const { attempts, latest, figures, checks, counts, edges } = bundles[runId];
   const [query, setQuery] = useState(emptyQuery);
   const [includeProposed, setIncludeProposed] = useState(false);
   const [selected, setSelected] = useState("SE01");
@@ -124,11 +138,11 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
   function exportFile(kind: "csv" | "json") {
     const rows = exportRows(visible, latest, includeProposed);
     if (kind === "csv") {
-      download("planning-task9.csv", toCsv(rows), "text/csv;charset=utf-8");
+      download(`planning-${runId}.csv`, toCsv(rows), "text/csv;charset=utf-8");
       return;
     }
     const body = {
-      task: "task-9",
+      task: runId,
       city: figures.city,
       district: figures.district,
       collectedAt: figures.collectedAt,
@@ -140,12 +154,13 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
 
   return (
     <div className="planning-page page-x mx-auto max-w-6xl">
-      <header className="planning-hero">
+      <div className="planning-hero">
         <p className="kicker">{copy.kicker}</p>
         <h1 className="planning-title mt-3">{copy.title}</h1>
         <p className="planning-alt">{copy.titleAlt}</p>
         <p className="planning-lede mt-6">{copy.lede}</p>
-        <p className="planning-boundary">{copy.boundary}</p>
+        <p className="planning-boundary">{runId === "task-8" ? copy.boundaryErqi : copy.boundary}</p>
+        <p className="planning-prose mt-4">{copy.portBody}</p>
         <nav className="planning-jump" aria-label={copy.jump}>
           <a href="#reading">{copy.navReading}</a>
           <a href="#planet">{copy.navPlanet}</a>
@@ -153,7 +168,26 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
           <a href="#syntax">{copy.navSyntax}</a>
           <a href="#research">{copy.navResearch}</a>
         </nav>
-      </header>
+      </div>
+
+      <section id="planet" className="planning-section is-first">
+        <p className="kicker">{copy.planetKicker}</p>
+        <h2 className="mt-3">{copy.planetTitle}</h2>
+        <p className="planning-prose mt-4">{copy.planetLede}</p>
+        <p className="planning-k mt-6">{copy.compareTitle}</p>
+        <AdvisoryPlanet copy={copy} figures={figures} runId={runId} onRun={setRunId} />
+        <div className="planning-links">
+          <a className="btn btn-primary" href={links.ggherePlanetHome} target="_blank" rel="noopener noreferrer">
+            {copy.openGghere} <span aria-hidden>↗</span>
+          </a>
+          <a className="btn btn-ghost" href={links.jubuddyPlanet} target="_blank" rel="noopener noreferrer">
+            {copy.openPlanet} <span aria-hidden>↗</span>
+          </a>
+          <a className="btn btn-ghost" href={links.gghereWorlds} target="_blank" rel="noopener noreferrer">
+            {copy.openWorlds} <span aria-hidden>↗</span>
+          </a>
+        </div>
+      </section>
 
       <section id="reading" className="planning-section">
         <p className="kicker">{copy.followKicker}</p>
@@ -181,11 +215,19 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
         </div>
         <p className="planning-prose mt-4">{copy.peopleNote}</p>
         <div className="planning-notes">
-          <p className="planning-note is-alert">{copy.contradiction}</p>
-          <p className="planning-note">{copy.night}</p>
+          {runId === "task-9" ? <p className="planning-note is-alert">{copy.contradiction}</p> : null}
+          {figures.if03Contested ? <p className="planning-note is-alert">{copy.contestedIf03}</p> : null}
+          {figures.mixType && figures.industry && figures.mixType !== figures.industry ? (
+            <p className="planning-note is-alert">{copy.industryClash}</p>
+          ) : null}
+          {figures.nightShare === null ? (
+            <p className="planning-note">{copy.night}</p>
+          ) : (
+            <p className="planning-note">{copy.nightKnown}</p>
+          )}
           <p className="planning-note">{copy.carbon}</p>
           <p className="planning-note">{copy.images}</p>
-          <p className="planning-note">{copy.mix}</p>
+          {figures.mixIndex === null ? <p className="planning-note">{copy.mix}</p> : null}
           <p className="planning-note">{copy.events}</p>
         </div>
         <div className="planning-split">
@@ -255,21 +297,6 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
               </article>
             );
           })}
-        </div>
-      </section>
-
-      <section id="planet" className="planning-section">
-        <p className="kicker">{copy.planetKicker}</p>
-        <h2 className="mt-3">{copy.planetTitle}</h2>
-        <p className="planning-prose mt-4">{copy.planetLede}</p>
-        <AdvisoryPlanet copy={copy} figures={figures} />
-        <div className="planning-links">
-          <a className="btn btn-primary" href={links.jubuddyPlanet} target="_blank" rel="noopener noreferrer">
-            {copy.openPlanet} <span aria-hidden>↗</span>
-          </a>
-          <a className="btn btn-ghost" href={links.gghereWorlds} target="_blank" rel="noopener noreferrer">
-            {copy.openWorlds} <span aria-hidden>↗</span>
-          </a>
         </div>
       </section>
 
@@ -493,7 +520,7 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
           </li>
           <li>
             <span>
-              <b>jubuddy.com/planet</b> — {copy.stepJoin}
+              <b>gghere.com/planet</b> — {copy.stepJoin}
             </span>
           </li>
         </ol>

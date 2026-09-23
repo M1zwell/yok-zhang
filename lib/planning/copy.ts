@@ -70,6 +70,15 @@ export type PlanningCopy = {
   syntaxReading: string;
   carbonReading: string;
   schematic: string;
+  runErqi: string;
+  runUnresolved: string;
+  boundaryErqi: string;
+  contestedIf03: string;
+  industryClash: string;
+  nightKnown: string;
+  portBody: string;
+  openGghere: string;
+  compareTitle: string;
   openPlanet: string;
   openWorlds: string;
   indicatorKicker: string;
@@ -126,11 +135,11 @@ export type PlanningCopy = {
 const en: PlanningCopy = {
   metaTitle: "Planning",
   metaDescription:
-    "Spatial, population, and economy advisory. Task 9 follow-up for one study area, with the authorised indicator catalog and a Space Syntax, depthmapX, and QGIS layer.",
-  kicker: "ichina.co/planning · Task 9 follow-up",
-  title: "Read the district before you draw it.",
-  titleAlt: "先读片区，再画方案。",
-  lede: "Task 9 is one collected reading. The population accounts close. Catering leads the POI count, and visitors outnumber usual residents. The street network was never analysed, and several authorised indicators came back empty. This is the desk for that follow-up.",
+    "One advisory planet for gghere.com/planet. Erqi District and an unresolved boundary, joined to space syntax, depthmapX, and QGIS.",
+  kicker: "ichina.co/planning · gghere.com/planet",
+  title: "One planet for the district you can name.",
+  titleAlt: "把能叫出边界的片区，放到一颗行星上。",
+  lede: "Two collected runs, one surface. Task 8 is Zhengzhou, Erqi District. Task 9 stores city 郑州 and district 洛阳, which is not a boundary. QGIS would hold the polygon. depthmapX would write the streets. gghere.com/planet is where that surface is walked. The globe here is that port, with the graph still empty.",
   boundary:
     "The file stores city 郑州 and district 洛阳. Luoyang is a prefecture-level city in Henan, not a district of Zhengzhou. SE12 records the scope as 「郑州洛阳」. Keep the pair as collected, and confirm one polygon in QGIS before either name becomes the boundary.",
   jump: "On this page",
@@ -186,9 +195,9 @@ const en: PlanningCopy = {
   distCarrier: "Carrier",
   distSex: "Sex",
   planetKicker: "jubuddy.com/planet",
-  planetTitle: "One advisory planet, after the graph exists",
+  planetTitle: "Port the reading onto gghere.com/planet",
   planetLede:
-    "The live planet is a walkable surface of building footprints. It can take this district as one added surface, not as a twenty-fifth city in the catalog. Task 9 has no mesh and no axial map, so the globe here is a schematic bound to the numbers that exist.",
+    "Do not add a twenty-fifth city to the walked catalog. Add one advisory planet. Its layers are the boundary, the segment graph, and this collection. Switch runs on the same sphere.",
   layerPeople: "Population",
   layerEconomy: "Economy",
   layerSyntax: "Syntax",
@@ -197,7 +206,21 @@ const en: PlanningCopy = {
   economyReading: "Catering leads, manufacturing is close behind. Office rent is a low daily rate beside a hotel-heavy walk circle. Night hours were not extracted.",
   syntaxReading: "These streets are drawn for the presentation. They are not an integration map. Run depthmapX before this layer is allowed to mean anything.",
   carbonReading: "Low-carbon strategy, LID, and green certification returned no data. The ring stays dim on purpose.",
-  schematic: "Schematic globe. Population and industry use Task 9. Street lines are not depthmapX output.",
+  schematic: "Advisory planet. Numbers are the selected run. Streets are the depthmapX slot, not a result.",
+  runErqi: "郑州 · 二七区",
+  runUnresolved: "郑州 · 洛阳",
+  boundaryErqi:
+    "Erqi is a district of Zhengzhou, and SE12 records the scope as 「郑州二七区」. Usual population divided by density implies about 78.5 km². That figure is a check, not the administrative boundary. The planet is published only after QGIS holds one polygon.",
+  contestedIf03:
+    "An IF03 pass counted 10,881 retail, 3,134 catering, and 1,730 leisure facilities. A later pass, three seconds on, wrote zeros. IF04 in the same minute still holds 19,799 POI and a mix index of 43, led by retail. The planet draws the earlier pass. The table keeps the later zero, because a last-write pipeline would publish that.",
+  industryClash:
+    "IF01 names manufacturing, from 933 POI. IF04 names retail as the dominant function, 55%, from 10,881 retail POI. Two extracts. They meet only when both are joined to the same segments.",
+  nightKnown:
+    "On a 120-venue sample, core stores average 11.63 hours, 26.67% stay open past 22:00, and none are 24-hour. The mean review score is 4.62.",
+  portBody:
+    "Yes. Planning, space syntax, and the planet are one object. QGIS keeps the boundary, the road centre lines, and the join. depthmapX runs angular segment analysis and writes NAIN and NACH. gghere.com/planet draws that graph with the population and economy attributes on it. Until the graph exists, this page is the presentation of the planet, not a second product beside it.",
+  openGghere: "gghere.com/planet",
+  compareTitle: "Two runs, one planet",
   openPlanet: "jubuddy.com/planet",
   openWorlds: "gghere.com/worlds",
   indicatorKicker: "Authorised catalog",
@@ -260,11 +283,11 @@ const en: PlanningCopy = {
 const zhHans: PlanningCopy = {
   metaTitle: "规划",
   metaDescription:
-    "空间、人口与经济咨询。任务 9 续读：授权指标目录，以及空间句法、depthmapX 与 QGIS 要补上的一层。",
-  kicker: "ichina.co/planning · 任务 9 续读",
-  title: "先读片区，再画方案。",
-  titleAlt: "Read the district before you draw it.",
-  lede: "任务 9 是一次已经采集的读数。人口账能够闭合。餐饮 POI 领先，到访人口多于常驻人口。街道网络没有计算，若干授权指标返回空值。这个页面是那次续读。",
+    "一颗给 gghere.com/planet 的咨询行星。二七区与一条未闭合的边界，接上空间句法、depthmapX 和 QGIS。",
+  kicker: "ichina.co/planning · gghere.com/planet",
+  title: "把能叫出边界的片区，放到一颗行星上。",
+  titleAlt: "One planet for the district you can name.",
+  lede: "两次采集，一个表面。任务 8 是郑州二七区。任务 9 把城市写成郑州、区县写成洛阳，那不是一条边界。QGIS 存放多边形。depthmapX 写入街道。gghere.com/planet 是这条表面被走的地方。这里的球体就是那个端口，街道图仍然是空的。",
   boundary:
     "文件里的城市是郑州，区县是洛阳。洛阳是河南的地级市，不是郑州的区。SE12 把统计范围写成「郑州洛阳」。先按采集原值保留这对名称，在 QGIS 里确认一个多边形之后，再让其中任何一个名字成为边界。",
   jump: "本页",
@@ -319,9 +342,8 @@ const zhHans: PlanningCopy = {
   distCarrier: "运营商",
   distSex: "性别",
   planetKicker: "jubuddy.com/planet",
-  planetTitle: "先有街道图，再加一颗咨询行星",
-  planetLede:
-    "现在的行星是可走的建筑足迹表面。这个片区可以作为一颗追加的表面，而不是目录里的第二十五座城。任务 9 没有网格，也没有轴线图，所以这里的球体是绑定已有数字的示意图。",
+  planetTitle: "把读数移植到 gghere.com/planet",
+  planetLede: "不要往可走目录里再加第二十五座城。加一颗咨询行星。它的层是边界、线段图和这次采集。在同一个球体上切换两次运行。",
   layerPeople: "人口",
   layerEconomy: "经济",
   layerSyntax: "句法",
@@ -330,7 +352,21 @@ const zhHans: PlanningCopy = {
   economyReading: "餐饮领先，制造业紧随。写字楼日租金很低，步行圈里的酒店却很多。营业时间没有提取到。",
   syntaxReading: "这些街道是为演示画的。它们不是整合度图。在 depthmapX 跑完之前，这一层不能被读成分析结果。",
   carbonReading: "低碳策略、低影响开发和绿色认证都返回无数据。环保持暗，是有意的。",
-  schematic: "示意球体。人口与产业使用任务 9。街道线不是 depthmapX 输出。",
+  schematic: "咨询行星。数字来自当前这次运行。街道是 depthmapX 的空位，不是计算结果。",
+  runErqi: "郑州 · 二七区",
+  runUnresolved: "郑州 · 洛阳",
+  boundaryErqi:
+    "二七区是郑州的区，SE12 的统计范围是「郑州二七区」。常驻人口除以密度大约得到 78.5 km²。这是检查，不是行政区边界。只有 QGIS 里放进一个多边形之后，这颗行星才可以发布。",
+  contestedIf03:
+    "一次 IF03 计到商业零售 10881、餐饮 3134、文体休闲 1730。三秒后的另一次把这些数写成 0。同一分钟的 IF04 仍有 19799 个 POI，复合度指数 43，主导功能是商业零售。行星画的是较早的那次。表上保留较晚的零，因为只留最后一次写入的流水线会发布那个零。",
+  industryClash:
+    "IF01 把主导产业写成制造业，依据是 933 个 POI。IF04 把主导功能写成商业零售，占 55%，依据是 10881 个零售 POI。这是两份提取。只有接到同一批线段上，它们才是一张用地图。",
+  nightKnown:
+    "在 120 个有营业时间的样本里，核心门店日均 11.63 小时，26.67% 延续到 22:00 以后，没有 24 小时设施。平均点评分为 4.62。",
+  portBody:
+    "应该合成。规划演示、空间句法和行星是同一个东西。QGIS 存放边界、道路中心线和接合。depthmapX 做角度线段分析，写下 NAIN 和 NACH。gghere.com/planet 把这张图和人口、经济属性一起走出来。在街道图出现之前，这个页面就是那颗行星的演示，而不是旁边的另一件产品。",
+  openGghere: "gghere.com/planet",
+  compareTitle: "两次运行，一颗行星",
   openPlanet: "jubuddy.com/planet",
   openWorlds: "gghere.com/worlds",
   indicatorKicker: "授权目录",
@@ -392,11 +428,11 @@ const zhHans: PlanningCopy = {
 const zhHant: PlanningCopy = {
   metaTitle: "規劃",
   metaDescription:
-    "空間、人口與經濟諮詢。任務 9 續讀：授權指標目錄，以及空間句法、depthmapX 與 QGIS 要補上的一層。",
-  kicker: "ichina.co/planning · 任務 9 續讀",
-  title: "先讀片區，再畫方案。",
-  titleAlt: "Read the district before you draw it.",
-  lede: "任務 9 是一次已經採集的讀數。人口帳能夠閉合。餐飲 POI 領先，到訪人口多於常駐人口。街道網絡沒有計算，若干授權指標返回空值。這個頁面是那次續讀。",
+    "一顆給 gghere.com/planet 的諮詢行星。二七區與一條未閉合的邊界，接上空間句法、depthmapX 和 QGIS。",
+  kicker: "ichina.co/planning · gghere.com/planet",
+  title: "把能叫出邊界的片區，放到一顆行星上。",
+  titleAlt: "One planet for the district you can name.",
+  lede: "兩次採集，一個表面。任務 8 是鄭州二七區。任務 9 把城市寫成鄭州、區縣寫成洛陽，那不是一條邊界。QGIS 存放多邊形。depthmapX 寫入街道。gghere.com/planet 是這條表面被走的地方。這裡的球體就是那個端口，街道圖仍然是空的。",
   boundary:
     "檔案裡的城市是鄭州，區縣是洛陽。洛陽是河南的地級市，不是鄭州的區。SE12 把統計範圍寫成「郑州洛阳」。先按採集原值保留這對名稱，在 QGIS 裡確認一個多邊形之後，再讓其中任何一個名字成為邊界。",
   jump: "本頁",
@@ -451,9 +487,8 @@ const zhHant: PlanningCopy = {
   distCarrier: "運營商",
   distSex: "性別",
   planetKicker: "jubuddy.com/planet",
-  planetTitle: "先有街道圖，再加一顆諮詢行星",
-  planetLede:
-    "現在的行星是可走的建築足跡表面。這個片區可以作為一顆追加的表面，而不是目錄裡的第二十五座城。任務 9 沒有網格，也沒有軸線圖，所以這裡的球體是綁定已有數字的示意圖。",
+  planetTitle: "把讀數移植到 gghere.com/planet",
+  planetLede: "不要往可走目錄裡再加第二十五座城。加一顆諮詢行星。它的層是邊界、線段圖和這次採集。在同一個球體上切換兩次運行。",
   layerPeople: "人口",
   layerEconomy: "經濟",
   layerSyntax: "句法",
@@ -462,7 +497,21 @@ const zhHant: PlanningCopy = {
   economyReading: "餐飲領先，製造業緊隨。寫字樓日租金很低，步行圈裡的酒店卻很多。營業時間沒有提取到。",
   syntaxReading: "這些街道是為演示畫的。它們不是整合度圖。在 depthmapX 跑完之前，這一層不能被讀成分析結果。",
   carbonReading: "低碳策略、低影響開發和綠色認證都返回無資料。環保持暗，是有意的。",
-  schematic: "示意球體。人口與產業使用任務 9。街道線不是 depthmapX 輸出。",
+  schematic: "諮詢行星。數字來自當前這次運行。街道是 depthmapX 的空位，不是計算結果。",
+  runErqi: "鄭州 · 二七區",
+  runUnresolved: "鄭州 · 洛陽",
+  boundaryErqi:
+    "二七區是鄭州的區，SE12 的統計範圍是「郑州二七区」。常駐人口除以密度大約得到 78.5 km²。這是檢查，不是行政區邊界。只有 QGIS 裡放進一個多邊形之後，這顆行星才可以發布。",
+  contestedIf03:
+    "一次 IF03 計到商業零售 10881、餐飲 3134、文體休閒 1730。三秒後的另一次把這些數寫成 0。同一分鐘的 IF04 仍有 19799 個 POI，複合度指數 43，主導功能是商業零售。行星畫的是較早的那次。表上保留較晚的零，因為只留最後一次寫入的流水線會發布那個零。",
+  industryClash:
+    "IF01 把主導產業寫成製造業，依據是 933 個 POI。IF04 把主導功能寫成商業零售，占 55%，依據是 10881 個零售 POI。這是兩份提取。只有接到同一批線段上，它們才是一張用地圖。",
+  nightKnown:
+    "在 120 個有營業時間的樣本裡，核心門店日均 11.63 小時，26.67% 延續到 22:00 以後，沒有 24 小時設施。平均點評分為 4.62。",
+  portBody:
+    "應該合成。規劃演示、空間句法和行星是同一個東西。QGIS 存放邊界、道路中心線和接合。depthmapX 做角度線段分析，寫下 NAIN 和 NACH。gghere.com/planet 把這張圖和人口、經濟屬性一起走出來。在街道圖出現之前，這個頁面就是那顆行星的演示，而不是旁邊的另一件產品。",
+  openGghere: "gghere.com/planet",
+  compareTitle: "兩次運行，一顆行星",
   openPlanet: "jubuddy.com/planet",
   openWorlds: "gghere.com/worlds",
   indicatorKicker: "授權目錄",
