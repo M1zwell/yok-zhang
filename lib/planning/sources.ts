@@ -51,8 +51,8 @@ export const planningSources: PlanningSource[] = [
     title: "depthmapX",
     detail: "Tasos Varoudis and Space Syntax Laboratory, UCL. Successor to Alasdair Turner’s Depthmap.",
     href: "https://github.com/SpaceGroupUCL/depthmapX",
-    en: "The graph engine. Segment angular analysis with choice, at metric radii, is the run Task 9 never made.",
-    zh: "图计算引擎。带选择度的角度线段分析、按米制半径输出，是任务 9 没有跑的那一步。",
+    en: "The graph engine. Segment angular analysis with choice, at metric radii, is the run neither collection made.",
+    zh: "图计算引擎。带选择度的角度线段分析、按米制半径输出，是两次采集都没有跑的那一步。",
   },
   {
     id: "toolkit-repo",
