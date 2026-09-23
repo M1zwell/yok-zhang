@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { isPlanningOwner, PLANNING_OWNER_EMAIL } from "../lib/planning/gate.ts";
 import type { Indicator, RawRecord } from "../lib/planning/logic.ts";
 import {
   coverage,
@@ -92,10 +93,29 @@ assert.equal(erqi.reviewScore, 4.62);
 assert.equal(erqiLatest.get("IF03")?.status, "zero");
 assert.equal(erqiLatest.get("IF06")?.status, "no_data");
 
+assert.equal(PLANNING_OWNER_EMAIL, "yying2010@gmail.com");
+assert.equal(isPlanningOwner("yying2010@gmail.com"), true);
+assert.equal(isPlanningOwner(" YYING2010@Gmail.com "), true);
+assert.equal(isPlanningOwner("yok@dseek.ai"), false);
+assert.equal(isPlanningOwner(""), false);
+assert.equal(isPlanningOwner(null), false);
+
 const page = readFileSync(join(root, "app/planning/page.tsx"), "utf8");
 const localePage = readFileSync(join(root, "app/[locale]/planning/page.tsx"), "utf8");
-assert.match(page, /PlanningDesk/);
-assert.match(localePage, /PlanningDesk/);
-assert.match(readFileSync(join(root, "app/components/SiteHeader.tsx"), "utf8"), /\/planning/);
+const gate = readFileSync(join(root, "app/components/planning/PlanningGate.tsx"), "utf8");
+const header = readFileSync(join(root, "app/components/SiteHeader.tsx"), "utf8");
+const site = readFileSync(join(root, "lib/site.ts"), "utf8");
+assert.match(page, /PlanningGate/);
+assert.match(localePage, /PlanningGate/);
+assert.match(page, /index: false/);
+assert.match(localePage, /index: false/);
+assert.doesNotMatch(page, /PlanningDesk/);
+assert.doesNotMatch(localePage, /PlanningDesk/);
+assert.match(gate, /PlanningDesk/);
+assert.match(gate, /ssr: false/);
+assert.match(gate, /verifyPlanningOwner/);
+assert.match(header, /PlanningNavLink/);
+assert.doesNotMatch(header, /href: "\/planning"/);
+assert.doesNotMatch(site, /ichina\.co\/planning/);
 
 console.log("planning checks ok");

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { AuthHeaderButtons, AuthRailLink } from "@/app/components/AuthCta";
 import { CareerNavLink } from "@/app/components/career/CareerNavLink";
 import { FundingNavLink } from "@/app/components/funding/FundingNavLink";
+import { PlanningNavLink } from "@/app/components/planning/PlanningNavLink";
 import { EnterButton } from "@/app/components/JoinFlow";
 import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
 import { ThemeToggle } from "@/app/components/ThemeToggle";
@@ -24,7 +25,6 @@ export function SiteHeader() {
     { href: "/writing", label: m.nav.writing },
     { href: "/tools", label: m.nav.tools },
     { href: "/products", label: m.nav.products },
-    { href: "/planning", label: m.nav.planning },
     { href: "/game", label: m.nav.game },
     { href: "/share", label: m.nav.share },
   ];
@@ -82,6 +82,7 @@ export function SiteHeader() {
           })}
           <CareerNavLink locale={locale} />
           <FundingNavLink locale={locale} />
+          <PlanningNavLink locale={locale} />
           <a
             href={links.gghereWorlds}
             target="_blank"
@@ -130,6 +131,7 @@ export function SiteHeader() {
         ))}
         <CareerNavLink locale={locale} variant="rail" />
         <FundingNavLink locale={locale} variant="rail" />
+        <PlanningNavLink locale={locale} variant="rail" />
         <a
           href={links.gghereWorlds}
           target="_blank"

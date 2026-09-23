@@ -299,13 +299,6 @@ export const productGroups: Group[] = [
         note: "Planet product surface. City-planet sibling to the worlds catalog — not a buried jubit link.",
       },
       {
-        title: "ichina.co/planning",
-        href: "/planning",
-        path: "ichina.co/planning",
-        live: true,
-        note: "Advisory planet for gghere.com/planet. Erqi and the unresolved label. Space syntax, depthmapX, QGIS.",
-      },
-      {
         title: "gghere.com",
         href: "https://gghere.com",
         path: "gghere.com",

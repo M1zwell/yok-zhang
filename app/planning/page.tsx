@@ -1,15 +1,18 @@
-import { PlanningDesk } from "@/app/components/planning/PlanningDesk";
-import { planningCopy } from "@/lib/planning/copy";
+import { PlanningGate } from "@/app/components/planning/PlanningGate";
+import { planningGateCopy } from "@/lib/planning/gate";
 import { seo } from "@/lib/seo";
 
-const copy = planningCopy("en");
+const copy = planningGateCopy("en");
 
-export const metadata = seo({
-  title: copy.metaTitle,
-  description: copy.metaDescription,
-  path: "/planning",
-});
+export const metadata = {
+  ...seo({
+    title: "Planning",
+    description: copy.metaDescription,
+    path: "/planning",
+  }),
+  robots: { index: false, follow: false },
+};
 
 export default function PlanningPage() {
-  return <PlanningDesk locale="en" />;
+  return <PlanningGate locale="en" />;
 }
