@@ -279,6 +279,61 @@
   font-size: 11px;
 }
 
+.planet-pair {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 1.4rem;
+}
+
+.planet-card {
+  scroll-margin-top: 5.5rem;
+  border: 1px solid var(--color-hair);
+  border-radius: 28px;
+  padding: 1.15rem 1rem 1.5rem;
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
+}
+
+.planet-card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.planet-openers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+}
+
+.planet-collected {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin-top: 0.55rem;
+  color: var(--color-secondary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.planet-reading {
+  margin-top: 1.6rem;
+}
+
+.planet-slot {
+  margin-top: 0.85rem;
+  border-left: 3px solid var(--color-gold);
+  padding-left: 0.75rem;
+  color: var(--color-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.planet-stage[data-planet="luoyang"] {
+  --planet-ink: var(--color-gold);
+}
+
 .planet-layout {
   display: grid;
   gap: 1.5rem;

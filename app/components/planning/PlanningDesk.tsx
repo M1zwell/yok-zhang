@@ -23,6 +23,7 @@ import {
   taskChecks,
   toCsv,
   uniqueSorted,
+  type Attempt,
   type AttemptStatus,
   type Indicator,
   type RawRecord,
@@ -30,7 +31,7 @@ import {
 import { planningSources } from "@/lib/planning/sources";
 import type { Locale } from "@/lib/i18n";
 import { links } from "@/lib/site";
-import { AdvisoryPlanet, type RunId } from "./AdvisoryPlanet";
+import { AdvisoryPlanet, type PlanetId } from "./AdvisoryPlanet";
 import "./planning.css";
 
 const indicators = indicatorData as Indicator[];
@@ -48,10 +49,10 @@ function prepare(records: RawRecord[]) {
   };
 }
 
-const bundles: Record<RunId, ReturnType<typeof prepare>> = {
-  "task-8": prepare(task8Data as RawRecord[]),
-  "task-9": prepare(task9Data as RawRecord[]),
-};
+type Bundle = ReturnType<typeof prepare>;
+
+const zhengzhou = prepare(task8Data as RawRecord[]);
+const luoyang = prepare(task9Data as RawRecord[]);
 
 const charts: { id: string; code: string; root: string; sort: boolean; title: keyof PlanningCopy }[] = [
   { id: "age", code: "SE04", root: "年龄段分布", sort: false, title: "distAge" },
@@ -114,21 +115,19 @@ function download(filename: string, body: string, type: string) {
 
 export function PlanningDesk({ locale }: { locale: Locale }) {
   const copy = planningCopy(locale);
-  const [runId, setRunId] = useState<RunId>("task-8");
-  const { attempts, latest, figures, checks, counts, edges } = bundles[runId];
+  const [exportPlanet, setExportPlanet] = useState<PlanetId>("zhengzhou");
   const [query, setQuery] = useState(emptyQuery);
   const [includeProposed, setIncludeProposed] = useState(false);
   const [selected, setSelected] = useState("SE01");
   const detailRef = useRef<HTMLDivElement>(null);
   const tableRef = useRef<HTMLDivElement>(null);
+  const exportBundle = exportPlanet === "zhengzhou" ? zhengzhou : luoyang;
 
   const dimensions = uniqueSorted(indicators.map((item) => item.dimension));
   const modules = uniqueSorted(indicators.map((item) => item.module));
   const sources = uniqueSorted(indicators.map((item) => item.sourceType));
   const visible = indicators.filter((item) => matchesQuery(item, query));
   const selectedIndicator = indicators.find((item) => item.code === selected) ?? null;
-  const selectedAttempt = latest.get(selected);
-  const selectedHistory = historyFor(attempts, selected);
 
   function choose(code: string) {
     setSelected(code);
@@ -136,20 +135,22 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
   }
 
   function exportFile(kind: "csv" | "json") {
-    const rows = exportRows(visible, latest, includeProposed);
+    const rows = exportRows(visible, exportBundle.latest, includeProposed);
+    const slug = exportPlanet === "zhengzhou" ? "zhengzhou-task8" : "luoyang-task9";
     if (kind === "csv") {
-      download(`planning-${runId}.csv`, toCsv(rows), "text/csv;charset=utf-8");
+      download(`planning-${slug}.csv`, toCsv(rows), "text/csv;charset=utf-8");
       return;
     }
     const body = {
-      task: runId,
-      city: figures.city,
-      district: figures.district,
-      collectedAt: figures.collectedAt,
+      planet: exportPlanet,
+      task: exportPlanet === "zhengzhou" ? "task-8" : "task-9",
+      city: exportBundle.figures.city,
+      district: exportBundle.figures.district,
+      collectedAt: exportBundle.figures.collectedAt,
       includeProposed,
       rows,
     };
-    download("planning-task9.json", JSON.stringify(body, null, 2), "application/json");
+    download(`planning-${slug}.json`, JSON.stringify(body, null, 2), "application/json");
   }
 
   return (
@@ -159,23 +160,51 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
         <h1 className="planning-title mt-3">{copy.title}</h1>
         <p className="planning-alt">{copy.titleAlt}</p>
         <p className="planning-lede mt-6">{copy.lede}</p>
-        <p className="planning-boundary">{runId === "task-8" ? copy.boundaryErqi : copy.boundary}</p>
+        <p className="planning-prose mt-4">{copy.notPublished}</p>
         <p className="planning-prose mt-4">{copy.portBody}</p>
         <nav className="planning-jump" aria-label={copy.jump}>
-          <a href="#reading">{copy.navReading}</a>
-          <a href="#planet">{copy.navPlanet}</a>
+          <a href="#zhengzhou">{copy.openZhengzhou}</a>
+          <a href="#luoyang">{copy.openLuoyang}</a>
           <a href="#indicators">{copy.navIndicators}</a>
           <a href="#syntax">{copy.navSyntax}</a>
           <a href="#research">{copy.navResearch}</a>
         </nav>
       </div>
 
-      <section id="planet" className="planning-section is-first">
+      <section id="planets" className="planning-section is-first">
         <p className="kicker">{copy.planetKicker}</p>
         <h2 className="mt-3">{copy.planetTitle}</h2>
         <p className="planning-prose mt-4">{copy.planetLede}</p>
-        <p className="planning-k mt-6">{copy.compareTitle}</p>
-        <AdvisoryPlanet copy={copy} figures={figures} runId={runId} onRun={setRunId} />
+        <div className="planet-openers">
+          <a className="btn btn-primary" href="#zhengzhou">
+            {copy.openZhengzhou}
+          </a>
+          <a className="btn btn-primary" href="#luoyang">
+            {copy.openLuoyang}
+          </a>
+        </div>
+        <div className="planet-pair">
+          <PlanetArticle
+            id="zhengzhou"
+            planetId="zhengzhou"
+            title={copy.planetZhengzhou}
+            taskLabel={copy.colTask8}
+            boundary={copy.boundaryErqi}
+            bundle={zhengzhou}
+            copy={copy}
+            showContradiction={false}
+          />
+          <PlanetArticle
+            id="luoyang"
+            planetId="luoyang"
+            title={copy.planetLuoyang}
+            taskLabel={copy.colTask9}
+            boundary={copy.boundary}
+            bundle={luoyang}
+            copy={copy}
+            showContradiction
+          />
+        </div>
         <div className="planning-links">
           <a className="btn btn-primary" href={links.ggherePlanetHome} target="_blank" rel="noopener noreferrer">
             {copy.openGghere} <span aria-hidden>↗</span>
@@ -189,116 +218,6 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section id="reading" className="planning-section">
-        <p className="kicker">{copy.followKicker}</p>
-        <h2 className="mt-3">{copy.followTitle}</h2>
-        <p className="planning-prose mt-4">{copy.followLede}</p>
-        <div className="planning-stats">
-          <Stat label={copy.usual} value={figures.usual === null ? "—" : formatCount(figures.usual)} unit="SE01 · 人" />
-          <Stat label={copy.residents} value={figures.residents === null ? "—" : formatCount(figures.residents)} unit="SE03" />
-          <Stat label={copy.workers} value={figures.workers === null ? "—" : formatCount(figures.workers)} unit="SE02" />
-          <Stat label={copy.visitors} value={figures.visitors === null ? "—" : formatCount(figures.visitors)} unit="SE10" />
-          <Stat label={copy.labor} value={figures.labor === null ? "—" : `${formatCount(figures.labor)}%`} unit="SE05" />
-          <Stat label={copy.density} value={figures.density === null ? "—" : formatCount(figures.density)} unit="SE09 · 人/km²" />
-          <Stat label={copy.industry} value={figures.industry ?? "—"} unit={figures.poi === null ? "IF01" : `IF01 · ${formatCount(figures.poi)} POI`} />
-          <Stat
-            label={copy.walk}
-            value={figures.hotels === null ? "—" : formatCount(figures.hotels)}
-            unit={figures.stops === null ? "SE14" : `SE14 · ${formatCount(figures.stops)} stops`}
-          />
-        </div>
-        <div className="planning-stats">
-          <Stat label={copy.housing} value={figures.housing === null ? "—" : formatCount(figures.housing)} unit="SE11 · 元/㎡" />
-          <Stat label={copy.rent} value={figures.rent === null ? "—" : String(figures.rent)} unit="SE15 · 元/㎡/天" />
-          <Stat label={copy.floors} value={figures.floors === null ? "—" : String(figures.floors)} unit="SE16 · 层" />
-          <Stat label={copy.dining} value={figures.dining === null ? "—" : formatCount(figures.dining)} unit="SE25 · 元/月" />
-        </div>
-        <p className="planning-prose mt-4">{copy.peopleNote}</p>
-        <div className="planning-notes">
-          {runId === "task-9" ? <p className="planning-note is-alert">{copy.contradiction}</p> : null}
-          {figures.if03Contested ? <p className="planning-note is-alert">{copy.contestedIf03}</p> : null}
-          {figures.mixType && figures.industry && figures.mixType !== figures.industry ? (
-            <p className="planning-note is-alert">{copy.industryClash}</p>
-          ) : null}
-          {figures.nightShare === null ? (
-            <p className="planning-note">{copy.night}</p>
-          ) : (
-            <p className="planning-note">{copy.nightKnown}</p>
-          )}
-          <p className="planning-note">{copy.carbon}</p>
-          <p className="planning-note">{copy.images}</p>
-          {figures.mixIndex === null ? <p className="planning-note">{copy.mix}</p> : null}
-          <p className="planning-note">{copy.events}</p>
-        </div>
-        <div className="planning-split">
-          <div>
-            <h3 className="mt-2 font-display text-xl tracking-tight">{copy.checksTitle}</h3>
-            <div className="planning-checks mt-3">
-              {checks.map((check) => (
-                <div key={check.id} className="planning-check">
-                  <b className={check.ok ? "is-ok" : "is-bad"}>{check.ok ? copy.pass : copy.fail}</b>
-                  <div>
-                    {checkLabel(check.id, copy)}
-                    <small>{check.detail}</small>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="mt-2 font-display text-xl tracking-tight">{copy.coverage}</h3>
-            <div
-              className="coverage-bar mt-4"
-              role="img"
-              aria-label={`${copy.statusValue} ${counts.value}, ${copy.statusZero} ${counts.zero}, ${copy.statusError} ${counts.error}, ${copy.statusNoData} ${counts.no_data}`}
-            >
-              <span className="is-value" style={{ width: `${(counts.value / counts.total) * 100}%` }} />
-              <span className="is-zero" style={{ width: `${(counts.zero / counts.total) * 100}%` }} />
-              <span className="is-error" style={{ width: `${(counts.error / counts.total) * 100}%` }} />
-              <span className="is-nodata" style={{ width: `${(counts.no_data / counts.total) * 100}%` }} />
-            </div>
-            <div className="coverage-legend">
-              <span>{copy.statusValue} {counts.value}</span>
-              <span>{copy.statusZero} {counts.zero}</span>
-              <span>{copy.statusError} {counts.error}</span>
-              <span>{copy.statusNoData} {counts.no_data}</span>
-            </div>
-            <div className="edge-list">
-              {edges.map((edge) => (
-                <span key={edge.code} className={`pill is-${edge.state}`} title={edge.detail}>
-                  {edge.code} ← {edge.needs.join(", ")}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="planning-charts">
-          {charts.map((chart) => {
-            const rows = series(latest.get(chart.code), chart.root);
-            const ordered = chart.sort ? [...rows].sort((a, b) => b.value - a.value) : rows;
-            if (ordered.length === 0) return null;
-            const max = Math.max(...ordered.map((row) => row.value), 1);
-            return (
-              <article key={chart.id} className="planning-chart">
-                <h3>
-                  {copy[chart.title]} <span className="font-mono text-[11px] text-muted">{chart.code}</span>
-                </h3>
-                <div className="bar-list">
-                  {ordered.map((row) => (
-                    <div key={row.label} className="bar-row">
-                      <span>{row.label}</span>
-                      <div className="bar-track" aria-hidden>
-                        <span style={{ width: `${(row.value / max) * 100}%` }} />
-                      </div>
-                      <b>{formatCount(row.value)}%</b>
-                    </div>
-                  ))}
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </section>
 
       <section id="indicators" className="planning-section">
         <p className="kicker">{copy.indicatorKicker}</p>
@@ -371,6 +290,14 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
             >
               {copy.reset}
             </button>
+            <div className="planet-layers" role="group" aria-label={copy.exportExcel}>
+              <button type="button" aria-pressed={exportPlanet === "zhengzhou"} onClick={() => setExportPlanet("zhengzhou")}>
+                {copy.planetZhengzhou}
+              </button>
+              <button type="button" aria-pressed={exportPlanet === "luoyang"} onClick={() => setExportPlanet("luoyang")}>
+                {copy.planetLuoyang}
+              </button>
+            </div>
             <button className="btn btn-ghost" type="button" onClick={() => exportFile("csv")}>
               {copy.exportExcel}
             </button>
@@ -388,7 +315,7 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
           </div>
           <p className="font-mono text-[11px] text-muted">
             {visible.length} {copy.results}
-            {figures.collectedAt ? ` · ${figures.collectedAt}` : ""}
+            {exportBundle.figures.collectedAt ? ` · ${exportBundle.figures.collectedAt}` : ""}
           </p>
         </form>
 
@@ -413,34 +340,8 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
                 ? ` · ${copy.depends} ${parseDepends(selectedIndicator.dependsOn).join(", ")}`
                 : ""}
             </p>
-            {selectedAttempt ? (
-              <p className="mt-3">
-                <span className={pillClass(selectedAttempt.status)}>{statusLabel(selectedAttempt.status, copy)}</span>
-                <span className="ml-2 font-mono text-[11px] text-muted">{selectedAttempt.collectTime}</span>
-              </p>
-            ) : null}
-            {selectedAttempt?.error ? <p className="mt-2 text-sm text-spark">{selectedAttempt.error}</p> : null}
-            {selectedAttempt && selectedAttempt.leaves.length > 0 ? (
-              <div className="leaf-list">
-                {selectedAttempt.leaves.map((leaf) => (
-                  <div key={leaf.path}>
-                    <span className="text-muted">{leaf.path}</span> {leaf.text}
-                  </div>
-                ))}
-              </div>
-            ) : null}
-            {selectedHistory.length > 1 ? (
-              <div className="attempt-list">
-                <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">{copy.attempts}</p>
-                {selectedHistory.map((attempt) => (
-                  <p key={attempt.id} className="text-sm">
-                    <span className={pillClass(attempt.status)}>{statusLabel(attempt.status, copy)}</span>{" "}
-                    <span className="font-mono text-[11px] text-muted">{attempt.collectTime}</span>{" "}
-                    {attempt.error ?? shortValue(attempt)}
-                  </p>
-                ))}
-              </div>
-            ) : null}
+            <AttemptFacts label={copy.colTask8} bundle={zhengzhou} code={selectedIndicator.code} copy={copy} />
+            <AttemptFacts label={copy.colTask9} bundle={luoyang} code={selectedIndicator.code} copy={copy} />
           </div>
         ) : null}
 
@@ -459,12 +360,12 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
                   <th>{copy.colModule}</th>
                   <th>{copy.colRequired}</th>
                   <th>{copy.colDepends}</th>
-                  <th>{copy.colTask}</th>
+                  <th>{copy.colTask8}</th>
+                  <th>{copy.colTask9}</th>
                 </tr>
               </thead>
               <tbody>
                 {visible.map((item) => {
-                  const attempt = latest.get(item.code);
                   return (
                     <tr
                       key={item.code}
@@ -486,14 +387,8 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
                       <td>{item.module}</td>
                       <td>{item.required ? copy.requiredYes : copy.requiredNo}</td>
                       <td className="font-mono text-[11px]">{item.dependsOn || "—"}</td>
-                      <td>
-                        {attempt ? (
-                          <span className={pillClass(attempt.status)}>{statusLabel(attempt.status, copy)}</span>
-                        ) : (
-                          "—"
-                        )}
-                        <span className="mt-1 block max-w-56 text-[11px] text-muted">{shortValue(attempt)}</span>
-                      </td>
+                      <TaskCell attempt={zhengzhou.latest.get(item.code)} copy={copy} />
+                      <TaskCell attempt={luoyang.latest.get(item.code)} copy={copy} />
                     </tr>
                   );
                 })}
@@ -569,6 +464,229 @@ export function PlanningDesk({ locale }: { locale: Locale }) {
         <p className="planning-prose mt-3">{copy.contractBody}</p>
       </section>
     </div>
+  );
+}
+
+function PlanetArticle({
+  id,
+  planetId,
+  title,
+  taskLabel,
+  boundary,
+  bundle,
+  copy,
+  showContradiction,
+}: {
+  id: string;
+  planetId: PlanetId;
+  title: string;
+  taskLabel: string;
+  boundary: string;
+  bundle: Bundle;
+  copy: PlanningCopy;
+  showContradiction: boolean;
+}) {
+  const { figures, checks, counts, edges, latest } = bundle;
+  const populationHolds = checks.find((check) => check.id === "population")?.ok === true;
+  return (
+    <article id={id} data-planet={planetId} className="planet-card">
+      <p className="kicker">{taskLabel}</p>
+      <h3 className="mt-2">{title}</h3>
+      <p className="planet-collected">
+        <span>
+          {copy.collectedCity} {figures.city}
+        </span>
+        <span>
+          {copy.collectedDistrict} {figures.district}
+        </span>
+      </p>
+      <p className="planning-boundary">{boundary}</p>
+      <AdvisoryPlanet copy={copy} figures={figures} planetId={planetId} />
+      <div className="planning-reading">
+        <p className="kicker">{copy.followKicker}</p>
+        <h3 className="mt-2 font-display text-2xl tracking-tight">{copy.followTitle}</h3>
+        <p className="planning-prose mt-3">{copy.followLede}</p>
+        <div className="planning-stats">
+          <Stat label={copy.usual} value={figures.usual === null ? "—" : formatCount(figures.usual)} unit="SE01 · 人" />
+          <Stat label={copy.residents} value={figures.residents === null ? "—" : formatCount(figures.residents)} unit="SE03" />
+          <Stat label={copy.workers} value={figures.workers === null ? "—" : formatCount(figures.workers)} unit="SE02" />
+          <Stat label={copy.visitors} value={figures.visitors === null ? "—" : formatCount(figures.visitors)} unit="SE10" />
+          <Stat label={copy.labor} value={figures.labor === null ? "—" : `${formatCount(figures.labor)}%`} unit="SE05" />
+          <Stat label={copy.density} value={figures.density === null ? "—" : formatCount(figures.density)} unit="SE09 · 人/km²" />
+          <Stat
+            label={copy.industry}
+            value={figures.industry ?? "—"}
+            unit={figures.poi === null ? "IF01" : `IF01 · ${formatCount(figures.poi)} POI`}
+          />
+          <Stat
+            label={copy.walk}
+            value={figures.hotels === null ? "—" : formatCount(figures.hotels)}
+            unit={figures.stops === null ? "SE14" : `SE14 · ${formatCount(figures.stops)} stops`}
+          />
+        </div>
+        <p className="planning-note mt-3">{copy.circleNote}</p>
+        <div className="planning-stats">
+          <Stat label={copy.housing} value={figures.housing === null ? "—" : formatCount(figures.housing)} unit="SE11 · 元/㎡" />
+          <Stat label={copy.rent} value={figures.rent === null ? "—" : String(figures.rent)} unit="SE15 · 元/㎡/天" />
+          <Stat label={copy.floors} value={figures.floors === null ? "—" : String(figures.floors)} unit="SE16 · 层" />
+          <Stat label={copy.dining} value={figures.dining === null ? "—" : formatCount(figures.dining)} unit="SE25 · 元/月" />
+        </div>
+        {populationHolds ? <p className="planning-prose mt-4">{copy.peopleNote}</p> : null}
+        <div className="planning-notes">
+          {showContradiction ? <p className="planning-note is-alert">{copy.contradiction}</p> : null}
+          {figures.if03Contested ? <p className="planning-note is-alert">{copy.contestedIf03}</p> : null}
+          {figures.mixType && figures.industry && figures.mixType !== figures.industry ? (
+            <p className="planning-note is-alert">{copy.industryClash}</p>
+          ) : null}
+          {figures.nightShare === null ? (
+            <p className="planning-note">{copy.night}</p>
+          ) : (
+            <p className="planning-note">{copy.nightKnown}</p>
+          )}
+          <p className="planning-note">{copy.carbon}</p>
+          <p className="planning-note">{copy.images}</p>
+          {figures.mixIndex === null ? <p className="planning-note">{copy.mix}</p> : null}
+          <p className="planning-note">
+            {copy.events}
+            {figures.scope ? ` ${figures.scope}` : ""}
+          </p>
+        </div>
+        <div className="planning-split">
+          <div>
+            <h3 className="mt-2 font-display text-xl tracking-tight">{copy.checksTitle}</h3>
+            <div className="planning-checks mt-3">
+              {checks.map((check) => (
+                <div key={check.id} className="planning-check">
+                  <b className={check.ok ? "is-ok" : "is-bad"}>{check.ok ? copy.pass : copy.fail}</b>
+                  <div>
+                    {checkLabel(check.id, copy)}
+                    <small>{check.detail}</small>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="mt-2 font-display text-xl tracking-tight">{copy.coverage}</h3>
+            <div
+              className="coverage-bar mt-4"
+              role="img"
+              aria-label={`${copy.statusValue} ${counts.value}, ${copy.statusZero} ${counts.zero}, ${copy.statusError} ${counts.error}, ${copy.statusNoData} ${counts.no_data}`}
+            >
+              <span className="is-value" style={{ width: `${(counts.value / counts.total) * 100}%` }} />
+              <span className="is-zero" style={{ width: `${(counts.zero / counts.total) * 100}%` }} />
+              <span className="is-error" style={{ width: `${(counts.error / counts.total) * 100}%` }} />
+              <span className="is-nodata" style={{ width: `${(counts.no_data / counts.total) * 100}%` }} />
+            </div>
+            <div className="coverage-legend">
+              <span>
+                {copy.statusValue} {counts.value}
+              </span>
+              <span>
+                {copy.statusZero} {counts.zero}
+              </span>
+              <span>
+                {copy.statusError} {counts.error}
+              </span>
+              <span>
+                {copy.statusNoData} {counts.no_data}
+              </span>
+            </div>
+            <div className="edge-list">
+              {edges.map((edge) => (
+                <span key={edge.code} className={`pill is-${edge.state}`} title={edge.detail}>
+                  {edge.code} ← {edge.needs.join(", ")}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="planning-charts">
+          {charts.map((chart) => {
+            const rows = series(latest.get(chart.code), chart.root);
+            const ordered = chart.sort ? [...rows].sort((a, b) => b.value - a.value) : rows;
+            if (ordered.length === 0) return null;
+            const max = Math.max(...ordered.map((row) => row.value), 1);
+            return (
+              <article key={chart.id} className="planning-chart">
+                <h3>
+                  {copy[chart.title]} <span className="font-mono text-[11px] text-muted">{chart.code}</span>
+                </h3>
+                <div className="bar-list">
+                  {ordered.map((row) => (
+                    <div key={row.label} className="bar-row">
+                      <span>{row.label}</span>
+                      <div className="bar-track" aria-hidden>
+                        <span style={{ width: `${(row.value / max) * 100}%` }} />
+                      </div>
+                      <b>{formatCount(row.value)}%</b>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function AttemptFacts({
+  label,
+  bundle,
+  code,
+  copy,
+}: {
+  label: string;
+  bundle: Bundle;
+  code: string;
+  copy: PlanningCopy;
+}) {
+  const attempt = bundle.latest.get(code);
+  const history = historyFor(bundle.attempts, code);
+  return (
+    <div className="mt-4">
+      <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">{label}</p>
+      {attempt ? (
+        <p className="mt-2">
+          <span className={pillClass(attempt.status)}>{statusLabel(attempt.status, copy)}</span>
+          <span className="ml-2 font-mono text-[11px] text-muted">{attempt.collectTime}</span>
+        </p>
+      ) : (
+        <p className="mt-2 text-sm text-muted">—</p>
+      )}
+      {attempt?.error ? <p className="mt-2 text-sm text-spark">{attempt.error}</p> : null}
+      {attempt && attempt.leaves.length > 0 ? (
+        <div className="leaf-list">
+          {attempt.leaves.map((leaf) => (
+            <div key={`${label}-${leaf.path}`}>
+              <span className="text-muted">{leaf.path}</span> {leaf.text}
+            </div>
+          ))}
+        </div>
+      ) : null}
+      {history.length > 1 ? (
+        <div className="attempt-list">
+          <p className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">{copy.attempts}</p>
+          {history.map((item) => (
+            <p key={item.id} className="text-sm">
+              <span className={pillClass(item.status)}>{statusLabel(item.status, copy)}</span>{" "}
+              <span className="font-mono text-[11px] text-muted">{item.collectTime}</span> {item.error ?? shortValue(item)}
+            </p>
+          ))}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function TaskCell({ attempt, copy }: { attempt: Attempt | undefined; copy: PlanningCopy }) {
+  return (
+    <td>
+      {attempt ? <span className={pillClass(attempt.status)}>{statusLabel(attempt.status, copy)}</span> : "—"}
+      <span className="mt-1 block max-w-56 text-[11px] text-muted">{shortValue(attempt)}</span>
+    </td>
   );
 }
 

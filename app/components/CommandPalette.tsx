@@ -176,7 +176,7 @@ export function CommandPalette({ posts }: { posts: PostMeta[] }) {
         hint: "/planning",
         href: localizeHref("/planning", locale),
         group: "Garden",
-        summary: "Spatial, population, and economy advisory. Task 9 follow-up.",
+        summary: "Two private advisory planets.",
         tags: ["规划", "規劃", "空间句法", "空間句法", "space syntax", "depthmap", "depthmapx", "qgis", "指标", "指標"],
       },
       {

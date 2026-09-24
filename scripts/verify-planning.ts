@@ -7,6 +7,7 @@ import type { Indicator, RawRecord } from "../lib/planning/logic.ts";
 import {
   coverage,
   dependencyEdges,
+  exportRows,
   heroFigures,
   historyFor,
   latestByCode,
@@ -117,5 +118,65 @@ assert.match(gate, /verifyPlanningOwner/);
 assert.match(header, /PlanningNavLink/);
 assert.doesNotMatch(header, /href: "\/planning"/);
 assert.doesNotMatch(site, /ichina\.co\/planning/);
+assert.match(site, /ggherePlanet: "https:\/\/gghere.com\/hk\?district=central-belt"/);
+assert.match(site, /ggherePlanetHome: "https:\/\/gghere.com\/planet"/);
+
+const desk = readFileSync(join(root, "app/components/planning/PlanningDesk.tsx"), "utf8");
+const planet = readFileSync(join(root, "app/components/planning/AdvisoryPlanet.tsx"), "utf8");
+const copy = readFileSync(join(root, "lib/planning/copy.ts"), "utf8");
+const gateCopy = readFileSync(join(root, "lib/planning/gate.ts"), "utf8");
+const footer = readFileSync(join(root, "app/components/SiteFooter.tsx"), "utf8");
+const home = readFileSync(join(root, "app/components/HomeView.tsx"), "utf8");
+const palette = readFileSync(join(root, "app/components/CommandPalette.tsx"), "utf8");
+
+assert.match(desk, /id="zhengzhou"/);
+assert.match(desk, /id="luoyang"/);
+assert.match(desk, /data-planet=\{planetId\}/);
+assert.match(desk, /planetId="zhengzhou"/);
+assert.match(desk, /planetId="luoyang"/);
+assert.match(desk, /boundary=\{copy\.boundaryErqi\}/);
+assert.match(desk, /boundary=\{copy\.boundary\}/);
+assert.match(desk, /exportRows\(visible, exportBundle\.latest, includeProposed\)/);
+assert.doesNotMatch(desk, /onRun/);
+assert.doesNotMatch(planet, /onRun/);
+assert.match(planet, /data-reading="people"/);
+assert.match(planet, /data-reading="economy"/);
+assert.match(planet, /data-slot="streets"/);
+assert.match(planet, /streetSlot/);
+
+assert.match(copy, /not a district of Zhengzhou/);
+assert.match(copy, /不是郑州的区/);
+assert.match(copy, /不是鄭州的區/);
+assert.doesNotMatch(copy, /洛阳区/);
+assert.doesNotMatch(copy, /洛陽區/);
+assert.doesNotMatch(copy, /Luoyang District/);
+assert.match(copy, /case "ja"/);
+assert.match(copy, /case "ko"/);
+assert.match(copy, /case "th"/);
+assert.match(copy, /case "nl"/);
+
+assert.doesNotMatch(page, /二七区|1930400|1,930,400/);
+assert.doesNotMatch(localePage, /二七区|1930400|1,930,400/);
+assert.doesNotMatch(gate, /二七区|1930400|1,930,400/);
+assert.doesNotMatch(gateCopy, /二七区|1930400|1,930,400/);
+assert.match(gateCopy, /yying2010@gmail.com/);
+const gateEmails = gateCopy.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi) ?? [];
+assert.ok(gateEmails.length > 0);
+assert.ok(gateEmails.every((email) => email.toLowerCase() === "yying2010@gmail.com"));
+
+const plain = exportRows(indicators, latest, false);
+assert.equal(plain.some((row) => row.code.startsWith("SX")), false);
+const withProposed = exportRows(indicators, erqiLatest, true);
+for (const code of ["SX01", "SX02", "SX03", "SX04", "SX05"]) {
+  assert.equal(withProposed.some((row) => row.catalog === "proposed" && row.code === code), true);
+}
+assert.equal(withProposed.filter((row) => row.catalog === "authorized" && row.code.startsWith("SX")).length, 0);
+
+assert.match(footer, /PlanningNavLink/);
+assert.doesNotMatch(footer, /href: "\/planning"/);
+assert.match(home, /PlanningNavLink/);
+assert.match(palette, /isPlanningOwner/);
+assert.match(palette, /item\.id !== "planning"/);
+assert.doesNotMatch(palette, /二七区|1930400|1,930,400/);
 
 console.log("planning checks ok");
