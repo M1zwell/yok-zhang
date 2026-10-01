@@ -19,6 +19,7 @@ import { LocaleSync } from "@/app/components/LocaleSync";
 import { ThemeSync } from "@/app/components/ThemeSync";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";
+import { links } from "@/lib/site";
 import { getAllPosts } from "@/lib/posts";
 import { seo, siteUrl } from "@/lib/seo";
 import "./globals.css";
@@ -92,7 +93,7 @@ const notoThai = Noto_Sans_Thai({
   adjustFontFallback: false,
 });
 
-const description = "Hong Kong. Builds AI. Lives the rest. m1zwell.";
+const description = "Hong Kong. Builds AI. Walks the rest. m1zwell.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -119,6 +120,35 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "ichina.co",
+      alternateName: ["Yok Zhang", "m1zwell"],
+      description,
+      inLanguage: ["en", "zh-Hans", "zh-Hant", "ja", "ko", "th", "nl"],
+      publisher: { "@id": `${siteUrl}/#person` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      name: "Yok Zhang",
+      alternateName: "m1zwell",
+      url: siteUrl,
+      sameAs: [links.github],
+      jobTitle: "Builder",
+      homeLocation: {
+        "@type": "Place",
+        name: "Hong Kong",
+      },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -138,19 +168,17 @@ export default function RootLayout({
   ].join(" ");
 
   return (
-    <html lang="en" className={`dark ${fontVars}`}>
+    <html lang="en" className={`dark ${fontVars}`} data-atmosphere="harbour-night">
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");if(t!=="light")t="dark";var r=document.documentElement;r.classList.remove("light","dark");r.classList.add(t);r.style.colorScheme=t;}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t!=="light")t="dark";var a=localStorage.getItem("atmosphere");if(a!=="peak-mist"&&a!=="neon-terminal"&&a!=="bone-day")a="harbour-night";var r=document.documentElement;r.classList.remove("light","dark");r.classList.add(t);r.style.colorScheme=t;r.dataset.atmosphere=a;}catch(e){}})();`,
           }}
         />
-        <link rel="alternate" type="application/rss+xml" title="Yok Zhang" href="https://ichina.co/feed.xml" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Sans+TC:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Noto+Sans+KR:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&display=swap"
+        <link rel="alternate" type="application/rss+xml" title="Yok Zhang" href={`${siteUrl}/feed.xml`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-dvh font-sans text-fg antialiased">

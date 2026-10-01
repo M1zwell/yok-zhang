@@ -8,6 +8,7 @@ import { FundingNavLink } from "@/app/components/funding/FundingNavLink";
 import { PlanningNavLink } from "@/app/components/planning/PlanningNavLink";
 import { EnterButton } from "@/app/components/JoinFlow";
 import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
+import { AtmospherePicker } from "@/app/components/AtmospherePicker";
 import { ThemeToggle } from "@/app/components/ThemeToggle";
 import { BrandMark } from "@/app/components/BrandMark";
 import { LogoMark } from "@/app/components/LogoMark";
@@ -94,6 +95,7 @@ export function SiteHeader() {
         </nav>
         <div className="flex shrink-0 items-center gap-1 sm:gap-2">
           <ThemeToggle />
+          <AtmospherePicker />
           <LanguageSwitcher />
           <button
             type="button"

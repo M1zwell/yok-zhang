@@ -36,13 +36,24 @@ export type JoinDestination = {
 };
 
 /**
- * Intended production host (apex) for this garden.
- * Current Vercel deploy is yok-zhang.vercel.app — keep it working.
- * Parent attaches ichina.co in Vercel. Do not mint fake DNS here.
- * OG siteName uses "ichina.co"; metadataBase stays on the Vercel host.
+ * Production apex for this garden. SEO (canonical / OG / hreflang / metadataBase)
+ * must use ichina.co on production builds. Preview deploys may use VERCEL_URL.
+ * deployHost is the legacy Vercel project hostname — not for public metadata.
  */
 export const canonicalHost = "ichina.co";
 export const deployHost = "yok-zhang.vercel.app";
+
+function stripHost(value: string | undefined): string | undefined {
+  if (!value) return undefined;
+  return value.replace(/^https?:\/\//, "").replace(/\/$/, "") || undefined;
+}
+
+/** Public host for metadataBase, canonical, OG, and hreflang. */
+export const publicHost =
+  stripHost(process.env.NEXT_PUBLIC_SITE_HOST) ||
+  (process.env.VERCEL_ENV === "production"
+    ? canonicalHost
+    : stripHost(process.env.VERCEL_URL) || canonicalHost);
 
 export const links = {
   jubitSignup: "https://www.jubit.ai/signup",
@@ -84,7 +95,7 @@ export const nav = [
   { href: "/share", label: "Share" },
 ] as const;
 
-export const heroLine = "Hong Kong. Builds AI. Lives the rest.";
+export const heroLine = "Hong Kong. Builds AI. Walks the rest.";
 
 export const tacitLine =
   "What can be told is here. The rest you walk — planets, the map, the terminal.";
@@ -93,7 +104,7 @@ export const writingTacitLine =
   "These notes are what can be told. Research is a source in the same stream. The tools are the remainder — you have to walk them.";
 
 export const quotes = [
-  "Hong Kong. Builds AI. Lives the rest.",
+  "Hong Kong. Builds AI. Walks the rest.",
   "What can be told is here. The rest you walk.",
   "Scattered feeds, APIs, datasets and maps — held together and made seekable.",
   "Football and philosophy sit in the same life. They are not the work. The work is to ship.",
@@ -439,6 +450,77 @@ export const marqueeItems: Product[] = [
   { title: "gghere.com/worlds", href: links.gghereWorlds, path: "gghere.com/worlds", live: true },
 ];
 
+
+
+export type WalkKind = "world" | "ai" | "data" | "game";
+
+export type WalkItem = {
+  id: string;
+  kind: WalkKind;
+  label: string;
+  path: string;
+  href: string;
+  proof: string;
+  external: boolean;
+};
+
+/** Home "Walk one" index — join destinations + garden games, numbered in UI. */
+export const walkItems: WalkItem[] = [
+  {
+    id: "gghere",
+    kind: "world",
+    label: "Worlds",
+    path: "gghere.com/hk",
+    href: links.gghereHk,
+    proof: "Hong Kong Central Belt. HD walkable planet. No account.",
+    external: true,
+  },
+  {
+    id: "planet",
+    kind: "world",
+    label: "Planet",
+    path: "jubuddy.com/planet",
+    href: links.jubuddyPlanet,
+    proof: "City-planet surface — sibling to the walkable worlds catalog.",
+    external: true,
+  },
+  {
+    id: "jubit",
+    kind: "ai",
+    label: "Jubit",
+    path: "jubit.ai",
+    href: links.jubitHome,
+    proof: "AI that actually runs.",
+    external: true,
+  },
+  {
+    id: "dseek",
+    kind: "data",
+    label: "dseek",
+    path: "dseek.ai",
+    href: links.dseekHome,
+    proof: "Scattered feeds, made seekable.",
+    external: true,
+  },
+  {
+    id: "jubuddy",
+    kind: "ai",
+    label: "jubuddy",
+    path: "jubuddy.com",
+    href: links.jubuddyHome,
+    proof: "Theme factory in the Jubit universe.",
+    external: true,
+  },
+  {
+    id: "games",
+    kind: "game",
+    label: "Games",
+    path: "ichina.co/game",
+    href: "/game",
+    proof: "Waiting tree, hand-cast oracle, Handcrafted Post Office.",
+    external: false,
+  },
+];
 
 export const worldCities = [
   { name: "Hong Kong", slug: "hk" },

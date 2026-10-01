@@ -6,24 +6,24 @@ import { stripLocale } from "@/lib/i18n";
 import { familySsoUrl, signOutFamilySession } from "@/lib/jubit-sso";
 import { t } from "@/lib/messages";
 
+/** Header auth — demoted. Sign in is a quiet text link; Register lives in footer/JoinFlow. */
 export function AuthHeaderButtons() {
   const pathname = usePathname() || "/";
   const { locale } = stripLocale(pathname);
   const m = t(locale);
   const session = useFamilySession();
   const signInHref = familySsoUrl({ next: pathname });
-  const registerHref = familySsoUrl({ next: pathname, mode: "register" });
 
   if (session) {
     return (
       <>
         <span
-          className="hidden max-w-[10rem] truncate font-mono text-[11px] text-muted lg:inline"
+          className="hidden max-w-[10rem] truncate font-mono text-[11px] text-muted xl:inline"
           title={session.email || m.cta.signedIn}
         >
           {session.email || m.cta.signedIn}
         </span>
-        <button type="button" className="btn btn-ghost" onClick={() => void signOutFamilySession()}>
+        <button type="button" className="btn btn-ghost hidden sm:inline-flex" onClick={() => void signOutFamilySession()}>
           {m.cta.signOut}
         </button>
       </>
@@ -31,17 +31,16 @@ export function AuthHeaderButtons() {
   }
 
   return (
-    <>
-      <a href={signInHref} className="btn btn-ghost hidden lg:inline-flex">
-        {m.cta.signIn}
-      </a>
-      <a href={registerHref} className="btn btn-primary cta-pop">
-        {m.cta.register}
-      </a>
-    </>
+    <a
+      href={signInHref}
+      className="hidden text-[12px] font-medium text-muted transition-colors hover:text-fg xl:inline"
+    >
+      {m.cta.signIn}
+    </a>
   );
 }
 
+/** Mobile rail — quiet sign-in; Enter stays the primary action. */
 export function AuthRailLink() {
   const pathname = usePathname() || "/";
   const { locale } = stripLocale(pathname);
@@ -54,7 +53,7 @@ export function AuthRailLink() {
       <button
         type="button"
         onClick={() => void signOutFamilySession()}
-        className="shrink-0 text-[12px] font-medium text-accent lg:hidden"
+        className="shrink-0 text-[12px] font-medium text-muted lg:hidden"
       >
         {m.cta.signOut}
       </button>
@@ -62,7 +61,7 @@ export function AuthRailLink() {
   }
 
   return (
-    <a href={signInHref} className="shrink-0 text-[12px] font-medium text-accent lg:hidden">
+    <a href={signInHref} className="shrink-0 text-[12px] font-medium text-muted hover:text-fg lg:hidden">
       {m.cta.signIn}
     </a>
   );
