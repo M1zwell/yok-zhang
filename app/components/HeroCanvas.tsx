@@ -1,6 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import {
+  atmosphereCanvas,
+  defaultAtmosphere,
+  isAtmosphere,
+  type AtmosphereId,
+} from "@/lib/atmosphere";
 
 type Body = {
   x: number;
@@ -32,13 +38,20 @@ type Spark = {
   life: number;
 };
 
+function readAtmosphere(): AtmosphereId {
+  const raw = document.documentElement.dataset.atmosphere;
+  return isAtmosphere(raw) ? raw : defaultAtmosphere;
+}
+
 export function HeroCanvas() {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const fineMq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const narrowMq = window.matchMedia("(max-width: 767px)");
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -46,11 +59,16 @@ export function HeroCanvas() {
     let h = 0;
     let raf = 0;
     let running = true;
+    let reduce = reduceMq.matches;
+    let finePointer = fineMq.matches;
+    let mobile = narrowMq.matches;
+    let pointerX = 0.72;
+    let pointerY = 0.46;
+    let targetX = 0.72;
+    let targetY = 0.46;
+    let woke = false;
 
-    const teal = "#14B8A6";
-    const magenta = "#FF4778";
-    const purple = "#8B7CFF";
-    const pink = "#EC4899";
+    let tint = atmosphereCanvas[readAtmosphere()];
 
     const planets: Body[] = [];
     const dust: Dust[] = [];
@@ -59,7 +77,7 @@ export function HeroCanvas() {
     const resize = () => {
       w = window.innerWidth;
       h = window.innerHeight;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, mobile ? 1.25 : 2);
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
       canvas.style.width = `${w}px`;
@@ -70,8 +88,10 @@ export function HeroCanvas() {
     const seed = () => {
       planets.length = 0;
       dust.length = 0;
+      sparks.length = 0;
       const cx = w * 0.72;
       const cy = h * 0.46;
+      const { teal, magenta, purple, pink } = tint;
       const palette = [teal, magenta, purple, pink];
       planets.push(
         {
@@ -133,7 +153,8 @@ export function HeroCanvas() {
           moons: [],
         },
       );
-      for (let i = 0; i < 230; i++) {
+      const dustCount = mobile ? 90 : 230;
+      for (let i = 0; i < dustCount; i++) {
         dust.push({
           x: Math.random() * w,
           y: Math.random() * h,
@@ -146,15 +167,17 @@ export function HeroCanvas() {
       }
     };
 
-    const drawPlanet = (p: Body, t: number) => {
+    const drawPlanet = (p: Body, t: number, ox: number, oy: number) => {
       let x = p.x;
       let y = p.y;
       if (p.orbit > 0) {
-        const ox = w * 0.72;
-        const oy = h * 0.46;
         x = ox + Math.cos(p.angle + t * p.speed * 60) * p.orbit;
         y = oy + Math.sin(p.angle + t * p.speed * 60) * p.orbit * 0.55;
+      } else {
+        x = ox;
+        y = oy;
       }
+      const { teal, magenta } = tint;
       ctx.beginPath();
       ctx.arc(x, y, p.r + 10, 0, Math.PI * 2);
       ctx.fillStyle = p.color === teal ? "rgba(20,184,166,0.08)" : "rgba(255,71,120,0.07)";
@@ -193,22 +216,39 @@ export function HeroCanvas() {
 
     const draw = (t: number) => {
       ctx.clearRect(0, 0, w, h);
-      const haze = ctx.createRadialGradient(w * 0.7, h * 0.42, 16, w * 0.7, h * 0.42, Math.max(w, h) * 0.62);
-      haze.addColorStop(0, "rgba(11,36,34,0.62)");
-      haze.addColorStop(0.26, "rgba(255,71,120,0.11)");
-      haze.addColorStop(0.48, "rgba(20,184,166,0.13)");
-      haze.addColorStop(0.7, "rgba(139,124,255,0.07)");
+      if (finePointer && !reduce && !mobile) {
+        pointerX += (targetX - pointerX) * 0.045;
+        pointerY += (targetY - pointerY) * 0.045;
+      }
+      const ox = w * pointerX;
+      const oy = h * pointerY;
+      const { teal, magenta, purple, hazeDeep } = tint;
+
+      const haze = ctx.createRadialGradient(ox, oy, 16, ox, oy, Math.max(w, h) * 0.62);
+      haze.addColorStop(0, hazeDeep);
+      haze.addColorStop(0.26, `${magenta}1c`);
+      haze.addColorStop(0.48, `${teal}21`);
+      haze.addColorStop(0.7, `${purple}12`);
       haze.addColorStop(1, "rgba(10,10,10,0)");
       ctx.fillStyle = haze;
       ctx.fillRect(0, 0, w, h);
       const haze2 = ctx.createRadialGradient(w * 0.18, h * 0.78, 8, w * 0.18, h * 0.78, Math.max(w, h) * 0.38);
-      haze2.addColorStop(0, "rgba(255,71,120,0.08)");
-      haze2.addColorStop(0.45, "rgba(139,124,255,0.05)");
+      haze2.addColorStop(0, `${magenta}14`);
+      haze2.addColorStop(0.45, `${purple}0d`);
       haze2.addColorStop(1, "rgba(10,10,10,0)");
       ctx.fillStyle = haze2;
       ctx.fillRect(0, 0, w, h);
 
       for (const d of dust) {
+        if (finePointer && !reduce && !mobile && woke) {
+          const dx = ox - d.x;
+          const dy = oy - d.y;
+          const dist = Math.hypot(dx, dy) || 1;
+          d.vx += (dx / dist) * 0.004;
+          d.vy += (dy / dist) * 0.003;
+          d.vx *= 0.985;
+          d.vy *= 0.985;
+        }
         d.x += d.vx;
         d.y += d.vy;
         if (d.x < 0) d.x = w;
@@ -222,7 +262,8 @@ export function HeroCanvas() {
         ctx.fill();
       }
       ctx.globalAlpha = 1;
-      if (Math.random() < 0.016 && sparks.length < 4) {
+
+      if (!mobile && !reduce && Math.random() < 0.016 && sparks.length < 4) {
         sparks.push({
           x: Math.random() * w * 0.6,
           y: Math.random() * h * 0.4,
@@ -246,7 +287,7 @@ export function HeroCanvas() {
         ctx.globalAlpha = 1;
         if (s.life <= 0 || s.x > w || s.y > h) sparks.splice(i, 1);
       }
-      for (const p of planets) drawPlanet(p, t / 1000);
+      for (const p of planets) drawPlanet(p, t / 1000, ox, oy);
     };
 
     const loop = (now: number) => {
@@ -254,28 +295,76 @@ export function HeroCanvas() {
       raf = requestAnimationFrame(loop);
     };
 
-    const onVis = () => {
+    const syncRunning = () => {
       running = document.visibilityState === "visible" && !reduce;
+    };
+
+    const onPointer = (e: PointerEvent) => {
+      if (!finePointer || reduce || mobile) return;
+      targetX = Math.min(0.92, Math.max(0.35, e.clientX / Math.max(w, 1)));
+      targetY = Math.min(0.72, Math.max(0.22, e.clientY / Math.max(h, 1)));
+      if (!woke) {
+        woke = true;
+        document.documentElement.dataset.fieldAwake = "1";
+      }
+    };
+
+    const onMq = () => {
+      reduce = reduceMq.matches;
+      finePointer = fineMq.matches;
+      mobile = narrowMq.matches;
+      syncRunning();
+      resize();
+      seed();
+      if (reduce || mobile) {
+        pointerX = 0.72;
+        pointerY = 0.46;
+        targetX = 0.72;
+        targetY = 0.46;
+        document.documentElement.dataset.fieldAwake = "";
+        woke = false;
+      }
+      if (reduce) draw(0);
+    };
+
+    const onAtmosphere = () => {
+      tint = atmosphereCanvas[readAtmosphere()];
+      seed();
+      if (reduce) draw(0);
     };
 
     resize();
     seed();
+    syncRunning();
     if (reduce) {
       draw(0);
     } else {
       raf = requestAnimationFrame(loop);
     }
+
     const onResize = () => {
       resize();
       seed();
     };
+
     window.addEventListener("resize", onResize);
-    document.addEventListener("visibilitychange", onVis);
+    window.addEventListener("pointermove", onPointer, { passive: true });
+    document.addEventListener("visibilitychange", syncRunning);
+    reduceMq.addEventListener("change", onMq);
+    fineMq.addEventListener("change", onMq);
+    narrowMq.addEventListener("change", onMq);
+    window.addEventListener("yok:atmosphere", onAtmosphere);
 
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", onResize);
-      document.removeEventListener("visibilitychange", onVis);
+      window.removeEventListener("pointermove", onPointer);
+      document.removeEventListener("visibilitychange", syncRunning);
+      reduceMq.removeEventListener("change", onMq);
+      fineMq.removeEventListener("change", onMq);
+      narrowMq.removeEventListener("change", onMq);
+      window.removeEventListener("yok:atmosphere", onAtmosphere);
+      document.documentElement.dataset.fieldAwake = "";
     };
   }, []);
 

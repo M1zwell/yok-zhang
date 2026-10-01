@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { defaultLocale, localeMeta, locales, localizeHref, type Locale } from "@/lib/i18n";
-import { deployHost } from "@/lib/site";
+import { publicHost } from "@/lib/site";
 
-export const siteUrl = `https://${deployHost}`;
+export const siteUrl = `https://${publicHost}`;
+/** Single 1200×630 asset for Open Graph and Twitter. */
 export const ogImagePath = "/og.png";
 
 type SeoInput = {
@@ -38,7 +39,7 @@ export function seo({
       canonical: url,
       languages,
       types: {
-        "application/rss+xml": "https://ichina.co/feed.xml",
+        "application/rss+xml": `${siteUrl}/feed.xml`,
       },
     },
     openGraph: {

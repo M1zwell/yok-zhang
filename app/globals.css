@@ -76,6 +76,177 @@ html.light body {
     radial-gradient(ellipse 88% 68% at 50% 8%, #efe6d4 0%, #f3efe6 58%, #e8e0ce 100%);
 }
 
+
+/* --- Yok-native atmospheres (not cankola film-lab) --- */
+
+html[data-atmosphere="harbour-night"] {
+  --atmosphere-grain: 0.055;
+  --color-deep: #0a1f1d;
+  --color-accent: #14b8a6;
+  --color-accent-hover: #2dd4bf;
+  --color-spark: #ff4778;
+  --color-spark-magenta: #ff4778;
+  --color-spark-purple: #8b7cff;
+}
+
+html[data-atmosphere="peak-mist"] {
+  --atmosphere-grain: 0.04;
+  --color-bg: #0e1418;
+  --color-surface: #151c22;
+  --color-elevated: #1a232b;
+  --color-tertiary: #24303a;
+  --color-deep: #12181c;
+  --color-fg: #e8eef2;
+  --color-secondary: #b0bcc6;
+  --color-muted: #7a8792;
+  --color-accent: #5eead4;
+  --color-accent-hover: #99f6e4;
+  --color-accent-deep: #14b8a6;
+  --color-spark: #94a3b8;
+  --color-spark-magenta: #a8b4c4;
+  --color-spark-purple: #7dd3fc;
+  --color-hair: #1c262e;
+  --color-line: #2a3640;
+}
+
+html[data-atmosphere="neon-terminal"] {
+  --atmosphere-grain: 0.07;
+  --color-bg: #07060a;
+  --color-surface: #0e0c14;
+  --color-elevated: #15121e;
+  --color-tertiary: #221c2e;
+  --color-deep: #0a0812;
+  --color-fg: #f5f0ff;
+  --color-secondary: #c4b8d9;
+  --color-muted: #8a7fa0;
+  --color-accent: #2dd4bf;
+  --color-accent-hover: #5eead4;
+  --color-spark: #ff2d6a;
+  --color-spark-magenta: #ff2d6a;
+  --color-spark-purple: #a78bfa;
+  --color-hair: #1a1524;
+  --color-line: #2a2238;
+}
+
+html[data-atmosphere="bone-day"] {
+  --atmosphere-grain: 0.035;
+  color-scheme: light;
+  --color-bg: #f3efe6;
+  --color-surface: #fffcf5;
+  --color-elevated: #faf6ed;
+  --color-tertiary: #e8e1d2;
+  --color-deep: #ebe4d4;
+  --color-fg: #16140f;
+  --color-secondary: #4a453c;
+  --color-muted: #6e675b;
+  --color-accent: #0f766e;
+  --color-accent-hover: #0d9488;
+  --color-accent-deep: #0f766e;
+  --color-accent-muted: #115e59;
+  --color-spark: #db2777;
+  --color-spark-magenta: #db2777;
+  --color-spark-purple: #7c6ae8;
+  --color-hair: #e2dacb;
+  --color-line: #d0c7b6;
+  --color-ink: #16140f;
+  --color-bone: #f3efe6;
+  --color-mute: #6e675b;
+}
+
+html[data-atmosphere="bone-day"] body {
+  background:
+    radial-gradient(ellipse 88% 68% at 50% 8%, #efe6d4 0%, #f3efe6 58%, #e8e0ce 100%);
+}
+
+html[data-atmosphere="bone-day"] .glass-header {
+  background: rgba(243, 239, 230, 0.78);
+  box-shadow: 0 1px 0 rgba(22, 20, 15, 0.05);
+}
+
+.hero-field-hint-touch {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html[data-field-awake="1"] .hero-field-hint-fine {
+    opacity: 0.45;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .hero-field-hint-fine {
+    display: none;
+  }
+  .hero-field-hint-touch {
+    display: inline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-field-hint {
+    display: none;
+  }
+}
+
+.kind-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--color-hair);
+  padding: 0.15rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.kind-world {
+  border-color: color-mix(in oklab, var(--color-accent) 35%, var(--color-hair));
+  color: var(--color-accent);
+}
+
+.kind-ai {
+  border-color: color-mix(in oklab, var(--color-spark) 35%, var(--color-hair));
+  color: var(--color-spark);
+}
+
+.kind-data {
+  border-color: color-mix(in oklab, var(--color-spark-purple) 40%, var(--color-hair));
+  color: var(--color-spark-purple);
+}
+
+.kind-game {
+  border-color: color-mix(in oklab, var(--color-gold) 40%, var(--color-hair));
+  color: var(--color-gold);
+}
+
+.atmosphere-swatch {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-hair);
+}
+
+.atmosphere-swatch-harbour-night {
+  background: linear-gradient(135deg, #0a1f1d, #14b8a6 55%, #ff4778);
+}
+
+.atmosphere-swatch-peak-mist {
+  background: linear-gradient(135deg, #12181c, #5eead4 50%, #94a3b8);
+}
+
+.atmosphere-swatch-neon-terminal {
+  background: linear-gradient(135deg, #07060a, #2dd4bf 45%, #ff2d6a);
+}
+
+.atmosphere-swatch-bone-day {
+  background: linear-gradient(135deg, #f3efe6, #0f766e 55%, #db2777);
+}
+
+
 ::selection {
   background: var(--color-accent);
   color: var(--color-ink);
@@ -328,7 +499,7 @@ html.light .glass-header {
   position: fixed;
   inset: 0;
   z-index: 80;
-  opacity: 0.055;
+  opacity: var(--atmosphere-grain, 0.055);
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
   animation: grain-drift 28s linear infinite;
@@ -1401,3 +1572,16 @@ html.light .frame-fallback {
   padding-top: max(1.5rem, env(safe-area-inset-top, 0px), 6dvh);
 }
 
+
+/* polish: reduced-motion marquee+grain */
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+  .film-grain {
+    animation: none !important;
+    opacity: 0.03;
+  }
+}

@@ -14,15 +14,26 @@ import { localizeHref } from "@/lib/i18n";
 import { t } from "@/lib/messages";
 import { getAllPosts } from "@/lib/posts";
 import { emails } from "@/lib/channels";
-import { links, liveProducts } from "@/lib/site";
+import { links, walkItems, type WalkKind } from "@/lib/site";
+
+function kindLabel(kind: WalkKind, m: ReturnType<typeof t>): string {
+  switch (kind) {
+    case "world":
+      return m.home.kindWorld;
+    case "ai":
+      return m.home.kindAi;
+    case "data":
+      return m.home.kindData;
+    case "game":
+      return m.home.kindGame;
+  }
+}
 
 export function HomeView({ locale = "en" }: { locale?: Locale }) {
   const posts = getAllPosts().slice(0, 2);
   const m = t(locale);
   const href = (path: string) => localizeHref(path, locale);
-  const row = liveProducts.filter((p) =>
-    ["gghere.com/hk", "gghere.com/worlds", "jubuddy.com/planet", "jubit.ai", "dseek.ai"].includes(p.path),
-  );
+  const count = walkItems.length;
 
   return (
     <main>
@@ -35,7 +46,11 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
               locale={locale}
               className="font-display text-[clamp(2.4rem,7vw,4.6rem)] leading-[1.04] tracking-tight text-fg"
             />
-            <div className="mt-10 flex flex-wrap items-center gap-3">
+            <p className="hero-field-hint mt-5 max-w-md text-[13px] tracking-wide text-muted">
+              <span className="hero-field-hint-fine">{m.home.fieldHint}</span>
+              <span className="hero-field-hint-touch">{m.home.fieldHintTouch}</span>
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10">
               <a
                 href={links.gghereHk}
                 target="_blank"
@@ -67,28 +82,63 @@ export function HomeView({ locale = "en" }: { locale?: Locale }) {
         <div className="page-x mx-auto max-w-5xl">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4">
-              <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.seeThemRun}</h2>
-              <Link href={href("/products")} className="inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-accent-hover">
+              <div>
+                <h2 className="font-display text-3xl tracking-tight sm:text-4xl">{m.home.walkOne}</h2>
+                <p className="mt-2 text-sm text-muted">
+                  {m.home.walkOneLead.replace("{n}", String(count))}
+                </p>
+              </div>
+              <Link
+                href={href("/products")}
+                className="inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-accent-hover"
+              >
                 {m.cta.allProducts}
               </Link>
             </div>
-            <ul className="mt-10 divide-y divide-hair border-y border-hair">
-              {row.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex min-h-12 flex-col gap-1 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
-                  >
-                    <span className="font-display text-2xl tracking-tight transition-colors group-hover:text-accent sm:text-3xl">
-                      {item.title}
+            <ol className="walk-index mt-10 divide-y divide-hair border-y border-hair">
+              {walkItems.map((item, i) => {
+                const n = String(i + 1).padStart(2, "0");
+                const inner = (
+                  <>
+                    <span className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-5">
+                      <span className="flex shrink-0 items-baseline gap-3">
+                        <span className="font-mono text-[11px] tabular-nums text-muted">{n}</span>
+                        <span className="font-display text-2xl tracking-tight transition-colors group-hover:text-accent sm:text-3xl">
+                          {item.label}
+                        </span>
+                      </span>
+                      <span className={`kind-chip kind-${item.kind}`}>{kindLabel(item.kind, m)}</span>
+                      <span className="min-w-0 text-sm leading-snug text-secondary">{item.proof}</span>
                     </span>
-                    <span className="shrink-0 font-mono text-[11px] text-accent">{item.path} ↗</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+                    <span className="shrink-0 font-mono text-[11px] text-accent">
+                      {item.path}
+                      {item.external ? " ↗" : ""}
+                    </span>
+                  </>
+                );
+                return (
+                  <li key={item.id}>
+                    {item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group walk-index-row flex min-h-12 flex-col gap-2 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+                      >
+                        {inner}
+                      </a>
+                    ) : (
+                      <Link
+                        href={href(item.href)}
+                        className="group walk-index-row flex min-h-12 flex-col gap-2 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+                      >
+                        {inner}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
           </Reveal>
         </div>
       </section>
