@@ -32,11 +32,12 @@ need("raw", tokens, "--font-serif:");
 need("motion", tokens, "--r-lg: 18px");
 need("motion", tokens, "--motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1)");
 
-need("garden dark", garden, "--color-bg: #0e0b12");
-need("garden light", garden, "--color-bg: #f6f1e8");
-need("garden light accent", garden, "--color-accent: #c77891");
-need("garden display", garden, '"Noto Serif SC"');
-need("garden ui", garden, "var(--font-jakarta)");
+need("garden day", garden, "--color-bg: #fff8e8");
+need("garden sky", garden, "#bfe3e0");
+need("garden amber", garden, "--color-accent: #f5a623");
+need("garden ink", garden, "--color-fg: #2c2720");
+need("garden pill", garden, "border-radius: 999px");
+need("garden display", garden, "var(--font-inter)");
 need("garden mono", garden, "var(--font-jetbrains)");
 need("wordmark", garden, ".font-wordmark");
 need("yok cjk", garden, ".font-yok-cjk");
@@ -55,4 +56,4 @@ need("doc type serif", typeDoc, "Noto Serif SC");
 need("doc planet", planetDoc, "#fff8e8");
 need("doc planet amber", planetDoc, "#f5a623");
 
-console.log("gghere tokens: dark plum, light rice paper, sakura day, planet sheet documented");
+console.log("gghere tokens packed; garden paints planet paper, amber pills, ink");

@@ -1,10 +1,10 @@
 export type Theme = "light" | "dark";
 
 export const themeStorageKey = "theme";
-export const defaultTheme: Theme = "dark";
+export const defaultTheme: Theme = "light";
 export const themeColors: Record<Theme, string> = {
-  dark: "#0E0B12",
-  light: "#F6F1E8",
+  dark: "#0A0A0A",
+  light: "#FFF8E8",
 };
 
 export function isTheme(value: string | null | undefined): value is Theme {
@@ -14,7 +14,7 @@ export function isTheme(value: string | null | undefined): value is Theme {
 export function readStoredTheme(): Theme {
   try {
     const stored = localStorage.getItem(themeStorageKey);
-    return stored === "light" ? "light" : "dark";
+    return stored === "dark" ? "dark" : "light";
   } catch {
     return "dark";
   }

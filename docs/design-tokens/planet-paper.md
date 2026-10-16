@@ -2,7 +2,7 @@
 
 [jubuddy.com/planet](https://jubuddy.com/planet) uses the same CSS bundle as worlds. The catalog at `/worlds` sits on rice paper (`#F6F1E8`) and plum night (`#0E0B12`). The walk surface adds a warmer sheet, scoped in the bundle as `html.light .planet-paper`.
 
-ichina keeps rice paper for the garden light mode. These tokens are declared on `html.light` as `--planet-*` so a walk-style surface can opt in without replacing the garden.
+ichina keeps rice paper in the token sheet for the worlds semantic light. The garden itself paints this planet sheet: paper `#fff8e8`, sky `#bfe3e0`, ink `#2c2720`, amber pills `#f5a623` with ink type, focus teal `#4fb3a6`. Those are the colors computed off the live planet controls.
 
 | Token | Value |
 | --- | --- |

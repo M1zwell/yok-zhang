@@ -26,23 +26,19 @@ Runtime sheet: `app/styles/gghere-tokens.css`. Tailwind names in `app/globals.cs
 
 ## ichina binding
 
-| Garden token | Dark | Light |
+The garden paints the **planet HUD**, measured on jubuddy.com/planet, not the sakura rice semantic light.
+
+| Garden token | Day (default) | Night shell |
 | --- | --- | --- |
-| `--color-bg` | `#0E0B12` | `#F6F1E8` |
-| `--color-surface` | `#1A1620` card | `#FCF8EE` card |
-| `--color-elevated` | `#1E1925` | `#FCFAF5` |
-| `--color-tertiary` | `#16121C` | `#E4D9C3` |
-| `--color-fg` | `#FAF3EF` | `#1F1A17` |
-| `--color-secondary` | `#ECE0D8` | `#3A3027` |
-| `--color-muted` | `#B5A3B0` | `#5C5247` |
-| `--color-accent` | `#14b8a6` | `#C77891` |
-| `--color-accent-hover` | `#2dd4bf` | `#B8657F` |
-| `--color-gold` | `#fbbf24` | `#C7A25B` |
-| `--color-line` | `#2A2433` | `#D9CDB6` |
-| `--color-ink` (on accent) | `#ffffff` | `#ffffff` |
-| `--font-display` | Plus Jakarta Sans, then Noto Serif SC / JP | same |
-| `--font-sans` | Inter | same |
-| `--font-ui` | Plus Jakarta Sans | same |
-| `--font-mono` | JetBrains Mono | same |
+| `--color-bg` | `#FFF8E8` paper, sky `#BFE3E0` | `#0A0A0A` |
+| `--color-fg` | `#2C2720` | `#FFF8E8` |
+| `--color-accent` | amber `#F5A623` | amber `#F5A623` |
+| `--color-accent-deep` | focus teal `#4FB3A6` | `#4FB3A6` |
+| `--color-ink` (on amber) | `#2C2720` | `#2C2720` |
+| Buttons | pill, 1px ink border, weight 800 | same cream / amber pills |
+| `--font-display` / `--font-sans` | Inter | Inter |
+
+Worlds semantic light (rice `#F6F1E8`, sakura `#C77891`) stays in the token sheet. It is not what the planet controls paint.
+
 
 TekO Art (`/tekoart`) keeps its Dawn paper. It does not use this sheet.
