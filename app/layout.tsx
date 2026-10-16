@@ -105,8 +105,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F6F1E8" },
-    { media: "(prefers-color-scheme: dark)", color: "#0E0B12" },
+    { media: "(prefers-color-scheme: light)", color: "#FFF8E8" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0A0A" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -160,11 +160,11 @@ export default function RootLayout({
   ].join(" ");
 
   return (
-    <html lang="en" className={`dark ${fontVars}`} data-atmosphere="harbour-night">
+    <html lang="en" className={`light ${fontVars}`} data-atmosphere="harbour-night">
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");if(t!=="light")t="dark";var a=localStorage.getItem("atmosphere");if(a!=="peak-mist"&&a!=="neon-terminal"&&a!=="bone-day")a="harbour-night";var r=document.documentElement;r.classList.remove("light","dark");r.classList.add(t);r.style.colorScheme=t;r.dataset.atmosphere=a;}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t!=="dark")t="light";var a=localStorage.getItem("atmosphere");if(a!=="peak-mist"&&a!=="neon-terminal"&&a!=="bone-day")a="harbour-night";var r=document.documentElement;r.classList.remove("light","dark");r.classList.add(t);r.style.colorScheme=t;r.dataset.atmosphere=a;}catch(e){}})();`,
           }}
         />
         <link rel="alternate" type="application/rss+xml" title="Yok Zhang" href={`${siteUrl}/feed.xml`} />
