@@ -1,0 +1,325 @@
+/* Design tokens ported from https://gghere.com/worlds
+   stylesheet /assets/game-F69C5s5j.css (same bundle as https://jubuddy.com/planet).
+   Captured 2026-10-16.
+
+   Worlds paints light on :root and dark on `html.dark, html:not(.light)`.
+   ichina.co always sets `html.dark` or `html.light`, so semantic colors live on those
+   classes. Raw, brand, radius, and motion stay on :root.
+
+   Planet-paper values are the walk surface from jubuddy.com/planet. They do not
+   replace the /worlds rice-paper semantic light; they are available as --planet-*.
+*/
+
+:root {
+  --raw-teal-300: #5eead4;
+  --raw-teal-400: #2dd4bf;
+  --raw-teal-500: #14b8a6;
+  --raw-teal-600: #0d9488;
+  --raw-teal-ink: #3a9e94;
+  --raw-teal-deep: #2b857d;
+  --raw-pink-300: #f9a8d4;
+  --raw-pink-400: #f472b6;
+  --raw-pink-500: #ec4899;
+  --raw-pink-600: #db2777;
+  --raw-pink-ink: #c46b85;
+  --raw-pink-deep: #a85a73;
+  --raw-purple-400: #c084fc;
+  --raw-purple-500: #a855f7;
+  --raw-neutral-50: #fafafa;
+  --raw-neutral-100: #f5f5f5;
+  --raw-neutral-200: #e5e5e5;
+  --raw-neutral-300: #d4d4d4;
+  --raw-neutral-400: #a3a3a3;
+  --raw-neutral-500: #737373;
+  --raw-neutral-600: #525252;
+  --raw-neutral-700: #404040;
+  --raw-neutral-800: #262626;
+  --raw-neutral-900: #171717;
+  --raw-neutral-950: #0a0a0a;
+  --raw-rice-paper: #f6f1e8;
+  --raw-rice-paper-warm: #ede4d3;
+  --raw-parchment: #e4d9c3;
+  --raw-parchment-deep: #d9cdb6;
+  --raw-paper-washi: #fbe9e5;
+  --raw-paper-jade: #e8f2ee;
+  --raw-paper-deep: #1f1815;
+  --raw-ink-black: #1f1a17;
+  --raw-ink-dark: #3a3027;
+  --raw-ink-mid: #5c5247;
+  --raw-ink-light: #8a7f71;
+  --raw-ink-ghost: #b8ae9f;
+  --raw-sakura-pink: #e8b0c0;
+  --raw-sakura-deep: #c77891;
+  --raw-sakura-soft: #fbd4dd;
+  --raw-jade-emerald: #3c7a6c;
+  --raw-jade-mist: #a8b8a3;
+  --raw-jade-soft: #cfe0d5;
+  --raw-cinnabar: #b64734;
+  --raw-cinnabar-deep: #8e2c24;
+  --raw-yok-gold: #c7a25b;
+  --raw-yok-gold-soft: #dbbc83;
+  --raw-amber-400: #fbbf24;
+  --raw-amber-500: #f59e0b;
+  --raw-green-400: #4ade80;
+  --raw-green-500: #22c55e;
+  --raw-red-400: #f87171;
+  --raw-red-500: #ef4444;
+  --raw-blue-400: #60a5fa;
+  --raw-blue-500: #3b82f6;
+
+  --mascot-jubit: #ffb0b5;
+  --mascot-cloudra: #9f7fff;
+  --mascot-gally: #74aa9c;
+  --mascot-gemya: #4285f4;
+  --mascot-grokkie: #ff9b5a;
+  --mascot-qviki: #00c9a7;
+  --mascot-lammie: #0668e1;
+  --mascot-deepo: #4a90d9;
+  --mascot-mistra: #ff7f50;
+
+  --pink: #ff4778;
+  --pink-deep: #e92d62;
+  --pink-press: #b91a4c;
+  --pink-grad: linear-gradient(135deg, #ff6b9a 0%, #ff4778 50%, #e92d62 100%);
+  --gold: #f0b855;
+  --gold-soft: #ffe8c2;
+  --violet: #8b7cff;
+  --violet-soft: #e0dbff;
+  --jade: #2ea590;
+  --cinnabar: #b64734;
+
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --motion-fast: 0.12s;
+  --motion-base: 0.2s;
+  --motion-slow: 0.32s;
+  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --hk-rice-paper: #f3e7cf;
+  --hk-warm-parchment: #d9c59c;
+  --hk-matte-ink: #1a1a17;
+  --hk-wet-charcoal: #32383b;
+  --hk-soft-stone: #a8aaa0;
+  --hk-antique-gold: #c7a25b;
+  --hk-deep-harbour: #0d3d46;
+  --hk-harbour-teal: #1f6f73;
+  --hk-tram-jade: #2e8c7d;
+  --hk-ferry-green: #1e7a64;
+  --hk-peak-green: #4f7a51;
+  --hk-lantern-cinnabar: #b64734;
+  --hk-window-amber: #f4b25e;
+  --hk-restrained-neon-cyan: #5be7d8;
+  --hk-restrained-neon-rose: #e95c83;
+  --hk-fire: #e85d2a;
+  --hk-water: #2874d0;
+  --hk-wood: #4fa65a;
+  --hk-metal: #bfc7c9;
+  --hk-earth: #b8874f;
+  --hk-wind: #65d6d0;
+  --hk-spirit: #8e65d4;
+  --hk-common: #b7b9a8;
+  --hk-rare: #46a0d9;
+  --hk-legendary: #d0a441;
+  --hk-mythic: #9b5edb;
+
+  --neko-bg: #faf7f2;
+  --neko-bg-card: #ffffff;
+  --neko-ink: #1d1c1a;
+  --neko-ink-soft: #5a564f;
+  --neko-line: #ebe6dd;
+  --neko-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04), 0 1px 3px rgb(0 0 0 / 0.06);
+  --neko-shadow-md: 0 4px 12px rgb(0 0 0 / 0.08), 0 2px 4px rgb(0 0 0 / 0.04);
+  --neko-radius: 14px;
+  --neko-radius-sm: 8px;
+  --neko-gap: 16px;
+  --neko-tx-fast: 0.2s;
+  --neko-tx-mid: 0.3s;
+
+  --font-serif: "Noto Serif SC", "Noto Serif JP", Songti SC, STSong, serif;
+}
+
+/* Dark — worlds `html.dark` plum night. Accent is teal. */
+html.dark {
+  --surface-primary: var(--raw-neutral-950);
+  --surface-secondary: var(--raw-neutral-900);
+  --surface-tertiary: var(--raw-neutral-800);
+  --surface-elevated: var(--raw-neutral-800);
+  --surface-hover: rgba(255, 255, 255, 0.04);
+  --surface-active: rgba(255, 255, 255, 0.08);
+  --surface-overlay: rgba(0, 0, 0, 0.6);
+  --glass-bg: rgba(23, 23, 23, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(18px) saturate(1.2);
+  --text-primary: var(--raw-neutral-100);
+  --text-secondary: var(--raw-neutral-300);
+  --text-muted: var(--raw-neutral-400);
+  --text-whisper: var(--raw-neutral-600);
+  --text-inverse: var(--raw-neutral-900);
+  --text-on-accent: #ffffff;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --accent-primary: var(--raw-teal-500);
+  --accent-primary-hover: var(--raw-teal-400);
+  --accent-primary-muted: rgba(20, 184, 166, 0.16);
+  --accent-secondary: var(--raw-pink-500);
+  --accent-secondary-hover: var(--raw-pink-400);
+  --accent-secondary-muted: rgba(236, 72, 153, 0.16);
+  --accent-gold: var(--raw-amber-400);
+  --accent-gold-muted: rgba(251, 191, 36, 0.16);
+  --panel-a-bg: rgba(20, 184, 166, 0.08);
+  --panel-a-border: rgba(20, 184, 166, 0.25);
+  --panel-b-bg: rgba(236, 72, 153, 0.08);
+  --panel-b-border: rgba(236, 72, 153, 0.25);
+  --panel-c-bg: rgba(168, 85, 247, 0.08);
+  --panel-c-border: rgba(168, 85, 247, 0.25);
+  --status-success: var(--raw-green-400);
+  --status-warning: var(--raw-amber-400);
+  --status-error: var(--raw-red-400);
+  --status-info: var(--raw-blue-400);
+  --gradient-primary: linear-gradient(135deg, var(--raw-teal-500) 0%, var(--raw-pink-500) 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(20, 184, 166, 0.12) 0%, rgba(236, 72, 153, 0.1) 100%);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 8px -1px rgba(0, 0, 0, 0.4), 0 1px 3px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 30px -6px rgba(0, 0, 0, 0.5), 0 4px 12px -4px rgba(0, 0, 0, 0.35);
+  --shadow-glow-teal: 0 0 24px -4px rgba(20, 184, 166, 0.4);
+  --shadow-glow-pink: 0 0 24px -4px rgba(236, 72, 153, 0.35);
+  --bg: #0e0b12;
+  --bg-2: #16121c;
+  --bg-3: #1e1925;
+  --card: #1a1620;
+  --line: #2a2433;
+  --line-soft: #221c2a;
+  --tabbar-bg: #16121c;
+  --tabbar-line: #2a2433;
+  --tabbar-ink: #6e6776;
+  --tabbar-active: #ff4778;
+  --ink: #faf3ef;
+  --ink-soft: #ece0d8;
+  --ink-mid: #b5a3b0;
+  --ink-light: #82748a;
+  --ink-whisper: #5a4f66;
+  --pink-soft: #3a1f2e;
+  --neko-bg: #0f0e0d;
+  --neko-bg-card: #1a1816;
+  --neko-ink: #f5f1ea;
+  --neko-ink-soft: #aba59a;
+  --neko-line: #2a2622;
+  --neko-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --neko-shadow-md: 0 6px 18px rgb(0 0 0 / 0.6), 0 2px 4px rgb(0 0 0 / 0.3);
+  --jub-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --jub-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --jub-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --jub-shadow-pink: 0 8px 24px rgba(255, 71, 120, 0.35);
+}
+
+/* Light — worlds rice paper. Accent is sakura, not teal. */
+html.light {
+  --surface-primary: var(--raw-rice-paper);
+  --surface-secondary: var(--raw-rice-paper-warm);
+  --surface-tertiary: var(--raw-parchment);
+  --surface-elevated: #fcfaf5;
+  --surface-hover: rgba(31, 26, 23, 0.04);
+  --surface-active: rgba(31, 26, 23, 0.07);
+  --surface-overlay: rgba(31, 26, 23, 0.35);
+  --glass-bg: rgba(246, 241, 232, 0.78);
+  --glass-border: rgba(31, 26, 23, 0.08);
+  --glass-blur: blur(14px) saturate(1.05);
+  --text-primary: var(--raw-ink-black);
+  --text-secondary: var(--raw-ink-dark);
+  --text-muted: var(--raw-ink-mid);
+  --text-whisper: var(--raw-ink-ghost);
+  --text-inverse: var(--raw-rice-paper);
+  --text-on-accent: #ffffff;
+  --border-subtle: rgba(31, 26, 23, 0.06);
+  --border-default: rgba(31, 26, 23, 0.12);
+  --border-strong: rgba(31, 26, 23, 0.22);
+  --accent-primary: var(--raw-sakura-deep);
+  --accent-primary-hover: #b8657f;
+  --accent-primary-muted: rgba(232, 176, 192, 0.22);
+  --accent-secondary: var(--raw-jade-emerald);
+  --accent-secondary-hover: #2e635a;
+  --accent-secondary-muted: rgba(60, 122, 108, 0.16);
+  --accent-gold: var(--raw-yok-gold);
+  --accent-gold-muted: rgba(199, 162, 91, 0.18);
+  --panel-a-bg: rgba(232, 176, 192, 0.18);
+  --panel-a-border: rgba(199, 120, 145, 0.32);
+  --panel-b-bg: rgba(168, 184, 163, 0.2);
+  --panel-b-border: rgba(60, 122, 108, 0.28);
+  --panel-c-bg: rgba(199, 162, 91, 0.14);
+  --panel-c-border: rgba(182, 71, 52, 0.22);
+  --status-success: #0f766e;
+  --status-warning: #b45309;
+  --status-error: #b91c1c;
+  --status-info: #1d4ed8;
+  --gradient-primary: linear-gradient(
+    95deg,
+    var(--raw-sakura-pink) 0%,
+    var(--raw-sakura-deep) 45%,
+    var(--raw-jade-emerald) 55%,
+    var(--raw-jade-mist) 100%
+  );
+  --gradient-subtle: linear-gradient(135deg, rgba(232, 176, 192, 0.18) 0%, rgba(60, 122, 108, 0.12) 100%);
+  --shadow-sm: 0 1px 2px 0 rgba(31, 26, 23, 0.05);
+  --shadow-md: 0 2px 8px -1px rgba(31, 26, 23, 0.08), 0 1px 3px -1px rgba(31, 26, 23, 0.06);
+  --shadow-lg: 0 10px 30px -6px rgba(31, 26, 23, 0.12), 0 4px 12px -4px rgba(31, 26, 23, 0.08);
+  --shadow-glow-teal: 0 0 22px -4px rgba(60, 122, 108, 0.28);
+  --shadow-glow-pink: 0 0 22px -4px rgba(232, 176, 192, 0.45);
+  --bg: #f6f1e8;
+  --bg-2: #ede4d3;
+  --bg-3: #e4d9c3;
+  --card: #fcf8ee;
+  --line: #d9cdb6;
+  --line-soft: #e8dec8;
+  --tabbar-bg: #1f1a22;
+  --tabbar-line: #2a242f;
+  --tabbar-ink: #6e6776;
+  --tabbar-active: #f472a0;
+  --ink: #1f1a17;
+  --ink-soft: #4a4339;
+  --ink-mid: #6b5f50;
+  --ink-light: #8a7e6e;
+  --ink-whisper: #b5a88e;
+  --pink-soft: #ffd6e1;
+  --yok-paper: var(--raw-rice-paper);
+  --yok-paper-washi: var(--raw-paper-washi);
+  --yok-paper-jade: var(--raw-paper-jade);
+  --yok-paper-deep: var(--raw-paper-deep);
+  --yok-ink: var(--raw-ink-black);
+  --yok-ink-soft: var(--raw-ink-dark);
+  --yok-ink-mid: var(--raw-ink-mid);
+  --yok-ink-light: var(--raw-ink-light);
+  --yok-ink-whisper: var(--raw-ink-ghost);
+  --yok-pink: var(--raw-sakura-pink);
+  --yok-pink-deep: var(--raw-sakura-deep);
+  --yok-pink-soft: var(--raw-sakura-soft);
+  --yok-jade: var(--raw-jade-emerald);
+  --yok-jade-soft: var(--raw-jade-soft);
+  --yok-jade-mist: var(--raw-jade-mist);
+  --yok-cinnabar: var(--raw-cinnabar);
+  --yok-cinnabar-deep: var(--raw-cinnabar-deep);
+  --yok-gold: var(--raw-yok-gold);
+  --yok-gold-soft: var(--raw-yok-gold-soft);
+  --jub-shadow-sm: 0 1px 2px rgba(31, 26, 30, 0.05);
+  --jub-shadow-md: 0 4px 16px rgba(184, 110, 140, 0.08);
+  --jub-shadow-lg: 0 16px 48px rgba(184, 110, 140, 0.18);
+  --jub-shadow-pink: 0 8px 24px rgba(255, 71, 120, 0.35);
+
+  /* jubuddy.com/planet walk sheet. Reference only — does not restyle the garden. */
+  --planet-ink: #2c2720;
+  --planet-paper: #fff8e8;
+  --planet-paper-hot: #fff4d4;
+  --planet-paper-wash: rgba(255, 247, 222, 0.94);
+  --planet-muted: #5f584b;
+  --planet-whisper: #8a8172;
+  --planet-track: #d8ceb3;
+  --planet-amber: #f5a623;
+  --planet-amber-light: #ffd34d;
+  --planet-accent: #f5a623;
+  --planet-focus: #4fb3a6;
+  --planet-cta-fill: #f5a623;
+  --planet-cta-ink: #2c2720;
+  --planet-shadow: 0 8px 28px rgba(44, 39, 32, 0.2);
+}
