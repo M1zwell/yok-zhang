@@ -44,7 +44,7 @@ export function SiteHeader() {
                 ·
               </span>
               <span className="hidden font-sans text-[12px] font-semibold tracking-normal text-muted sm:inline">
-                <span className="font-yok-cjk mr-1.5 text-[13px] font-medium text-accent">香港</span>
+                <span className="mr-1.5 text-[13px] font-bold text-fg">香港</span>
                 Hong Kong
               </span>
             </Link>
