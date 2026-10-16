@@ -131,7 +131,7 @@ export function AdvisoryPlanet({
             <g clipPath={`url(#${clipId})`} className="planet-streets" data-slot="streets" fill="none" stroke="#e7c27a" strokeLinecap="round">
               {streets}
             </g>
-            <circle cx="200" cy="200" r="112" fill="none" stroke="#f3efe6" strokeOpacity="0.18" />
+            <circle cx="200" cy="200" r="112" fill="none" stroke="currentColor" strokeOpacity="0.18" />
           </svg>
         </div>
         <p className="mt-3 text-center font-mono text-[11px] text-muted">

@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import {
   Inter,
-  Space_Grotesk,
-  Geist_Mono,
+  JetBrains_Mono,
   Plus_Jakarta_Sans,
   Noto_Sans_SC,
   Noto_Sans_TC,
@@ -30,16 +29,10 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const space = Space_Grotesk({
+const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-space",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-geist-mono",
+  variable: "--font-jetbrains",
 });
 
 const jakarta = Plus_Jakarta_Sans({
@@ -112,8 +105,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F3EFE6" },
-    { media: "(prefers-color-scheme: dark)", color: "#0A1F1D" },
+    { media: "(prefers-color-scheme: light)", color: "#F6F1E8" },
+    { media: "(prefers-color-scheme: dark)", color: "#0E0B12" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -157,8 +150,7 @@ export default function RootLayout({
   const posts = getAllPosts();
   const fontVars = [
     inter.variable,
-    space.variable,
-    geistMono.variable,
+    jetbrains.variable,
     jakarta.variable,
     notoSc.variable,
     notoTc.variable,
@@ -176,6 +168,12 @@ export default function RootLayout({
           }}
         />
         <link rel="alternate" type="application/rss+xml" title="Yok Zhang" href={`${siteUrl}/feed.xml`} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+SC:wght@400;600;700&family=Noto+Sans+TC:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Noto+Sans+KR:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&display=swap"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

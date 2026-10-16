@@ -38,13 +38,13 @@ export function SiteHeader() {
             <LogoMark size={32} />
           </Link>
           <div className="min-w-0 leading-tight">
-            <Link href={href("/")} className="block truncate text-[12px] font-semibold tracking-wide text-fg">
+            <Link href={href("/")} className="font-wordmark block truncate text-[13px] text-fg">
               Yok Zhang
               <span className="mx-2 hidden text-accent sm:inline" aria-hidden>
                 ·
               </span>
-              <span className="hidden text-muted sm:inline">
-                <span className="mr-1.5 text-[13px] font-medium text-accent">香港</span>
+              <span className="hidden font-sans text-[12px] font-semibold tracking-normal text-muted sm:inline">
+                <span className="font-yok-cjk mr-1.5 text-[13px] font-medium text-accent">香港</span>
                 Hong Kong
               </span>
             </Link>
