@@ -3,8 +3,8 @@ export type Theme = "light" | "dark";
 export const themeStorageKey = "theme";
 export const defaultTheme: Theme = "dark";
 export const themeColors: Record<Theme, string> = {
-  dark: "#0B2422",
-  light: "#F3EFE6",
+  dark: "#0E0B12",
+  light: "#F6F1E8",
 };
 
 export function isTheme(value: string | null | undefined): value is Theme {

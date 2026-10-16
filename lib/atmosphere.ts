@@ -10,12 +10,12 @@ export const atmosphereIds: AtmosphereId[] = [
   "bone-day",
 ];
 
-/** theme-color per Yok-native field mood (not cankola palettes). */
+/** theme-color per field mood, on the worlds token sheet. */
 export const atmosphereThemeColors: Record<AtmosphereId, string> = {
-  "harbour-night": "#0A1F1D",
-  "peak-mist": "#12181C",
-  "neon-terminal": "#07060A",
-  "bone-day": "#F3EFE6",
+  "harbour-night": "#0E0B12",
+  "peak-mist": "#0F1422",
+  "neon-terminal": "#1A0E1A",
+  "bone-day": "#F6F1E8",
 };
 
 /** Canvas tint hints read by HeroCanvas. */
@@ -28,28 +28,28 @@ export const atmosphereCanvas: Record<
     magenta: "#FF4778",
     purple: "#8B7CFF",
     pink: "#EC4899",
-    hazeDeep: "rgba(11,36,34,0.62)",
+    hazeDeep: "rgba(14,11,18,0.62)",
   },
   "peak-mist": {
-    teal: "#5EEAD4",
-    magenta: "#A8B4C4",
+    teal: "#5BE7D8",
+    magenta: "#A8B8A3",
     purple: "#7DD3FC",
-    pink: "#94A3B8",
-    hazeDeep: "rgba(18,24,28,0.7)",
+    pink: "#A0C0E0",
+    hazeDeep: "rgba(15,20,34,0.7)",
   },
   "neon-terminal": {
-    teal: "#2DD4BF",
-    magenta: "#FF2D6A",
-    purple: "#A78BFA",
-    pink: "#F472B6",
-    hazeDeep: "rgba(7,6,10,0.72)",
+    teal: "#FF4778",
+    magenta: "#E040A0",
+    purple: "#A060E0",
+    pink: "#FF6B9A",
+    hazeDeep: "rgba(26,14,26,0.72)",
   },
   "bone-day": {
-    teal: "#0F766E",
-    magenta: "#DB2777",
-    purple: "#7C6AE8",
-    pink: "#BE185D",
-    hazeDeep: "rgba(243,239,230,0.55)",
+    teal: "#3C7A6C",
+    magenta: "#C77891",
+    purple: "#8B7CFF",
+    pink: "#E8B0C0",
+    hazeDeep: "rgba(246,241,232,0.55)",
   },
 };
 
