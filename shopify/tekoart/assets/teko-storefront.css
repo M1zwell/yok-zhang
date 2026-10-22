@@ -834,3 +834,18 @@ html.teko-shop a[href="#content"] {
     transform: none;
   }
 }
+
+/* Jubit family SSO callback (/auth/callback) */
+.teko-jubit-sso {
+  max-width: 32rem;
+  margin: 3rem auto;
+}
+.teko-jubit-sso h1 {
+  margin: 0.35rem 0 0.75rem;
+}
+.teko-jubit-sso-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}

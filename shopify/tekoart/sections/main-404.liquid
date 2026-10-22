@@ -1,0 +1,25 @@
+{% comment %}
+  Shopify Online Store has no first-class /auth/* routes. The Jubit hub returns
+  visitors to https://tekoart.com/auth/callback?sso_token=…&next=… which this
+  theme serves via the 404 template while the browser URL (and query) stay put.
+  For HTTP 200, create Page "Jubit SSO" (template page.jubit-auth-callback) and
+  a URL redirect /auth/callback → /pages/jubit-sso (query string preserved).
+{% endcomment %}
+{% assign callback_path = request.path | downcase %}
+{% if callback_path == '/auth/callback' or callback_path == '/auth/sso-callback' %}
+  {% render 'jubit-auth-callback' %}
+{% else %}
+  <section class="teko-section">
+    <p class="teko-kicker">Missing page</p>
+    <h1>404</h1>
+    <p>That path is not on this desk.</p>
+    <p><a class="teko-btn" href="{{ routes.root_url }}">Back to shop</a></p>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "404",
+  "settings": []
+}
+{% endschema %}

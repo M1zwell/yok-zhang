@@ -1,0 +1,37 @@
+<section
+  class="teko-section teko-jubit-sso"
+  data-jubit-sso-root
+  data-status="working"
+  aria-live="polite"
+  aria-busy="true"
+>
+  <p class="teko-kicker">Jubit family sign-in</p>
+  <h1>Secure login</h1>
+  <p data-jubit-sso-message>Validating your secure login…</p>
+
+  <div data-jubit-sso-panel="working">
+    <p class="teko-muted">This should only take a moment.</p>
+  </div>
+
+  <div data-jubit-sso-panel="ok" hidden>
+    <p class="teko-muted">You can continue shopping on TekO Art.</p>
+  </div>
+
+  <div data-jubit-sso-panel="missing" hidden>
+    <p class="teko-muted">No one-time token was found in this URL.</p>
+    <p class="teko-jubit-sso-actions">
+      <a class="teko-btn" data-jubit-sso-retry href="https://www.jubit.ai/auth/sso?redirect_uri=https%3A%2F%2Ftekoart.com%2F&amp;client_id=tekoart">Sign in again</a>
+      <a class="teko-btn teko-btn-ghost" href="{{ routes.root_url }}">Home</a>
+    </p>
+  </div>
+
+  <div data-jubit-sso-panel="failed" hidden>
+    <p class="teko-muted">The login link may have expired or already been used.</p>
+    <p class="teko-jubit-sso-actions">
+      <a class="teko-btn" data-jubit-sso-retry href="https://www.jubit.ai/auth/sso?redirect_uri=https%3A%2F%2Ftekoart.com%2F&amp;client_id=tekoart">Sign in again</a>
+      <a class="teko-btn teko-btn-ghost" href="{{ routes.root_url }}">Home</a>
+    </p>
+  </div>
+</section>
+
+<script src="{{ 'jubit-sso-callback.js' | asset_url }}" defer></script>
