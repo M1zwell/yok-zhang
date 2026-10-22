@@ -7,6 +7,7 @@ import { formatHkd, searchTekoProducts, tekoShop } from "@/lib/tekoart/catalog";
 import { tekoCopy } from "@/lib/tekoart/copy";
 import { tekoPath } from "@/lib/tekoart/paths";
 import { CONTACT_PAGE, TEKOART_ORIGIN } from "@/lib/tekoart/shopify";
+import { TEKO_BMC_URL } from "@/lib/tekoart/tokens";
 import type { TekoShopKind } from "@/lib/tekoart/types";
 import { TekoProductCard } from "./TekoProductCard";
 import { useTekoCart } from "./TekoCartProvider";
@@ -92,6 +93,15 @@ export function TekoChrome({
             </button>
           </form>
           <div className="teko-header-actions">
+            <a
+              className="teko-bmc teko-bmc-tiny"
+              href={TEKO_BMC_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={copy.supportCoffeeAria}
+            >
+              ☕ {copy.supportCoffee}
+            </a>
             <button type="button" className="teko-icon-btn" onClick={() => setSearchOpen(true)}>
               {copy.nav.search}
             </button>
@@ -167,7 +177,21 @@ export function TekoChrome({
               <li>
                 <Link href={localizeHref("/", locale)}>{copy.nav.garden}</Link>
               </li>
+              <li>
+                <a href="https://ichina.co" target="_blank" rel="noopener noreferrer">
+                  ichina.co
+                </a>
+              </li>
             </ul>
+            <a
+              className="teko-bmc"
+              href={TEKO_BMC_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={copy.supportCoffeeAria}
+            >
+              ☕ {copy.supportCoffee}
+            </a>
           </div>
         </div>
       </footer>

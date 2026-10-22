@@ -41,4 +41,4 @@ The garden paints the **planet HUD**, measured on jubuddy.com/planet, not the sa
 Worlds semantic light (rice `#F6F1E8`, sakura `#C77891`) stays in the token sheet. It is not what the planet controls paint.
 
 
-TekO Art (`/tekoart`) keeps its Dawn paper. It does not use this sheet.
+TekO Art (`/tekoart` and tekoart.com) now uses the **planet HUD** sheet: paper `#FFF8E8`, amber pills `#F5A623`, ink `#2C2720`, sky `#BFE3E0`. See [planet-paper.md](./planet-paper.md).

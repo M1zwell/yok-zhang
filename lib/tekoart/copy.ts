@@ -72,6 +72,8 @@ export type TekoCopy = {
   footerLocation: string;
   footerContact: string;
   footerNote: string;
+  supportCoffee: string;
+  supportCoffeeAria: string;
   language: string;
   noResults: string;
   collectionLead: Record<string, string>;
@@ -159,7 +161,9 @@ const en: TekoCopy = {
   footerHoursValue: "Made to order · reply in Hong Kong hours",
   footerLocation: "Location",
   footerContact: "Contact",
-  footerNote: "Checkout completes on tekoart.com (Shopify Dawn). This garden desk keeps TekO tokens.",
+  footerNote: "Checkout completes on tekoart.com. Cream paper, amber pills — same planet HUD as jubuddy.com/planet.",
+  supportCoffee: "Buy me a coffee",
+  supportCoffeeAria: "Buy me a coffee on Buy Me a Coffee",
   language: "Language",
   noResults: "No matches on this desk.",
   collectionLead: {
@@ -263,7 +267,9 @@ const zhHant: TekoCopy = {
   footerHoursValue: "接單製作 · 香港時段回覆",
   footerLocation: "地址",
   footerContact: "聯絡",
-  footerNote: "結帳在 tekoart.com（Shopify Dawn）完成。這張園地桌子只重做結構，不改 tokens。",
+  footerNote: "結帳在 tekoart.com 完成。奶油紙、琥珀色膠囊按鈕，與 jubuddy.com/planet 同一套 HUD。",
+  supportCoffee: "請我喝杯咖啡",
+  supportCoffeeAria: "在 Buy Me a Coffee 請我喝杯咖啡",
   language: "語言",
   noResults: "這張桌上沒有對上的貨。",
   collectionLead: {
@@ -365,7 +371,9 @@ const zhHans: TekoCopy = {
   footerHoursValue: "接单制作 · 香港时段回复",
   footerLocation: "地址",
   footerContact: "联络",
-  footerNote: "结帐在 tekoart.com（Shopify Dawn）完成。这张园地桌子只重做结构，不改 tokens。",
+  footerNote: "结帐在 tekoart.com 完成。奶油纸、琥珀色胶囊按钮，与 jubuddy.com/planet 同一套 HUD。",
+  supportCoffee: "请我喝杯咖啡",
+  supportCoffeeAria: "在 Buy Me a Coffee 请我喝杯咖啡",
   language: "语言",
   noResults: "这张桌上没有对上的货。",
   collectionLead: {
@@ -486,4 +494,4 @@ export function tekoCopy(locale: Locale): TekoCopy {
 }
 
 export const tekoTokenNote =
-  "Dawn tokens locked: bg #D8CBB3, ink #292321, button #D9899D, gold #AD915F.";
+  "Planet HUD: paper #FFF8E8, ink #2C2720, amber #F5A623, teal #4FB3A6, sky #BFE3E0.";

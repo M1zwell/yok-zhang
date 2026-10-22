@@ -8,41 +8,41 @@
     "theme_support_url": "https://tekoart.com/pages/contact"
   },
   {
-    "name": "Dawn tokens",
+    "name": "Planet HUD tokens",
     "settings": [
       {
         "type": "paragraph",
-        "content": "Keep these swatches. Structure can change; the palette cannot."
+        "content": "Planet HUD system from jubuddy.com/planet: cream paper, amber pills, ink borders, mint sky."
       },
       {
         "type": "color",
         "id": "color_background",
         "label": "Background",
-        "default": "#D8CBB3"
+        "default": "#FFF8E8"
       },
       {
         "type": "color",
         "id": "color_foreground",
         "label": "Foreground",
-        "default": "#292321"
+        "default": "#2C2720"
       },
       {
         "type": "color",
         "id": "color_button",
         "label": "Button",
-        "default": "#D9899D"
+        "default": "#F5A623"
       },
       {
         "type": "color",
         "id": "color_button_text",
         "label": "Button text",
-        "default": "#292321"
+        "default": "#2C2720"
       },
       {
         "type": "color",
         "id": "color_contrast",
-        "label": "Contrast gold",
-        "default": "#AD915F"
+        "label": "Focus teal",
+        "default": "#4FB3A6"
       }
     ]
   }

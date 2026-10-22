@@ -1,45 +1,52 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;600;800&display=swap");
 
-/* TekO Dawn 13 tokens — locked. Beehive-grade structure only. */
+/* TekO planet HUD tokens — measured on jubuddy.com/planet. Beehive-grade shop craft. */
 .teko-root {
-  --color-background: 216, 203, 179;
-  --gradient-background: #d8cbb3;
-  --color-foreground: 41, 35, 33;
-  --color-background-contrast: 173, 145, 95;
-  --color-shadow: 18, 18, 18;
-  --color-button: 217, 137, 157;
-  --color-button-text: 41, 35, 33;
-  --color-secondary-button: 216, 203, 179;
-  --color-secondary-button-text: 41, 35, 33;
-  --color-link: 41, 35, 33;
-  --color-badge-foreground: 41, 35, 33;
-  --color-badge-background: 216, 203, 179;
-  --color-badge-border: 41, 35, 33;
+  --color-background: 255, 248, 232;
+  --gradient-background: #fff8e8;
+  --color-foreground: 44, 39, 32;
+  --color-background-contrast: 79, 179, 166;
+  --color-shadow: 44, 39, 32;
+  --color-button: 245, 166, 35;
+  --color-button-text: 44, 39, 32;
+  --color-secondary-button: 255, 248, 232;
+  --color-secondary-button-text: 44, 39, 32;
+  --color-link: 44, 39, 32;
+  --color-badge-foreground: 44, 39, 32;
+  --color-badge-background: 255, 244, 212;
+  --color-badge-border: 44, 39, 32;
   --font-heading-family: "DM Serif Display", serif;
-  --font-body-family: "SF Mono", Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
+  --font-body-family: Inter, "SF Pro Text", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body-weight: 400;
-  --font-body-weight-bold: 700;
+  --font-body-weight-bold: 800;
   --font-heading-weight: 400;
   --page-width: 120rem;
-  --buttons-radius: 0px;
+  --buttons-radius: 999px;
   --buttons-border-width: 1px;
-  --inputs-radius: 0px;
-  --variant-pills-radius: 40px;
-  --media-radius: 0px;
-  --product-card-corner-radius: 0px;
-  --badge-corner-radius: 4rem;
-  --grid-desktop-gap: 8px;
-  --grid-mobile-gap: 4px;
+  --inputs-radius: 999px;
+  --variant-pills-radius: 999px;
+  --media-radius: 18px;
+  --product-card-corner-radius: 18px;
+  --badge-corner-radius: 999px;
+  --grid-desktop-gap: 12px;
+  --grid-mobile-gap: 8px;
   --teko-paper: rgb(var(--color-background));
   --teko-ink: rgb(var(--color-foreground));
-  --teko-muted: rgba(var(--color-foreground), 0.62);
-  --teko-line: rgba(var(--color-foreground), 0.14);
+  --teko-muted: #5f584b;
+  --teko-whisper: #8a8172;
+  --teko-line: #d8ceb3;
   --teko-gold: rgb(var(--color-background-contrast));
-  --teko-rose: rgb(var(--color-button));
-  --teko-cream: #f0e6d4;
+  --teko-amber: rgb(var(--color-button));
+  --teko-amber-light: #ffd34d;
+  --teko-rose: rgb(var(--color-button)); /* alias: planet amber CTA */
+  --teko-cream: #fffdf6;
+  --teko-sky: #bfe3e0;
+  --teko-paper-hot: #fff4d4;
+  --teko-shadow: 0 8px 28px rgba(44, 39, 32, 0.2);
   --teko-header-h: 116px;
-  color: rgba(var(--color-foreground), 0.82);
-  background: var(--gradient-background);
+  color: rgba(var(--color-foreground), 0.88);
+  background:
+    radial-gradient(ellipse 140% 80% at 50% -15%, var(--teko-sky) 0%, var(--gradient-background) 52%);
   font-family: var(--font-body-family);
   font-weight: var(--font-body-weight);
   min-height: 100dvh;
@@ -48,14 +55,14 @@
 
 html:has(.teko-root),
 html.teko-shop {
-  background: var(--gradient-background, #d8cbb3);
+  background: var(--gradient-background, #fff8e8);
   color-scheme: light;
 }
 
 html:has(.teko-root) body,
 html.teko-shop body {
-  background: #d8cbb3;
-  color: #292321;
+  background: #fff8e8;
+  color: #2c2720;
 }
 
 html:has(.teko-root) .glass-header,
@@ -109,9 +116,9 @@ html.teko-shop a[href="#content"] {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(216, 203, 179, 0.94);
+  background: rgba(255, 247, 222, 0.94);
   border-bottom: 1px solid var(--teko-line);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(14px) saturate(1.05);
 }
 
 .teko-header-top {
@@ -162,7 +169,7 @@ html.teko-shop a[href="#content"] {
   height: 44px;
   border: var(--buttons-border-width) solid rgba(var(--color-foreground), 0.22);
   border-radius: 20px;
-  background: rgba(240, 230, 212, 0.55);
+  background: rgba(255, 253, 246, 0.85);
   overflow: hidden;
 }
 
@@ -193,12 +200,15 @@ html.teko-shop a[href="#content"] {
   align-items: center;
   justify-content: center;
   min-width: 44px;
-  min-height: 44px;
-  padding: 0 10px;
-  border: 1px solid transparent;
-  background: transparent;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--teko-line);
+  border-radius: 999px;
+  background: var(--teko-cream);
   cursor: pointer;
   white-space: nowrap;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .teko-icon-btn:hover,
@@ -215,10 +225,11 @@ html.teko-shop a[href="#content"] {
   height: 17px;
   padding: 0 4px;
   border-radius: var(--badge-corner-radius);
-  background: var(--teko-rose);
+  background: var(--teko-amber);
   color: var(--teko-ink);
   font-size: 10px;
   line-height: 17px;
+  font-weight: 800;
   text-align: center;
 }
 
@@ -247,7 +258,7 @@ html.teko-shop a[href="#content"] {
 
 .teko-nav a.is-on {
   color: var(--teko-ink);
-  box-shadow: inset 0 -2px 0 var(--teko-rose);
+  box-shadow: inset 0 -2px 0 var(--teko-amber);
 }
 
 .teko-wrap {
@@ -310,30 +321,69 @@ html.teko-shop a[href="#content"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
+  min-height: 44px;
   padding: 0 22px;
   border-radius: var(--buttons-radius);
-  border: var(--buttons-border-width) solid rgb(var(--color-foreground));
+  border: var(--buttons-border-width) solid var(--teko-ink);
   font-weight: var(--font-body-weight-bold);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 14px;
   cursor: pointer;
-  transition: transform 160ms ease, background-color 160ms ease;
+  box-shadow: var(--teko-shadow);
+  transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
 }
 
 .teko-btn:hover {
   transform: translateY(-1px);
+  background-color: var(--teko-amber-light);
 }
 
 .teko-btn-primary {
-  background: var(--teko-rose);
+  background: var(--teko-amber);
   color: rgb(var(--color-button-text));
 }
 
+.teko-btn-primary:hover {
+  background: var(--teko-amber-light);
+}
+
 .teko-btn-ghost {
-  background: transparent;
+  background: var(--teko-cream);
   color: var(--teko-ink);
+  box-shadow: none;
+}
+
+.teko-btn-ghost:hover {
+  background: var(--teko-paper-hot);
+}
+
+.teko-bmc {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(44, 39, 32, 0.28);
+  background: var(--teko-cream);
+  color: var(--teko-ink);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.teko-bmc:hover {
+  background: var(--teko-paper-hot);
+  border-color: var(--teko-ink);
+}
+
+.teko-bmc-tiny {
+  min-height: 32px;
+  padding: 0 10px;
+  font-size: 11px;
+  box-shadow: none;
 }
 
 .teko-btn:disabled {
@@ -347,6 +397,9 @@ html.teko-shop a[href="#content"] {
   min-height: 420px;
   background: var(--teko-cream);
   border: 1px solid var(--teko-line);
+  border-radius: var(--media-radius);
+  box-shadow: var(--teko-shadow);
+  overflow: hidden;
 }
 
 .teko-hero-stage img {
@@ -431,9 +484,12 @@ html.teko-shop a[href="#content"] {
 .teko-card {
   background: var(--teko-cream);
   border: 1px solid var(--teko-line);
+  border-radius: var(--product-card-corner-radius);
+  box-shadow: var(--teko-shadow);
   display: flex;
   flex-direction: column;
   min-width: 0;
+  overflow: hidden;
 }
 
 .teko-card-media {
@@ -508,7 +564,10 @@ html.teko-shop a[href="#content"] {
 .teko-trust article {
   background: var(--teko-cream);
   border: 1px solid var(--teko-line);
+  border-radius: var(--product-card-corner-radius);
+  box-shadow: var(--teko-shadow);
   padding: 0 0 16px;
+  overflow: hidden;
 }
 
 .teko-how video,
@@ -707,7 +766,7 @@ html.teko-shop a[href="#content"] {
 
 .teko-footer {
   margin-top: 48px;
-  background: rgb(var(--color-foreground));
+  background: #2c2720;
   color: var(--teko-paper);
   padding: 36px 0 28px;
 }
@@ -725,7 +784,7 @@ html.teko-shop a[href="#content"] {
 }
 
 .teko-footer a {
-  color: #f0e6d4;
+  color: #fff8e8;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -733,7 +792,19 @@ html.teko-shop a[href="#content"] {
 .teko-footer .teko-muted,
 .teko-footer p,
 .teko-footer li {
-  color: rgba(216, 203, 179, 0.78);
+  color: rgba(255, 248, 232, 0.78);
+}
+
+.teko-footer .teko-bmc {
+  margin-top: 10px;
+  text-decoration: none;
+  background: var(--teko-amber);
+  border-color: #fff8e8;
+  color: #2c2720;
+}
+
+.teko-footer .teko-bmc:hover {
+  background: var(--teko-amber-light);
 }
 
 .teko-footer ul {
@@ -761,9 +832,9 @@ html.teko-shop a[href="#content"] {
 }
 
 .teko-lang a.is-on {
-  background: var(--teko-rose);
+  background: var(--teko-amber);
   color: var(--teko-ink);
-  border-color: var(--teko-rose);
+  border-color: var(--teko-amber);
 }
 
 .teko-empty {
