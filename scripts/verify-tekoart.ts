@@ -12,24 +12,33 @@ function read(path: string) {
 }
 
 function testTokensLocked() {
-  assert.equal(tekoDawnTokens.colorBackgroundHex, "#D8CBB3");
-  assert.equal(tekoDawnTokens.colorForegroundHex, "#292321");
-  assert.equal(tekoDawnTokens.colorButtonHex, "#D9899D");
-  assert.equal(tekoDawnTokens.colorBackgroundContrastHex, "#AD915F");
-  assert.equal(tekoDawnTokens.buttonsRadius, "0px");
-  assert.equal(tekoDawnTokens.variantPillsRadius, "40px");
+  assert.equal(tekoDawnTokens.colorBackgroundHex, "#FFF8E8");
+  assert.equal(tekoDawnTokens.colorForegroundHex, "#2C2720");
+  assert.equal(tekoDawnTokens.colorButtonHex, "#F5A623");
+  assert.equal(tekoDawnTokens.colorBackgroundContrastHex, "#4FB3A6");
+  assert.equal(tekoDawnTokens.buttonsRadius, "999px");
+  assert.equal(tekoDawnTokens.variantPillsRadius, "999px");
+  assert.equal(tekoDawnTokens.productCardCornerRadius, "18px");
   const css = read("app/components/tekoart/tekoart.css");
-  assert.match(css, /--color-background:\s*216,\s*203,\s*179/);
-  assert.match(css, /--color-button:\s*217,\s*137,\s*157/);
+  assert.match(css, /--color-background:\s*255,\s*248,\s*232/);
+  assert.match(css, /--color-button:\s*245,\s*166,\s*35/);
   assert.match(css, /--font-heading-family:\s*"DM Serif Display"/);
-  assert.match(css, /--font-body-family:\s*"SF Mono"/);
+  assert.match(css, /--font-body-family:\s*Inter/);
+  assert.match(css, /--buttons-radius:\s*999px/);
+  assert.match(css, /--teko-sky:\s*#bfe3e0/);
+  assert.match(css, /buymeacoffee\.com\/tekoart|teko-bmc/);
   for (const swatch of tekoForbiddenBeehiveSwatches) {
     assert.doesNotMatch(css, new RegExp(swatch, "i"));
   }
   const schema = read("shopify/tekoart/config/settings_schema.json");
-  assert.match(schema, /#D8CBB3/);
-  assert.match(schema, /#D9899D/);
-  assert.match(schema, /#AD915F/);
+  assert.match(schema, /#FFF8E8/);
+  assert.match(schema, /#F5A623/);
+  assert.match(schema, /#4FB3A6/);
+  const header = read("shopify/tekoart/sections/header.liquid");
+  const footer = read("shopify/tekoart/sections/footer.liquid");
+  assert.match(header, /buymeacoffee\.com\/tekoart/);
+  assert.match(footer, /buymeacoffee\.com\/tekoart/);
+  assert.match(footer, /ichina\.co/);
 }
 
 function testCatalog() {

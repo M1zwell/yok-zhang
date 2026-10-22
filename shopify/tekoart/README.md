@@ -6,25 +6,24 @@ Drop-in replacement for the live **Dawn 13** theme on [tekoart.com](https://teko
 
 Beehive TCG (`beehivetcg.com`) is a **custom Shopify theme** (not Dawn): two-row header, search, collection hubs, sticky cart count, bilingual merchandising.
 
-TekO was stock Dawn 13.0.0 with scheme-1 tokens:
+TekO now paints the **planet HUD** measured on [jubuddy.com/planet](https://jubuddy.com/planet):
 
-- Background `#D8CBB3`
-- Ink `#292321`
-- Button `#D9899D`
-- Contrast gold `#AD915F`
-- Heading `DM Serif Display`
-- Body `SF Mono`
-- Square buttons (`--buttons-radius: 0px`)
-- Pill variants (`--variant-pills-radius: 40px`)
+- Paper `#FFF8E8` · sky wash `#BFE3E0`
+- Ink `#2C2720`
+- Amber CTA `#F5A623` (hover `#FFD34D`)
+- Focus teal `#4FB3A6`
+- Heading `DM Serif Display` · body `Inter`
+- Pill buttons (`--buttons-radius: 999px`) with 1px ink border
+- Soft cards (`--product-card-corner-radius: 18px`)
 
-This theme keeps those tokens and rebuilds the **structure** to that shop standard (announcement, search header, hexagon face hubs, product grid, how-it-works, cart).
+Structure stays Beehive-grade (announcement, search header, hexagon face hubs, product grid, how-it-works, cart). Tiny **Buy me a coffee** → `https://buymeacoffee.com/tekoart`.
 
 ## Install on tekoart.com
 
 1. Zip the `shopify/tekoart` folder.
 2. Shopify admin → Online Store → Themes → Add theme → Upload zip.
-3. Preview. Confirm colors still match Dawn scheme 1.
-4. Theme settings: do not retint Background / Button / Gold.
+3. Preview. Confirm cream paper, amber pills, mint sky.
+4. Theme settings: keep Planet HUD swatches (paper / amber / teal).
 5. Home sections: attach the Pictorial Book Window collection, Juju/Qilin/Yutu images, and the three guide videos already on the shop.
 6. Publish when the preview matches the garden desk at `/tekoart`.
 

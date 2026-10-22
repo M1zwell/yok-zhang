@@ -1,11 +1,11 @@
 {
   "current": {
-    "color_background": "#D8CBB3",
-    "color_foreground": "#292321",
-    "color_button": "#D9899D",
-    "color_button_text": "#292321",
-    "color_contrast": "#AD915F",
+    "color_background": "#FFF8E8",
+    "color_foreground": "#2C2720",
+    "color_button": "#F5A623",
+    "color_button_text": "#2C2720",
+    "color_contrast": "#4FB3A6",
     "heading_font": "DM Serif Display",
-    "body_font": "SF Mono"
+    "body_font": "Inter"
   }
 }
