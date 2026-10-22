@@ -1,0 +1,6 @@
+{
+  "sections": {
+    "main": { "type": "jubit-auth-callback" }
+  },
+  "order": ["main"]
+}
