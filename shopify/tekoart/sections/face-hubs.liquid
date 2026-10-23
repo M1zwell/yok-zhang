@@ -1,18 +1,43 @@
-<section class="teko-section">
-  <p class="teko-kicker">{{ section.settings.kicker }}</p>
-  <h2>{{ section.settings.title }}</h2>
+{%- liquid
+  assign window_collection = collections[section.settings.collection]
+  if window_collection == blank
+    assign window_collection = collections['pictorial-book-window']
+  endif
+-%}
+<section class="teko-section teko-faces" id="faces">
+  <div class="teko-section-head">
+    <p class="teko-kicker">{{ section.settings.kicker }}</p>
+    <h2>{{ section.settings.title }}</h2>
+    {%- if window_collection and window_collection.products_count > 0 -%}
+      <p class="teko-section-meta"><span class="teko-pill-stock">In stock</span> Three faces print today.</p>
+    {%- endif -%}
+  </div>
   <div class="teko-hex-row">
-    {% for block in section.blocks %}
-      <a class="teko-hex" href="{{ block.settings.url }}" {{ block.shopify_attributes }}>
-        {% if block.settings.image %}
-          <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title }}">
-        {% endif %}
-        <span class="teko-hex-label">
-          <strong>{{ block.settings.title }}</strong>
-          <span>{{ block.settings.meta }}</span>
-        </span>
-      </a>
-    {% endfor %}
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        <a class="teko-hex" href="{{ block.settings.url }}" {{ block.shopify_attributes }}>
+          {% if block.settings.image %}
+            <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="400" height="400">
+          {% endif %}
+          <span class="teko-hex-label">
+            <strong>{{ block.settings.title }}</strong>
+            <span>{{ block.settings.meta }}</span>
+          </span>
+        </a>
+      {% endfor %}
+    {% elsif window_collection %}
+      {% for product in window_collection.products limit: 3 %}
+        <a class="teko-hex" href="{{ product.url }}">
+          {% if product.featured_image %}
+            <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" width="400" height="400">
+          {% endif %}
+          <span class="teko-hex-label">
+            <strong>{{ product.title | remove: ' Window Case' | remove: ' Window' }}</strong>
+            <span>Pictorial book · 63×88</span>
+          </span>
+        </a>
+      {% endfor %}
+    {% endif %}
   </div>
 </section>
 {% schema %}
@@ -20,7 +45,8 @@
   "name": "Face hubs",
   "settings": [
     { "type": "text", "id": "kicker", "label": "Kicker", "default": "Pictorial book" },
-    { "type": "text", "id": "title", "label": "Title", "default": "Three faces print today" }
+    { "type": "text", "id": "title", "label": "Title", "default": "Three faces print today" },
+    { "type": "collection", "id": "collection", "label": "Window collection" }
   ],
   "blocks": [
     {

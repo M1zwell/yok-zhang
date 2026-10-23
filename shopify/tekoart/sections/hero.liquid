@@ -1,17 +1,57 @@
-<section class="teko-hero">
-  <div>
+{%- liquid
+  assign shop_url = section.settings.cta_url
+  if shop_url == blank
+    assign shop_url = collections['pictorial-book-window'].url | default: '/collections/pictorial-book-window'
+  endif
+  assign face_url = section.settings.secondary_url
+  if face_url == blank
+    assign face_url = pages['faces'].url | default: '/pages/faces'
+  endif
+  assign window_collection = collections['pictorial-book-window']
+-%}
+<section class="teko-hero" aria-label="Hong Kong 63 by 88 window">
+  <div class="teko-hero-copy">
     <p class="teko-kicker">{{ section.settings.kicker }}</p>
     <h1>{{ section.settings.title }}</h1>
     <p class="teko-lead">{{ section.settings.lead }}</p>
     <p class="teko-zh">{{ section.settings.zh }}</p>
     <div class="teko-hero-actions">
-      <a class="teko-btn teko-btn-primary" href="{{ section.settings.cta_url }}">{{ section.settings.cta }}</a>
-      <a class="teko-btn teko-btn-ghost" href="{{ section.settings.secondary_url }}">{{ section.settings.secondary }}</a>
+      <a class="teko-btn teko-btn-primary" href="{{ shop_url }}">{{ section.settings.cta }}</a>
+      <a class="teko-btn teko-btn-ghost" href="{{ face_url }}">{{ section.settings.secondary }}</a>
     </div>
+    <ul class="teko-hero-pills" role="list">
+      <li>Fits a standard 63×88 card</li>
+      <li>Pictorial book</li>
+      {%- if window_collection and window_collection.products_count > 0 -%}
+        <li>Three faces print today</li>
+        <li class="is-stock">In stock</li>
+      {%- endif -%}
+    </ul>
   </div>
-  <div class="teko-hero-stage">
+
+  <div class="teko-hero-stage{% unless section.settings.image %} is-frame{% endunless %}">
     {% if section.settings.image %}
-      <img src="{{ section.settings.image | image_url: width: 1400 }}" alt="{{ section.settings.title }}">
+      <img
+        src="{{ section.settings.image | image_url: width: 1400 }}"
+        alt="{{ section.settings.title | escape }}"
+        width="700"
+        height="700"
+        loading="eager"
+      >
+    {% else %}
+      <div class="teko-window" aria-hidden="true">
+        <div class="teko-window-phone">
+          <div class="teko-window-bezel">
+            <div class="teko-window-slot">
+              <div class="teko-window-card">
+                <span class="teko-window-mark">63×88</span>
+                <span class="teko-window-face">Juju</span>
+              </div>
+            </div>
+          </div>
+          <p class="teko-window-caption">Slide. Dress. Swap.</p>
+        </div>
+      </div>
     {% endif %}
     <p class="teko-hero-badge">Fits a standard 63×88 card</p>
   </div>
