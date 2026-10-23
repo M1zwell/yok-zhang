@@ -269,17 +269,75 @@ html.teko-shop a[href="#content"] {
 
 .teko-hero {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 28px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(20px, 4vw, 40px);
   align-items: center;
-  padding: 36px 0 28px;
+  padding: clamp(28px, 5vw, 48px) 0 clamp(24px, 4vw, 36px);
+}
+
+.teko-hero-copy {
+  max-width: 40rem;
+}
+
+.teko-section-head {
+  margin-bottom: 4px;
+}
+
+.teko-section-meta {
+  margin: -8px 0 16px;
+  color: var(--teko-muted);
+  font-size: 13px;
+}
+
+.teko-pill-stock {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--teko-ink);
+  background: var(--teko-amber);
+  color: var(--teko-ink);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.teko-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.teko-hero-pills li {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--teko-line);
+  background: rgba(255, 253, 246, 0.78);
+  color: var(--teko-muted);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.teko-hero-pills li.is-stock {
+  background: var(--teko-amber);
+  border-color: var(--teko-ink);
+  color: var(--teko-ink);
+  font-weight: 800;
 }
 
 .teko-kicker {
+  margin: 0;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--teko-gold);
+  font-weight: 700;
 }
 
 .teko-hero h1,
@@ -305,8 +363,11 @@ html.teko-shop a[href="#content"] {
 }
 
 .teko-zh {
-  margin-top: 8px;
+  margin-top: 10px;
   color: var(--teko-ink);
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 600;
 }
 
 .teko-hero-actions,
@@ -395,11 +456,95 @@ html.teko-shop a[href="#content"] {
 .teko-hero-stage {
   position: relative;
   min-height: 420px;
-  background: var(--teko-cream);
+  background:
+    radial-gradient(circle at 70% 18%, rgba(191, 227, 224, 0.9) 0%, transparent 42%),
+    linear-gradient(160deg, #fffdf6 0%, #fff4d4 55%, #bfe3e0 130%);
   border: 1px solid var(--teko-line);
-  border-radius: var(--media-radius);
+  border-radius: calc(var(--media-radius) + 6px);
   box-shadow: var(--teko-shadow);
   overflow: hidden;
+}
+
+.teko-hero-stage.is-frame {
+  display: grid;
+  place-items: center;
+  padding: 28px 20px 56px;
+}
+
+.teko-window {
+  width: min(100%, 280px);
+}
+
+.teko-window-phone {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.teko-window-bezel {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 420px;
+  border-radius: 28px;
+  border: 2px solid rgba(44, 39, 32, 0.85);
+  background:
+    linear-gradient(180deg, #2c2720 0%, #3a342c 18%, #2c2720 100%);
+  box-shadow:
+    inset 0 0 0 8px #1a1713,
+    0 18px 40px rgba(44, 39, 32, 0.28);
+  display: grid;
+  place-items: center;
+  padding: 14% 12%;
+}
+
+.teko-window-slot {
+  width: 100%;
+  aspect-ratio: 63 / 88;
+  border-radius: 10px;
+  border: 1px dashed rgba(255, 248, 232, 0.45);
+  background:
+    linear-gradient(145deg, rgba(191, 227, 224, 0.35), rgba(255, 248, 232, 0.08));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.teko-window-card {
+  width: 92%;
+  height: 92%;
+  border-radius: 8px;
+  border: 1px solid rgba(44, 39, 32, 0.35);
+  background:
+    radial-gradient(circle at 30% 20%, #fff8e8 0%, #ffe9a8 38%, #f5a623 100%);
+  display: grid;
+  place-content: center;
+  gap: 8px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(44, 39, 32, 0.25);
+}
+
+.teko-window-mark {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(44, 39, 32, 0.7);
+  font-weight: 800;
+}
+
+.teko-window-face {
+  font-family: var(--font-heading-family);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  color: var(--teko-ink);
+  line-height: 1;
+}
+
+.teko-window-caption {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teko-muted);
+  font-weight: 700;
 }
 
 .teko-hero-stage img {
@@ -415,11 +560,14 @@ html.teko-shop a[href="#content"] {
   left: 16px;
   bottom: 16px;
   padding: 8px 12px;
-  background: var(--teko-paper);
-  border: 1px solid var(--teko-line);
+  background: rgba(255, 248, 232, 0.94);
+  border: 1px solid var(--teko-ink);
+  border-radius: 999px;
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(44, 39, 32, 0.12);
 }
 
 .teko-section {
@@ -447,6 +595,12 @@ html.teko-shop a[href="#content"] {
   overflow: hidden;
   display: grid;
   place-items: center;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.teko-hex:hover {
+  transform: translateY(-3px);
+  filter: saturate(1.05);
 }
 
 .teko-hex img {
@@ -578,6 +732,30 @@ html.teko-shop a[href="#content"] {
   object-fit: contain;
   background: rgb(var(--color-foreground));
   display: block;
+}
+
+.teko-how-step {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 280px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(191, 227, 224, 0.55), transparent 55%),
+    #2c2720;
+}
+
+.teko-how-num {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--teko-amber);
+  border: 1px solid #fff8e8;
+  color: var(--teko-ink);
+  font-family: var(--font-heading-family);
+  font-size: 1.8rem;
 }
 
 .teko-how h3,
@@ -881,7 +1059,15 @@ html.teko-shop a[href="#content"] {
   }
 
   .teko-hero-stage {
-    min-height: 280px;
+    min-height: 320px;
+  }
+
+  .teko-hero h1 {
+    font-size: clamp(2.2rem, 11vw, 3.4rem);
+  }
+
+  .teko-window-bezel {
+    max-height: 360px;
   }
 
   .teko-live-link {
@@ -901,7 +1087,8 @@ html.teko-shop a[href="#content"] {
 
 @media (prefers-reduced-motion: reduce) {
   .teko-card:hover img,
-  .teko-btn:hover {
+  .teko-btn:hover,
+  .teko-hex:hover {
     transform: none;
   }
 }

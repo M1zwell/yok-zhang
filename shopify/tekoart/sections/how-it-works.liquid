@@ -1,16 +1,40 @@
-<section class="teko-section">
-  <p class="teko-kicker">{{ section.settings.kicker }}</p>
-  <h2>{{ section.settings.title }}</h2>
+<section class="teko-section" id="how">
+  <div class="teko-section-head">
+    <p class="teko-kicker">{{ section.settings.kicker }}</p>
+    <h2>{{ section.settings.title }}</h2>
+  </div>
   <div class="teko-how">
-    {% for block in section.blocks %}
-      <article {{ block.shopify_attributes }}>
-        {% if block.settings.video %}
-          {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
-        {% endif %}
-        <h3>{{ block.settings.title }}</h3>
-        <p>{{ block.settings.text }}</p>
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        <article {{ block.shopify_attributes }}>
+          {% if block.settings.video %}
+            {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
+          {% else %}
+            <div class="teko-how-step" data-step="{{ forloop.index }}">
+              <span class="teko-how-num">{{ forloop.index }}</span>
+            </div>
+          {% endif %}
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {% endfor %}
+    {% else %}
+      <article>
+        <div class="teko-how-step" data-step="1"><span class="teko-how-num">1</span></div>
+        <h3>Slide</h3>
+        <p>Slide a standard 63×88 into the window. A pictorial-book print, or a card you already own.</p>
       </article>
-    {% endfor %}
+      <article>
+        <div class="teko-how-step" data-step="2"><span class="teko-how-num">2</span></div>
+        <h3>Dress</h3>
+        <p>Put the case on the phone. The shell is only a frame.</p>
+      </article>
+      <article>
+        <div class="teko-how-step" data-step="3"><span class="teko-how-num">3</span></div>
+        <h3>Swap</h3>
+        <p>Tomorrow, swap the face. We do not sell other people's cards.</p>
+      </article>
+    {% endif %}
   </div>
 </section>
 {% schema %}

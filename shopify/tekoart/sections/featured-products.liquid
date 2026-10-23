@@ -1,11 +1,27 @@
-<section class="teko-section">
-  <p class="teko-kicker">{{ section.settings.kicker }}</p>
-  <h2>{{ section.settings.title }}</h2>
+{%- liquid
+  assign desk = collections[section.settings.collection]
+  if desk == blank
+    assign desk = collections['pictorial-book-window']
+  endif
+  if desk == blank
+    assign desk = collections['frontpage']
+  endif
+-%}
+<section class="teko-section" id="desk">
+  <div class="teko-section-head">
+    <p class="teko-kicker">{{ section.settings.kicker }}</p>
+    <h2>{{ section.settings.title }}</h2>
+  </div>
   <div class="teko-grid">
-    {% assign collection = collections[section.settings.collection] %}
-    {% for product in collection.products limit: section.settings.limit %}
-      {% render 'product-card', product: product %}
-    {% endfor %}
+    {% if desk and desk.products_count > 0 %}
+      {% for product in desk.products limit: section.settings.limit %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    {% else %}
+      {% for product in collections.all.products limit: section.settings.limit %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    {% endif %}
   </div>
 </section>
 {% schema %}

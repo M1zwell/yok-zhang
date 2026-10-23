@@ -1,9 +1,38 @@
 {
   "sections": {
-    "hero": { "type": "hero" },
-    "face-hubs": { "type": "face-hubs" },
-    "featured": { "type": "featured-products" },
-    "how": { "type": "how-it-works" }
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "Hong Kong · 63×88 window",
+        "title": "A case you dress. A card you change.",
+        "lead": "A pictorial-book window on the phone. Slide a 63×88. Tomorrow, swap the face.",
+        "zh": "壳只是画框。我们不卖别人的牌。",
+        "cta": "Shop the window",
+        "secondary": "Pick a face"
+      }
+    },
+    "face-hubs": {
+      "type": "face-hubs",
+      "settings": {
+        "kicker": "Pictorial book",
+        "title": "Three faces print today"
+      }
+    },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "kicker": "In stock",
+        "title": "The desk",
+        "limit": 4
+      }
+    },
+    "how": {
+      "type": "how-it-works",
+      "settings": {
+        "kicker": "How it works",
+        "title": "Slide. Dress. Swap."
+      }
+    }
   },
   "order": ["hero", "face-hubs", "featured", "how"]
 }
