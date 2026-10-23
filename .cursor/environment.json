@@ -1,0 +1,13 @@
+{
+  "name": "yok-zhang garden",
+  "install": "bash scripts/cloud-agent-install.sh",
+  "repositoryDependencies": ["github.com/Jubit-AI/jubuddy-game"],
+  "terminals": [
+    {
+      "name": "next-dev",
+      "command": "export PATH=\"$HOME/.bun/bin:$PATH\" && bun run dev",
+      "description": "Next.js dev server on http://localhost:3100"
+    }
+  ],
+  "ports": [{ "name": "next-dev", "port": 3100 }]
+}
