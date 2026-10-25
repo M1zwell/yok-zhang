@@ -12,6 +12,7 @@ export const nl: Messages = {
     career: "Loopbaan",
     funding: "Funding",
     planning: "Planning",
+    me: "Me",
   },
   heroLine: "Hongkong. Bouwt AI. Loopt de rest.",
   tacitLine: "Wat gezegd kan worden staat hier. De rest loop je — planeten, de kaart, de terminal.",
@@ -690,6 +691,14 @@ export const nl: Messages = {
     contextPhotos:
       "Het register is gefotografeerde pagina's, geen dorpsfoto's. Check-in kan een recente foto toevoegen. Plaatsen hieronder komen uit het boek.",
     claimedAs: "geclaimd",
+  },
+  me: {
+    kicker: "Persona",
+    title: "Quiet World Builder",
+    line1: "Ink window open. Agents ship. I approve.",
+    line2: "Building walkable city planets (gghere / jubuddy) and the tools around them — in public, without the loud founder act.",
+    chipsLabel: "Live",
+    heroAlt: "Quiet World Builder — cute-toon portrait",
   },
   language: {
     label: "Taal",

@@ -67,6 +67,9 @@ export function SiteFooter() {
           <Link href={localizeHref("/share", locale)} className="text-accent hover:text-accent-hover">
             {m.nav.share}
           </Link>
+          <Link href={localizeHref("/me", locale)} className="text-muted hover:text-fg">
+            {m.nav.me}
+          </Link>
           <a href={links.jubitTerminal} className="text-muted hover:text-fg">
             {m.studio.deskTitle}
           </a>

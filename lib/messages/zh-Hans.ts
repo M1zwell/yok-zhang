@@ -12,6 +12,7 @@ export const zhHans: Messages = {
     career: "职场",
     funding: "融资",
     planning: "规划",
+    me: "我",
   },
   heroLine: "香港。做 AI。走其余的。",
   tacitLine: "能写下的在这里。其余的要走 —— 行星、地图、终端。",
@@ -683,6 +684,14 @@ export const zhHans: Messages = {
     contextPhotos:
       "族谱是拍照页，没有村落写真。报到可留近照。下列地点皆谱中村名。",
     claimedAs: "认领",
+  },
+  me: {
+    kicker: "人设",
+    title: "安静的世界建造者",
+    line1: "墨水窗开着。Agent 在写。我审。",
+    line2: "做可走的城市星球（gghere / jubuddy）和周边工具——公开建造，不吵。",
+    chipsLabel: "在线",
+    heroAlt: "安静的世界建造者 — cute-toon 肖像",
   },
   language: {
     label: "语言",

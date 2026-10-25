@@ -12,6 +12,7 @@ export const zhHant: Messages = {
     career: "職場",
     funding: "融資",
     planning: "規劃",
+    me: "我",
   },
   heroLine: "香港。做 AI。走其餘的。",
   tacitLine: "能寫下的在這裡。其餘的要走 —— 行星、地圖、終端。",
@@ -683,6 +684,14 @@ export const zhHant: Messages = {
     contextPhotos:
       "族譜是拍照頁，沒有村落寫真。報到可留近照。下列地點皆譜中村名。",
     claimedAs: "認領",
+  },
+  me: {
+    kicker: "人設",
+    title: "安靜的世界建造者",
+    line1: "墨水窗開著。Agent 在寫。我審。",
+    line2: "做可走的城市星球（gghere / jubuddy）和周邊工具——公開建造，不吵。",
+    chipsLabel: "上線",
+    heroAlt: "安靜的世界建造者 — cute-toon 肖像",
   },
   language: {
     label: "語言",

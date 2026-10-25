@@ -12,6 +12,7 @@ export const ja: Messages = {
     career: "キャリア",
     funding: "資金",
     planning: "計画",
+    me: "Me",
   },
   heroLine: "香港。AI を作る。残りは歩く。",
   tacitLine: "書けるものはここにある。残りは歩く —— 惑星、地図、ターミナル。",
@@ -686,6 +687,14 @@ export const ja: Messages = {
     contextPhotos:
       "族譜は撮影頁で、村の写真はない。报到で近影を残せる。以下の地名は譜のまま。",
     claimedAs: "名乗り",
+  },
+  me: {
+    kicker: "Persona",
+    title: "Quiet World Builder",
+    line1: "Ink window open. Agents ship. I approve.",
+    line2: "Building walkable city planets (gghere / jubuddy) and the tools around them — in public, without the loud founder act.",
+    chipsLabel: "Live",
+    heroAlt: "Quiet World Builder — cute-toon portrait",
   },
   language: {
     label: "言語",
