@@ -12,6 +12,7 @@ export const ko: Messages = {
     career: "커리어",
     funding: "자금",
     planning: "계획",
+    me: "Me",
   },
   heroLine: "홍콩. AI를 만든다. 나머지는 걷는다.",
   tacitLine: "말할 수 있는 것은 여기 있다. 나머지는 걷는다 — 행성, 지도, 터미널.",
@@ -686,6 +687,14 @@ export const ko: Messages = {
     contextPhotos:
       "족보는 촬영 페이지라 마을 사진이 없다. 报到로 최근 사진을 남길 수 있다. 아래 지명은 족보에 있는 이름이다.",
     claimedAs: "맡음",
+  },
+  me: {
+    kicker: "Persona",
+    title: "Quiet World Builder",
+    line1: "Ink window open. Agents ship. I approve.",
+    line2: "Building walkable city planets (gghere / jubuddy) and the tools around them — in public, without the loud founder act.",
+    chipsLabel: "Live",
+    heroAlt: "Quiet World Builder — cute-toon portrait",
   },
   language: {
     label: "언어",

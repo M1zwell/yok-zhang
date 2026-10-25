@@ -10,6 +10,7 @@ export const en = {
     career: "Career",
     funding: "Funding",
     planning: "Planning",
+    me: "Me",
   },
   heroLine: "Hong Kong. Builds AI. Walks the rest.",
   tacitLine: "What can be told is here. The rest you walk — planets, the map, the terminal.",
@@ -691,6 +692,14 @@ export const en = {
     contextPhotos:
       "The register is photographed pages, not village photography. Check-in can add a recent photo. Places below are names from the book.",
     claimedAs: "claimed",
+  },
+  me: {
+    kicker: "Persona",
+    title: "Quiet World Builder",
+    line1: "Ink window open. Agents ship. I approve.",
+    line2: "Building walkable city planets (gghere / jubuddy) and the tools around them — in public, without the loud founder act.",
+    chipsLabel: "Live",
+    heroAlt: "Quiet World Builder — cute-toon portrait",
   },
   language: {
     label: "Language",

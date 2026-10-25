@@ -12,6 +12,7 @@ export const th: Messages = {
     career: "อาชีพ",
     funding: "ทุน",
     planning: "ผัง",
+    me: "Me",
   },
   heroLine: "ฮ่องกง สร้าง AI เดินที่เหลือ",
   tacitLine: "สิ่งที่บอกได้มีอยู่ที่นี่ ที่เหลือต้องเดิน — ดาวเคราะห์ แผนที่ เทอร์มินัล",
@@ -685,6 +686,14 @@ export const th: Messages = {
     contextPhotos:
       "ลำดับวงศ์เป็นหน้าถ่าย ไม่มีรูปหมู่บ้าน ลงชื่อแล้วแนบรูปใหม่ได้ สถานที่ด้านล่างมาจากชื่อในหนังสือ",
     claimedAs: "รับเป็น",
+  },
+  me: {
+    kicker: "Persona",
+    title: "Quiet World Builder",
+    line1: "Ink window open. Agents ship. I approve.",
+    line2: "Building walkable city planets (gghere / jubuddy) and the tools around them — in public, without the loud founder act.",
+    chipsLabel: "Live",
+    heroAlt: "Quiet World Builder — cute-toon portrait",
   },
   language: {
     label: "ภาษา",
