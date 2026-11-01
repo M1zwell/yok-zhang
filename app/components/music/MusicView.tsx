@@ -50,11 +50,15 @@ export function MusicView({ locale = "en" }: { locale?: Locale }) {
       onStatus: (state) => {
         setStatus(state.status);
         setError(state.error || "");
-        if (state.status === "error") selection.wantsPlay = false;
+        if (state.status === "error" || state.status === "paused") selection.wantsPlay = false;
       },
       onEnded: () => {
         const selected = selection;
-        if (selected.loop === "all" && selected.wantsPlay) {
+        if (selected.loop === "one" && selected.wantsPlay) {
+          // A source can finish just before the user enables One and queues its ended event.
+          setElapsed(0);
+          void engine.play();
+        } else if (selected.loop === "all" && selected.wantsPlay) {
           const playlist = regions[selected.regionIndex].tracks;
           const index = (selected.trackIndex + 1) % playlist.length;
           selected.trackIndex = index;

@@ -49,6 +49,7 @@ export function createMusicPlayer({
   let offset = 0;
   let startedAt = 0;
   let pendingPlay: Promise<void> | null = null;
+  let resumingGeneration: number | null = null;
 
   function publish(next: MusicPlayerStatus) {
     status = next.status;
@@ -87,6 +88,7 @@ export function createMusicPlayer({
 
   function cancelPending() {
     generation += 1;
+    resumingGeneration = null;
     controller?.abort();
     controller = null;
     pendingPlay = null;
@@ -96,12 +98,27 @@ export function createMusicPlayer({
     if (gain) gain.gain.value = muted ? 0 : volume;
   }
 
+  function interrupt() {
+    if (disposed || (status !== "loading" && status !== "playing")) return;
+    offset = position();
+    cancelPending();
+    stopSource();
+    publish({ status: "paused", error: "Playback was interrupted. Press Play to continue." });
+  }
+
   function ensureContext() {
     if (!context) {
-      context = createAudioContext();
-      gain = context.createGain();
+      const created = createAudioContext();
+      context = created;
+      gain = created.createGain();
       applyVolume();
-      gain.connect(context.destination);
+      gain.connect(created.destination);
+      created.onstatechange = () => {
+        if (context !== created || created.state === "running") return;
+        // A new context starts suspended; allow the explicit resume to settle.
+        if (resumingGeneration === generation) return;
+        interrupt();
+      };
     }
     return context;
   }
@@ -118,6 +135,10 @@ export function createMusicPlayer({
 
   function startBuffered(token: number, audioContext: AudioContext) {
     if (!buffer || !gain) return;
+    if (audioContext.state !== "running") {
+      interrupt();
+      return;
+    }
     const { start, end, duration } = bounds();
     if (offset >= duration) offset = 0;
     if (loop === "one" && offset >= end) offset = start + ((offset - start) % (end - start));
@@ -150,6 +171,7 @@ export function createMusicPlayer({
     const selected = track;
     const valid = () => !disposed && generation === token && track === selected;
     publish({ status: "loading" });
+    resumingGeneration = token;
 
     // Context creation and resume happen in the user gesture, before fetch/decode.
     let audioContext: AudioContext;
@@ -158,6 +180,7 @@ export function createMusicPlayer({
       audioContext = ensureContext();
       resume = audioContext.resume();
     } catch (error) {
+      resumingGeneration = null;
       publish({ status: "error", error: error instanceof Error ? error.message : "Audio could not start. Please try again." });
       return Promise.resolve();
     }
@@ -165,8 +188,12 @@ export function createMusicPlayer({
     const work = (async () => {
       try {
         await resume;
+        if (resumingGeneration === token) resumingGeneration = null;
         if (!valid()) return;
-        if (audioContext.state !== "running") throw new Error("Audio could not start. Tap Play to try again.");
+        if (audioContext.state !== "running") {
+          interrupt();
+          return;
+        }
         if (!buffer) {
           const request = new AbortController();
           controller = request;
@@ -189,6 +216,7 @@ export function createMusicPlayer({
         controller = null;
         publish({ status: "error", error: error instanceof Error ? error.message : "Audio could not play. Please try again or choose another track." });
       } finally {
+        if (resumingGeneration === token) resumingGeneration = null;
         if (generation === token) pendingPlay = null;
       }
     })();
@@ -245,6 +273,7 @@ export function createMusicPlayer({
     cancelPending();
     stopSource();
     gain?.disconnect();
+    if (context) context.onstatechange = null;
     if (context && context.state !== "closed") void context.close().catch(() => undefined);
     buffer = null;
     track = null;

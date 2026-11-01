@@ -51,3 +51,10 @@ the complete regional counts and ordering, the MIDI-derived BPM, OGG Vorbis
 stereo/sample-rate headers, final OGG granules against authored loop lengths,
 and the absence of extra audio assets. It does not audition music or test a
 physical device.
+
+`npm run verify:music` runs the asset verifier and the deterministic audio-engine
+checks. `scripts/verify-music-browser.cjs` is optional integration QA for an
+environment with Playwright and Chromium installed. Serve the production export
+with clean-URL support on port 3100, or provide `MUSIC_TEST_URL`. The browser
+checks use real OGG decoding and mocked ending events; viewport emulation is not
+a physical-device or listening review. Playwright is not a runtime dependency.

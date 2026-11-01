@@ -35,11 +35,13 @@ class FakeContext {
   decodeRequests: ReturnType<typeof deferred<AudioBuffer>>[] = [];
   resumeCount = 0;
   closed = false;
+  onstatechange: (() => void) | null = null;
   createGain() { return this.gain; }
   createBufferSource() { const source = new FakeSource(); this.sources.push(source); return source; }
   resume() { this.resumeCount += 1; this.state = "running"; return Promise.resolve(); }
   close() { this.closed = true; this.state = "closed"; return Promise.resolve(); }
   decodeAudioData() { const request = deferred<AudioBuffer>(); this.decodeRequests.push(request); return request.promise; }
+  transitionTo(state: AudioContextState) { this.state = state; this.onstatechange?.(); }
 }
 
 const trackA = { audioUrl: "/music/a.ogg", durationSeconds: 12, loopStartSeconds: 2, loopEndSeconds: 10 };
@@ -342,7 +344,80 @@ test("dispose while playing stops and disconnects audio without an ended callbac
   assert.equal(h.context.sources[0].stopped, true);
   assert.equal(h.context.sources[0].connected, false);
   assert.equal(h.context.closed, true);
+  assert.equal(h.context.onstatechange, null);
   assert.equal(h.ended(), 0);
+});
+
+test("initial suspended state can settle through explicit resume without a false interruption", async () => {
+  const h = harness();
+  const resumed = deferred<void>();
+  h.context.resume = () => resumed.promise;
+  h.player.setTrack(trackA);
+  const playing = h.player.play();
+  h.context.transitionTo("suspended");
+  assert.equal(h.states.at(-1)?.status, "loading");
+  h.context.transitionTo("running");
+  resumed.resolve();
+  await tick();
+  await h.respond();
+  h.context.decodeRequests[0].resolve(audioBuffer);
+  await playing;
+  assert.equal(h.states.at(-1)?.status, "playing");
+  assert.equal(h.states.some((state) => state.status === "paused"), false);
+});
+
+test("context interruption during decode cancels stale playback and requires an explicit retry", async () => {
+  const h = harness();
+  h.player.setTrack(trackA);
+  const playing = h.player.play();
+  await tick();
+  await h.respond();
+  h.context.transitionTo("suspended");
+  assert.equal(h.requests[0].signal.aborted, true);
+  assert.deepEqual(h.states.at(-1), { status: "paused", error: "Playback was interrupted. Press Play to continue." });
+  h.context.decodeRequests[0].resolve(audioBuffer);
+  await playing;
+  h.context.transitionTo("running");
+  assert.equal(h.context.sources.length, 0);
+  assert.equal(h.states.at(-1)?.status, "paused");
+  await h.load();
+  assert.equal(h.context.sources.length, 1);
+  assert.equal(h.requests.length, 2);
+  assert.equal(h.states.at(-1)?.status, "playing");
+});
+
+test("context interruption while playing stops audio and preserves the resume position", async () => {
+  const h = harness();
+  h.player.setTrack(trackA);
+  await h.load();
+  h.context.currentTime = 4.25;
+  h.context.transitionTo("suspended");
+  assert.equal(h.context.sources[0].stopped, true);
+  assert.equal(h.context.sources[0].connected, false);
+  assert.equal(h.player.getCurrentTime(), 4.25);
+  assert.equal(h.ended(), 0);
+  assert.equal(h.states.at(-1)?.status, "paused");
+  h.context.transitionTo("running");
+  assert.equal(h.context.sources.length, 1);
+  assert.equal(h.states.at(-1)?.status, "paused");
+  await h.player.play();
+  assert.equal(h.context.sources[1].offset, 4.25);
+  assert.equal(h.requests.length, 1);
+  assert.equal(h.states.at(-1)?.status, "playing");
+});
+
+test("a suspended context is checked before source creation even before its event arrives", async () => {
+  const h = harness();
+  h.player.setTrack(trackA);
+  const playing = h.player.play();
+  await tick();
+  await h.respond();
+  h.context.state = "suspended";
+  h.context.decodeRequests[0].resolve(audioBuffer);
+  await playing;
+  assert.equal(h.context.sources.length, 0);
+  assert.equal(h.states.at(-1)?.status, "paused");
+  assert.equal(h.states.at(-1)?.error, "Playback was interrupted. Press Play to continue.");
 });
 
 let passed = 0;
