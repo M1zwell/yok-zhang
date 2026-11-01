@@ -70,6 +70,9 @@ export function SiteFooter() {
           <Link href={localizeHref("/me", locale)} className="text-muted hover:text-fg">
             {m.nav.me}
           </Link>
+          <Link href={localizeHref("/music", locale)} className="text-muted hover:text-fg">
+            AI Music Play
+          </Link>
           <a href={links.jubitTerminal} className="text-muted hover:text-fg">
             {m.studio.deskTitle}
           </a>

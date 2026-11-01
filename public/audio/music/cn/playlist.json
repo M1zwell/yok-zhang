@@ -1,0 +1,708 @@
+{
+  "version": 1,
+  "region": "cn",
+  "count": 50,
+  "sourceCommit": "f44fe154f143790789fa00990f4aa9f4c31c7427",
+  "tracks": [
+    {
+      "id": "cn-001",
+      "title": "石徑煙嵐 · Mist over Stone",
+      "mood": "Original instrumental",
+      "bpm": 78,
+      "durationSeconds": 73.846,
+      "audioUrl": "/audio/music/cn/01-mist-over-stone.ogg",
+      "midiUrl": "/audio/music/cn/01-mist-over-stone.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3256615,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-002",
+      "title": "曉前旌影 · Banner before Dawn",
+      "mood": "Original instrumental",
+      "bpm": 92,
+      "durationSeconds": 83.478,
+      "audioUrl": "/audio/music/cn/02-banner-before-dawn.ogg",
+      "midiUrl": "/audio/music/cn/02-banner-before-dawn.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3681391,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-003",
+      "title": "雨光路口 · Rainlit Crossing",
+      "mood": "Original instrumental",
+      "bpm": 104,
+      "durationSeconds": 73.846,
+      "audioUrl": "/audio/music/cn/03-rainlit-crossing.ogg",
+      "midiUrl": "/audio/music/cn/03-rainlit-crossing.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3256615,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-004",
+      "title": "竹橋晨霧 · Bamboo Bridge Mist",
+      "mood": "Original instrumental",
+      "bpm": 76,
+      "durationSeconds": 56.842,
+      "audioUrl": "/audio/music/cn/cn-004.ogg",
+      "midiUrl": "/audio/music/cn/cn-004.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2506737,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-005",
+      "title": "江心慢舟 · Midriver Slow Boat",
+      "mood": "Original instrumental",
+      "bpm": 84,
+      "durationSeconds": 68.571,
+      "audioUrl": "/audio/music/cn/cn-005.ogg",
+      "midiUrl": "/audio/music/cn/cn-005.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3024000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-006",
+      "title": "古臺新曙 · Ancient Terrace Dawn",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 60,
+      "audioUrl": "/audio/music/cn/cn-006.ogg",
+      "midiUrl": "/audio/music/cn/cn-006.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2646000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-007",
+      "title": "玻璃城微雨 · Glass City Drizzle",
+      "mood": "Original instrumental",
+      "bpm": 108,
+      "durationSeconds": 53.333,
+      "audioUrl": "/audio/music/cn/cn-007.ogg",
+      "midiUrl": "/audio/music/cn/cn-007.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2352000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-008",
+      "title": "花窗小徑 · Lattice Garden Path",
+      "mood": "Original instrumental",
+      "bpm": 80,
+      "durationSeconds": 54,
+      "audioUrl": "/audio/music/cn/cn-008.ogg",
+      "midiUrl": "/audio/music/cn/cn-008.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2381400,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-009",
+      "title": "沙丘郵驛 · Dune Post Station",
+      "mood": "Original instrumental",
+      "bpm": 100,
+      "durationSeconds": 60,
+      "audioUrl": "/audio/music/cn/cn-009.ogg",
+      "midiUrl": "/audio/music/cn/cn-009.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2646000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-010",
+      "title": "街角薄荷茶 · Corner Mint Tea",
+      "mood": "Original instrumental",
+      "bpm": 102,
+      "durationSeconds": 56.471,
+      "audioUrl": "/audio/music/cn/cn-010.ogg",
+      "midiUrl": "/audio/music/cn/cn-010.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2490353,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-011",
+      "title": "燈會風車 · Lantern Fair Pinwheels",
+      "mood": "Original instrumental",
+      "bpm": 92,
+      "durationSeconds": 54.783,
+      "audioUrl": "/audio/music/cn/cn-011.ogg",
+      "midiUrl": "/audio/music/cn/cn-011.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2415913,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-012",
+      "title": "松影遠鐘 · Pine Shadows Distant Bell",
+      "mood": "Original instrumental",
+      "bpm": 80,
+      "durationSeconds": 54,
+      "audioUrl": "/audio/music/cn/cn-012.ogg",
+      "midiUrl": "/audio/music/cn/cn-012.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2381400,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-013",
+      "title": "石灣水紋 · Stone Bay Ripples",
+      "mood": "Original instrumental",
+      "bpm": 88,
+      "durationSeconds": 65.455,
+      "audioUrl": "/audio/music/cn/cn-013.ogg",
+      "midiUrl": "/audio/music/cn/cn-013.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2886545,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-014",
+      "title": "銅門長階 · Bronze Gate Steps",
+      "mood": "Original instrumental",
+      "bpm": 100,
+      "durationSeconds": 57.6,
+      "audioUrl": "/audio/music/cn/cn-014.ogg",
+      "midiUrl": "/audio/music/cn/cn-014.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2540160,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-015",
+      "title": "夜班電車 · Night Shift Tram",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 51.429,
+      "audioUrl": "/audio/music/cn/cn-015.ogg",
+      "midiUrl": "/audio/music/cn/cn-015.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2268000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-016",
+      "title": "梨花露台 · Pear Blossom Terrace",
+      "mood": "Original instrumental",
+      "bpm": 84,
+      "durationSeconds": 51.429,
+      "audioUrl": "/audio/music/cn/cn-016.ogg",
+      "midiUrl": "/audio/music/cn/cn-016.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2268000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-017",
+      "title": "月下商隊 · Moonlit Caravan",
+      "mood": "Original instrumental",
+      "bpm": 104,
+      "durationSeconds": 57.692,
+      "audioUrl": "/audio/music/cn/cn-017.ogg",
+      "midiUrl": "/audio/music/cn/cn-017.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2544231,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-018",
+      "title": "週末書攤 · Weekend Bookstall",
+      "mood": "Original instrumental",
+      "bpm": 106,
+      "durationSeconds": 54.34,
+      "audioUrl": "/audio/music/cn/cn-018.ogg",
+      "midiUrl": "/audio/music/cn/cn-018.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2396377,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-019",
+      "title": "紙鳶出城 · Kites Beyond the Wall",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 52.5,
+      "audioUrl": "/audio/music/cn/cn-019.ogg",
+      "midiUrl": "/audio/music/cn/cn-019.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2315250,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-020",
+      "title": "山雨歇處 · Where Mountain Rain Rests",
+      "mood": "Original instrumental",
+      "bpm": 73,
+      "durationSeconds": 59.178,
+      "audioUrl": "/audio/music/cn/cn-020.ogg",
+      "midiUrl": "/audio/music/cn/cn-020.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2609753,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-021",
+      "title": "蘆岸歸舟 · Return to Reed Banks",
+      "mood": "Original instrumental",
+      "bpm": 81,
+      "durationSeconds": 71.111,
+      "audioUrl": "/audio/music/cn/cn-021.ogg",
+      "midiUrl": "/audio/music/cn/cn-021.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3136000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-022",
+      "title": "雲上烽樓 · Watchtower Above Clouds",
+      "mood": "Original instrumental",
+      "bpm": 93,
+      "durationSeconds": 61.935,
+      "audioUrl": "/audio/music/cn/cn-022.ogg",
+      "midiUrl": "/audio/music/cn/cn-022.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2731355,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-023",
+      "title": "霓虹倒影 · Neon Reflections",
+      "mood": "Original instrumental",
+      "bpm": 105,
+      "durationSeconds": 54.857,
+      "audioUrl": "/audio/music/cn/cn-023.ogg",
+      "midiUrl": "/audio/music/cn/cn-023.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2419200,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-024",
+      "title": "苔庭午眠 · Moss Court Siesta",
+      "mood": "Original instrumental",
+      "bpm": 77,
+      "durationSeconds": 56.104,
+      "audioUrl": "/audio/music/cn/cn-024.ogg",
+      "midiUrl": "/audio/music/cn/cn-024.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2474182,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-025",
+      "title": "風蝕石門 · Windworn Stone Gate",
+      "mood": "Original instrumental",
+      "bpm": 97,
+      "durationSeconds": 61.856,
+      "audioUrl": "/audio/music/cn/cn-025.ogg",
+      "midiUrl": "/audio/music/cn/cn-025.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2727835,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-026",
+      "title": "咖啡與晨報 · Coffee and Morning News",
+      "mood": "Original instrumental",
+      "bpm": 99,
+      "durationSeconds": 58.182,
+      "audioUrl": "/audio/music/cn/cn-026.ogg",
+      "midiUrl": "/audio/music/cn/cn-026.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2565818,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-027",
+      "title": "春鼓小巷 · Spring Drums Alley",
+      "mood": "Original instrumental",
+      "bpm": 89,
+      "durationSeconds": 56.629,
+      "audioUrl": "/audio/music/cn/cn-027.ogg",
+      "midiUrl": "/audio/music/cn/cn-027.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2497348,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-028",
+      "title": "翠峰行客 · Traveler of Green Peaks",
+      "mood": "Original instrumental",
+      "bpm": 83,
+      "durationSeconds": 52.048,
+      "audioUrl": "/audio/music/cn/cn-028.ogg",
+      "midiUrl": "/audio/music/cn/cn-028.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2295325,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-029",
+      "title": "渡口白帆 · White Sail Ferry",
+      "mood": "Original instrumental",
+      "bpm": 91,
+      "durationSeconds": 63.297,
+      "audioUrl": "/audio/music/cn/cn-029.ogg",
+      "midiUrl": "/audio/music/cn/cn-029.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2791385,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-030",
+      "title": "星河旌旗 · Banners Under Stars",
+      "mood": "Original instrumental",
+      "bpm": 103,
+      "durationSeconds": 55.922,
+      "audioUrl": "/audio/music/cn/cn-030.ogg",
+      "midiUrl": "/audio/music/cn/cn-030.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2466175,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-031",
+      "title": "藍色高架橋 · Blue Viaduct",
+      "mood": "Original instrumental",
+      "bpm": 115,
+      "durationSeconds": 50.087,
+      "audioUrl": "/audio/music/cn/cn-031.ogg",
+      "midiUrl": "/audio/music/cn/cn-031.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2208835,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-032",
+      "title": "杏園聽雨 · Apricot Garden Rain",
+      "mood": "Original instrumental",
+      "bpm": 87,
+      "durationSeconds": 49.655,
+      "audioUrl": "/audio/music/cn/cn-032.ogg",
+      "midiUrl": "/audio/music/cn/cn-032.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2189793,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-033",
+      "title": "驛路星圖 · Post Road Star Map",
+      "mood": "Original instrumental",
+      "bpm": 107,
+      "durationSeconds": 56.075,
+      "audioUrl": "/audio/music/cn/cn-033.ogg",
+      "midiUrl": "/audio/music/cn/cn-033.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2472897,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-034",
+      "title": "雨棚二重奏 · Awning Duet",
+      "mood": "Original instrumental",
+      "bpm": 109,
+      "durationSeconds": 52.844,
+      "audioUrl": "/audio/music/cn/cn-034.ogg",
+      "midiUrl": "/audio/music/cn/cn-034.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2330422,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-035",
+      "title": "龍舟轉灣 · Dragon Boats Turn",
+      "mood": "Original instrumental",
+      "bpm": 99,
+      "durationSeconds": 50.909,
+      "audioUrl": "/audio/music/cn/cn-035.ogg",
+      "midiUrl": "/audio/music/cn/cn-035.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2245091,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-036",
+      "title": "霜葉靜溪 · Frost Leaves Quiet Brook",
+      "mood": "Original instrumental",
+      "bpm": 78,
+      "durationSeconds": 55.385,
+      "audioUrl": "/audio/music/cn/cn-036.ogg",
+      "midiUrl": "/audio/music/cn/cn-036.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2442462,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-037",
+      "title": "水巷月輪 · Water Lane Moon",
+      "mood": "Original instrumental",
+      "bpm": 86,
+      "durationSeconds": 66.977,
+      "audioUrl": "/audio/music/cn/cn-037.ogg",
+      "midiUrl": "/audio/music/cn/cn-037.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2953674,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-038",
+      "title": "王城晚照 · Citadel Evening Light",
+      "mood": "Original instrumental",
+      "bpm": 98,
+      "durationSeconds": 58.776,
+      "audioUrl": "/audio/music/cn/cn-038.ogg",
+      "midiUrl": "/audio/music/cn/cn-038.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2592000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-039",
+      "title": "雲端候車室 · Skyline Waiting Room",
+      "mood": "Original instrumental",
+      "bpm": 110,
+      "durationSeconds": 52.364,
+      "audioUrl": "/audio/music/cn/cn-039.ogg",
+      "midiUrl": "/audio/music/cn/cn-039.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2309236,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-040",
+      "title": "小院茶煙 · Courtyard Tea Steam",
+      "mood": "Original instrumental",
+      "bpm": 82,
+      "durationSeconds": 52.683,
+      "audioUrl": "/audio/music/cn/cn-040.ogg",
+      "midiUrl": "/audio/music/cn/cn-040.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2323317,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-041",
+      "title": "綠洲晨市 · Oasis Morning Market",
+      "mood": "Original instrumental",
+      "bpm": 102,
+      "durationSeconds": 58.824,
+      "audioUrl": "/audio/music/cn/cn-041.ogg",
+      "midiUrl": "/audio/music/cn/cn-041.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2594118,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-042",
+      "title": "舊街唱片店 · Old Street Record Shop",
+      "mood": "Original instrumental",
+      "bpm": 104,
+      "durationSeconds": 55.385,
+      "audioUrl": "/audio/music/cn/cn-042.ogg",
+      "midiUrl": "/audio/music/cn/cn-042.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2442462,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-043",
+      "title": "煙火前一刻 · Before the Fireworks",
+      "mood": "Original instrumental",
+      "bpm": 94,
+      "durationSeconds": 53.617,
+      "audioUrl": "/audio/music/cn/cn-043.ogg",
+      "midiUrl": "/audio/music/cn/cn-043.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2364511,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-044",
+      "title": "青嶺歸雁 · Geese Return to Green Ridge",
+      "mood": "Original instrumental",
+      "bpm": 71,
+      "durationSeconds": 60.845,
+      "audioUrl": "/audio/music/cn/cn-044.ogg",
+      "midiUrl": "/audio/music/cn/cn-044.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2683268,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-045",
+      "title": "江畔折柳 · Willows by the River",
+      "mood": "Original instrumental",
+      "bpm": 79,
+      "durationSeconds": 72.911,
+      "audioUrl": "/audio/music/cn/cn-045.ogg",
+      "midiUrl": "/audio/music/cn/cn-045.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3215392,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-046",
+      "title": "山河序章 · Mountains and Rivers Prelude",
+      "mood": "Original instrumental",
+      "bpm": 91,
+      "durationSeconds": 63.297,
+      "audioUrl": "/audio/music/cn/cn-046.ogg",
+      "midiUrl": "/audio/music/cn/cn-046.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2791385,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-047",
+      "title": "午夜便利店 · Midnight Corner Store",
+      "mood": "Original instrumental",
+      "bpm": 103,
+      "durationSeconds": 55.922,
+      "audioUrl": "/audio/music/cn/cn-047.ogg",
+      "midiUrl": "/audio/music/cn/cn-047.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2466175,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-048",
+      "title": "幽蘭石桌 · Orchid Stone Table",
+      "mood": "Original instrumental",
+      "bpm": 75,
+      "durationSeconds": 57.6,
+      "audioUrl": "/audio/music/cn/cn-048.ogg",
+      "midiUrl": "/audio/music/cn/cn-048.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2540160,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-049",
+      "title": "長風駝鈴 · Long Wind Camel Bells",
+      "mood": "Original instrumental",
+      "bpm": 95,
+      "durationSeconds": 63.158,
+      "audioUrl": "/audio/music/cn/cn-049.ogg",
+      "midiUrl": "/audio/music/cn/cn-049.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2785263,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "cn-050",
+      "title": "午後橘子汽水 · Afternoon Orange Soda",
+      "mood": "Original instrumental",
+      "bpm": 97,
+      "durationSeconds": 59.381,
+      "audioUrl": "/audio/music/cn/cn-050.ogg",
+      "midiUrl": "/audio/music/cn/cn-050.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2618722,
+        "sampleRate": 44100
+      }
+    }
+  ]
+}

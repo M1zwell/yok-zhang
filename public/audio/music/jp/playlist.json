@@ -1,0 +1,708 @@
+{
+  "version": 1,
+  "region": "jp",
+  "count": 50,
+  "sourceCommit": "f44fe154f143790789fa00990f4aa9f4c31c7427",
+  "tracks": [
+    {
+      "id": "jp-001",
+      "title": "夏光月台 · Sunlit Platform",
+      "mood": "Original instrumental",
+      "bpm": 80,
+      "durationSeconds": 72,
+      "audioUrl": "/audio/music/jp/jp-001.ogg",
+      "midiUrl": "/audio/music/jp/jp-001.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3175200,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-002",
+      "title": "午夜高架 · Midnight Overpass",
+      "mood": "Original instrumental",
+      "bpm": 116,
+      "durationSeconds": 66.207,
+      "audioUrl": "/audio/music/jp/jp-002.ogg",
+      "midiUrl": "/audio/music/jp/jp-002.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2919724,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-003",
+      "title": "燈影小徑 · Lantern Trail",
+      "mood": "Original instrumental",
+      "bpm": 88,
+      "durationSeconds": 65.455,
+      "audioUrl": "/audio/music/jp/jp-003.ogg",
+      "midiUrl": "/audio/music/jp/jp-003.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2886545,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-004",
+      "title": "雨後操場 · After-Rain Playground",
+      "mood": "Original instrumental",
+      "bpm": 86,
+      "durationSeconds": 66.977,
+      "audioUrl": "/audio/music/jp/jp-004.ogg",
+      "midiUrl": "/audio/music/jp/jp-004.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2953674,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-005",
+      "title": "玻璃列車 · Glass Train",
+      "mood": "Original instrumental",
+      "bpm": 108,
+      "durationSeconds": 53.333,
+      "audioUrl": "/audio/music/jp/jp-005.ogg",
+      "midiUrl": "/audio/music/jp/jp-005.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2352000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-006",
+      "title": "青石遠行 · Bluestone Journey",
+      "mood": "Original instrumental",
+      "bpm": 94,
+      "durationSeconds": 45.957,
+      "audioUrl": "/audio/music/jp/jp-006.ogg",
+      "midiUrl": "/audio/music/jp/jp-006.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2026723,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-007",
+      "title": "苔光 · Mosslight",
+      "mood": "Original instrumental",
+      "bpm": 72,
+      "durationSeconds": 53.333,
+      "audioUrl": "/audio/music/jp/jp-007.ogg",
+      "midiUrl": "/audio/music/jp/jp-007.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2352000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-008",
+      "title": "海岸白線 · Coastal White Lines",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 51.429,
+      "audioUrl": "/audio/music/jp/jp-008.ogg",
+      "midiUrl": "/audio/music/jp/jp-008.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2268000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-009",
+      "title": "樓頂風箏 · Rooftop Kite",
+      "mood": "Original instrumental",
+      "bpm": 100,
+      "durationSeconds": 57.6,
+      "audioUrl": "/audio/music/jp/jp-009.ogg",
+      "midiUrl": "/audio/music/jp/jp-009.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2540160,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-010",
+      "title": "杏色茶杯 · Apricot Teacup",
+      "mood": "Original instrumental",
+      "bpm": 90,
+      "durationSeconds": 48,
+      "audioUrl": "/audio/music/jp/jp-010.ogg",
+      "midiUrl": "/audio/music/jp/jp-010.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2116800,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-011",
+      "title": "紙旗小街 · Paper-Flag Lane",
+      "mood": "Original instrumental",
+      "bpm": 104,
+      "durationSeconds": 55.385,
+      "audioUrl": "/audio/music/jp/jp-011.ogg",
+      "midiUrl": "/audio/music/jp/jp-011.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2442462,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-012",
+      "title": "午睡雲朵 · Siesta Clouds",
+      "mood": "Original instrumental",
+      "bpm": 88,
+      "durationSeconds": 65.455,
+      "audioUrl": "/audio/music/jp/jp-012.ogg",
+      "midiUrl": "/audio/music/jp/jp-012.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2886545,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-013",
+      "title": "霓虹倒影 · Neon Reflections",
+      "mood": "Original instrumental",
+      "bpm": 110,
+      "durationSeconds": 52.364,
+      "audioUrl": "/audio/music/jp/jp-013.ogg",
+      "midiUrl": "/audio/music/jp/jp-013.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2309236,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-014",
+      "title": "木橋彼端 · Beyond the Footbridge",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 45,
+      "audioUrl": "/audio/music/jp/jp-014.ogg",
+      "midiUrl": "/audio/music/jp/jp-014.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 1984500,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-015",
+      "title": "杉林晨霧 · Cedar Morning Mist",
+      "mood": "Original instrumental",
+      "bpm": 74,
+      "durationSeconds": 51.892,
+      "audioUrl": "/audio/music/jp/jp-015.ogg",
+      "midiUrl": "/audio/music/jp/jp-015.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2288432,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-016",
+      "title": "潮聲公路 · Tidal Highway",
+      "mood": "Original instrumental",
+      "bpm": 114,
+      "durationSeconds": 50.526,
+      "audioUrl": "/audio/music/jp/jp-016.ogg",
+      "midiUrl": "/audio/music/jp/jp-016.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2228211,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-017",
+      "title": "舊單車 · Old Bicycle",
+      "mood": "Original instrumental",
+      "bpm": 102,
+      "durationSeconds": 56.471,
+      "audioUrl": "/audio/music/jp/jp-017.ogg",
+      "midiUrl": "/audio/music/jp/jp-017.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2490353,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-018",
+      "title": "窗邊糖霜 · Windowsill Icing",
+      "mood": "Original instrumental",
+      "bpm": 92,
+      "durationSeconds": 46.957,
+      "audioUrl": "/audio/music/jp/jp-018.ogg",
+      "midiUrl": "/audio/music/jp/jp-018.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2070783,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-019",
+      "title": "晚風鼓點 · Evening Drumsteps",
+      "mood": "Original instrumental",
+      "bpm": 106,
+      "durationSeconds": 54.34,
+      "audioUrl": "/audio/music/jp/jp-019.ogg",
+      "midiUrl": "/audio/music/jp/jp-019.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2396377,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-020",
+      "title": "泳池藍天 · Poolside Sky",
+      "mood": "Original instrumental",
+      "bpm": 90,
+      "durationSeconds": 64,
+      "audioUrl": "/audio/music/jp/jp-020.ogg",
+      "midiUrl": "/audio/music/jp/jp-020.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2822400,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-021",
+      "title": "深夜售票亭 · Midnight Ticket Booth",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 51.429,
+      "audioUrl": "/audio/music/jp/jp-021.ogg",
+      "midiUrl": "/audio/music/jp/jp-021.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2268000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-022",
+      "title": "山腰郵差 · Hillside Postman",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 45,
+      "audioUrl": "/audio/music/jp/jp-022.ogg",
+      "midiUrl": "/audio/music/jp/jp-022.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 1984500,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-023",
+      "title": "蕨葉低語 · Fern Whispers",
+      "mood": "Original instrumental",
+      "bpm": 76,
+      "durationSeconds": 50.526,
+      "audioUrl": "/audio/music/jp/jp-023.ogg",
+      "midiUrl": "/audio/music/jp/jp-023.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2228211,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-024",
+      "title": "岬角轉彎 · Cape Turn",
+      "mood": "Original instrumental",
+      "bpm": 116,
+      "durationSeconds": 49.655,
+      "audioUrl": "/audio/music/jp/jp-024.ogg",
+      "midiUrl": "/audio/music/jp/jp-024.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2189793,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-025",
+      "title": "布鞋星期天 · Canvas-Shoe Sunday",
+      "mood": "Original instrumental",
+      "bpm": 104,
+      "durationSeconds": 55.385,
+      "audioUrl": "/audio/music/jp/jp-025.ogg",
+      "midiUrl": "/audio/music/jp/jp-025.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2442462,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-026",
+      "title": "小碟月光 · Saucer Moonlight",
+      "mood": "Original instrumental",
+      "bpm": 94,
+      "durationSeconds": 45.957,
+      "audioUrl": "/audio/music/jp/jp-026.ogg",
+      "midiUrl": "/audio/music/jp/jp-026.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2026723,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-027",
+      "title": "巷口彩帶 · Lane-End Ribbons",
+      "mood": "Original instrumental",
+      "bpm": 108,
+      "durationSeconds": 53.333,
+      "audioUrl": "/audio/music/jp/jp-027.ogg",
+      "midiUrl": "/audio/music/jp/jp-027.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2352000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-028",
+      "title": "日照書頁 · Sunlit Pages",
+      "mood": "Original instrumental",
+      "bpm": 92,
+      "durationSeconds": 62.609,
+      "audioUrl": "/audio/music/jp/jp-028.ogg",
+      "midiUrl": "/audio/music/jp/jp-028.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2761043,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-029",
+      "title": "電梯星光 · Elevator Starlight",
+      "mood": "Original instrumental",
+      "bpm": 114,
+      "durationSeconds": 50.526,
+      "audioUrl": "/audio/music/jp/jp-029.ogg",
+      "midiUrl": "/audio/music/jp/jp-029.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2228211,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-030",
+      "title": "溪谷羅盤 · Valley Compass",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 45,
+      "audioUrl": "/audio/music/jp/jp-030.ogg",
+      "midiUrl": "/audio/music/jp/jp-030.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 1984500,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-031",
+      "title": "樹影眠曲 · Sleeping Tree Shadows",
+      "mood": "Original instrumental",
+      "bpm": 78,
+      "durationSeconds": 49.231,
+      "audioUrl": "/audio/music/jp/jp-031.ogg",
+      "midiUrl": "/audio/music/jp/jp-031.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2171077,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-032",
+      "title": "鹽風車窗 · Saltwind Window",
+      "mood": "Original instrumental",
+      "bpm": 118,
+      "durationSeconds": 48.814,
+      "audioUrl": "/audio/music/jp/jp-032.ogg",
+      "midiUrl": "/audio/music/jp/jp-032.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2152678,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-033",
+      "title": "天台明信片 · Rooftop Postcard",
+      "mood": "Original instrumental",
+      "bpm": 106,
+      "durationSeconds": 54.34,
+      "audioUrl": "/audio/music/jp/jp-033.ogg",
+      "midiUrl": "/audio/music/jp/jp-033.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2396377,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-034",
+      "title": "蜂蜜圓舞 · Honey Waltz",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 45,
+      "audioUrl": "/audio/music/jp/jp-034.ogg",
+      "midiUrl": "/audio/music/jp/jp-034.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 1984500,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-035",
+      "title": "夏夜紙扇 · Summer Paper Fan",
+      "mood": "Original instrumental",
+      "bpm": 110,
+      "durationSeconds": 52.364,
+      "audioUrl": "/audio/music/jp/jp-035.ogg",
+      "midiUrl": "/audio/music/jp/jp-035.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2309236,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-036",
+      "title": "白牆午后 · White-Wall Afternoon",
+      "mood": "Original instrumental",
+      "bpm": 94,
+      "durationSeconds": 61.277,
+      "audioUrl": "/audio/music/jp/jp-036.ogg",
+      "midiUrl": "/audio/music/jp/jp-036.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2702298,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-037",
+      "title": "雨巷收音機 · Rain-Lane Radio",
+      "mood": "Original instrumental",
+      "bpm": 116,
+      "durationSeconds": 49.655,
+      "audioUrl": "/audio/music/jp/jp-037.ogg",
+      "midiUrl": "/audio/music/jp/jp-037.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2189793,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-038",
+      "title": "草坡地圖 · Meadow Map",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 45,
+      "audioUrl": "/audio/music/jp/jp-038.ogg",
+      "midiUrl": "/audio/music/jp/jp-038.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 1984500,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-039",
+      "title": "林間藍霧 · Woodland Blue Haze",
+      "mood": "Original instrumental",
+      "bpm": 80,
+      "durationSeconds": 48,
+      "audioUrl": "/audio/music/jp/jp-039.ogg",
+      "midiUrl": "/audio/music/jp/jp-039.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2116800,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-040",
+      "title": "海堤慢車 · Seawall Slow Drive",
+      "mood": "Original instrumental",
+      "bpm": 120,
+      "durationSeconds": 48,
+      "audioUrl": "/audio/music/jp/jp-040.ogg",
+      "midiUrl": "/audio/music/jp/jp-040.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2116800,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-041",
+      "title": "口袋陽光 · Pocket Sunshine",
+      "mood": "Original instrumental",
+      "bpm": 108,
+      "durationSeconds": 53.333,
+      "audioUrl": "/audio/music/jp/jp-041.ogg",
+      "midiUrl": "/audio/music/jp/jp-041.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2352000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-042",
+      "title": "旋轉木匙 · Turning Wooden Spoon",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 45,
+      "audioUrl": "/audio/music/jp/jp-042.ogg",
+      "midiUrl": "/audio/music/jp/jp-042.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 1984500,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-043",
+      "title": "橋下燈會 · Lanterns Under the Bridge",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 51.429,
+      "audioUrl": "/audio/music/jp/jp-043.ogg",
+      "midiUrl": "/audio/music/jp/jp-043.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2268000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-044",
+      "title": "風鈴作業本 · Windchime Notebook",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 60,
+      "audioUrl": "/audio/music/jp/jp-044.ogg",
+      "midiUrl": "/audio/music/jp/jp-044.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2646000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-045",
+      "title": "星夜便利店 · Starry Corner Store",
+      "mood": "Original instrumental",
+      "bpm": 118,
+      "durationSeconds": 48.814,
+      "audioUrl": "/audio/music/jp/jp-045.ogg",
+      "midiUrl": "/audio/music/jp/jp-045.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2152678,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-046",
+      "title": "橙色背囊 · Orange Rucksack",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 45,
+      "audioUrl": "/audio/music/jp/jp-046.ogg",
+      "midiUrl": "/audio/music/jp/jp-046.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 1984500,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-047",
+      "title": "綠蔭回聲 · Green Canopy Echo",
+      "mood": "Original instrumental",
+      "bpm": 82,
+      "durationSeconds": 46.829,
+      "audioUrl": "/audio/music/jp/jp-047.ogg",
+      "midiUrl": "/audio/music/jp/jp-047.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2065171,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-048",
+      "title": "晴海彎道 · Clearwater Bend",
+      "mood": "Original instrumental",
+      "bpm": 122,
+      "durationSeconds": 47.213,
+      "audioUrl": "/audio/music/jp/jp-048.ogg",
+      "midiUrl": "/audio/music/jp/jp-048.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2082098,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-049",
+      "title": "薄荷放學路 · Mint-Scented Walk Home",
+      "mood": "Original instrumental",
+      "bpm": 110,
+      "durationSeconds": 52.364,
+      "audioUrl": "/audio/music/jp/jp-049.ogg",
+      "midiUrl": "/audio/music/jp/jp-049.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2309236,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "jp-050",
+      "title": "咖啡小行星 · Cafe Asteroid",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 45,
+      "audioUrl": "/audio/music/jp/jp-050.ogg",
+      "midiUrl": "/audio/music/jp/jp-050.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 1984500,
+        "sampleRate": 44100
+      }
+    }
+  ]
+}
