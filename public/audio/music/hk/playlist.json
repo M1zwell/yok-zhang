@@ -1,0 +1,1408 @@
+{
+  "version": 1,
+  "region": "hk",
+  "count": 100,
+  "sourceCommit": "f44fe154f143790789fa00990f4aa9f4c31c7427",
+  "tracks": [
+    {
+      "id": "hk-001",
+      "title": "霓虹山路 · Neon Switchback",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 68.571,
+      "audioUrl": "/audio/music/hk/01-neon-switchback.ogg",
+      "midiUrl": "/audio/music/hk/01-neon-switchback.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3024000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-002",
+      "title": "港灣餘暉 · Harbour Afterglow",
+      "mood": "Original instrumental",
+      "bpm": 84,
+      "durationSeconds": 91.429,
+      "audioUrl": "/audio/music/hk/02-harbour-afterglow.ogg",
+      "midiUrl": "/audio/music/hk/02-harbour-afterglow.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 4032000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-003",
+      "title": "雲上行 · Cloudway Wanderer",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 80,
+      "audioUrl": "/audio/music/hk/03-cloudway-wanderer.ogg",
+      "midiUrl": "/audio/music/hk/03-cloudway-wanderer.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3528000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-004",
+      "title": "海灣紙船 · Harbour Paper Boats",
+      "mood": "Original instrumental",
+      "bpm": 82,
+      "durationSeconds": 70.244,
+      "audioUrl": "/audio/music/hk/hk-004.ogg",
+      "midiUrl": "/audio/music/hk/hk-004.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3097756,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-005",
+      "title": "微光紙船 · Glimmer Paper Boats",
+      "mood": "Original instrumental",
+      "bpm": 108,
+      "durationSeconds": 53.333,
+      "audioUrl": "/audio/music/hk/hk-005.ogg",
+      "midiUrl": "/audio/music/hk/hk-005.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2352000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-006",
+      "title": "夜航紙船 · Night Ferry Paper Boats",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 51.429,
+      "audioUrl": "/audio/music/hk/hk-006.ogg",
+      "midiUrl": "/audio/music/hk/hk-006.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2268000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-007",
+      "title": "茶座紙船 · Tea Room Paper Boats",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 56.25,
+      "audioUrl": "/audio/music/hk/hk-007.ogg",
+      "midiUrl": "/audio/music/hk/hk-007.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2480625,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-008",
+      "title": "天台紙船 · Rooftop Paper Boats",
+      "mood": "Original instrumental",
+      "bpm": 76,
+      "durationSeconds": 75.789,
+      "audioUrl": "/audio/music/hk/hk-008.ogg",
+      "midiUrl": "/audio/music/hk/hk-008.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3342316,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-009",
+      "title": "街市紙船 · Market Paper Boats",
+      "mood": "Original instrumental",
+      "bpm": 106,
+      "durationSeconds": 54.34,
+      "audioUrl": "/audio/music/hk/hk-009.ogg",
+      "midiUrl": "/audio/music/hk/hk-009.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2396377,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-010",
+      "title": "雨窗紙船 · Rain Window Paper Boats",
+      "mood": "Original instrumental",
+      "bpm": 78,
+      "durationSeconds": 69.231,
+      "audioUrl": "/audio/music/hk/hk-010.ogg",
+      "midiUrl": "/audio/music/hk/hk-010.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3053077,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-011",
+      "title": "山徑紙船 · Ridge Paper Boats",
+      "mood": "Original instrumental",
+      "bpm": 102,
+      "durationSeconds": 56.471,
+      "audioUrl": "/audio/music/hk/hk-011.ogg",
+      "midiUrl": "/audio/music/hk/hk-011.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2490353,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-012",
+      "title": "像素紙船 · Pixel Paper Boats",
+      "mood": "Original instrumental",
+      "bpm": 116,
+      "durationSeconds": 49.655,
+      "audioUrl": "/audio/music/hk/hk-012.ogg",
+      "midiUrl": "/audio/music/hk/hk-012.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2189793,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-013",
+      "title": "木弦紙船 · Woodstring Paper Boats",
+      "mood": "Original instrumental",
+      "bpm": 92,
+      "durationSeconds": 62.609,
+      "audioUrl": "/audio/music/hk/hk-013.ogg",
+      "midiUrl": "/audio/music/hk/hk-013.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2761043,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-014",
+      "title": "海灣晨鐘 · Harbour Morning Bells",
+      "mood": "Original instrumental",
+      "bpm": 86,
+      "durationSeconds": 62.791,
+      "audioUrl": "/audio/music/hk/hk-014.ogg",
+      "midiUrl": "/audio/music/hk/hk-014.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2769070,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-015",
+      "title": "微光晨鐘 · Glimmer Morning Bells",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 51.429,
+      "audioUrl": "/audio/music/hk/hk-015.ogg",
+      "midiUrl": "/audio/music/hk/hk-015.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2268000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-016",
+      "title": "夜航晨鐘 · Night Ferry Morning Bells",
+      "mood": "Original instrumental",
+      "bpm": 116,
+      "durationSeconds": 49.655,
+      "audioUrl": "/audio/music/hk/hk-016.ogg",
+      "midiUrl": "/audio/music/hk/hk-016.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2189793,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-017",
+      "title": "茶座晨鐘 · Tea Room Morning Bells",
+      "mood": "Original instrumental",
+      "bpm": 100,
+      "durationSeconds": 57.6,
+      "audioUrl": "/audio/music/hk/hk-017.ogg",
+      "midiUrl": "/audio/music/hk/hk-017.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2540160,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-018",
+      "title": "天台晨鐘 · Rooftop Morning Bells",
+      "mood": "Original instrumental",
+      "bpm": 80,
+      "durationSeconds": 72,
+      "audioUrl": "/audio/music/hk/hk-018.ogg",
+      "midiUrl": "/audio/music/hk/hk-018.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3175200,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-019",
+      "title": "街市晨鐘 · Market Morning Bells",
+      "mood": "Original instrumental",
+      "bpm": 110,
+      "durationSeconds": 52.364,
+      "audioUrl": "/audio/music/hk/hk-019.ogg",
+      "midiUrl": "/audio/music/hk/hk-019.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2309236,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-020",
+      "title": "雨窗晨鐘 · Rain Window Morning Bells",
+      "mood": "Original instrumental",
+      "bpm": 82,
+      "durationSeconds": 70.244,
+      "audioUrl": "/audio/music/hk/hk-020.ogg",
+      "midiUrl": "/audio/music/hk/hk-020.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3097756,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-021",
+      "title": "山徑晨鐘 · Ridge Morning Bells",
+      "mood": "Original instrumental",
+      "bpm": 106,
+      "durationSeconds": 50.943,
+      "audioUrl": "/audio/music/hk/hk-021.ogg",
+      "midiUrl": "/audio/music/hk/hk-021.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2246604,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-022",
+      "title": "像素晨鐘 · Pixel Morning Bells",
+      "mood": "Original instrumental",
+      "bpm": 120,
+      "durationSeconds": 48,
+      "audioUrl": "/audio/music/hk/hk-022.ogg",
+      "midiUrl": "/audio/music/hk/hk-022.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2116800,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-023",
+      "title": "木弦晨鐘 · Woodstring Morning Bells",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 60,
+      "audioUrl": "/audio/music/hk/hk-023.ogg",
+      "midiUrl": "/audio/music/hk/hk-023.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2646000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-024",
+      "title": "海灣遠帆 · Harbour Distant Sails",
+      "mood": "Original instrumental",
+      "bpm": 80,
+      "durationSeconds": 72,
+      "audioUrl": "/audio/music/hk/hk-024.ogg",
+      "midiUrl": "/audio/music/hk/hk-024.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3175200,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-025",
+      "title": "微光遠帆 · Glimmer Distant Sails",
+      "mood": "Original instrumental",
+      "bpm": 106,
+      "durationSeconds": 54.34,
+      "audioUrl": "/audio/music/hk/hk-025.ogg",
+      "midiUrl": "/audio/music/hk/hk-025.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2396377,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-026",
+      "title": "夜航遠帆 · Night Ferry Distant Sails",
+      "mood": "Original instrumental",
+      "bpm": 110,
+      "durationSeconds": 52.364,
+      "audioUrl": "/audio/music/hk/hk-026.ogg",
+      "midiUrl": "/audio/music/hk/hk-026.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2309236,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-027",
+      "title": "茶座遠帆 · Tea Room Distant Sails",
+      "mood": "Original instrumental",
+      "bpm": 94,
+      "durationSeconds": 61.277,
+      "audioUrl": "/audio/music/hk/hk-027.ogg",
+      "midiUrl": "/audio/music/hk/hk-027.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2702298,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-028",
+      "title": "天台遠帆 · Rooftop Distant Sails",
+      "mood": "Original instrumental",
+      "bpm": 74,
+      "durationSeconds": 72.973,
+      "audioUrl": "/audio/music/hk/hk-028.ogg",
+      "midiUrl": "/audio/music/hk/hk-028.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3218108,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-029",
+      "title": "街市遠帆 · Market Distant Sails",
+      "mood": "Original instrumental",
+      "bpm": 104,
+      "durationSeconds": 55.385,
+      "audioUrl": "/audio/music/hk/hk-029.ogg",
+      "midiUrl": "/audio/music/hk/hk-029.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2442462,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-030",
+      "title": "雨窗遠帆 · Rain Window Distant Sails",
+      "mood": "Original instrumental",
+      "bpm": 76,
+      "durationSeconds": 71.053,
+      "audioUrl": "/audio/music/hk/hk-030.ogg",
+      "midiUrl": "/audio/music/hk/hk-030.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3133421,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-031",
+      "title": "山徑遠帆 · Ridge Distant Sails",
+      "mood": "Original instrumental",
+      "bpm": 100,
+      "durationSeconds": 57.6,
+      "audioUrl": "/audio/music/hk/hk-031.ogg",
+      "midiUrl": "/audio/music/hk/hk-031.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2540160,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-032",
+      "title": "像素遠帆 · Pixel Distant Sails",
+      "mood": "Original instrumental",
+      "bpm": 114,
+      "durationSeconds": 50.526,
+      "audioUrl": "/audio/music/hk/hk-032.ogg",
+      "midiUrl": "/audio/music/hk/hk-032.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2228211,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-033",
+      "title": "木弦遠帆 · Woodstring Distant Sails",
+      "mood": "Original instrumental",
+      "bpm": 90,
+      "durationSeconds": 64,
+      "audioUrl": "/audio/music/hk/hk-033.ogg",
+      "midiUrl": "/audio/music/hk/hk-033.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2822400,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-034",
+      "title": "海灣慢步 · Harbour Slow Steps",
+      "mood": "Original instrumental",
+      "bpm": 88,
+      "durationSeconds": 65.455,
+      "audioUrl": "/audio/music/hk/hk-034.ogg",
+      "midiUrl": "/audio/music/hk/hk-034.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2886545,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-035",
+      "title": "微光慢步 · Glimmer Slow Steps",
+      "mood": "Original instrumental",
+      "bpm": 114,
+      "durationSeconds": 47.368,
+      "audioUrl": "/audio/music/hk/hk-035.ogg",
+      "midiUrl": "/audio/music/hk/hk-035.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2088947,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-036",
+      "title": "夜航慢步 · Night Ferry Slow Steps",
+      "mood": "Original instrumental",
+      "bpm": 118,
+      "durationSeconds": 48.814,
+      "audioUrl": "/audio/music/hk/hk-036.ogg",
+      "midiUrl": "/audio/music/hk/hk-036.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2152678,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-037",
+      "title": "茶座慢步 · Tea Room Slow Steps",
+      "mood": "Original instrumental",
+      "bpm": 102,
+      "durationSeconds": 56.471,
+      "audioUrl": "/audio/music/hk/hk-037.ogg",
+      "midiUrl": "/audio/music/hk/hk-037.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2490353,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-038",
+      "title": "天台慢步 · Rooftop Slow Steps",
+      "mood": "Original instrumental",
+      "bpm": 82,
+      "durationSeconds": 70.244,
+      "audioUrl": "/audio/music/hk/hk-038.ogg",
+      "midiUrl": "/audio/music/hk/hk-038.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3097756,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-039",
+      "title": "街市慢步 · Market Slow Steps",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 51.429,
+      "audioUrl": "/audio/music/hk/hk-039.ogg",
+      "midiUrl": "/audio/music/hk/hk-039.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2268000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-040",
+      "title": "雨窗慢步 · Rain Window Slow Steps",
+      "mood": "Original instrumental",
+      "bpm": 84,
+      "durationSeconds": 68.571,
+      "audioUrl": "/audio/music/hk/hk-040.ogg",
+      "midiUrl": "/audio/music/hk/hk-040.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3024000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-041",
+      "title": "山徑慢步 · Ridge Slow Steps",
+      "mood": "Original instrumental",
+      "bpm": 108,
+      "durationSeconds": 53.333,
+      "audioUrl": "/audio/music/hk/hk-041.ogg",
+      "midiUrl": "/audio/music/hk/hk-041.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2352000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-042",
+      "title": "像素慢步 · Pixel Slow Steps",
+      "mood": "Original instrumental",
+      "bpm": 120,
+      "durationSeconds": 45,
+      "audioUrl": "/audio/music/hk/hk-042.ogg",
+      "midiUrl": "/audio/music/hk/hk-042.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 1984500,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-043",
+      "title": "木弦慢步 · Woodstring Slow Steps",
+      "mood": "Original instrumental",
+      "bpm": 98,
+      "durationSeconds": 58.776,
+      "audioUrl": "/audio/music/hk/hk-043.ogg",
+      "midiUrl": "/audio/music/hk/hk-043.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2592000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-044",
+      "title": "海灣星圖 · Harbour Star Map",
+      "mood": "Original instrumental",
+      "bpm": 78,
+      "durationSeconds": 73.846,
+      "audioUrl": "/audio/music/hk/hk-044.ogg",
+      "midiUrl": "/audio/music/hk/hk-044.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3256615,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-045",
+      "title": "微光星圖 · Glimmer Star Map",
+      "mood": "Original instrumental",
+      "bpm": 104,
+      "durationSeconds": 55.385,
+      "audioUrl": "/audio/music/hk/hk-045.ogg",
+      "midiUrl": "/audio/music/hk/hk-045.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2442462,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-046",
+      "title": "夜航星圖 · Night Ferry Star Map",
+      "mood": "Original instrumental",
+      "bpm": 108,
+      "durationSeconds": 53.333,
+      "audioUrl": "/audio/music/hk/hk-046.ogg",
+      "midiUrl": "/audio/music/hk/hk-046.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2352000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-047",
+      "title": "茶座星圖 · Tea Room Star Map",
+      "mood": "Original instrumental",
+      "bpm": 92,
+      "durationSeconds": 62.609,
+      "audioUrl": "/audio/music/hk/hk-047.ogg",
+      "midiUrl": "/audio/music/hk/hk-047.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2761043,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-048",
+      "title": "天台星圖 · Rooftop Star Map",
+      "mood": "Original instrumental",
+      "bpm": 72,
+      "durationSeconds": 80,
+      "audioUrl": "/audio/music/hk/hk-048.ogg",
+      "midiUrl": "/audio/music/hk/hk-048.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3528000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-049",
+      "title": "街市星圖 · Market Star Map",
+      "mood": "Original instrumental",
+      "bpm": 102,
+      "durationSeconds": 52.941,
+      "audioUrl": "/audio/music/hk/hk-049.ogg",
+      "midiUrl": "/audio/music/hk/hk-049.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2334706,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-050",
+      "title": "雨窗星圖 · Rain Window Star Map",
+      "mood": "Original instrumental",
+      "bpm": 74,
+      "durationSeconds": 72.973,
+      "audioUrl": "/audio/music/hk/hk-050.ogg",
+      "midiUrl": "/audio/music/hk/hk-050.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3218108,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-051",
+      "title": "山徑星圖 · Ridge Star Map",
+      "mood": "Original instrumental",
+      "bpm": 98,
+      "durationSeconds": 58.776,
+      "audioUrl": "/audio/music/hk/hk-051.ogg",
+      "midiUrl": "/audio/music/hk/hk-051.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2592000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-052",
+      "title": "像素星圖 · Pixel Star Map",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 51.429,
+      "audioUrl": "/audio/music/hk/hk-052.ogg",
+      "midiUrl": "/audio/music/hk/hk-052.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2268000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-053",
+      "title": "木弦星圖 · Woodstring Star Map",
+      "mood": "Original instrumental",
+      "bpm": 88,
+      "durationSeconds": 65.455,
+      "audioUrl": "/audio/music/hk/hk-053.ogg",
+      "midiUrl": "/audio/music/hk/hk-053.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2886545,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-054",
+      "title": "海灣風信 · Harbour Wind Letters",
+      "mood": "Original instrumental",
+      "bpm": 82,
+      "durationSeconds": 70.244,
+      "audioUrl": "/audio/music/hk/hk-054.ogg",
+      "midiUrl": "/audio/music/hk/hk-054.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3097756,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-055",
+      "title": "微光風信 · Glimmer Wind Letters",
+      "mood": "Original instrumental",
+      "bpm": 108,
+      "durationSeconds": 53.333,
+      "audioUrl": "/audio/music/hk/hk-055.ogg",
+      "midiUrl": "/audio/music/hk/hk-055.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2352000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-056",
+      "title": "夜航風信 · Night Ferry Wind Letters",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 48.214,
+      "audioUrl": "/audio/music/hk/hk-056.ogg",
+      "midiUrl": "/audio/music/hk/hk-056.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2126250,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-057",
+      "title": "茶座風信 · Tea Room Wind Letters",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 60,
+      "audioUrl": "/audio/music/hk/hk-057.ogg",
+      "midiUrl": "/audio/music/hk/hk-057.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2646000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-058",
+      "title": "天台風信 · Rooftop Wind Letters",
+      "mood": "Original instrumental",
+      "bpm": 76,
+      "durationSeconds": 75.789,
+      "audioUrl": "/audio/music/hk/hk-058.ogg",
+      "midiUrl": "/audio/music/hk/hk-058.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3342316,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-059",
+      "title": "街市風信 · Market Wind Letters",
+      "mood": "Original instrumental",
+      "bpm": 106,
+      "durationSeconds": 54.34,
+      "audioUrl": "/audio/music/hk/hk-059.ogg",
+      "midiUrl": "/audio/music/hk/hk-059.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2396377,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-060",
+      "title": "雨窗風信 · Rain Window Wind Letters",
+      "mood": "Original instrumental",
+      "bpm": 78,
+      "durationSeconds": 73.846,
+      "audioUrl": "/audio/music/hk/hk-060.ogg",
+      "midiUrl": "/audio/music/hk/hk-060.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3256615,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-061",
+      "title": "山徑風信 · Ridge Wind Letters",
+      "mood": "Original instrumental",
+      "bpm": 102,
+      "durationSeconds": 56.471,
+      "audioUrl": "/audio/music/hk/hk-061.ogg",
+      "midiUrl": "/audio/music/hk/hk-061.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2490353,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-062",
+      "title": "像素風信 · Pixel Wind Letters",
+      "mood": "Original instrumental",
+      "bpm": 116,
+      "durationSeconds": 49.655,
+      "audioUrl": "/audio/music/hk/hk-062.ogg",
+      "midiUrl": "/audio/music/hk/hk-062.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2189793,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-063",
+      "title": "木弦風信 · Woodstring Wind Letters",
+      "mood": "Original instrumental",
+      "bpm": 92,
+      "durationSeconds": 58.696,
+      "audioUrl": "/audio/music/hk/hk-063.ogg",
+      "midiUrl": "/audio/music/hk/hk-063.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2588478,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-064",
+      "title": "海灣石階 · Harbour Stone Steps",
+      "mood": "Original instrumental",
+      "bpm": 86,
+      "durationSeconds": 66.977,
+      "audioUrl": "/audio/music/hk/hk-064.ogg",
+      "midiUrl": "/audio/music/hk/hk-064.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2953674,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-065",
+      "title": "微光石階 · Glimmer Stone Steps",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 51.429,
+      "audioUrl": "/audio/music/hk/hk-065.ogg",
+      "midiUrl": "/audio/music/hk/hk-065.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2268000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-066",
+      "title": "夜航石階 · Night Ferry Stone Steps",
+      "mood": "Original instrumental",
+      "bpm": 116,
+      "durationSeconds": 49.655,
+      "audioUrl": "/audio/music/hk/hk-066.ogg",
+      "midiUrl": "/audio/music/hk/hk-066.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2189793,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-067",
+      "title": "茶座石階 · Tea Room Stone Steps",
+      "mood": "Original instrumental",
+      "bpm": 100,
+      "durationSeconds": 57.6,
+      "audioUrl": "/audio/music/hk/hk-067.ogg",
+      "midiUrl": "/audio/music/hk/hk-067.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2540160,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-068",
+      "title": "天台石階 · Rooftop Stone Steps",
+      "mood": "Original instrumental",
+      "bpm": 80,
+      "durationSeconds": 72,
+      "audioUrl": "/audio/music/hk/hk-068.ogg",
+      "midiUrl": "/audio/music/hk/hk-068.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3175200,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-069",
+      "title": "街市石階 · Market Stone Steps",
+      "mood": "Original instrumental",
+      "bpm": 110,
+      "durationSeconds": 52.364,
+      "audioUrl": "/audio/music/hk/hk-069.ogg",
+      "midiUrl": "/audio/music/hk/hk-069.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2309236,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-070",
+      "title": "雨窗石階 · Rain Window Stone Steps",
+      "mood": "Original instrumental",
+      "bpm": 82,
+      "durationSeconds": 65.854,
+      "audioUrl": "/audio/music/hk/hk-070.ogg",
+      "midiUrl": "/audio/music/hk/hk-070.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2904146,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-071",
+      "title": "山徑石階 · Ridge Stone Steps",
+      "mood": "Original instrumental",
+      "bpm": 106,
+      "durationSeconds": 54.34,
+      "audioUrl": "/audio/music/hk/hk-071.ogg",
+      "midiUrl": "/audio/music/hk/hk-071.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2396377,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-072",
+      "title": "像素石階 · Pixel Stone Steps",
+      "mood": "Original instrumental",
+      "bpm": 120,
+      "durationSeconds": 48,
+      "audioUrl": "/audio/music/hk/hk-072.ogg",
+      "midiUrl": "/audio/music/hk/hk-072.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2116800,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-073",
+      "title": "木弦石階 · Woodstring Stone Steps",
+      "mood": "Original instrumental",
+      "bpm": 96,
+      "durationSeconds": 60,
+      "audioUrl": "/audio/music/hk/hk-073.ogg",
+      "midiUrl": "/audio/music/hk/hk-073.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2646000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-074",
+      "title": "海灣月影 · Harbour Moon Shadows",
+      "mood": "Original instrumental",
+      "bpm": 80,
+      "durationSeconds": 72,
+      "audioUrl": "/audio/music/hk/hk-074.ogg",
+      "midiUrl": "/audio/music/hk/hk-074.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3175200,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-075",
+      "title": "微光月影 · Glimmer Moon Shadows",
+      "mood": "Original instrumental",
+      "bpm": 106,
+      "durationSeconds": 54.34,
+      "audioUrl": "/audio/music/hk/hk-075.ogg",
+      "midiUrl": "/audio/music/hk/hk-075.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2396377,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-076",
+      "title": "夜航月影 · Night Ferry Moon Shadows",
+      "mood": "Original instrumental",
+      "bpm": 110,
+      "durationSeconds": 52.364,
+      "audioUrl": "/audio/music/hk/hk-076.ogg",
+      "midiUrl": "/audio/music/hk/hk-076.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2309236,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-077",
+      "title": "茶座月影 · Tea Room Moon Shadows",
+      "mood": "Original instrumental",
+      "bpm": 94,
+      "durationSeconds": 57.447,
+      "audioUrl": "/audio/music/hk/hk-077.ogg",
+      "midiUrl": "/audio/music/hk/hk-077.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2533404,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-078",
+      "title": "天台月影 · Rooftop Moon Shadows",
+      "mood": "Original instrumental",
+      "bpm": 74,
+      "durationSeconds": 77.838,
+      "audioUrl": "/audio/music/hk/hk-078.ogg",
+      "midiUrl": "/audio/music/hk/hk-078.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3432649,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-079",
+      "title": "街市月影 · Market Moon Shadows",
+      "mood": "Original instrumental",
+      "bpm": 104,
+      "durationSeconds": 55.385,
+      "audioUrl": "/audio/music/hk/hk-079.ogg",
+      "midiUrl": "/audio/music/hk/hk-079.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2442462,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-080",
+      "title": "雨窗月影 · Rain Window Moon Shadows",
+      "mood": "Original instrumental",
+      "bpm": 76,
+      "durationSeconds": 75.789,
+      "audioUrl": "/audio/music/hk/hk-080.ogg",
+      "midiUrl": "/audio/music/hk/hk-080.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3342316,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-081",
+      "title": "山徑月影 · Ridge Moon Shadows",
+      "mood": "Original instrumental",
+      "bpm": 100,
+      "durationSeconds": 57.6,
+      "audioUrl": "/audio/music/hk/hk-081.ogg",
+      "midiUrl": "/audio/music/hk/hk-081.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2540160,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-082",
+      "title": "像素月影 · Pixel Moon Shadows",
+      "mood": "Original instrumental",
+      "bpm": 114,
+      "durationSeconds": 50.526,
+      "audioUrl": "/audio/music/hk/hk-082.ogg",
+      "midiUrl": "/audio/music/hk/hk-082.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2228211,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-083",
+      "title": "木弦月影 · Woodstring Moon Shadows",
+      "mood": "Original instrumental",
+      "bpm": 90,
+      "durationSeconds": 64,
+      "audioUrl": "/audio/music/hk/hk-083.ogg",
+      "midiUrl": "/audio/music/hk/hk-083.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2822400,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-084",
+      "title": "海灣回聲 · Harbour Echoes",
+      "mood": "Original instrumental",
+      "bpm": 88,
+      "durationSeconds": 61.364,
+      "audioUrl": "/audio/music/hk/hk-084.ogg",
+      "midiUrl": "/audio/music/hk/hk-084.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2706136,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-085",
+      "title": "微光回聲 · Glimmer Echoes",
+      "mood": "Original instrumental",
+      "bpm": 114,
+      "durationSeconds": 50.526,
+      "audioUrl": "/audio/music/hk/hk-085.ogg",
+      "midiUrl": "/audio/music/hk/hk-085.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2228211,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-086",
+      "title": "夜航回聲 · Night Ferry Echoes",
+      "mood": "Original instrumental",
+      "bpm": 118,
+      "durationSeconds": 48.814,
+      "audioUrl": "/audio/music/hk/hk-086.ogg",
+      "midiUrl": "/audio/music/hk/hk-086.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2152678,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-087",
+      "title": "茶座回聲 · Tea Room Echoes",
+      "mood": "Original instrumental",
+      "bpm": 102,
+      "durationSeconds": 56.471,
+      "audioUrl": "/audio/music/hk/hk-087.ogg",
+      "midiUrl": "/audio/music/hk/hk-087.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2490353,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-088",
+      "title": "天台回聲 · Rooftop Echoes",
+      "mood": "Original instrumental",
+      "bpm": 82,
+      "durationSeconds": 70.244,
+      "audioUrl": "/audio/music/hk/hk-088.ogg",
+      "midiUrl": "/audio/music/hk/hk-088.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3097756,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-089",
+      "title": "街市回聲 · Market Echoes",
+      "mood": "Original instrumental",
+      "bpm": 112,
+      "durationSeconds": 51.429,
+      "audioUrl": "/audio/music/hk/hk-089.ogg",
+      "midiUrl": "/audio/music/hk/hk-089.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2268000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-090",
+      "title": "雨窗回聲 · Rain Window Echoes",
+      "mood": "Original instrumental",
+      "bpm": 84,
+      "durationSeconds": 64.286,
+      "audioUrl": "/audio/music/hk/hk-090.ogg",
+      "midiUrl": "/audio/music/hk/hk-090.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2835000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-091",
+      "title": "山徑回聲 · Ridge Echoes",
+      "mood": "Original instrumental",
+      "bpm": 108,
+      "durationSeconds": 50,
+      "audioUrl": "/audio/music/hk/hk-091.ogg",
+      "midiUrl": "/audio/music/hk/hk-091.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2205000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-092",
+      "title": "像素回聲 · Pixel Echoes",
+      "mood": "Original instrumental",
+      "bpm": 122,
+      "durationSeconds": 47.213,
+      "audioUrl": "/audio/music/hk/hk-092.ogg",
+      "midiUrl": "/audio/music/hk/hk-092.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2082098,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-093",
+      "title": "木弦回聲 · Woodstring Echoes",
+      "mood": "Original instrumental",
+      "bpm": 98,
+      "durationSeconds": 58.776,
+      "audioUrl": "/audio/music/hk/hk-093.ogg",
+      "midiUrl": "/audio/music/hk/hk-093.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2592000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-094",
+      "title": "海灣歸途 · Harbour Homeward",
+      "mood": "Original instrumental",
+      "bpm": 78,
+      "durationSeconds": 73.846,
+      "audioUrl": "/audio/music/hk/hk-094.ogg",
+      "midiUrl": "/audio/music/hk/hk-094.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3256615,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-095",
+      "title": "微光歸途 · Glimmer Homeward",
+      "mood": "Original instrumental",
+      "bpm": 104,
+      "durationSeconds": 55.385,
+      "audioUrl": "/audio/music/hk/hk-095.ogg",
+      "midiUrl": "/audio/music/hk/hk-095.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2442462,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-096",
+      "title": "夜航歸途 · Night Ferry Homeward",
+      "mood": "Original instrumental",
+      "bpm": 108,
+      "durationSeconds": 53.333,
+      "audioUrl": "/audio/music/hk/hk-096.ogg",
+      "midiUrl": "/audio/music/hk/hk-096.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2352000,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-097",
+      "title": "茶座歸途 · Tea Room Homeward",
+      "mood": "Original instrumental",
+      "bpm": 92,
+      "durationSeconds": 62.609,
+      "audioUrl": "/audio/music/hk/hk-097.ogg",
+      "midiUrl": "/audio/music/hk/hk-097.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2761043,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-098",
+      "title": "天台歸途 · Rooftop Homeward",
+      "mood": "Original instrumental",
+      "bpm": 72,
+      "durationSeconds": 75,
+      "audioUrl": "/audio/music/hk/hk-098.ogg",
+      "midiUrl": "/audio/music/hk/hk-098.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3307500,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-099",
+      "title": "街市歸途 · Market Homeward",
+      "mood": "Original instrumental",
+      "bpm": 102,
+      "durationSeconds": 56.471,
+      "audioUrl": "/audio/music/hk/hk-099.ogg",
+      "midiUrl": "/audio/music/hk/hk-099.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 2490353,
+        "sampleRate": 44100
+      }
+    },
+    {
+      "id": "hk-100",
+      "title": "雨窗歸途 · Rain Window Homeward",
+      "mood": "Original instrumental",
+      "bpm": 74,
+      "durationSeconds": 77.838,
+      "audioUrl": "/audio/music/hk/hk-100.ogg",
+      "midiUrl": "/audio/music/hk/hk-100.mid",
+      "loop": {
+        "startSample": 0,
+        "endSampleExclusive": 3432649,
+        "sampleRate": 44100
+      }
+    }
+  ]
+}

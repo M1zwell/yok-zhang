@@ -1,0 +1,313 @@
+{
+  "region": "JP",
+  "count": 50,
+  "method": "Programmatically composed and synthesized original instrumental drafts; no external recordings or samples used.",
+  "validation": "MIDI identity compared to producer references; audio decode, sample count and loop boundary checks passed. Human listening review not performed. This is not exhaustive similarity clearance.",
+  "sourceSha256": {
+    "generate_catalog.py": "af756703ebbaa897f98f43a5f3aa626473186bcb76ca76b488d4b58193268130",
+    "dsp_source.py": "c349437491f8a5e52f5cf1f9d4f77a628848008874ba8583a3fcd2ef7e908f2a",
+    "validate_audio_midi.py": "8c6f88693be9f804d00257e59c71d836c28bba9625ff2405e6f9f93e2286bf0b"
+  },
+  "tracks": [
+    {
+      "id": "jp-001",
+      "midiSha256": "57a7e28b617ba956f850b1c1ab02c218788c1356b6caea8d607c0e72cfeb159d",
+      "oggSha256": "bb0e5bd8881769604d508da5477d2c0fd0d68ed6fb67bd2f411fe8a12b7830ca",
+      "decodedSamples": 3175200
+    },
+    {
+      "id": "jp-002",
+      "midiSha256": "22616eac67aa28b0df97fed714e5f5eb5eccec828b7228175466754c507ff36d",
+      "oggSha256": "efe2f5a21fd9971ae2935ccf5350843a1d7d811930c5dd289c7e72472d746b14",
+      "decodedSamples": 2919724
+    },
+    {
+      "id": "jp-003",
+      "midiSha256": "94eed8e2ed86bbe7a8f36a0763e843d76008d853b0718bc3fd2cbd188aa63670",
+      "oggSha256": "a4674bd030ccc64f81dd74b9b7e779b90393589994c542d34d2bfa9bf123a6a8",
+      "decodedSamples": 2886545
+    },
+    {
+      "id": "jp-004",
+      "midiSha256": "7bd646a01a76dadab8b765ba31e05993416821f4e91a32627f8f47f993b19941",
+      "oggSha256": "7edfacdf623f9cfee9ceeab8934d1128dbd60d8ba79b4de993f654e5bcc5ea8d",
+      "decodedSamples": 2953674
+    },
+    {
+      "id": "jp-005",
+      "midiSha256": "ec66e5c1641db40fe17d530cfc6d2b70109d6d202230e2e742486cb149a97069",
+      "oggSha256": "2555d72b2caaef4b4a839b179b3db2ab9dc72dc1bf0aec492a699426ab9c0a36",
+      "decodedSamples": 2352000
+    },
+    {
+      "id": "jp-006",
+      "midiSha256": "23ed6bbf637d76bbf1a837cff6a92541c3908fc0ee63fcf85c267ebe16b0b777",
+      "oggSha256": "4bc4aa42d38b01de05e69064054994dddd70fb0e6ee29173ef8d15bf3bcf82d7",
+      "decodedSamples": 2026723
+    },
+    {
+      "id": "jp-007",
+      "midiSha256": "e2fe8e9213d5caa23b644e824fec158d5370a7fffc221340a3ac0a5ae35c39c3",
+      "oggSha256": "aba94d3538efa9432e0dd821a7c543fcfdcec0e8f04ff1aa52651f74c9113a61",
+      "decodedSamples": 2352000
+    },
+    {
+      "id": "jp-008",
+      "midiSha256": "db5667066c3cc3b797c21d0e2e3c60f8babd9c2715720070381adfa3090254a0",
+      "oggSha256": "6edbca42e6a1ac1681a1f8f1189a44a3546e4605414397188aefa462ed966008",
+      "decodedSamples": 2268000
+    },
+    {
+      "id": "jp-009",
+      "midiSha256": "c5f8beb3e325eaf6bead43c5b022db4deb4e9bd738e10c4feab398bca3ab6d8d",
+      "oggSha256": "a3cc5181c95485961f858f7334d0a14d48f494befe7aec1b7a39840f57e2d014",
+      "decodedSamples": 2540160
+    },
+    {
+      "id": "jp-010",
+      "midiSha256": "0de6e27daad49ffbc97738330c979cf0237d399a0d7013db85f749f35bc853d2",
+      "oggSha256": "de58b79340d845a2cdefa4d7099f46f438640686cdfa0fd3122abf7beb0f2ec2",
+      "decodedSamples": 2116800
+    },
+    {
+      "id": "jp-011",
+      "midiSha256": "04c27de5a5593bdf39995856fb64a8f151bdfdd4a3b2a7e394c3f2006db227e7",
+      "oggSha256": "e32c1d9d90ef537a071eb1f66c7bc8283bd52bd099ae210115bb4525c68aca7d",
+      "decodedSamples": 2442462
+    },
+    {
+      "id": "jp-012",
+      "midiSha256": "942948af1e8769aeb5f5699ab9bf5f09e4d6d2b1e2f2eed0bda2a77eb4b392a0",
+      "oggSha256": "a490a85301ac85a5254fd898d85919ff993d6097f24adc72858e7ba7051c8605",
+      "decodedSamples": 2886545
+    },
+    {
+      "id": "jp-013",
+      "midiSha256": "df82c07506b886fcfc82c2a93518f8a577f082371855623423093192d71edac6",
+      "oggSha256": "e6b88aac23005fc2a2727cb3ac98f9472797452718660225ba1ede30f7a82132",
+      "decodedSamples": 2309236
+    },
+    {
+      "id": "jp-014",
+      "midiSha256": "c90ecb8cec752bd5f4bde7bf15281a5192df9a7bcfccf122ff1c7da7e9f36d26",
+      "oggSha256": "8c401697ab39d9a16e10d7884f8072adfc64f783f9adb746372497c3eab43e9b",
+      "decodedSamples": 1984500
+    },
+    {
+      "id": "jp-015",
+      "midiSha256": "6ade77c6a209a1a3a98f4efbed6b047e6ae334f15549683870cd45154192e9e5",
+      "oggSha256": "20691c3b6e79adb2749ec75f1f8665152bcb7e8e145f8baf91e8aac2ed11d7d4",
+      "decodedSamples": 2288432
+    },
+    {
+      "id": "jp-016",
+      "midiSha256": "5d4775248c3e096f814fc553b53e9f65e90433566d21025faf267cd6d5d761e0",
+      "oggSha256": "1e7f20ae89dcfef1078180531a75fafe9011d4f377d5eb24e028f40b548cacfc",
+      "decodedSamples": 2228211
+    },
+    {
+      "id": "jp-017",
+      "midiSha256": "1fed38a71d83a3448c69724a53be5b126476c10152d032614c9815f8069db2ca",
+      "oggSha256": "5081f75298330fb6d12c439aa1cb9a1c656d7b4598c0231e7fd18f94ee20de51",
+      "decodedSamples": 2490353
+    },
+    {
+      "id": "jp-018",
+      "midiSha256": "aba036920779b818e33fc94c71b1fffc530153c226d85c7b60c710e2a27e8b64",
+      "oggSha256": "9b4b01e59fe647d053c0dbaa7f15d31a60ec93196c59ee043583f068a5442296",
+      "decodedSamples": 2070783
+    },
+    {
+      "id": "jp-019",
+      "midiSha256": "b7b25397d527f567f2027963f1098f7c82e410a00566a1f1d0b7abefeb5f469d",
+      "oggSha256": "5a12419e4fff07b29dc20eca91996c17b476035e0da5cad2d480f71b34069495",
+      "decodedSamples": 2396377
+    },
+    {
+      "id": "jp-020",
+      "midiSha256": "d7b186fa8769001397f4b868a813f6c39377c8f0aed4ac10623e7484dc335c3f",
+      "oggSha256": "1a7e85828b5f6d2b7b745d00a68d124b25641aa2cf99b0454d254bfb5f99bd15",
+      "decodedSamples": 2822400
+    },
+    {
+      "id": "jp-021",
+      "midiSha256": "a8285887fd2a0a3574225eff4fec81a2e025cb58780016e1815758ec3acae843",
+      "oggSha256": "c7ae8ef6b7f2017cb33773d56959aa03a0d75fbda41ca13ba3b605d97b1bfe5f",
+      "decodedSamples": 2268000
+    },
+    {
+      "id": "jp-022",
+      "midiSha256": "e4c1b7bb25b1c344c15950e8f1523055f15126a3e565c439eadb7c47f529365f",
+      "oggSha256": "9e16df6ee258c3d3fbc267fd8cee3157910e468e1c254b76021efcff3ae31822",
+      "decodedSamples": 1984500
+    },
+    {
+      "id": "jp-023",
+      "midiSha256": "7b78d24a53d677230c14847664cd7565a12f3f28a0c87a8bb0754fff5f38370b",
+      "oggSha256": "86e7257d82c7acd517a8ee5c3889d0b17df4c9ab38ad5801bfa6a11a2ccad564",
+      "decodedSamples": 2228211
+    },
+    {
+      "id": "jp-024",
+      "midiSha256": "afded9e08d6ac4e97f8e5f6efae2430afd82ee29fd5391b39e10d5fd8e09488d",
+      "oggSha256": "9568d1a25218d9a19231e017c05f494d705432089fa286013352d4c202e6115d",
+      "decodedSamples": 2189793
+    },
+    {
+      "id": "jp-025",
+      "midiSha256": "d10eb41fc084490a5a0861f0518aaab655e13ed32c3f6db489000bd7f00fa13e",
+      "oggSha256": "11626516f88808322dfb8861f392bf9e4bcb30e1642ef7940f9250feca543b09",
+      "decodedSamples": 2442462
+    },
+    {
+      "id": "jp-026",
+      "midiSha256": "9eacffbb68d88fba5afe32ca071e06029244d1b967fae5becd8016a81392d521",
+      "oggSha256": "882c4063ad390474808b91cfed5057c9085c34f0530a016c5c2f15b1c82f5afb",
+      "decodedSamples": 2026723
+    },
+    {
+      "id": "jp-027",
+      "midiSha256": "3b2126230492e9ae98c3147a34378567e1fa71fc8728378b1067b7d98a8e322e",
+      "oggSha256": "5b8fc2981fe30981c643cf730d94e1ff638b64d34e023e51d433701d944fed25",
+      "decodedSamples": 2352000
+    },
+    {
+      "id": "jp-028",
+      "midiSha256": "6c6130039fa165b554c3f1dc7d70ce61ecc6112102358dc816e7fc60f9d3e138",
+      "oggSha256": "2d7ca667081bfcaa4a47a3a165c17809ee6dee88747a187c07fc32fe3ae07e5c",
+      "decodedSamples": 2761043
+    },
+    {
+      "id": "jp-029",
+      "midiSha256": "0bc6234f990b646723d81987bf61efa8d5de6e74946c875e7f0b0732e25bbf38",
+      "oggSha256": "9fe1d8a27687a0aad6cc3abb50afdfaea13dd0516df677e0555d528c58466378",
+      "decodedSamples": 2228211
+    },
+    {
+      "id": "jp-030",
+      "midiSha256": "101361f7893ab01e18076b19f5b13815ad1b2fd949e2781cc473a939bebdd4b9",
+      "oggSha256": "880b952b5683545c928210b54ce80299b4ceaff9f73587dc12f20e962bb69b46",
+      "decodedSamples": 1984500
+    },
+    {
+      "id": "jp-031",
+      "midiSha256": "9568070c5533045fbebf23953c34354f5ff5be5c207533169b75cb70f84c12b4",
+      "oggSha256": "7ff1899c07b5f53896d1e0d8c35add84c2cfc976491ca33c0be2c732df9acb78",
+      "decodedSamples": 2171077
+    },
+    {
+      "id": "jp-032",
+      "midiSha256": "81788a5193994744b45b3c77e1b7fc563cebae5b0f224e826b94fa875b8e4d2f",
+      "oggSha256": "9e09e4039e7a8ae5ec0b64a57c1123a56244181d5a40ab63cb36fb7bb0979d02",
+      "decodedSamples": 2152678
+    },
+    {
+      "id": "jp-033",
+      "midiSha256": "1238989899ebea6213f8d2b430d10cdbccf4a3832eaed8009b8ed24343c53c92",
+      "oggSha256": "aba6716fdc12e4b80dd162cdd5d827545c6eb4b7ce901415d60e7a5f444d8300",
+      "decodedSamples": 2396377
+    },
+    {
+      "id": "jp-034",
+      "midiSha256": "6275f23f3693377f7e504d74bf590cb23843cc66b6406cf0d37f4ca129239d3e",
+      "oggSha256": "d60f5517de30680a0e0db957b52276aed6c1a31e43548fc024d586e0bfdae4c0",
+      "decodedSamples": 1984500
+    },
+    {
+      "id": "jp-035",
+      "midiSha256": "b4cddd3f6119d8034f74a17c17de27a51ace061999cf01abff4cd72e2e361352",
+      "oggSha256": "95dee0f23d98203fa81a1c22a6a7f0b75f1acea1951cf54cc1c067643dd2b6e3",
+      "decodedSamples": 2309236
+    },
+    {
+      "id": "jp-036",
+      "midiSha256": "7db662fdf49185cc2757e296ddc60c8d82ec30b3541aa7ce0dac4c0790a24c54",
+      "oggSha256": "4ad4450402288ef881928325a4d8c464a184b3afb1df36cacc07c50cd192aab4",
+      "decodedSamples": 2702298
+    },
+    {
+      "id": "jp-037",
+      "midiSha256": "c00a2879c2e46451ec81a03870df0084712cc749bb338840c426e1ea93f39197",
+      "oggSha256": "a26aa47e7b9653e46cd56f26a2f00fcbe96e2720bf497cc768e76d5bb2fe824a",
+      "decodedSamples": 2189793
+    },
+    {
+      "id": "jp-038",
+      "midiSha256": "077499163cb4bda876c7b672159205aa2e439690a170b37e4bcbc062d1630347",
+      "oggSha256": "c5d98a8f8138274752c5d225268d370f9c9223731b966f97ef5cc5b4862bcded",
+      "decodedSamples": 1984500
+    },
+    {
+      "id": "jp-039",
+      "midiSha256": "85e3a553af9c6876e3b8a9d9fb85a413530718bc0a0737cf735871db8e6ac1f8",
+      "oggSha256": "80ec578adcdcdd7c1790d63e60e8a9ef4c34bd6269ce0e3a32fde036c1a568a8",
+      "decodedSamples": 2116800
+    },
+    {
+      "id": "jp-040",
+      "midiSha256": "e9bfd5b819b09c235478d0f3a5fc840b20049de699f2960c85bad5eb9f08b0a6",
+      "oggSha256": "8f132fcd230a24d934fca4c3d203922026a309c8dd47d3c6e01e907461a14581",
+      "decodedSamples": 2116800
+    },
+    {
+      "id": "jp-041",
+      "midiSha256": "4616ec2dd316f19e639f00ed1f9f80f916344cc62f8920bf1525308591af140e",
+      "oggSha256": "df234a06595e271d620d8e7b82ba76e5ab75cc9363a78e511da1bbb9b6e89be9",
+      "decodedSamples": 2352000
+    },
+    {
+      "id": "jp-042",
+      "midiSha256": "ad30162733d5d73fa7a4cc34e3ecdf9b5c194092d6eb767dd237d6182d8210c8",
+      "oggSha256": "9dbcc6ace33c60f9cc842e4d0cde3988b6860b479ee957ce4336759b846dbea2",
+      "decodedSamples": 1984500
+    },
+    {
+      "id": "jp-043",
+      "midiSha256": "c4118197c72ffc330298ea4f71d691e3e709aff4fd6e8ff6116ca3886f76acb9",
+      "oggSha256": "26ca2a234c1fc8a49cc57e487777067629956a9f53407ccc6b447174a6169aa4",
+      "decodedSamples": 2268000
+    },
+    {
+      "id": "jp-044",
+      "midiSha256": "643358acade175e0af85aea875c5e1aaac769d7abea2db4656f067c4c60de562",
+      "oggSha256": "87739030f9c31c0c744fbe9bd3e8f6fe7ede15193f62dc9e37a4f904a39dd2aa",
+      "decodedSamples": 2646000
+    },
+    {
+      "id": "jp-045",
+      "midiSha256": "b124e8a831dce80a04142c59f60a1c09072494e81ff0ee70e7dca331492007a7",
+      "oggSha256": "c2be8700a2a5c36a4a8e4382b7041d43fef759b9d4421faace4b9da9a4acea83",
+      "decodedSamples": 2152678
+    },
+    {
+      "id": "jp-046",
+      "midiSha256": "9398ffe847cd6f9c552b92781249bfc51c14ebfc6f3b49ff968575c0e95b53d9",
+      "oggSha256": "e1142c9f2af7bf21f0b37d3c74b83ee73e7c332e6b5bdfdb9f1a0554a111da59",
+      "decodedSamples": 1984500
+    },
+    {
+      "id": "jp-047",
+      "midiSha256": "05e1c70780da7335d105349984c45f39b5f6cae98389c69f51834535b3969edb",
+      "oggSha256": "5a2625227de9100e4f39c0e94fad4c32f018ec7eb00910c58dc4c9d56b68e0cb",
+      "decodedSamples": 2065171
+    },
+    {
+      "id": "jp-048",
+      "midiSha256": "1b0cd3450856d1df0b10899b38bbee4b46fab6474e2b57fe4b319fe09c0b11c1",
+      "oggSha256": "ed9ea6e58cb7293f6d76d2272cdcfe8b3d13842389581a433daf466c56161b62",
+      "decodedSamples": 2082098
+    },
+    {
+      "id": "jp-049",
+      "midiSha256": "522b6e0a02b87d6a099e2e2d6a7f5bb260a670ca41249835bb5a012fd1a1da30",
+      "oggSha256": "ed98648b54496917fac8f14feaed2089b3f336d0d56f9a5d73490e4a7fad0012",
+      "decodedSamples": 2309236
+    },
+    {
+      "id": "jp-050",
+      "midiSha256": "d89c7dbde9e9480a2636595d5237a4902369a56f6f533ce2cec9c04432a99e05",
+      "oggSha256": "583c0cb26e04c1b2976b7c2bc87b9ecd90c8c65d8677b8abba10446dcc3c6525",
+      "decodedSamples": 1984500
+    }
+  ]
+}

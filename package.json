@@ -16,7 +16,8 @@
     "verify:planning": "node --experimental-strip-types scripts/verify-planning.ts",
     "verify:tokens": "node --experimental-strip-types scripts/verify-gghere-tokens.ts",
     "sync:tekoart": "node scripts/sync-tekoart-catalog.mjs",
-    "verify:tekoart-sso": "node --experimental-strip-types scripts/verify-tekoart-sso-callback.ts"
+    "verify:tekoart-sso": "node --experimental-strip-types scripts/verify-tekoart-sso-callback.ts",
+    "verify:music": "node scripts/verify-music-assets.mjs && node --experimental-strip-types scripts/verify-music-player.ts"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.8",

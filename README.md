@@ -11,6 +11,7 @@ The improved dseek mark lives on this garden only — it is not deployed to dsee
 ## Routes
 
 - `/` garden home (English, unprefixed)
+- `/music` AI Music Play — 200 original synthetic instrumentals (HK 100 / CN 50 / JP 50), regional playlists and MIDI downloads
 - `/hometown` 秀陇张茂文房 — hourglass tree, 字辈, attested map, family 报到
 - `/writing` one stream: notes, research theme chips, and the live dseek research desk
 - `/writing/[slug]` notes

@@ -1,0 +1,313 @@
+{
+  "region": "CN",
+  "count": 50,
+  "method": "Programmatically composed and synthesized original instrumental drafts; no external recordings or samples used.",
+  "validation": "MIDI identity compared to producer references; audio decode, sample count and loop boundary checks passed. Human listening review not performed. This is not exhaustive similarity clearance.",
+  "sourceSha256": {
+    "generate_catalog.py": "552bec15ec402a7f90b01e5cd488c801e6caca3ee723be2429d9a8ef31a50cb5",
+    "dsp_foundation.py": "4f083149033750f259a49c823810021ccc42f8742f3c6ae611f3c870ea4d8da2",
+    "technical_checks.py": "8c6f88693be9f804d00257e59c71d836c28bba9625ff2405e6f9f93e2286bf0b"
+  },
+  "tracks": [
+    {
+      "id": "cn-001",
+      "midiSha256": "ecf2b03373b2a479565089a969c7818e75ba7829cd3ef23dd50dc853edf3799d",
+      "oggSha256": "058cb27e5b3e6b6985dd4ee0d24a41d4c6178fe551776e0685581ba3dad851b0",
+      "decodedSamples": 3256615
+    },
+    {
+      "id": "cn-002",
+      "midiSha256": "a278dad6b3a1f2715753478ecabcd34b385c3a121070776b1e3ed4f629b4f094",
+      "oggSha256": "beaf05dc73a4b90d0b1da9f5634510e621887398f1b4281ba786373dd441ebde",
+      "decodedSamples": 3681391
+    },
+    {
+      "id": "cn-003",
+      "midiSha256": "fcce1bc841386bc809514e4063d4f70d971782519381c64609d2d9c43fee9a4a",
+      "oggSha256": "a14b34c832f618395c093e8655be89d9397f1d900dab87825e5b4385ef65a7f4",
+      "decodedSamples": 3256615
+    },
+    {
+      "id": "cn-004",
+      "midiSha256": "1f60ed17e702782403d7aeb43ba91381df3f8c484e44034378a358a7de58ec4c",
+      "oggSha256": "73897b1efc291269788a5d6cf99b16f95637f5d51a598459175b27e665c31254",
+      "decodedSamples": 2506737
+    },
+    {
+      "id": "cn-005",
+      "midiSha256": "3267b7f8e8ab448063d054a0a05562af3210aa359a26af4b18f51fec649deec5",
+      "oggSha256": "4b2cb77eebc0b1228c3caa2e97031883725f735a576845d274194abdc95aa0ff",
+      "decodedSamples": 3024000
+    },
+    {
+      "id": "cn-006",
+      "midiSha256": "e5d5f30fbbdc98320476cdc9af1d9a472202146597563f6d77191de7931a8685",
+      "oggSha256": "8bd96c5db9565b793ee6f16dc563d8a9b7a8f56bffa76ac4696753b3453afbc3",
+      "decodedSamples": 2646000
+    },
+    {
+      "id": "cn-007",
+      "midiSha256": "c12137a2d9b646767a3f638485a4c052da1ac631f1069f9639a5ceb4d4560453",
+      "oggSha256": "c743669a6215c842938348ffef348d1076a8af21c3dd0595796985a1c5bdd396",
+      "decodedSamples": 2352000
+    },
+    {
+      "id": "cn-008",
+      "midiSha256": "639c284b615db705945cfb42badc4f35332df276239fb944e39060c7f2ea7a4d",
+      "oggSha256": "928c2070e635c5b2ce2d47988d0ed7d025f40d8cfa33663110521442d5ac424c",
+      "decodedSamples": 2381400
+    },
+    {
+      "id": "cn-009",
+      "midiSha256": "d210a1291b6046fe112267942af8ff4b90ec62e15cdf0a4398e833ebfc7b918c",
+      "oggSha256": "1ca165b78b1b3696964d224fcc4dc679e78296268ffce9e5678cd477380f743b",
+      "decodedSamples": 2646000
+    },
+    {
+      "id": "cn-010",
+      "midiSha256": "220348b7c3309c20e43750c95b1dfb5d470aba1714ca32226b2bd54092e51069",
+      "oggSha256": "46c8e2ff1c2cd3409d6904f07c6f4d3bef6f2754324f601349c15c523f219f09",
+      "decodedSamples": 2490353
+    },
+    {
+      "id": "cn-011",
+      "midiSha256": "7743bad3a09829ef26f28919d3db682a9633051eb98010e77f14de4f7f8ca7f3",
+      "oggSha256": "d234a6b103cbb17ed5449e6aa11ea36f4ef43738d56c19b64a98ee313cc1693c",
+      "decodedSamples": 2415913
+    },
+    {
+      "id": "cn-012",
+      "midiSha256": "7f65ae48359409605dab3e427dd54c8bae335b8a6f095020beb6c5ebb10013b9",
+      "oggSha256": "65b5aa5403c0e68ba8d79c1e2be306d154d5bb2931bb1e6e70346b1fe7776f1f",
+      "decodedSamples": 2381400
+    },
+    {
+      "id": "cn-013",
+      "midiSha256": "648f82ad8a6075515ab49e539a16f8a3fe187272df1e1f1964722c48b8dcc6a5",
+      "oggSha256": "daa1c054f3d0446bc6fea2761d3f86df0b0f7501611b97e344e3515bb93f244b",
+      "decodedSamples": 2886545
+    },
+    {
+      "id": "cn-014",
+      "midiSha256": "6742895b442b6ecba5e79bb23baed664f21177ae7397c391bf92e4403e476e06",
+      "oggSha256": "65f9c08417c625c88fee6c32157adb284617ca4aa9fdc562461933797912b92c",
+      "decodedSamples": 2540160
+    },
+    {
+      "id": "cn-015",
+      "midiSha256": "cf148d38d7e73908f860c43386dbcd896a3f017cb9d610f1b2b3a343b7c8f3c7",
+      "oggSha256": "cf4cc9cbb1da3321d9a2a0dfdd36bd03459e14843ce8d770113d90eee18535a0",
+      "decodedSamples": 2268000
+    },
+    {
+      "id": "cn-016",
+      "midiSha256": "360f71011df835f35d8ca82c6b4e4fbb8f2e8f681015d295a09d40be34d9b2e0",
+      "oggSha256": "b9f766de4dcf8f0d5486b542363243eceb82a835ae65bd8396f7df14f576675c",
+      "decodedSamples": 2268000
+    },
+    {
+      "id": "cn-017",
+      "midiSha256": "60f19977cc954f40f9bd9bfd0052a8be2f467c55ca6ca4bbf4219346744cf086",
+      "oggSha256": "d1885ecb389fc4eb96fa72d6eb9437f61ea36bac622024fa5a2761b2c9389a10",
+      "decodedSamples": 2544231
+    },
+    {
+      "id": "cn-018",
+      "midiSha256": "d3e2ba9bc0fffd07118799b375ca39015953b2d1c10dda100d78c929a8d8488d",
+      "oggSha256": "c6aa557e8cf577ec9d5062f0e46259bd4c019d6c8121b129c24806b9839d263c",
+      "decodedSamples": 2396377
+    },
+    {
+      "id": "cn-019",
+      "midiSha256": "6d10b489a3da7cb0825cd96ab6a9fca5f3b6af865b85429f89ae9d1130b6286f",
+      "oggSha256": "7945ecb08007f1550821cc340ea7baf3dbfeba2a3d510c9454d478a900c7231a",
+      "decodedSamples": 2315250
+    },
+    {
+      "id": "cn-020",
+      "midiSha256": "f6bae70202b7909d93ff0f4484236b281da1d13c496bf2a100d4c9dd365d4456",
+      "oggSha256": "addf6f2c7169b358424a3d2467cba417ff02566ba8278dbdea9ae4b42a389027",
+      "decodedSamples": 2609753
+    },
+    {
+      "id": "cn-021",
+      "midiSha256": "50213c3b7799acedf6a87a8f67997537cbb9de15737f4a18370cfd848ee08c9f",
+      "oggSha256": "395fc4b70df0b2f104249c2e666b37698002e6a4d38f1612c13f4ab278683bfd",
+      "decodedSamples": 3136000
+    },
+    {
+      "id": "cn-022",
+      "midiSha256": "be6b1bbe519fd4e0f472512d0ddc133e5e229983963923d9a67aef7adf1324d3",
+      "oggSha256": "390900f65317c47dda3c2cc2ebeb0c2e273d13d29e7eed6694a5f42ea12578ae",
+      "decodedSamples": 2731355
+    },
+    {
+      "id": "cn-023",
+      "midiSha256": "b520b44cc4b66033da57a0ce7ba2908fc271f2eb065335c4949e5125b99824f7",
+      "oggSha256": "546a1d4e93719f183c47c3030ea98a62b62418592db142b0d7aef54768db552b",
+      "decodedSamples": 2419200
+    },
+    {
+      "id": "cn-024",
+      "midiSha256": "5d3c0ce32f1a8328c7189f9b45af3d05e2a72157efdf607dbe9ca1a26b190435",
+      "oggSha256": "238f028675848a362689f6fc7fd823a8e234b974ace8993688c80a24c9696d04",
+      "decodedSamples": 2474182
+    },
+    {
+      "id": "cn-025",
+      "midiSha256": "246d41ca03977a51d9e844a53cadfc89424fc48c5dc95e6fd3be0f742aec828a",
+      "oggSha256": "0f4b8a226a92966fcefd31a164eec0067f7188e4c62a0339509df13fbea0f789",
+      "decodedSamples": 2727835
+    },
+    {
+      "id": "cn-026",
+      "midiSha256": "ccfc52403b3c1de4e7e60875d569fdcf15131a765c3984a11d137d07ce8b2ee7",
+      "oggSha256": "6bf81302cd9affcc73719db6602e72df740bbe7c40648b61f5feefaa45372f96",
+      "decodedSamples": 2565818
+    },
+    {
+      "id": "cn-027",
+      "midiSha256": "b0cd50a0f24c714ad454f35d2660e06b031cc1bd9cd7c185648c97d054be98df",
+      "oggSha256": "3fe3842dc3dfbfdf66a1adfc94da8171ed022df401191cb69006c679e5b80f36",
+      "decodedSamples": 2497348
+    },
+    {
+      "id": "cn-028",
+      "midiSha256": "703708f1e9dfbb303123a71bd399ebc806e5f16d39c7bfe4cb49e42996305aaa",
+      "oggSha256": "6d4f1ddc7c84cb2836c40e759862aac8180db52ce1e7d6409bf7d8d2b3b057c0",
+      "decodedSamples": 2295325
+    },
+    {
+      "id": "cn-029",
+      "midiSha256": "9f3a5e458063cef791d119d2ef1dcbfc35e0deab3dbcb9792c70fdc19712e9ff",
+      "oggSha256": "8dd15fb1ff385d8826cef70608e34c3e713bfe208dfeca8becedd91000a0b964",
+      "decodedSamples": 2791385
+    },
+    {
+      "id": "cn-030",
+      "midiSha256": "c9f2ffc28248b7b23a8b3e173749966f7fa24ddcf04a02dd125cb7ddd6473b5c",
+      "oggSha256": "c53f8f181c768507dc24f2d7a2a3cc00080b4a60503a4c9d8e71f901da73c5df",
+      "decodedSamples": 2466175
+    },
+    {
+      "id": "cn-031",
+      "midiSha256": "51f2fd4372a71f3ea3d4ad53ea2704b2c4e99add010bfa5297110d4964ee3160",
+      "oggSha256": "8adc8a716ffad7cf314234c7619a1b0d1a191d119056b9dc6ccfe4b33b0d4ccc",
+      "decodedSamples": 2208835
+    },
+    {
+      "id": "cn-032",
+      "midiSha256": "a978f634118f1965115f5dd4917b707a71ac466ca13fd7e7e6bccaf6363c5bdb",
+      "oggSha256": "ea513facd42dd6932a5e7cdbf901b8dae8f4d1b34bf07d5b20301e45cf87f6e3",
+      "decodedSamples": 2189793
+    },
+    {
+      "id": "cn-033",
+      "midiSha256": "80ca08d09eeebc2faa122757d1327603fd691c48ff4708f962c4ed8dcaa1893a",
+      "oggSha256": "3d6ca7c9416cdb79ba018fa2e83fd342063a70482d7852a82f4ff4f8e434d97a",
+      "decodedSamples": 2472897
+    },
+    {
+      "id": "cn-034",
+      "midiSha256": "de24de5c248712186cc8a137a6c1016a6fa15cffd2de67512b78ec8e46c4e145",
+      "oggSha256": "8e81817c76452e628c1e4cf3c4d5b84b8414094d8f36a701c7adcbd79f5ce9e6",
+      "decodedSamples": 2330422
+    },
+    {
+      "id": "cn-035",
+      "midiSha256": "ebedba4185ff73528ef2349ddccff8809a0cdaacb6c14303e00f08ad2b04c546",
+      "oggSha256": "26f1f71da520f7c4af3f55a2e1ecdfccfd7e61b99ec204d5c8b4d001872868ba",
+      "decodedSamples": 2245091
+    },
+    {
+      "id": "cn-036",
+      "midiSha256": "9e41108a58a63c62be2ef88c7db0e045d13b27fa7cbb92241874316d9b791a6a",
+      "oggSha256": "67995c65a56a22e77151e1502daa302918dad90e957a0a42e66273b6e7bed979",
+      "decodedSamples": 2442462
+    },
+    {
+      "id": "cn-037",
+      "midiSha256": "40ca167d75c3122cb2e343cb33ef3b234e78c4dd751ce7d0c26caa4807f2ee44",
+      "oggSha256": "459979f4389a97c1b20685fbdfad01ac3240ff3eff4f6d6be83299bb513475a4",
+      "decodedSamples": 2953674
+    },
+    {
+      "id": "cn-038",
+      "midiSha256": "6b8e3ea423535f03244f033c1daf617d1bb52f82e58f3219fb14248650669d44",
+      "oggSha256": "687f69e3b61513ab8bf52560136a7ae8f05d054c868835e633f1978286158ed3",
+      "decodedSamples": 2592000
+    },
+    {
+      "id": "cn-039",
+      "midiSha256": "3a4e28dbfc764abfd5afc2d7bb931afca197c9bfbfbf52e0e519d299acb55482",
+      "oggSha256": "cafe7d80c36979674cc337a794409180f06ab407af16fab53415b86fddf96a56",
+      "decodedSamples": 2309236
+    },
+    {
+      "id": "cn-040",
+      "midiSha256": "0f5ad9f5e76a290ce799cb2d6fda10b3b3e6becb97aa4b607af54c8deb5adecd",
+      "oggSha256": "2815bdd589754080eed52d0cea3184e3815fe28548dd02a25e460a23e862afe3",
+      "decodedSamples": 2323317
+    },
+    {
+      "id": "cn-041",
+      "midiSha256": "17dacd26cd7e27d3819beae0b2d41c6c49fc121c29254a9f5749e54f364beb0d",
+      "oggSha256": "40d9af27a46a1846a4e31b624c19994e56816e6e3e450676b407e7b494ab7202",
+      "decodedSamples": 2594118
+    },
+    {
+      "id": "cn-042",
+      "midiSha256": "cd30408846bff61a49a5594a1ef3b92e2f152b37f10d948ab7659842eafd3b19",
+      "oggSha256": "1146172395ea304e879569cbad7d70f981aeb8c6f521b8a0ae2b66b348e02385",
+      "decodedSamples": 2442462
+    },
+    {
+      "id": "cn-043",
+      "midiSha256": "dabab5df8e7684352216762b20de37e61cf8ceb61dc1f6c581c86d96040035db",
+      "oggSha256": "7801b8f6a3ff4ce1517c96d58f3777ccfbf6660df5f4bca6c6c5b0a625207860",
+      "decodedSamples": 2364511
+    },
+    {
+      "id": "cn-044",
+      "midiSha256": "3de1d263d52dc99958cfcc9c64a3a0c039301812aeb6bee3365a07b0eb6746d7",
+      "oggSha256": "06c3448f1a17a8d91f585cc82fa1fe58997317fcc5d9ae5bc0149a2e7bf0fc2a",
+      "decodedSamples": 2683268
+    },
+    {
+      "id": "cn-045",
+      "midiSha256": "30a7c800baa9650b0a8e80645c0a80445dcd3c8239ad7377dd909ecad996e8fb",
+      "oggSha256": "65df34abd0c753dc22ba71148aa080ac3d6b25d8c2362aeef2a8a8538405df4d",
+      "decodedSamples": 3215392
+    },
+    {
+      "id": "cn-046",
+      "midiSha256": "65e3bc243bb80a39ea0b47c62d0a98c8b289dd0d7f01cfc75bf51082d5fdca66",
+      "oggSha256": "45c33c64674fb179befe46e1b8904a241563b37df81a1efc7c60af08d8fa2ea7",
+      "decodedSamples": 2791385
+    },
+    {
+      "id": "cn-047",
+      "midiSha256": "dc37150127d36d9605de741bdca83e8fd15af1b1ea45531ebca53fb6cd32f54d",
+      "oggSha256": "a3dfec845216c0c3ec8ca2c48bcdfcb162da8a830481a86840aa4c42c12fe339",
+      "decodedSamples": 2466175
+    },
+    {
+      "id": "cn-048",
+      "midiSha256": "c997b2e059fbb2674dacebcb51e630820b9faf07d2ac189a2252a6acf1563b25",
+      "oggSha256": "b6c4f81ef6cad7de679e311bb06a2aa5bd35bd18fe69d050d02aef407b777ced",
+      "decodedSamples": 2540160
+    },
+    {
+      "id": "cn-049",
+      "midiSha256": "463e133f72ac21495b0f30efad98939ebf77bde7c450eb29097a7c619f8e698e",
+      "oggSha256": "1f77bf2f164cc8fb80027422288909e78fc54702c6234d6c4c5b8de65b1e3ab7",
+      "decodedSamples": 2785263
+    },
+    {
+      "id": "cn-050",
+      "midiSha256": "c5cc3f62e1f8067c0a51e8f0b148f8a202aa8b28d5e98db56e08d04bd6524c5f",
+      "oggSha256": "cd1746e06634ba657a15da9e4328bdf7d9b65f4e902119294c83924c73386b96",
+      "decodedSamples": 2618722
+    }
+  ]
+}

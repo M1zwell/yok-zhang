@@ -1,0 +1,613 @@
+{
+  "region": "HK",
+  "count": 100,
+  "method": "Programmatically composed and synthesized original instrumental drafts; no external recordings or samples used.",
+  "validation": "MIDI identity compared to producer references; audio decode, sample count and loop boundary checks passed. Human listening review not performed. This is not exhaustive similarity clearance.",
+  "sourceSha256": {
+    "generate.py": "e69e9eb0f5f147ce266854a495de1a727c0501787b292bdfa63b61b5462bf54e",
+    "original_renderer.py": "69e4fa2d203f9a0a8016deede49411da4d52270c55bda0114e833cd9609b32e7",
+    "validation_tools.py": "b5558642675267c7fa6bf82295c5607edcf830334299c5efb944ca3afdd03e60"
+  },
+  "tracks": [
+    {
+      "id": "hk-001",
+      "midiSha256": "cb4cf16447d4af71d0d80ef56df7e4422dcef6c0462926271709348590f6f6c0",
+      "oggSha256": "9b0ba2529e70fb66b25dbfc9b752a0ec1e1b23522c4651a0f1f7bcf0ece22171",
+      "decodedSamples": 3024000
+    },
+    {
+      "id": "hk-002",
+      "midiSha256": "46633aa6127b98aee3b2d3b52134960e65a8b04fde1ce3ff18ddd8bcea9616a4",
+      "oggSha256": "018f2553c896791cb18f8c32901f8c8566d24cb98ebdc04468c4046a387c7f96",
+      "decodedSamples": 4032000
+    },
+    {
+      "id": "hk-003",
+      "midiSha256": "aa20e8d435a3d3e0eb283df4026fc3c7a3d425f182a66159dddfa269ca6fdc14",
+      "oggSha256": "c935b5397c4c05cb82b6edf884abc4bc4adbcb6dfaeec68fb73fe82e4572198c",
+      "decodedSamples": 3528000
+    },
+    {
+      "id": "hk-004",
+      "midiSha256": "34613050077fc4f23905f30720b16b9782726eaf931e2d2d8474eb37e212583a",
+      "oggSha256": "1aedf4c24f5d16be5761986803d12d3c0938289f6c59c2058b6578acbede9851",
+      "decodedSamples": 3097756
+    },
+    {
+      "id": "hk-005",
+      "midiSha256": "772265108b06bf54df36acda280d27b050461b74665f74714fb2cb53de254d19",
+      "oggSha256": "4d61f8b061b1d3089a162c836d3f16e3a1b6961bb135960e1c7614955206aa6a",
+      "decodedSamples": 2352000
+    },
+    {
+      "id": "hk-006",
+      "midiSha256": "07a1f5a92194a23162fc2c89326b673fe6ce23531c0e4a084a87f652a072e300",
+      "oggSha256": "65a35c8e12ad76f9ad75e1e9fceccbf6626eaeb82f66c939eb1b9a66579c03f1",
+      "decodedSamples": 2268000
+    },
+    {
+      "id": "hk-007",
+      "midiSha256": "1d3afd9046f9d73fc7c1783c8150ef1bcc1ba6df9f3fcdd6071bbfefddaf7a86",
+      "oggSha256": "f8c77b7903de6a522bf7aae53f25c10179704bf681b9b3cdcef1c6b96321486a",
+      "decodedSamples": 2480625
+    },
+    {
+      "id": "hk-008",
+      "midiSha256": "a585eb1196a8bd8924915d7a6fd8b46d068a6b784b7d5b4954fd0452c589c743",
+      "oggSha256": "8cc4d89765af4ee291e1d094c2ae0778db3dc12ac817eb5e3af1aa5f96df9276",
+      "decodedSamples": 3342316
+    },
+    {
+      "id": "hk-009",
+      "midiSha256": "c13d994448f16f693c64c0825671e03a94151195cae4d67bee11e4951d5c2ad3",
+      "oggSha256": "3b84c3105e6541d6b529b08ae3aef4e05cf159d8b5fbc9c144b6ae9e64c87577",
+      "decodedSamples": 2396377
+    },
+    {
+      "id": "hk-010",
+      "midiSha256": "be3aa1aebfe41550c9caf4e8f9bbd3b137b76743bcc12c461d953302407633fc",
+      "oggSha256": "8ee3fa3e66db9b0e57968c11d12fd3ee121128fa949302ac2c1e8444d2c3ab2a",
+      "decodedSamples": 3053077
+    },
+    {
+      "id": "hk-011",
+      "midiSha256": "8e7b50273f4c47d689078b411b0c09509d8439090a7e7517e7300edf383daa5e",
+      "oggSha256": "a49a574dc8051916e754a84121b357b9101569ff5f6566cf7a7c4e7581479557",
+      "decodedSamples": 2490353
+    },
+    {
+      "id": "hk-012",
+      "midiSha256": "10561b366e34733ae8ac0c222ddccdc96137d7d33c46729b737c8043cc80da14",
+      "oggSha256": "3b4ac6bebd25b704df05dee0a236b0669a393ac97f5ab6da32beaed48939b826",
+      "decodedSamples": 2189793
+    },
+    {
+      "id": "hk-013",
+      "midiSha256": "837fa152350d9d755f68ab9816a0e21df113674bbeba2fea30e5c91d5b091101",
+      "oggSha256": "0b84a94fa950e7e36faa4d2d982f63cd1ad7603737aae1399451adf3f507cc58",
+      "decodedSamples": 2761043
+    },
+    {
+      "id": "hk-014",
+      "midiSha256": "d4437f9852ea9f4369e08e73d25e8ee1706a8039bce8edf71ebe2c1e021b30f1",
+      "oggSha256": "d382a6158117f7502a007b92bf709b65dea1aced28a176c3f78a4f154dfa1fb0",
+      "decodedSamples": 2769070
+    },
+    {
+      "id": "hk-015",
+      "midiSha256": "2885ddd87e254e88cd7052abbb624f2eaa9e7c49f1d59c7878f947f193e46951",
+      "oggSha256": "8ebfb1e10c96fe884a5d19d4467455640104548879083ba5bbbf5750bb38574a",
+      "decodedSamples": 2268000
+    },
+    {
+      "id": "hk-016",
+      "midiSha256": "4d944588b29a1397f0095684308fd264e53f4fb78283be4b3dca4227ff782b78",
+      "oggSha256": "479232dbc7a4b4611c7b12c29f44d4945f524137028de05dcd33b6211952fc11",
+      "decodedSamples": 2189793
+    },
+    {
+      "id": "hk-017",
+      "midiSha256": "7fbb3125b23df89b817fb4ac88171c1d59e5946b69ff3eb53a68d47f921da6ad",
+      "oggSha256": "434b051641de7937ec9b6be3d6ce4a24c67270e64169c4650947e40bb3156a79",
+      "decodedSamples": 2540160
+    },
+    {
+      "id": "hk-018",
+      "midiSha256": "20efe45e31fff4f7fee25803318555d4d636cd05ae0fe706b96b7afa80a7021b",
+      "oggSha256": "6e95391cef080321a069faac108ec6015f9f2787606046b8900cc22b71c98c0e",
+      "decodedSamples": 3175200
+    },
+    {
+      "id": "hk-019",
+      "midiSha256": "82e824bdf6ee93a66cf64d64f00af685da77f7eabf8c39632313d667f02d24cb",
+      "oggSha256": "8a7d896ec7afa0455cba308732799e074ce85312ede4c639141b7aa432f7f275",
+      "decodedSamples": 2309236
+    },
+    {
+      "id": "hk-020",
+      "midiSha256": "9a70cebd17aeba0cd730b8a3850849d950dc0d6d7c701d36524cbfa6e70748b0",
+      "oggSha256": "f8ddfe660987544a37228ad823abd1ce27008303a8f34318482643cb202a70b3",
+      "decodedSamples": 3097756
+    },
+    {
+      "id": "hk-021",
+      "midiSha256": "fd91b0599cf925f95ce40b83314ebe420da0e0fd5a3be721b144ab93b2d88d50",
+      "oggSha256": "4127d31d31fa536127e881609e4e1a7e1e6b3fed388c627039099e1f72ba5f18",
+      "decodedSamples": 2246604
+    },
+    {
+      "id": "hk-022",
+      "midiSha256": "7adb057ef5a308e1f9392692a800a9b845b83290ea97a458a582443a58f82f41",
+      "oggSha256": "bffed5fbde49e27c81a59289d4ab9a93734e5107a883072b0ccc53456cf597b6",
+      "decodedSamples": 2116800
+    },
+    {
+      "id": "hk-023",
+      "midiSha256": "d8aaec7514f7fb46c74866470e8c2dc50df7bce19f32fab7ec1a7ca0a5115643",
+      "oggSha256": "6a2b64460ceb619720311837f25656498b25d0deaab70179eef5082f2820f32f",
+      "decodedSamples": 2646000
+    },
+    {
+      "id": "hk-024",
+      "midiSha256": "f9c120d6b00dffe981c3496ccee59f47fa6bf50717e36d1a9807aeb5c5950563",
+      "oggSha256": "8131ad73fe8fdf94b7493a985795d3e73dd0a0309c8280b11f4af5a2429529fb",
+      "decodedSamples": 3175200
+    },
+    {
+      "id": "hk-025",
+      "midiSha256": "7d86fcfc36e3dc84af390b46a0c5eb9a81d6580a00a8ab4673d25266e7d6e64b",
+      "oggSha256": "de6678a8214b394509d2ba02af70c8105d62437f01122df20a26930fb392c7ab",
+      "decodedSamples": 2396377
+    },
+    {
+      "id": "hk-026",
+      "midiSha256": "a648f9c3e09cacb7fff351a5baeb7a4b75a701e129618fab0bcd043bc684a4ce",
+      "oggSha256": "825f59ca45bdef43e07dcb07e28552dd380e82c9fa2e1a3dd7a10604b1852d71",
+      "decodedSamples": 2309236
+    },
+    {
+      "id": "hk-027",
+      "midiSha256": "452dbb1acb0de9cb950b316f158f600c1c16105a54f4b543fb24c2d62d8a0e45",
+      "oggSha256": "ca18b3e383777b6671cfefc384fa8703fa1547ff5ea6d3c0eead17230e2e75f3",
+      "decodedSamples": 2702298
+    },
+    {
+      "id": "hk-028",
+      "midiSha256": "e4571fcd7ad2ce3fb77f346747e910a1bc31387c7d34b8fda611c343173a0ae6",
+      "oggSha256": "4fe8dafaa9064c7a2139095dee50efecec74a63a22f6693b3539988934487396",
+      "decodedSamples": 3218108
+    },
+    {
+      "id": "hk-029",
+      "midiSha256": "35b21548084330d24c35a89a21ed04de8947edf131a8e13d07da27321dfa104f",
+      "oggSha256": "e760d21dc2a0c27c7590895f0d7b854074f5f44c51864d8a6deaf2ec8f6d52f0",
+      "decodedSamples": 2442462
+    },
+    {
+      "id": "hk-030",
+      "midiSha256": "f3c81042136a76082a93ae78cc069fcbae420908b5b8ab744d4fc239a6c41db8",
+      "oggSha256": "a3a0ba033ab0a14dac2a0f130c5d11670d5221f993e8bcbe9f5f355c569b040d",
+      "decodedSamples": 3133421
+    },
+    {
+      "id": "hk-031",
+      "midiSha256": "6142c221b011f4bf71a0402b9e4dda5f594ccb3399f653e146851ce6a48183e5",
+      "oggSha256": "481da9fa83411cb8819a64ba6e22a672450037944f1d3c04778f057531113992",
+      "decodedSamples": 2540160
+    },
+    {
+      "id": "hk-032",
+      "midiSha256": "386b2439b5a90e8225abcb0050553afea0c19017a1212f1d35a38499deaae6e5",
+      "oggSha256": "22a3c4734018513e4d1b7397de1538bc6fcb6ba36f428c733e3ec53cb626db3a",
+      "decodedSamples": 2228211
+    },
+    {
+      "id": "hk-033",
+      "midiSha256": "20e6ca311855300e42b075536f53ecc7abb24a5ea67498a8b68df07eaa49a925",
+      "oggSha256": "13f424e7a2e536c4665fca793bc98db666bc442fc10289aa51128693cb6438af",
+      "decodedSamples": 2822400
+    },
+    {
+      "id": "hk-034",
+      "midiSha256": "8995a766bf427fdab61ff258b34b24f917d4cfa1aaad9fc42419ec60b9e708aa",
+      "oggSha256": "792a0c65499359ec2a07d864ea54324a4daeadc867b7f2f1b73407cf1107718e",
+      "decodedSamples": 2886545
+    },
+    {
+      "id": "hk-035",
+      "midiSha256": "55e06534c6ce1d8be291761774b9bf595d12c9f2dd51c647c785ca825a4796e1",
+      "oggSha256": "b6a41794db606d2e7440f318e48e7d1b51acf5a360448f784edc5e708dcbf66c",
+      "decodedSamples": 2088947
+    },
+    {
+      "id": "hk-036",
+      "midiSha256": "cff1c8916c1451cff5cb9d66c053fb198c597e34bc8d2b2d2474adbfe2fba193",
+      "oggSha256": "c0b9cb1266083b5f3907859b282a6d0c177ea9c2bf58a8b43c2cd3cf162bc73c",
+      "decodedSamples": 2152678
+    },
+    {
+      "id": "hk-037",
+      "midiSha256": "1f86cbf0ae778e7aab7a37c69f1c63df48f950d1c4374a667fa80cbe0244fce2",
+      "oggSha256": "d02c18f77951509da170a3acb1490241be019e7fa0a60c56a1bb7b0ff98ade9d",
+      "decodedSamples": 2490353
+    },
+    {
+      "id": "hk-038",
+      "midiSha256": "e48927ae25ef215c6990b029b8bab26f89749226a23e6c07c32dfcd3ebd8cd32",
+      "oggSha256": "2b6bdab264131e0426b699f865341df485f613f4f8c9034694454a974f377334",
+      "decodedSamples": 3097756
+    },
+    {
+      "id": "hk-039",
+      "midiSha256": "d47759644b9f67cad0c5f258dad55ae96d604c095fdf99cd3acbea0850a56a70",
+      "oggSha256": "277f19f64b88d816530620a83457e3284cf5cc5fd30c48add0fc32ef90158f99",
+      "decodedSamples": 2268000
+    },
+    {
+      "id": "hk-040",
+      "midiSha256": "1e698375511b774af4c6de9bd08277b2102cb62a865b5f91f735b14895723821",
+      "oggSha256": "bf6b87d0dd917692f672f4b827e1031b36cb578b645a770fb199d8651a974e6a",
+      "decodedSamples": 3024000
+    },
+    {
+      "id": "hk-041",
+      "midiSha256": "a82fe1ca9319671454a174cf36f3069ee82e3ae3f38feaa8111df565c84610f4",
+      "oggSha256": "4f29f56633d0235e2fa42bdaa357a92822a0790961dd2f74b32c0b1962fefadf",
+      "decodedSamples": 2352000
+    },
+    {
+      "id": "hk-042",
+      "midiSha256": "4aada395608f03a4a4029c8563050e902dea184d905eac02e5b7b519b362d0e4",
+      "oggSha256": "b01353ba97cd67b9ae6f1abecb2706072fb411c2490d98e4e865deb7fef2dffd",
+      "decodedSamples": 1984500
+    },
+    {
+      "id": "hk-043",
+      "midiSha256": "dc2fcf848af31d5f03da3d64b395d79f53665da109e4327a381c12f4d14b8750",
+      "oggSha256": "a3c9de3154a08283c7d757dfd35cc646a16e6cc9aae80a31241506df3886864a",
+      "decodedSamples": 2592000
+    },
+    {
+      "id": "hk-044",
+      "midiSha256": "80304a57c85faa95928fd1befc343ba55982bfc18fb30dc3a92f165dc72c37af",
+      "oggSha256": "18f1f85b1250f48db0a1b8c09b85ebde9f2196c08ee5471f7caa0cb08e6dd50d",
+      "decodedSamples": 3256615
+    },
+    {
+      "id": "hk-045",
+      "midiSha256": "c610667d88a71590962d943cfdbfd0a63e204dfa185343301a40518f1c9634b8",
+      "oggSha256": "b72e37ba4627eee8e2e37a91fd6ce8d7b168aeb332d98579ea951a2da89455bf",
+      "decodedSamples": 2442462
+    },
+    {
+      "id": "hk-046",
+      "midiSha256": "f3236ef0d34425dbb4e63f05965ad2e6c828eabee913cec2c2d3251fd33d07f5",
+      "oggSha256": "78e221d541d8237d4f8c8ccd52f31277db34fa1d7b8232fa3bf8966edde041da",
+      "decodedSamples": 2352000
+    },
+    {
+      "id": "hk-047",
+      "midiSha256": "104efb5388084a47eba5bcfff9e8b57348b9a526b09609bd6331347b741c6c83",
+      "oggSha256": "b4ba63f24ed4d633d53bf3182070f86d471b7604489e479685433b54a1a2d29f",
+      "decodedSamples": 2761043
+    },
+    {
+      "id": "hk-048",
+      "midiSha256": "5db3572610e6834aaaffa5aa7157e1ae325668bd6f0af7004b45aa0c70eba270",
+      "oggSha256": "bce79046c0e9ba19f93b013d504e05ea92f27a35301cbc5ba528edf089d68996",
+      "decodedSamples": 3528000
+    },
+    {
+      "id": "hk-049",
+      "midiSha256": "94c1b455232827becd7abd5f4fb1aacfc76c435b45ce499a27f5734fcc9e0481",
+      "oggSha256": "9dce0392b37061969be405cbb81751326c79adb8e3975973f5532b37122879b2",
+      "decodedSamples": 2334706
+    },
+    {
+      "id": "hk-050",
+      "midiSha256": "50d8d7707e2e3fe03a8c5e784a994593471a20e3d44caea474ab711be3bb08b6",
+      "oggSha256": "2e8bdc27fa36d3615422722d80d1d8ad00aec17130cbf3ac6528cb646a047168",
+      "decodedSamples": 3218108
+    },
+    {
+      "id": "hk-051",
+      "midiSha256": "9458f0f04cfddfef79fb493542e3c10af5a37be78e360d76090eda8fa62cad48",
+      "oggSha256": "d154a6bdbfa0fc68289818fd95bb5a4ffe0e0e759d62385c56d75f8a131d2b27",
+      "decodedSamples": 2592000
+    },
+    {
+      "id": "hk-052",
+      "midiSha256": "c717770eff4f1896d98ba7a134ca07942b0b09e42ac994e4821ce6ce33dfbd14",
+      "oggSha256": "fcef1e08c78ed0a02ccb728a4e50bbc0b900e43b0467a97fd029c988960b7289",
+      "decodedSamples": 2268000
+    },
+    {
+      "id": "hk-053",
+      "midiSha256": "91f172e38cfd850883a7326fdfa5a664ec6b5c2c713b9f7790842be140f6f0a2",
+      "oggSha256": "ebf271f6d913dac1727a80f966a43b99bbd09152b88645d012e1253479204273",
+      "decodedSamples": 2886545
+    },
+    {
+      "id": "hk-054",
+      "midiSha256": "d1be91d1de752904fe83524cbc0bcca3ac7c640b35de0e28f0b2a3bedf6d417c",
+      "oggSha256": "9752cbc02c07bc66a25b729e12b65b9ba8f676c3a379ce7327b374e7488facf7",
+      "decodedSamples": 3097756
+    },
+    {
+      "id": "hk-055",
+      "midiSha256": "7f6de7259d239639a8b6a947df69c73358594f061656074ce56f43341054dd8d",
+      "oggSha256": "83b4d9996bd2b2108fd69d216a67d08d6c8124beb91e3b6f563f3f0d00334fe2",
+      "decodedSamples": 2352000
+    },
+    {
+      "id": "hk-056",
+      "midiSha256": "672a6d03d0e9c9f2a342fa5e83eb209d7824f72b5b71237460281a58be0ba4bb",
+      "oggSha256": "8355e4a81183b7da860267b05d2f19477bd85e78aaad7e469554bc1e8ec9e903",
+      "decodedSamples": 2126250
+    },
+    {
+      "id": "hk-057",
+      "midiSha256": "cf95292914fd3ba9bfacac922604ad1982e3e778e07728dc729847dc52c31077",
+      "oggSha256": "1f9c01f799ee402ae48e553a6aa8efca2663f0419ddcdf0eb59729aaa49cc455",
+      "decodedSamples": 2646000
+    },
+    {
+      "id": "hk-058",
+      "midiSha256": "99af488d9411567a52b80499b8d7056e0efbec31529d1964784409d005ff9159",
+      "oggSha256": "528872b2bab701cca0494542501916366fe961f378cc8bb6092a39bc0f20b332",
+      "decodedSamples": 3342316
+    },
+    {
+      "id": "hk-059",
+      "midiSha256": "7dd3ed08260850f96d1eaf09881913d9f04fd316965ba753b1fec31499780da3",
+      "oggSha256": "b964f212742732a82ab8c871e5f8513bc46204e3020d9b8213c028d968d14f9b",
+      "decodedSamples": 2396377
+    },
+    {
+      "id": "hk-060",
+      "midiSha256": "0d46566d92bdd26cf8fbf4b28ed34b0c4c56d920f16736349e675ae56413afe9",
+      "oggSha256": "ce6b07e231c75e0cffe5f9d80bc14babbf16171f9083bf7a6d584133385cbf1e",
+      "decodedSamples": 3256615
+    },
+    {
+      "id": "hk-061",
+      "midiSha256": "eeb5f708c7828539f0fedf97ce5f5f475ddfaf6103f260b0a294bb2d29824627",
+      "oggSha256": "1698f77c9d02fdaa06de93a342c2f54ce4f4e89a38041fa7d7ae643d09a4aad7",
+      "decodedSamples": 2490353
+    },
+    {
+      "id": "hk-062",
+      "midiSha256": "dc3db69e4e773a02c746bb7cdaeef23d34af19c81baec4a78559db6e88cd27e6",
+      "oggSha256": "8e93ddadad0cf39b262bfbb13d197a7d1540e5dce2aa4daa5303c8c750f56ebe",
+      "decodedSamples": 2189793
+    },
+    {
+      "id": "hk-063",
+      "midiSha256": "6a96000c9d09f407edbb20740c17fc5acc28b5d48e36ded91a4e0a7973b2b643",
+      "oggSha256": "05dbcfee6a35785b81b73e1c331eca11c251839959b1e6913321772114ba8c7b",
+      "decodedSamples": 2588478
+    },
+    {
+      "id": "hk-064",
+      "midiSha256": "4166a083a8641f2bdb4f8401d1d9e6d4e40fc416e219dda05d29fb5ad54c302e",
+      "oggSha256": "95dcaaed7dc4c901473365b3b5ff2e801a426530787758341c002ccfb1ea1a6b",
+      "decodedSamples": 2953674
+    },
+    {
+      "id": "hk-065",
+      "midiSha256": "588ec5abe865deefc0d40531389ff73c9d3093f785ba47a40e6b98109c01688d",
+      "oggSha256": "3f1312fc6d179d0277eac6eef85fb4910c9df36d92930e8fe4566f160241e52a",
+      "decodedSamples": 2268000
+    },
+    {
+      "id": "hk-066",
+      "midiSha256": "1357c1f94529fdf676bde9aaa5480f8d2a2a85766f6fa128143035f1fa176ad1",
+      "oggSha256": "8a5f4cdded569e17efeab4eeab8372588f60b27b1c18d034c24d3d8b4fd57719",
+      "decodedSamples": 2189793
+    },
+    {
+      "id": "hk-067",
+      "midiSha256": "a093c98d02439703f0f4d40df5ac3da2545f2194545bc1c2c8a99984f653207c",
+      "oggSha256": "38c64d52266f268bb216c2857ba45292b9bd7f40376c8f4056d7b5a14ae48e00",
+      "decodedSamples": 2540160
+    },
+    {
+      "id": "hk-068",
+      "midiSha256": "72e7e5748e2fc3a4123d5bae1a78882bf8fb1816ec190db4e106290a4a4ccbfe",
+      "oggSha256": "039af4753e44fa998e425e12db77ffb54c94022992154d83917e0687af9e3f7e",
+      "decodedSamples": 3175200
+    },
+    {
+      "id": "hk-069",
+      "midiSha256": "4906608e411ce6ceb0e3bd58540c33cfc1501ab2bdeb22172d38aaac951e8422",
+      "oggSha256": "69efc1e8ac964fbdab8796437b66bb8e8baf3c5aad81f161b1b9006d487debbe",
+      "decodedSamples": 2309236
+    },
+    {
+      "id": "hk-070",
+      "midiSha256": "d17d8f2a271d48e23131a05c7913671aed245b6adaf6f25e360a649652d43ac8",
+      "oggSha256": "dbf9aed5fa280535167f0113154943cb78329612b87d8ad0405a874517f13b99",
+      "decodedSamples": 2904146
+    },
+    {
+      "id": "hk-071",
+      "midiSha256": "d0162c89f84f69f60bc5344548e38ca5524cf6803aeb0673378d6d62177469c0",
+      "oggSha256": "210602c1bab1d2a827866c681f0dc119b4fc0c17e4ae9003db9fb2947ae135d0",
+      "decodedSamples": 2396377
+    },
+    {
+      "id": "hk-072",
+      "midiSha256": "0dbe02692d0924207e8926842c6405998a06e144450c9bbf92a4a39b84cacd4e",
+      "oggSha256": "bf55b37372424240a70a870c2caf7d8d49a5474072f7779442249da08df507a0",
+      "decodedSamples": 2116800
+    },
+    {
+      "id": "hk-073",
+      "midiSha256": "b5c1ecc5dabc30ac285de6ea806e034906852838f28c73c137b67bf707507feb",
+      "oggSha256": "71d5dc437db4533d89b07fa91e45e656bee2edf5a9573a03ebe9153e31f9ad4b",
+      "decodedSamples": 2646000
+    },
+    {
+      "id": "hk-074",
+      "midiSha256": "23c2775f63d85e9a4aa0c4b1d456197bb099c965cbd4bc7199c2d239662b9763",
+      "oggSha256": "97304deff70fbae8542f712e034151eeebed8c43c881d695294c66b5a720d7d8",
+      "decodedSamples": 3175200
+    },
+    {
+      "id": "hk-075",
+      "midiSha256": "cdfc44aa214806f21686dbd546218f1253a2d5b8c32c846b5bf4453554f30658",
+      "oggSha256": "c293575117b60e3098e9304fa3bd61ec2a053887e7436a594bddca05d7fcd77b",
+      "decodedSamples": 2396377
+    },
+    {
+      "id": "hk-076",
+      "midiSha256": "e7c1a15b3b2d6636acbc8176d86d2136bd9aae9969da18f82774a97899b0d365",
+      "oggSha256": "fe533150e43bacd8d1104156e1296f0c50b1ac82b30221be7d93b019ca420c42",
+      "decodedSamples": 2309236
+    },
+    {
+      "id": "hk-077",
+      "midiSha256": "bf945e810bc00e3fae61ed0c6a8909d8705eb75767ae26babe951fd3c571471a",
+      "oggSha256": "bf99f9770512f157703b375ea817551c686412c323cf909a9722cf8af631ca17",
+      "decodedSamples": 2533404
+    },
+    {
+      "id": "hk-078",
+      "midiSha256": "e9b48f55320ce0d3a09678cc3c16598a251fc698fc4fd35480a8939b484bd271",
+      "oggSha256": "73514b55d3cc0c4b23343416c25b19425e23cac1209cd1caeb09c38267ea9e14",
+      "decodedSamples": 3432649
+    },
+    {
+      "id": "hk-079",
+      "midiSha256": "844c3c2566453e06f03ae7013842f74831a84df13f25aa264cf2fc170a3cbb69",
+      "oggSha256": "acf78b6638336ef8f55d2576707b44a2bd71a0170c0d8b585f428e9a412a9b09",
+      "decodedSamples": 2442462
+    },
+    {
+      "id": "hk-080",
+      "midiSha256": "1772fb608a7a173e257f0d82153a763c9f3e544d805ee0d28db6e5c004b61233",
+      "oggSha256": "ff79ddb032f09f16c8e798cc7db5146ec8cd58abcbac28d39dd8a037aa703a47",
+      "decodedSamples": 3342316
+    },
+    {
+      "id": "hk-081",
+      "midiSha256": "a8586409bb8d2baf537e545630ddd190198b0d3e28e26fe6b9c3540714a71116",
+      "oggSha256": "9e8c5a01fb68f5447d9ccab82377ead4141b1b84df0b99dfd73ade2f1f7a2ade",
+      "decodedSamples": 2540160
+    },
+    {
+      "id": "hk-082",
+      "midiSha256": "8c42dc8c81237db1c98fd2ef2b9c7305ec9c6814b8d89fe3e4e2f09e8483cd1f",
+      "oggSha256": "82ab704923ea55cdea0b69f0443bc8d2021faf7ca612b020e6e4451048151cc0",
+      "decodedSamples": 2228211
+    },
+    {
+      "id": "hk-083",
+      "midiSha256": "75146ddb50bb96b08e1d1d2c2240500f3f4572f107148ee75b567dacc4ccc774",
+      "oggSha256": "42dea96758d6157afa81d85900cdb710a7dcdcb56702c1e05ead297be4b1c9fa",
+      "decodedSamples": 2822400
+    },
+    {
+      "id": "hk-084",
+      "midiSha256": "94e9ce5f418483c8923e70f1f6b6071c559c0ab258a4c84cf5a218c9b5b3081b",
+      "oggSha256": "f10ecef28affe299ceb798c979a7eff7f8d0f1ed91c5adc7cf110a00c86ae917",
+      "decodedSamples": 2706136
+    },
+    {
+      "id": "hk-085",
+      "midiSha256": "dfb901d2b29dc79ba0cc58aa03f44df7dab35c00ddce1933bf0cd139152c25d2",
+      "oggSha256": "4ed48b04d80d1f4fb820bb7a051bafea2e6b8c0e10e16699619e131328bffd87",
+      "decodedSamples": 2228211
+    },
+    {
+      "id": "hk-086",
+      "midiSha256": "00f6b0eb376f742d47b4277ebe80c079f15732ead13c378bb3d8712d0639e591",
+      "oggSha256": "f1684180ffc0e3e21e2ac75d63a084318210ec51bc0f735f30c3fc7357d96484",
+      "decodedSamples": 2152678
+    },
+    {
+      "id": "hk-087",
+      "midiSha256": "91b949d2aff478a3bff65606b9a6e8e663761b2d46dca88cf3b38f29343ccc65",
+      "oggSha256": "6c78dae92b73891e37b342f49a2191c1d4f3a275c8bdd99ed3ac1391ad099ee3",
+      "decodedSamples": 2490353
+    },
+    {
+      "id": "hk-088",
+      "midiSha256": "50749a518a71b08fca40db06d5ce55096e710525c18e17051c7f76cced70c80c",
+      "oggSha256": "82e644bca1a717f84a3f8d6d3b40c0b9894588d4480747635289377a3e847883",
+      "decodedSamples": 3097756
+    },
+    {
+      "id": "hk-089",
+      "midiSha256": "7a4b6cb136e0b84de08add705442912ef309702e7e1cc8b991bb66116e4e1057",
+      "oggSha256": "63cf8c6835d9cfe3eea149858ad4d02a12df83a539836de77dda08042088d82c",
+      "decodedSamples": 2268000
+    },
+    {
+      "id": "hk-090",
+      "midiSha256": "1dc3ac2b8a19d5c4b3b3f6ac1d605fbc0a30a1ec01a0246dc8d869448a4cdd2c",
+      "oggSha256": "28b613ec35b54ed23adbe22ee7e447813715bfaa954c0ada8cffb40b02df4ade",
+      "decodedSamples": 2835000
+    },
+    {
+      "id": "hk-091",
+      "midiSha256": "d62b25cd8c817cd9bd44040c4f625289f645ac9a54ec3bfc7adb6fea0c421812",
+      "oggSha256": "45654aae31dd85882c96c0e2a1eaa8e2c82652fea646582454306f847f686674",
+      "decodedSamples": 2205000
+    },
+    {
+      "id": "hk-092",
+      "midiSha256": "86f8de7e98513da6d19f54d9ab0d7eb1379e64f14c50ce53392a47b0e62ee417",
+      "oggSha256": "c9fa9b03500b5a530d82cb174fa7e428d32edd39eb1b8c9c8f8fa2bdec8262ff",
+      "decodedSamples": 2082098
+    },
+    {
+      "id": "hk-093",
+      "midiSha256": "599d4ccdb657f83628153217336347fd11b4866124026212160162481df7e046",
+      "oggSha256": "23695f64a807d5b64ff55c584aa0a98704e93e097bef9df106a97d2d6a4f4ce6",
+      "decodedSamples": 2592000
+    },
+    {
+      "id": "hk-094",
+      "midiSha256": "6c3deb64327ba881f58791c14f1180d85f19d2d935b19278b9fc87a9688cb6bc",
+      "oggSha256": "b2d74b59a4dc4a534d87b8a75f336601c62bc8a3a1373ec1b19ef1dcfd34f203",
+      "decodedSamples": 3256615
+    },
+    {
+      "id": "hk-095",
+      "midiSha256": "e0ea91f0a5e69dd92ba9be06c14aa903a2f052711afec6c42d35d14553cfda6d",
+      "oggSha256": "6605770f6f1dada9c9f106f0b824e31dc5f8e221e43ef112081fa52983e3922b",
+      "decodedSamples": 2442462
+    },
+    {
+      "id": "hk-096",
+      "midiSha256": "6488249918e3b267ded16431ef3927fe774c120b40d17c66e565e04d2822411d",
+      "oggSha256": "d46b76e36b5f28520600173d2d935d2c232e7cd5087793289eaac1a8757abcfc",
+      "decodedSamples": 2352000
+    },
+    {
+      "id": "hk-097",
+      "midiSha256": "9a80f27bf3082157bbefd5fc7f2ce3808a3d10e07f4053a3bb2f2e84903243fe",
+      "oggSha256": "9e2f792505ea7f89bfa45f4570629a146f84e70f1a22b74cf210498e46585272",
+      "decodedSamples": 2761043
+    },
+    {
+      "id": "hk-098",
+      "midiSha256": "e98bf317261bdbcfdef589672e774fc2dbdab3f76d9a6283e3b809f7beff6d4c",
+      "oggSha256": "a6e514597aefee5190c530d4ecb2c9d1d4b184a8a3a4e14f4dc35e2a6f63405e",
+      "decodedSamples": 3307500
+    },
+    {
+      "id": "hk-099",
+      "midiSha256": "0a9334175824713a3396665de892163bacf2379cb855449eee2c0d184c9f862c",
+      "oggSha256": "50c398f5af6983f560ef99cc98bb815617737f6ac2e927184d38dd246d1e24f6",
+      "decodedSamples": 2490353
+    },
+    {
+      "id": "hk-100",
+      "midiSha256": "dc0deea6f42d445debbf65e6fc7059866aa2cc6dd2699cc9378e7736746a009e",
+      "oggSha256": "53e8c0d32c2cc58677d1fa4f6f14847f90e50fc77b2d7e777638c18908a33fcc",
+      "decodedSamples": 3432649
+    }
+  ]
+}
