@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
   if (!isPrefixedLocale(locale)) return {};
   return seo({
     title: "AI Music Play",
-    description: "A listening room for 200 original synthetic instrumentals. Hong Kong, China and Japan playlists, with MIDI downloads.",
+    description: "A listening room for 200 original synthetic instrumentals. Hong Kong, China and Japan playlists.",
     path: "/music",
     locale,
   });
