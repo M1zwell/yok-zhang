@@ -186,7 +186,6 @@ export function MusicView({ locale = "en" }: { locale?: Locale }) {
                   <input id="music-volume" type="range" min="0" max="100" value={volume} onChange={(event) => { const value = Number(event.target.value); setVolume(value); player.current?.setVolume(value / 100); }} aria-valuetext={`${volume}%${muted ? ", muted" : ""}`} />
                   <output htmlFor="music-volume">{volume}%</output>
                 </div>
-                <a className={styles.download} href={track.midiUrl} download={`${track.id}.mid`} aria-label={`Download MIDI for ${track.title}`}><span aria-hidden="true">↓</span> Download MIDI <span className={styles.downloadType}>.mid</span></a>
               </div>
             </div>
             <p className={styles.provenance}>Programmatically composed and synthesized. No external recordings or samples. Audio loads only when you press play.</p>

@@ -38,6 +38,10 @@ an unverified genre or a listening review.
 Only the selected audio should load, after a user chooses playback. Exact loop
 bounds remain available to the audio engine.
 
+The listening page does not offer MIDI download controls. MIDI files remain
+source artifacts for provenance and tempo verification; removing the player
+feature does not provide access control for previously published files.
+
 ## Recheck the imported collection
 
 Run from the repository root:

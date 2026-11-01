@@ -8,6 +8,7 @@ const { chromium } = require('playwright');
 const root = path.resolve(__dirname, '..');
 const base = process.env.MUSIC_TEST_URL || 'http://127.0.0.1:3100';
 const artifacts = process.env.MUSIC_TEST_ARTIFACTS || path.join(root, '..', 'artifacts');
+const artifactPrefix = process.env.MUSIC_TEST_ARTIFACT_PREFIX || 'ichina-music-no-download';
 const summary = [];
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const manifests = Object.fromEntries(['hk', 'cn', 'jp'].map(region => [region, JSON.parse(fs.readFileSync(path.join(root, 'public/audio/music', region, 'playlist.json')))]));
@@ -61,6 +62,12 @@ const playlist = (page, label) => page.getByRole('list', { name: `${label} track
 async function playing(page) { await status(page).filter({ hasText: /^Playing$/ }).waitFor(); }
 async function finish(page) { await page.evaluate(() => { const source = window.__musicQa.sources.at(-1); source.onended?.(new Event('ended')); }); }
 async function ensureTitle(page, title) { await page.waitForFunction(title => document.querySelector('[data-testid="selected-track"]').textContent === title, title); }
+async function noDownloadControls(page) {
+  assert.equal(await page.locator('a[download]').count(), 0, 'no download anchors');
+  assert.equal(await page.evaluate(() => Array.from(document.querySelectorAll('a[href]')).some(anchor => /\.(?:mid|midi)(?:$|[?#])/i.test(anchor.getAttribute('href')))), false, 'no MIDI asset links');
+  assert.equal(await page.getByRole('link', { name: /\b(?:midi|download)\b/i }).count(), 0, 'no MIDI or download links');
+  assert.equal(await page.getByRole('button', { name: /\b(?:midi|download)\b/i }).count(), 0, 'no MIDI or download buttons');
+}
 
 (async () => {
   fs.mkdirSync(artifacts, { recursive: true });
@@ -76,13 +83,16 @@ async function ensureTitle(page, title) { await page.waitForFunction(title => do
     await musicReady(page);
     await page.waitForTimeout(150);
     assert.equal(await playlist(page, 'Hong Kong').getByRole('button').count(), 100);
+    await noDownloadControls(page);
     assert.deepEqual(await page.evaluate(() => [window.__musicQa.contexts.length, window.__musicQa.fetches.length]), [0, 0]);
     for (const [index, label, count] of [[1, 'China', 50], [2, 'Japan', 50], [0, 'Hong Kong', 100]]) {
       await group(page).getByRole('button').nth(index).click();
       assert.equal(await playlist(page, label).getByRole('button').count(), count);
+      await noDownloadControls(page);
     }
     assert.deepEqual(await page.evaluate(() => [window.__musicQa.contexts.length, window.__musicQa.fetches.length]), [0, 0]);
     record('regional counts 100/50/50; no audio fetch or AudioContext before playback');
+    record('all three regional playlists expose no download anchors, MIDI links or download controls');
 
     await play(page).click();
     await playing(page);
@@ -111,12 +121,7 @@ async function ensureTitle(page, title) { await page.waitForFunction(title => do
     assert.equal(await page.evaluate(() => window.__musicQa.gains[0].gain.value), 0);
     await page.getByRole('button', { name: 'Unmute audio', exact: true }).click();
     assert.ok(Math.abs(await page.evaluate(() => window.__musicQa.gains[0].gain.value) - .25) < .0001);
-    const downloadEvent = page.waitForEvent('download');
-    await page.getByRole('link', { name: `Download MIDI for ${manifests.hk.tracks[1].title}`, exact: true }).click();
-    const download = await downloadEvent;
-    assert.equal(download.suggestedFilename(), 'hk-002.mid');
-    assert.equal(sha(fs.readFileSync(await download.path())), audit.hk.tracks[1].midiSha256);
-    record('keyboard volume, mute/unmute and actual MIDI download with frozen-source hash');
+    record('keyboard volume and mute/unmute preserve playback controls');
 
     await page.evaluate(() => { window.__musicQa.holdDecode = true; });
     await playlist(page, 'Hong Kong').getByRole('button').nth(3).click();
@@ -192,7 +197,7 @@ async function ensureTitle(page, title) { await page.waitForFunction(title => do
 
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.waitForTimeout(100);
-    await page.screenshot({ path: path.join(artifacts, 'ichina-music-desktop.png'), fullPage: true });
+    await page.screenshot({ path: path.join(artifacts, `${artifactPrefix}-desktop.png`), fullPage: true });
     await page.getByRole('link', { name: '← Garden', exact: true }).click();
     await page.getByRole('heading', { level: 1, name: 'Hong Kong. Builds AI. Walks the rest.', exact: true }).waitFor();
     assert.equal(await page.evaluate(() => window.__musicQa.contexts[0].state), 'closed');
@@ -237,7 +242,8 @@ async function ensureTitle(page, title) { await page.waitForFunction(title => do
     await status(phone).filter({ hasText: /^Paused/ }).waitFor();
     await phone.evaluate(() => window.scrollTo(0, 0));
     await phone.waitForTimeout(100);
-    await phone.screenshot({ path: path.join(artifacts, 'ichina-music-mobile.png'), fullPage: true });
+    await noDownloadControls(phone);
+    await phone.screenshot({ path: path.join(artifacts, `${artifactPrefix}-mobile.png`), fullPage: true });
     assert.deepEqual(phoneErrors, []);
     record('390px/320px layouts fit; 44px controls; mobile-emulation Play/Next/Pause; no page errors');
     await mobile.close();
@@ -257,8 +263,8 @@ async function ensureTitle(page, title) { await page.waitForFunction(title => do
       }
     }));
     record('all 400 served OGG/MIDI assets return 200 and match frozen-source SHA256');
-    const result = { passed: summary, screenshots: ['ichina-music-desktop.png', 'ichina-music-mobile.png'].map(name => path.join(artifacts, name)), limitations: ['Headless Chromium with mobile viewport emulation; no physical device or ear audition.', 'Loop endings are simulated callbacks; original authored bounds are checked on real browser sources.', 'External site/font requests are blocked during local QA.'] };
-    fs.writeFileSync(path.join(artifacts, 'ichina-music-browser-results.json'), JSON.stringify(result, null, 2));
+    const result = { passed: summary, screenshots: [`${artifactPrefix}-desktop.png`, `${artifactPrefix}-mobile.png`].map(name => path.join(artifacts, name)), limitations: ['Headless Chromium with mobile viewport emulation; no physical device or ear audition.', 'Loop endings are simulated callbacks; original authored bounds are checked on real browser sources.', 'External site/font requests are blocked during local QA.', 'The UI has no download controls; retained MIDI assets remain directly served. This does not establish access control.'] };
+    fs.writeFileSync(path.join(artifacts, `${artifactPrefix}-browser-results.json`), JSON.stringify(result, null, 2));
     console.log(`${summary.length} browser integration groups passed.`);
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

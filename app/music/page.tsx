@@ -3,7 +3,7 @@ import { seo } from "@/lib/seo";
 
 export const metadata = seo({
   title: "AI Music Play",
-  description: "A listening room for 200 original synthetic instrumentals. Explore Hong Kong, China and Japan playlists, with MIDI downloads.",
+  description: "A listening room for 200 original synthetic instrumentals. Explore Hong Kong, China and Japan playlists.",
   path: "/music",
 });
 
